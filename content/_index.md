@@ -1,6 +1,6 @@
 ---
 title: 'Home'
-date: 2023-10-24
+date: 2024-10-17
 type: landing
 
 design:
@@ -10,11 +10,11 @@ design:
 sections:
   - block: hero
     content:
-      title: Write Docs Fast, Focus on Your Content
-      text: The easy, no-code technical documentation solution your users will love 🎉
+      title: Ambiorix
+      text: Web framework for R inspired by express.js
       primary_action:
         text: Get Started
-        url: https://hugoblox.com/templates/details/docs/
+        url: /docs/
         icon: rocket-launch
       secondary_action:
         text: Read the docs
