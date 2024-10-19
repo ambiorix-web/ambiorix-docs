@@ -3,13 +3,11 @@ title: Showcase
 description: "Docs websites powered by Hugo Blox."
 type: landing
 
-
-
 sections:
   - block: hero
     content:
-      title: Get Inspirated
-      text: 'Get inspired by exploring sites #MadeWithHugoBlox'
+      title: Get Inspired
+      text: 'Get inspired by exploring sites made with Ambiorix'
       primary_action:
         icon: brands/x
         text: Submit Your Site
