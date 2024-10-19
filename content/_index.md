@@ -11,10 +11,10 @@ sections:
   - block: hero
     content:
       title: Ambiorix
-      text: Web framework for R inspired by express.js
+      text: Unopinionated, minimalist web framework for R inspired by express.js
       primary_action:
-        text: Get Started
-        url: /docs/
+        text: Watch Video
+        url: "https://www.youtube.com/watch?v=owpbIQ-j6Kk"
         icon: rocket-launch
       secondary_action:
         text: Read the docs
@@ -37,21 +37,17 @@ sections:
           filename: ""
           filters:
             brightness: 0.5
-  - block: stats
+  - block: features
     content:
+      title: Full stack, right in R
+      text: Easily build web applications & APIs, all in one syntax and right in R.
       items:
-        - statistic: "1M+"
-          description: |
-            Websites built  
-            with Hugo Blox
-        - statistic: "10k+"
-          description: |
-            GitHub stars  
-            since 2016
-        - statistic: "3k+"
-          description: |
-            Discord community  
-            for support
+        - name: "Easy to use"
+          description: Create applications with the tried and tested API of express.js
+        - name: "One syntax"
+          description: Use a single syntax to build RESTful APIs and web applications
+        - name: "Extendable"
+          description: Leverage existing middlewares, parsers & serializers or create your own
     design:
       # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-800"
@@ -62,26 +58,27 @@ sections:
     id: features
     content:
       title: Features
-      text: Collaborate, publish, and maintain technical knowledge with an all-in-one documentation site. Used by 100,000+ startups, enterprises, and researchers.
+      text: Here are some of the features that make Ambiorix well-suited for building large, scalable applications
       items:
-        - name: Optimized SEO
-          icon: magnifying-glass
-          description: Automatic sitemaps, RSS feeds, and rich metadata take the pain out of SEO and syndication.
-        - name: Fast
-          icon: bolt
-          description: Super fast page load with Tailwind CSS and super fast site building with Hugo.
-        - name: Easy
-          icon: sparkles
-          description: One-click deployment to GitHub Pages. Have your new website live within 5 minutes!
-        - name: No-Code
+        - name: Routing
+          # icon: magnifying-glass
           icon: code-bracket
-          description: Edit and design your site just using rich text (Markdown) and configurable YAML parameters.
-        - name: Highly Rated
-          icon: star
-          description: Rated 5-stars by the community.
-        - name: Swappable Blocks
+          description: Build multipage applications right out of the box.
+        - name: Templating
           icon: rectangle-group
-          description: Build your pages with blocks - no coding required!
+          description: For Server-Side Rendering (SSR). HTML, markdown, pug, etc.
+        - name: Middleware
+          icon: cog
+          description: Easily pre-process requests to the server.
+        - name: Websockets
+          icon: arrows-right-left
+          description: For when you need bi-directional communication between the server & client.
+        - name: Async
+          icon: square-3-stack-3d
+          description: Use asynchronous programming techniques by returning promises from request handlers.
+        - name: Highly Customizable
+          icon: bolt
+          description: You have absolute full control over the request-response cycle!
   - block: cta-card
     content:
       title: "Start Writing with the #1 Effortless Documentation Platform"
