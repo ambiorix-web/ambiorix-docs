@@ -76,6 +76,6 @@ Congratulations!🎉 You just built your first Ambiorix app.
 Let's take a closer look at the hello world app:
 
 {{< cards >}}
-  {{< card url="../ambiorix/hello-world" title="Hello, World!" icon="document-duplicate" >}}
-  {{< card url="../ambiorix/routing" title="Routing" icon="adjustments-vertical" >}}
+  {{< card url="/docs/ambiorix/hello-world" title="Hello, World!" icon="document-duplicate" >}}
+  {{< card url="/docs/ambiorix/routing" title="Routing" icon="adjustments-vertical" >}}
 {{< /cards >}}

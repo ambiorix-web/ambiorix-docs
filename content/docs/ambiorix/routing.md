@@ -3,52 +3,72 @@ title: Routing
 weight: 2
 ---
 
-The configuration of your site can be found in `config/_default/`.
+When a client (web browser) points to a path (e.g.: `/about`) a request is made
+to the server (`GET` in this case), ambiorix then looks through the handlers
+for a matching path and runs the respective handler function (`\(req, res)`).
+This function should return a response (using the `res` object) or a future
+(see [asynchronous programming](/docs/ambiorix/async)).
 
-<!--more-->
+```r
+library(ambiorix)
 
-## Full Documentation
+app <- Ambiorix$new()
 
-See <https://docs.hugoblox.com/getting-started/customize/>
+app$get("/", \(req, res){
+  res$text("Home!")
+})
 
-## Navigation
+app$get("/about", \(req, res){
+  res$send("About me!")
+})
 
-### Menu
-
-See <https://docs.hugoblox.com/getting-started/customize/#menu-items>
-
-## Left Sidebar
-
-Links are automatically generated from the structure of your content directory. Simply add a folder to nest a page.
-
-### Extra Links
-
-Additional links can be added under the `sidebar` section of your `config/_default/menus.yaml`:
-
-```yaml
-menu:
-  sidebar:
-    - name: "Need help?"
-      params:
-        type: separator
-      weight: 1
-    - name: "A page"
-      pageRef: "/page-filename-here"
-      weight: 2
-    - name: "An external link ↗"
-      url: "https://hugoblox.com"
-      weight: 3
+app$start()
 ```
 
-## Right Sidebar
+In the app above when the client (browser) points to `/about` the server goes over the handlers in the order they are specified looking for a match, the first `/` does not match, the second `/about` does; it therefore runs that handler which sends a response back.
 
-A table of contents is automatically generated from the headings your Markdown file.
+## Handler
 
-It can optionally be disabled by setting `toc: false` in the front matter of a page:
+The handler function used for every route __must take 2 arguments__: the request, and the response. The first holds data on the request that is made to the server, which contains many things but importantly includes `parameters` and the parsed `query` string. You can learn more about these in the parameters and query section.
 
-```yaml
----
-title: My Page
-toc: false
----
+```r
+library(ambiorix)
+
+app <- Ambiorix$new()
+
+app$get("/?name", \(req, res){
+  msg <- htmltools::h1("Hello", req$query$name)
+  res$send(msg)
+})
+
+app$get("/users/:id", \(req, res){
+  msg <- sprintf("This is user id: #%s", req$params$id)
+  res$text(msg)
+})
+
+app$start()
 ```
+
+## Forward
+
+Since routes are checked in a certain order one can use `forward` to indicate that the next route should be checked instead.
+
+```r
+library(ambiorix)
+
+app <- Ambiorix$new()
+
+app$get("/next", \(req, res){
+  forward()
+})
+
+app$get("/next", \(req, res){
+  res$send("Hello")
+})
+
+app$start()
+```
+
+If no route match the requested path then ambiorix runs the `404`/`not_found` handler, see not found.
+
+Routing is crucial to ambiorix, therefore it also comes with a router to better structure complex routing for large applications.
