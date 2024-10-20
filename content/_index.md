@@ -76,7 +76,7 @@ sections:
         - name: Async
           icon: square-3-stack-3d
           description: Use asynchronous programming techniques by returning promises from request handlers.
-        - name: Highly Customizable
+        - name: Autonomy
           icon: bolt
           description: You have absolute full control over the request-response cycle!
   - block: cta-card
@@ -85,7 +85,7 @@ sections:
       text: Hugo Blox Docs Theme brings all your technical knowledge together in a single, centralized knowledge base. Easily search and edit it with the tools you use every day!
       button:
         text: Get Started
-        url: https://hugoblox.com/templates/details/docs/
+        url: /docs/getting-started/
     design:
       card:
         # Card background color (CSS class)

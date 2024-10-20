@@ -42,7 +42,7 @@ header:
     button:
       enable: true
       text: "Get Started"
-      url: "/docs/"
+      url: "/docs/getting-started/"
     show_search: true
     show_theme_chooser: true
 

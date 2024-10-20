@@ -1,5 +1,5 @@
 ---
-title: Guide
+title: Ambiorix
 weight: 2
 sidebar:
   open: true

@@ -4,33 +4,78 @@ date: 2024-02-17
 weight: 1
 ---
 
-## Quick Start from Template
+## Quick Start
 
 {{% steps %}}
 
-### Initialize a new site
+### Install {ambiorix}
 
-[Click to copy the template on GitHub](https://github.com/new?template_name=theme-documentation&template_owner=HugoBlox)
+The stable version is available on CRAN:
 
-### Configure your new site
+```r
+install.packages("ambiorix")
+```
 
-[Configure your site name, description, and menu.](https://docs.hugoblox.com/tutorial/blog/)
+Alternatively, install the development version from GitHub with the
+[{remotes}](https://remotes.r-lib.org/) package:
 
-### Add your content
+```r
+remotes::install_github("ambiorix-web/ambiorix")
+```
 
-[Edit the homepage and add your documentation pages.](https://docs.hugoblox.com/tutorial/blog/)
+### Create a new project
 
-### Publish your site
+Create a directory to hold your application, and make that your
+working directory:
 
-[Easily publish your site for free with GitHub Pages](https://docs.hugoblox.com/tutorial/blog/)
+```bash
+mkdir hello-world
+cd hello-world
+```
+
+Create a new file called `app.R`:
+
+```bash
+touch app.R
+```
+
+### Hello, World
+
+Put this in `app.R`:
+
+```r
+library(ambiorix)
+
+app <- Ambiorix$new(port = 8000L)
+
+app$get("/", \(req, res) {
+  res$send("Hello, World!")
+})
+
+app$start()
+```
+
+### Run the app
+
+`app.R` is the entrypoint. To start the app, run this on the terminal:
+
+```bash
+Rscript app.R
+```
+
+Alternatively, if you're using an IDE like Rstudio or Positron, highlight everything in `app.R` and run the code.
+
+Visit [localhost/8000](http://localhost:8000).
+
+Congratulations!🎉 You just built your first Ambiorix app.
 
 {{% /steps %}}
 
 ## Next
 
-Let's customize your new site:
+Let's take a closer look at the hello world app:
 
 {{< cards >}}
-  {{< card url="../guide/project-structure" title="Project Structure" icon="document-duplicate" >}}
-  {{< card url="../guide/configuration" title="Configuration" icon="adjustments-vertical" >}}
+  {{< card url="../ambiorix/introduction" title="Introduction" icon="document-duplicate" >}}
+  {{< card url="../ambiorix/routing" title="Routing" icon="adjustments-vertical" >}}
 {{< /cards >}}

@@ -3,14 +3,15 @@ linkTitle: Documentation
 title: Introduction
 ---
 
-👋 Welcome to the demo of the Hugo Blox Documentation template!
+👋 Welcome to the to the Ambiorix documentation site!
 
 <!--more-->
 
-This site is a demo of the Hugo Blox Documentation theme. For the full documentation on how to use this template, refer to the [Hugo Blox Documentation](https://docs.hugoblox.com/).
+In case you find any inconsistencies in the docs, please file an issue
+at [the github repo](https://github.com/devOpifex/ambiorix-site).
 
 ## Next
 
 {{< cards >}}
-  {{< card url="getting-started" title="Get Started" icon="document-text" subtitle="Create your docs in just 5 minutes!" >}}
+  {{< card url="getting-started" title="Get Started" icon="document-text" subtitle="Create your first app in just 5 minutes!" >}}
 {{< /cards >}}
