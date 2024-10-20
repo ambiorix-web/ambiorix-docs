@@ -19,6 +19,7 @@
       "header",
       "hr",
       "html",
+      "iframe",
       "img",
       "input",
       "label",
@@ -523,8 +524,10 @@
       "folder-structure",
       "full-documentation",
       "further-resources",
+      "handlers",
       "hello-world",
       "hide-button",
+      "host",
       "how-to-upgrade",
       "hugo-file-naming-convention",
       "install-ambiorix",
@@ -540,6 +543,7 @@
       "notes",
       "options",
       "page-bg",
+      "port",
       "quick-start",
       "right-sidebar",
       "run-the-app",
@@ -564,6 +568,7 @@
       "support",
       "top",
       "usage",
+      "video",
       "warnings"
     ]
   }

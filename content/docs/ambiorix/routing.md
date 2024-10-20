@@ -1,5 +1,5 @@
 ---
-title: Configuration
+title: Routing
 weight: 2
 ---
 
@@ -9,13 +9,13 @@ The configuration of your site can be found in `config/_default/`.
 
 ## Full Documentation
 
-See https://docs.hugoblox.com/getting-started/customize/
+See <https://docs.hugoblox.com/getting-started/customize/>
 
 ## Navigation
 
 ### Menu
 
-See https://docs.hugoblox.com/getting-started/customize/#menu-items
+See <https://docs.hugoblox.com/getting-started/customize/#menu-items>
 
 ## Left Sidebar
 
