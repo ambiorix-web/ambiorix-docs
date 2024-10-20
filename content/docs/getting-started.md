@@ -67,9 +67,11 @@ Alternatively, if you're using an IDE like Rstudio or Positron, highlight everyt
 
 Visit [localhost/8000](http://localhost:8000).
 
-Congratulations!🎉 You just built your first Ambiorix app.
-
 {{% /steps %}}
+
+You just built your first Ambiorix app.
+
+🎉Congratulations!🎉
 
 ## Next
 
