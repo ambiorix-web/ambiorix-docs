@@ -2,7 +2,7 @@
 title: Belgic
 weight: 2
 sidebar:
-  open: true
+  open: false
 ---
 
 ![](belgic.jpeg)
