@@ -1,5 +1,6 @@
 ---
 title: Usage
+weight: 2
 ---
 
 Simply call one of the `create_*` functions to setup your

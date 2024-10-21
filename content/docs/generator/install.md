@@ -1,5 +1,6 @@
 ---
 title: Install
+weight: 1
 ---
 
 1. Ensure you have the [`remotes`](https://remotes.r-lib.org/) or [`devtools`](https://github.com/r-lib/devtools) package installed:
