@@ -1,6 +1,6 @@
 ---
 title: Load Balancing
-weight: 2
+weight: 20
 ---
 
 ## Belgic

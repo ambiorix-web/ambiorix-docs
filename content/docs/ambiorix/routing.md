@@ -1,6 +1,6 @@
 ---
 title: Routing
-weight: 2
+weight: 4
 ---
 
 When a client (web browser) points to a path (e.g.: `/about`) a request is made

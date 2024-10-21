@@ -1,6 +1,6 @@
 ---
 title: Start & Stop
-weight: 2
+weight: 18
 ---
 
 You can check whether the app is running.

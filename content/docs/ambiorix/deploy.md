@@ -1,6 +1,6 @@
 ---
 title: Deploy
-weight: 2
+weight: 19
 ---
 
 These are just some of the ways in which you can deploy an ambiorix application,

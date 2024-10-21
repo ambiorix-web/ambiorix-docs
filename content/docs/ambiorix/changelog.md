@@ -1,6 +1,5 @@
 ---
 title: Changelog
-weight: 2
 ---
 
 ## ambiorix 2.1.0.9000

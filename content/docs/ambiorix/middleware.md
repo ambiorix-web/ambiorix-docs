@@ -1,6 +1,6 @@
 ---
 title: Middleware
-weight: 2
+weight: 9
 ---
 
 You can also employ middleware with `use`: these are run first at every request. Note that unlike other methods (e.g.: `get`) those may return a response but do not have to.

@@ -1,6 +1,6 @@
 ---
 title: Logger
-weight: 2
+weight: 17
 ---
 
 Ambiorix' logger is built with [log](https://log.opifex.org).

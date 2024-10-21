@@ -1,6 +1,6 @@
 ---
 title: Static
-weight: 2
+weight: 16
 ---
 
 This details how to server static files such as images.

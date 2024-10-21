@@ -1,6 +1,6 @@
 ---
 title: Belgic
-weight: 2
+weight: 3
 sidebar:
   open: false
 ---

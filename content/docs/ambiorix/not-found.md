@@ -1,6 +1,6 @@
 ---
 title: Not Found
-weight: 2
+weight: 12
 ---
 
 You can set the 404 page in two ways, the function is identical and follows the same logic as that passed to the `get` or `post` methods.

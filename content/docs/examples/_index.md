@@ -1,5 +1,6 @@
 ---
 title: Examples
+weight: 2
 ---
 
 Useful examples to learn more about ambiorix.

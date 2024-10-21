@@ -1,6 +1,6 @@
 ---
 title: Async
-weight: 2
+weight: 14
 ---
 
 Ambiorix supports asynchronous programming so requests do not block R's single thread, allowing the server to serve other requests in the meantime. This is done by having the `handler` return a promise: _this promise should output a valid response._

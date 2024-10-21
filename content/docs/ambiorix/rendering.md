@@ -1,6 +1,6 @@
 ---
 title: Rendering
-weight: 2
+weight: 15
 ---
 
 In ambiorix you will often, if not always, render the response

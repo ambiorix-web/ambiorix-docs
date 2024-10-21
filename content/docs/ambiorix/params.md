@@ -1,6 +1,6 @@
 ---
 title: Parameters & Query
-weight: 2
+weight: 5
 ---
 
 Ambiorix allows using parameters in the URL and also parses the query string for convenience.

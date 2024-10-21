@@ -1,6 +1,6 @@
 ---
 title: Websocket
-weight: 2
+weight: 11
 ---
 
 Websockets allow for bi-directional communication between the client and the server. ie.

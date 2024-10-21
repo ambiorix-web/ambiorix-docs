@@ -1,6 +1,6 @@
 ---
 title: Router
-weight: 2
+weight: 10
 ---
 
 In order to better structure the app ambiorix comes with the ability to create _routers_. These allow having a base path prepended to every route subsequently added to it; thereby enabling to physically and mentally better structure the routing logic of an application.

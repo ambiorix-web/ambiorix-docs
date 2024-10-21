@@ -1,6 +1,6 @@
 ---
 title: Errors
-weight: 2
+weight: 13
 ---
 
 This details how to handle errors in ambiorix.

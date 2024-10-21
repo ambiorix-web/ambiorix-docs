@@ -1,6 +1,6 @@
 ---
 title: Projects & Templates
-weight: 2
+weight: 6
 ---
 
 The easiest way to get setup is by creating an ambiorix project. This will setup a static directory, 404 page, websockets, etc.

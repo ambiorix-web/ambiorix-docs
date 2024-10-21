@@ -1,5 +1,6 @@
 ---
 title: Generator
+weight: 5
 sidebar:
   open: false
 ---
