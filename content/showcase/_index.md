@@ -25,6 +25,8 @@ sections:
       filters:
         folders:
           - showcase
+      sort_by: Weight
+      sort_ascending: true
     design:
       view: card
       spacing:
