@@ -14,8 +14,8 @@ main:
   - name: Showcase
     url: showcase/
     weight: 40
-  - name: Community
-    url: community/
+  - name: Examples
+    url: /docs/examples/
     weight: 50
 
 sidebar:
