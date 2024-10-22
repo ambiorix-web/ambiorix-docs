@@ -3,39 +3,34 @@ title: Middleware
 weight: 9
 ---
 
-You can also employ middleware with `use`: these are run first at every request. Note that unlike other methods (e.g.: `get`) those may return a response but do not have to.
-
-## Existing Middlewares
-
-List of existing middleswares. See the [documentation](/docs/middlewares)
-for more details.
-
-- [druid](https://github.com/ambiorix-web/druid) Logger
-- [alesia](https://github.com/ambiorix-web/alesia) Minifier
-- [eburones](https://github.com/ambiorix-web/eburones) Sessions
-- [agris](https://github.com/ambiorix-web/druid) Security
-- [scilis](https://github.com/ambiorix-web/scilis) Cookies
-- [titan](https://github.com/ambiorix-web/titan) Prometheus middleware
-- [surf](https://github.com/ambiorix-web/surf) CSRF protection
-- [signaculum](https://github.com/ambiorix-web/signaculum) favicon
-- [pugger](https://github.com/ambiorix-web/pugger) Pug engine
-- [jader](https://github.com/ambiorix-web/jader) Jade engine
-- [slighe](https://github.com/ambiorix-web/slighe) Pattern matching
-
-_Feel free to make a PR to add to the list._
+Middlewares a functions that run __before__ anything in the application. They are mostly
+used to modify or add parameters to the request object.
 
 ## Creating middlewares
 
-Below we add a middleware that simply print the time at which the request is recevied.
+Similar to request handlers, middlewares take the Request and Response objects
+as arguments.
+
+```r
+show_time <- \(req, res) {
+  print(Sys.time())
+}
+```
+
+The `use()` method employs a middleware to your app instance.
+
+```r
+app$use(show_time)
+```
+
+Here's a full reprex:
 
 ```r
 library(ambiorix)
 
-app <- Ambiorix$new()
+app <- Ambiorix$new(log = FALSE)
 
-app$use(\(req, res){
-  print(Sys.time())
-})
+app$use(show_time)
 
 app$get("/", \(req, res){
   res$send("Using {ambiorix}!")
@@ -48,7 +43,9 @@ app$get("/about", \(req, res){
 app$start()
 ```
 
-Multiple middleware can also be used. These can be used to modify add parameters to the request.
+Unlike other request handlers which must return a response, middlewares may but do not have to.
+
+Multiple middleware can also be used. They are run in the order in which they're `use`d:
 
 ```r
 library(ambiorix)
@@ -73,14 +70,21 @@ app$start()
 ## Common Pattern
 
 Existing middlewares tend to use function factories, which is useful if you want to
-package of write reusable middleware.
+package reusable middleware.
 
 ```r
-middleware <- \(prefix){
+factory <- \(prefix){
   \(req, res){
-    cat(PREFIX, "-log\n")
+    cat(prefix, "-log\n")
   }
 }
 
-app$use(middleware("PREFIX"))
+m1 <- factory("HELLO")
+m2 <- factory("WORLD")
+
+app$use(m1)$use(m2)
 ```
+
+## Existing middlewares
+
+See some [Existing Middleware](/docs/middlewares) and how you can use them.

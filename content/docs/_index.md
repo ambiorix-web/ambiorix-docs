@@ -3,12 +3,11 @@ linkTitle: Documentation
 title: Introduction
 ---
 
-👋 Welcome to the to the Ambiorix documentation site!
+👋 Welcome!
+
+This is the documentation site for the Ambiorix R web framework.
 
 <!--more-->
-
-In case you find any inconsistencies in the docs, please file an issue
-at [the github repo](https://github.com/devOpifex/ambiorix-site).
 
 ## Next
 

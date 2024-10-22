@@ -5,31 +5,23 @@ sidebar:
   open: false
 ---
 
-Middlewares a functions that run __before__ anything in the application.
+## Existing Middlewares
 
-For instance the one below is simply used to print the current time,
-it will run whatever the route.
+List of existing middleswares. See the [documentation](/docs/ambiorix/middleware) to learn how to create your own middleware.
 
-```r
-library(ambiorix)
+- [druid](https://github.com/ambiorix-web/druid) Logger
+- [alesia](https://github.com/ambiorix-web/alesia) Minifier
+- [eburones](https://github.com/ambiorix-web/eburones) Sessions
+- [agris](https://github.com/ambiorix-web/druid) Security
+- [scilis](https://github.com/ambiorix-web/scilis) Cookies
+- [titan](https://github.com/ambiorix-web/titan) Prometheus middleware
+- [surf](https://github.com/ambiorix-web/surf) CSRF protection
+- [signaculum](https://github.com/ambiorix-web/signaculum) favicon
+- [pugger](https://github.com/ambiorix-web/pugger) Pug engine
+- [jader](https://github.com/ambiorix-web/jader) Jade engine
+- [slighe](https://github.com/ambiorix-web/slighe) Pattern matching
 
-app <- Ambiorix$new(log = FALSE)
-
-# middleware
-app$use(\(req, res){
-  print(Sys.time())
-})
-
-app$get("/", \(req, res){
-  res$send("Using {ambiorix}!")
-})
-
-app$get("/about", \(req, res){
-  res$text("About")
-})
-
-app$start()
-```
+_Feel free to make a PR to add to the list._
 
 ## Next
 
