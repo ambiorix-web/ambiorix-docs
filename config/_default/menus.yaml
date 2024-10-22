@@ -24,11 +24,11 @@ sidebar:
     params:
       type: separator
     weight: 1
-  - identifier: community
-    name: "Community"
-    pageRef: "/community"
+  # - identifier: community
+  #   name: "Community"
+  #   pageRef: "/community"
+  #   weight: 2
+  - identifier: fileIssue
+    name: "File Issue ↗"
+    url: "https://github.com/ambiorix-web/ambiorix/issues"
     weight: 2
-  - identifier: hugoDocs
-    name: "Hugo Docs ↗"
-    url: "https://docs.hugoblox.com"
-    weight: 3
