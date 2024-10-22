@@ -38,7 +38,7 @@ header:
     logo:
       text: "Ambiorix"
       # Logo filename in `assets/media/` folder
-      # filename: "ambiorix.png"
+      filename: "ambiorix-new.png"
     button:
       enable: true
       text: "Get Started"

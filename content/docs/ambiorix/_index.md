@@ -5,7 +5,9 @@ sidebar:
   open: false
 ---
 
-![](ambiorix.png)
+![Ambiorix logo](ambiorix.png)
+
+Ready to build sleek web apps & scalable APIs?
 
 ## Next
 
