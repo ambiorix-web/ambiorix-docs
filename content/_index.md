@@ -20,7 +20,7 @@ sections:
         text: Read the docs
         url: /docs/
       announcement:
-        text: "Announcing the release of version 2."
+        text: "Fan of articles? We have a blog."
         link:
           text: "Read more"
           url: "/blog/"

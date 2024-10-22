@@ -84,11 +84,14 @@ app$get("/:book", \(req, res){
 
 ## Status
 
-The HTTP status of the response can be specified using the `set_status()` method.
+The HTTP status of the response can be specified in two ways:
+
+- `status` active binding
+- `set_status()` method
 
 ```r
 app$get("/error", \(req, res){
-  res$set_status(500L)
+  res$status <- 500L
   res$send("Error!")
 })
 
