@@ -81,8 +81,8 @@ sections:
           description: You have absolute full control over the request-response cycle!
   - block: cta-card
     content:
-      title: "Start Writing with the #1 Effortless Documentation Platform"
-      text: Hugo Blox Docs Theme brings all your technical knowledge together in a single, centralized knowledge base. Easily search and edit it with the tools you use every day!
+      title: "Unlock the Power of Web Development in R"
+      text: Ambiorix lets you craft sleek web apps & scalable APIs effortlessly. From code to deployment, everything flows like magic✨.
       button:
         text: Get Started
         url: /docs/getting-started/
