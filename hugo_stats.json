@@ -576,6 +576,8 @@
       "parameters",
       "partials",
       "port",
+      "post-render-hooks",
+      "pre-render-hooks",
       "query",
       "quick-start",
       "r",
