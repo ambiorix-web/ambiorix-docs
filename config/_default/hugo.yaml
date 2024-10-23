@@ -82,6 +82,17 @@ taxonomies:
   author: authors
 markup:
   _merge: deep
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNumbersInTable: true
+    noClasses: false
+    noHl: false
+    style: monokai
+    tabWidth: 4
 related:
   threshold: 80
   includeNewer: true

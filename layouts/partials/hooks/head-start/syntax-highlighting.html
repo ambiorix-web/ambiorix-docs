@@ -1,0 +1,8 @@
+{{ $dark_css := resources.Get "css/github-dark.css" | minify }}
+{{ $light_css := resources.Get "css/catppuccin-latte.css" | minify }}
+{{ $chroma := resources.Get "css/chroma.css" | minify }}
+
+<link rel="preload stylesheet" as="style" href="{{ $dark_css.Permalink }}">
+<link rel="preload stylesheet" as="style" href="{{ $light_css.Permalink }}">
+<link rel="preload stylesheet" as="style" href="{{ $chroma.Permalink }}" />
+

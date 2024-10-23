@@ -570,6 +570,7 @@
       "package",
       "page-bg",
       "parameters",
+      "parser",
       "partials",
       "port",
       "post-render-hooks",

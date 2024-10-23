@@ -12,7 +12,7 @@ image:
 share: false
 ---
 
-TL;DR: See the [code](#reprex).
+TL;DR: See the [parser](#reprex).
 
 Sometimes you need to parse requests which have raw JSON in the body.
 
@@ -22,8 +22,8 @@ make use of other packages. In this case, we'll use `webutils::parse_http()`.
 
 ## Example
 
-This example revolves around how you can select columns and filter rows
-in the `iris` dataset when the request body is JSON object like this:
+Say we want to select columns and filter rows
+in the `iris` dataset when the request body is a JSON object like this:
 
 ```r
 {
@@ -31,6 +31,8 @@ in the `iris` dataset when the request body is JSON object like this:
     "species": ["virginica", "setosa"]
 }
 ```
+
+## Parser
 
 Let's write the parser:
 
