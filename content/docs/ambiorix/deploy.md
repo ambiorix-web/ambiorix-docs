@@ -231,7 +231,7 @@ as an example:
 
 1. In that `.service` file place the following configuration, it creates a service that runs the application at the defined path (`/path/to/app`).
 
-    ```
+    ```service
     [Unit]
     Description=An Ambiorix app about the cutest of cats
 

@@ -85,7 +85,7 @@ markup:
   highlight:
     anchorLineNos: false
     codeFences: true
-    guessSyntax: false
+    guessSyntax: true
     lineAnchors: ""
     lineNoStart: 1
     lineNumbersInTable: true
