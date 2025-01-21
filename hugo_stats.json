@@ -563,6 +563,7 @@
       "moon",
       "nav-menu",
       "nav-toggle",
+      "nested",
       "next",
       "object",
       "on-stop",
@@ -610,6 +611,7 @@
       "text",
       "top",
       "tsv",
+      "unnested",
       "video"
     ]
   }
