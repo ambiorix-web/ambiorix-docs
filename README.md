@@ -1,7 +1,6 @@
 # Ambiorix Documentation
 
-This is the documentation site for [ambiorix](https://github.com/ambiorix-web/ambiorix). It
-built using [hugoblox](https://github.com/HugoBlox/hugo-blox-builder).
+This is the documentation site for [ambiorix](https://github.com/ambiorix-web/ambiorix). It is built using [hugoblox](https://github.com/HugoBlox/hugo-blox-builder).
 
 ## Pre-requisites
 

@@ -30,7 +30,7 @@ A basic example:
 
 ```r
 app$error <- \(req, res, error){
-  res$status(500L)
+  res <- status(500L)
   res$send("There was a server error :(")
 }
 ```
