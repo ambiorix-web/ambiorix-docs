@@ -588,6 +588,7 @@
       "reprex",
       "route-specific",
       "route-specific-middleware",
+      "router-specific",
       "run-the-app",
       "search",
       "search_toggle",

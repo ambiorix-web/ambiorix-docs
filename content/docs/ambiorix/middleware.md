@@ -112,6 +112,76 @@ app$start()
 forwards the request to the next handler. Otherwise, it runs the expressions
 that follow.
 
+## Router specific
+
+Often, you'll need a middleware that runs on [all] endpoints defined by
+a [router](/docs/ambiorix/router).
+
+`ambiorix::Router` works similarly to `ambiorix::Ambiorix`, so all you need
+to do is `your_router$use(your_middleware)`.
+
+Here's an example:
+
+```r
+library(ambiorix)
+library(htmltools)
+
+time_middleware <- \(req, res) {
+  now <- format(x = Sys.time(), format = "%F %T")
+  message("It is now: ", now)
+}
+
+user_home_get <- \(req, res) {
+  html <- tagList(
+    tags$h3("welcome to the user home page!"),
+    tags$a(href = "/users/login", "login"),
+    tags$a(href = "/users/signup", "signup"),
+    tags$a(href = "/users/dashboard", "dashboard")
+  )
+
+  res$send(html)
+}
+
+login_get <- \(req, res) {
+  html <- tags$h3("you're in the login page")
+  res$send(html)
+}
+
+register_get <- \(req, res) {
+  html <- tags$h3("this is the registration page")
+  res$send(html)
+}
+
+dashboard_get <- \(req, res) {
+  html <- tags$h3("our amazing dashboard")
+  res$send(html)
+}
+
+user_router <- Router$new("/users")
+user_router$
+  use(time_middleware)$
+  get("/", user_home_get)$
+  get("/login", login_get)$
+  get("/signup", register_get)$
+  get("/dashboard", dashboard_get)
+
+home_get <- \(req, res) {
+  html <- tags$h3("hello! welcome home.")
+  res$send(html)
+}
+
+app <- Ambiorix$new()
+
+app$
+  use(user_router)$
+  get("/", home_get)
+
+app$start()
+```
+
+Note that when you visit `/`, the system time is not logged. But it is logged
+on all endpoints defined by `user_router`.
+
 ## Common Pattern
 
 Existing middlewares tend to use function factories, which is useful if you want to
