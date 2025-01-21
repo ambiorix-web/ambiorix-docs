@@ -67,6 +67,51 @@ app$get("/", \(req, res){
 app$start()
 ```
 
+## Endpoint specific
+
+You can make a middleware endpoint specific by checking the value of `req$PATH_INFO`.
+
+An example is the `about_middleware` below:
+
+```r
+library(ambiorix)
+library(htmltools)
+
+about_middleware <- \(req, res) {
+  is_about <- identical(req$PATH_INFO, "/about")
+  if (!is_about) {
+    return(
+      forward()
+    )
+  }
+
+  cat("Viewing the about section...\n")
+}
+
+about_get <- \(req, res) {
+  html <- tags$h3("learn more about us")
+  res$send(html)
+}
+
+home_get <- \(req, res) {
+  html <- tags$h3("hello! welcome home.")
+  res$send(html)
+}
+
+app <- Ambiorix$new()
+
+app$
+  use(about_middleware)$
+  get("/", home_get)$
+  get("/about", about_get, about_middleware)
+
+app$start()
+```
+
+`about_middleware` first checks if the request is made to `/about`. If not, it
+forwards the request to the next handler. Otherwise, it runs the expressions
+that follow.
+
 ## Common Pattern
 
 Existing middlewares tend to use function factories, which is useful if you want to
