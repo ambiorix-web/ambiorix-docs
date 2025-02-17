@@ -3,7 +3,7 @@ title: Middleware
 weight: 9
 ---
 
-Middlewares a functions that run __before__ anything in the application. They are mostly
+Middlewares are functions that run __before__ anything in the application. They are mostly
 used to modify or add parameters to the request object.
 
 ## Creating middlewares
