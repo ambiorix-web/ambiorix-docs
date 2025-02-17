@@ -50,8 +50,16 @@ By default, Ambiorix serves an application at a randomly available port.
 
 In the example app, try not to define a port ie. only have `app$start()` instead of `app$start(port = PORT)`.
 
-Defining a port (manually or programmatically) is crucial especially during
-deployment, so that your app is correctly exposed to the outside world.
+However, explicitly setting a port—either manually or programmatically—is
+essential during deployment to ensure your app is correctly exposed to the outside world.
+
+Ambiorix determines which port to bind the web server on in this specific order:
+
+1. `ambiorix.port.force` R option — Used by [Belgic](/docs/belgic)
+1. `AMBIORIX_PORT` environment variable — Can be set in `.Renviron`
+1. `port` argument — Passed directly to `app$start()` or `app$new()`
+1. `SHINY_PORT` environment variable — Useful when deploying in Shiny Server et al.
+1. Random port — If none of the above are set, Ambiorix defaults to an available random port.
 
 ## Handlers
 

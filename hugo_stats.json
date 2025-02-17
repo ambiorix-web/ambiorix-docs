@@ -577,6 +577,7 @@
       "parser",
       "partials",
       "port",
+      "port-resolution-order",
       "post-render-hooks",
       "pre-render-hooks",
       "query",
