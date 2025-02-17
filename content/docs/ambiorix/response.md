@@ -249,7 +249,12 @@ app$get("/redirect", \(req, res){
 })
 ```
 
-## Pre-render hooks
+## Hooks
+
+Hooks are functions that run before or after rendering, allowing for
+pre-processing and post-processing of content.
+
+### Pre-render hooks
 
 A pre-render hook runs before the `render()` and `send_file()` methods. Pre-render
 hooks are meant to be used as middlewares to, if necessary, do pre-processing
@@ -292,7 +297,7 @@ home_get <- \(req, res) {
 In the above example, even though we have provided the title to `render()`
 as "Home", it is changed in `my_prh()` to "Mansion".
 
-## Post-render hooks
+### Post-render hooks
 
 A post-render hook runs after the rendering of HTML. It must be a function
 that accepts at least 3 arguments:
@@ -331,3 +336,82 @@ home_get <- \(req, res) {
 ```
 
 After each render on the home page, `my_prh()` will print "Done rendering!" on the console.
+
+### Setting a Global Hook
+
+You can set a global pre-render or post-render hook using middleware.
+
+This is useful when you need to ensure that all rendering operations
+automatically apply the hook without explicitly setting it in every
+route.
+
+Consider the following template, `page.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>[% title %]</title>
+</head>
+
+<body>
+
+  <div>
+    [% content %]
+  </div>
+
+</body>
+
+</html>
+```
+
+And the corresponding `index.R`:
+
+```r
+library(ambiorix)
+
+#' A pre-render hook
+#'
+#' @param self The request class instance.
+#' @param content String. [file] content of the template.
+#' @param data Named list. Passed from the [render()] method.
+#' @param ext String. File extension of the template file.
+my_prh <- \(self, content, data, ext, ...) {
+  data$title <- "Mansion"
+  pre_hook(content, data)
+}
+
+#' Middleware to set a global pre-render hook
+#'
+#' @export
+m1 <- \(req, res) {
+  res$pre_render_hook(my_prh)
+}
+
+#' Handler for GET at '/'
+#'
+#' @details Renders the homepage
+#' @export
+home_get <- \(req, res) {
+  res$render(
+    file = "page.html",
+    data = list(
+      title = "Home",
+      content = "<h3>hello, world</h3>"
+    )
+  )
+}
+
+Ambiorix$new(port = 5000L)$
+  set_error(error_handler)$
+  use(m1)$
+  get("/", home_get)$
+  start()
+```
+
+Notice how even though `res$render()` sets the title as `"Home"`,
+the global pre-render hook `my_prh()`, modifies it to `"Mansion"`.
+
+Since the middleware `m1` is applied globally, this change affects
+all rendering operations across the application.
