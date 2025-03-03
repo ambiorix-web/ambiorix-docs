@@ -12,17 +12,120 @@ To learn more about any of the response methods described below, please see `?am
 Send plain HTML with `send`.
 
 ```r
-app$get("/html", \(req, res){
-  res$send("hello!")
+app$get("/html", \(req, res) {
+  res$send("<h3>hello, world!</h3>")
 })
 ```
 
-You can change the renderer by either creating your own
-middleware or use one of the existing ones:
+### htmltools
 
-- `use_html_template()` [htmltools template engine](https://shiny.rstudio.com/articles/templates.html)
-- [pugger](https://github.com/ambiorix-web/pugger) Pug engine
-- [jader](https://github.com/ambiorix-web/jader) Jade engine
+It's often more convenient to use [{htmltools}](https://rstudio.github.io/htmltools/)
+because it:
+
+1. Allows you to write HTML as structured R code.
+1. Makes your code more readable when generating complex HTML dynamically.
+
+```r
+library(htmltools)
+
+app$get("/", \(req, res){
+  res$send(tags$h3("hello, world!"))
+})
+
+app$get("/about", \(req, res) {
+  html <- tagList(
+    tags$h3("About Us"),
+    tags$p("The Ambiorix R Web Framework")
+  )
+
+  res$send(html)
+})
+```
+
+### Reprex
+
+Here's a reprex using Bootstrap:
+
+{{% collapse "Click to expand example" %}}
+
+```r
+library(ambiorix)
+library(htmltools)
+
+#' Generic HTML page
+#'
+#' @param ... Passed to the body tag of the html document.
+#' @return [htmltools::tags$html]
+#' @export
+page <- \(...) {
+  tags$html(
+    lang = "en",
+    tags$head(
+      tags$meta(charset = "utf-8"),
+      tags$meta(
+        name = "viewport",
+        content = "width=device-width, initial-scale=1"
+      ),
+      tags$title("HTML demo"),
+      tags$link(
+        href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",
+        rel = "stylesheet",
+        integrity = "sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH",
+        crossorigin = "anonymous"
+      )
+    ),
+    tags$body(
+      class = "bg-light",
+      ...
+    )
+  )
+}
+
+#' Home page
+#'
+#' @export
+home_page <- \() {
+  bgs <- c("primary", "success", "secondary", "dark", "danger", "white", "light")
+  bg_divs <- lapply(bgs, \(bg) {
+    class <- c(
+      "col-12 col-md-4",
+      "border border-dark-subtle",
+      paste0("bg-", bg)
+    )
+
+    tags$div(
+      class = class,
+      style = "min-height: 250px"
+    )
+  })
+  bg_divs <- tags$div(
+    class = "row",
+    bg_divs
+  )
+
+  page(
+    tags$div(
+      class = "container vh-100 bg-white",
+      tags$h3("Hello, World!"),
+      tags$p("This example is using bootstrap 5.3.3"),
+      bg_divs
+    )
+  )
+}
+
+#' Handler for GET at '/'
+#'
+#' @export
+home_get <- \(req, res) {
+  res$send(home_page())
+}
+
+Ambiorix$new(port = 3000L)$
+  get("/", home_get)$
+  start()
+```
+
+{{% /collapse %}}
 
 ## Sendf
 
