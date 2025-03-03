@@ -1,6 +1,6 @@
 ---
 title: Projects & Templates
-weight: 6
+weight: 22
 ---
 
 The easiest way to get setup is by creating an ambiorix project. This will setup a static directory, 404 page, websockets, etc.
@@ -67,7 +67,7 @@ their extension in the `render` or `send_file` methods.
 
 ### HTML
 
-One cam use HTML templates (`.html` files).
+One can use HTML templates (`.html` files).
 
 ```html
 <!-- templates/home.html -->
@@ -76,8 +76,8 @@ One cam use HTML templates (`.html` files).
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="static/style.css">
-  <script src="static/ambiorix.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/ambiorix.js"></script>
   <title>Ambiorix</title>
 </head>
 <body>
@@ -136,8 +136,8 @@ Imports the HTML at: `templates/partials/header.html`
 <!-- templates/partials/header.html -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="static/style.css">
-<script src="static/ambiorix.js"></script>
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/ambiorix.js"></script>
 ```
 
 To produce the following output.
@@ -149,8 +149,8 @@ To produce the following output.
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="static/style.css">
-  <script src="static/ambiorix.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/ambiorix.js"></script>
   <title>Ambiorix</title>
 </head>
 <body>
