@@ -42,7 +42,7 @@ app$static(path = "path/to/static/assets", uri = "assets")
 app$get("/", \(req, res){
   res$send(
     "<h1>Hello everyone!</h1>
-    <img src='assets/image.png' />"
+    <img src='/assets/image.png' />"
   )
 })
 
@@ -100,7 +100,7 @@ home_get <- \(req, res){
 about_get <- \(req, res) {
   html <- tagList(
     tags$h3("My precious!"),
-    tags$img(src = "assets/gollum.jpeg")
+    tags$img(src = "/assets/gollum.jpeg")
   )
 
   res$send(html)
