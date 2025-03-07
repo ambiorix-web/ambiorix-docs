@@ -82,7 +82,7 @@ sections:
   - block: cta-card
     content:
       title: "Unlock the Power of Web Development in R"
-      text: Ambiorix lets you craft sleek web apps & scalable APIs effortlessly. From code to deployment, everything flows like magic✨.
+      text: Easily build web applications and APIs directly in R, with full control from start to finish.
       button:
         text: Get Started
         url: /docs/getting-started/
