@@ -11,7 +11,9 @@ Useful examples to learn more about ambiorix.
 - [Recreating a shiny app](/docs/examples/shiny)
 - [Build a URL shortener](/docs/examples/shortener)
 
-More in-depth examples can be found at [ambiorix-web/ambiorix-examples](https://github.com/ambiorix-web/ambiorix-examples):
+More in-depth examples can be found at
+[ambiorix-web/ambiorix-examples](https://github.com/ambiorix-web/ambiorix-examples)
+and [ambiorix-web/ambiorix-htmx](https://github.com/ambiorix-web/ambiorix-htmx):
 
 1. [Hello, World!](https://github.com/ambiorix-web/ambiorix-examples/tree/main/01_hello_world)
 1. [Serving static files](https://github.com/ambiorix-web/ambiorix-examples/tree/main/02_static_files)
