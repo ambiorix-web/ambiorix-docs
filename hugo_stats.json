@@ -589,6 +589,7 @@
       "port",
       "post-render-hooks",
       "pre-render-hooks",
+      "project-structure",
       "query",
       "query-strings",
       "quick-start",
@@ -632,6 +633,8 @@
       "top",
       "tsv",
       "unnested",
+      "using-r",
+      "using-the-cli",
       "video"
     ]
   }

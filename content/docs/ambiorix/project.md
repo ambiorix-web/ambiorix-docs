@@ -3,32 +3,39 @@ title: Projects
 weight: 22
 ---
 
-The easiest way to get setup is by creating an ambiorix project. This will setup a static directory, 404 page, websockets, etc.
+If you need boilerplate code to get started, you can create an Ambiorix project.
 
-## Package
+An Ambiorix project provides a structured boilerplate,
+setting up a static directory, a 404 page, websockets, and more.
 
-Create the project with the
-[ambiorix.generator](https://github.com/ambiorix-web/ambiorix.generator)
-or with the [ambiorix-cli](https://github.com/ambiorix-web/ambiorix-cli).
+You can generate a project using either the
+[**ambiorix.generator**](/docs/generator) package in
+R or the [**ambiorix-cli**](/docs/cli) command-line tool.
 
-### CLI
+## Using the CLI
+
+To create a new Ambiorix package using the command-line interface, run:
 
 ```bash
 ambiorix-cli create-package myapp
 ```
 
-### R
+## Using R
+
+Alternatively, you can generate a project within R using:
 
 ```r
 ambiorix.generator::create_package("myapp")
 ```
 
-_There are a number of other templates to start from._
+_Additional templates are available._
 
-This creates a directory with the following file structure.
+## Project Structure
+
+Once created, your project will have the following structure:
 
 ```
-.
+myapp/
 ├── DESCRIPTION
 ├── NAMESPACE
 ├── R
@@ -51,3 +58,5 @@ This creates a directory with the following file structure.
         └── partials
             └── header.html
 ```
+
+This structure makes it easier to manage assets, templates, and application logic.
