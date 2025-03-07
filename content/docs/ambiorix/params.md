@@ -3,53 +3,76 @@ title: Parameters & Query
 weight: 5
 ---
 
-Ambiorix allows using parameters in the URL and also parses the query string for convenience.
+Ambiorix allows extracting values from the URL
+using **parameters** and **query strings**.  
 
-- Parameters are accessible at `req$params$param_name`
-- Query are accessible at `req$query$query_name` or `req$query[[index]]` if unnamed.
+- **Parameters** are dynamic parts of the URL,
+accessible via `req$params$param_name`.  
+- **Query strings** are key-value pairs appended to the
+URL (`?key=value`), accessible via `req$query$query_name` or
+`req$query[[index]]` (if unnamed).  
 
-## Parameters
+-----
 
-Use `:<param>` to indicate a parameter which can then be accessed with `req$params$<name>`.
+## Parameters  
 
-``` r
-library(ambiorix)
+Define URL parameters using `:<param>`, and retrieve them with
+`req$params$<name>`.  
+
+```r
+#' Handle GET at '/books/:category'
+#'
+#' @export
+get_book_category <- \(req, res) {
+  html <- tags$h3(
+    "Books in category:",
+    req$params$category
+  )
+  res$send(html)
+}
 
 app <- Ambiorix$new()
-
-app$get("/books/:category", \(req, res){
-  res$send(htmltools::h3("Books of", req$params$category))
-})
-
+app$get("/books/:category", get_book_category)
 app$start()
 ```
 
-Run the app and visit these routes:
+### Example Routes  
 
-- `/books/fiction`
-- `/books/math`
-- `/books/philosophy`
+- `/books/fiction` → Displays **"Books in category: fiction"**  
+- `/books/math` → Displays **"Books in category: math"**  
+- `/books/philosophy` → Displays **"Books in category: philosophy"**  
 
-What do you notice?
+-----
 
-## Query
+## Query Strings  
 
-The parsed query string can also be accessed from the `req` object. Note that you may include named URL query arguments in the `path` for clarity __these are not taken into account when matching path to requests.__
+Query strings allow passing additional information to a request.
+These values are parsed into `req$query`.  
 
-``` r
+```r
 library(ambiorix)
+library(htmltools)
+
+#' Handle GET at '/greet'
+#'
+#' @export
+say_hello <- \(req, res) {
+  html <- tags$h3(
+    "Hello,",
+    req$query$firstname,
+    req$query$lastname
+  )
+
+  res$send(html)
+}
 
 app <- Ambiorix$new()
-
-app$get("/hello?firstname&lastname", \(req, res){
-  res$send(htmltools::h3("Hi", req$query$firstname, req$query$lastname))
-})
-
+app$get("/greet", say_hello)
 app$start()
 ```
 
-Run the app and visit these routes:
+### Example Routes  
 
-- `/hello?firstname=John&lastname=Coene`
-- `/hello?firstname=John&lastname=Doe`
-- `/hello?firstname=Marie&lastname=Curie`
+- `/greet?firstname=John&lastname=Coene` → Displays **"Hello, John Coene"**  
+- `/greet?firstname=Alice&lastname=Smith` → Displays **"Hello, Alice Smith"**  
+- `/greet?firstname=Marie&lastname=Curie` → Displays **"Hello, Marie Curie"**  
