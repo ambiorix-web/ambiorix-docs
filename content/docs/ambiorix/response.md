@@ -12,17 +12,120 @@ To learn more about any of the response methods described below, please see `?am
 Send plain HTML with `send`.
 
 ```r
-app$get("/html", \(req, res){
-  res$send("hello!")
+app$get("/html", \(req, res) {
+  res$send("<h3>hello, world!</h3>")
 })
 ```
 
-You can change the renderer by either creating your own
-middleware or use one of the existing ones:
+### htmltools
 
-- `use_html_template()` [htmltools template engine](https://shiny.rstudio.com/articles/templates.html)
-- [pugger](https://github.com/ambiorix-web/pugger) Pug engine
-- [jader](https://github.com/ambiorix-web/jader) Jade engine
+It's often more convenient to use [{htmltools}](https://rstudio.github.io/htmltools/)
+because it:
+
+1. Allows you to write HTML as structured R code.
+1. Makes your code more readable when generating complex HTML dynamically.
+
+```r
+library(htmltools)
+
+app$get("/", \(req, res){
+  res$send(tags$h3("hello, world!"))
+})
+
+app$get("/about", \(req, res) {
+  html <- tagList(
+    tags$h3("About Us"),
+    tags$p("The Ambiorix R Web Framework")
+  )
+
+  res$send(html)
+})
+```
+
+### Reprex
+
+Here's a reprex using Bootstrap:
+
+{{% collapse "Click to expand example" %}}
+
+```r
+library(ambiorix)
+library(htmltools)
+
+#' Generic HTML page
+#'
+#' @param ... Passed to the body tag of the html document.
+#' @return [htmltools::tags$html]
+#' @export
+page <- \(...) {
+  tags$html(
+    lang = "en",
+    tags$head(
+      tags$meta(charset = "utf-8"),
+      tags$meta(
+        name = "viewport",
+        content = "width=device-width, initial-scale=1"
+      ),
+      tags$title("HTML demo"),
+      tags$link(
+        href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",
+        rel = "stylesheet",
+        integrity = "sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH",
+        crossorigin = "anonymous"
+      )
+    ),
+    tags$body(
+      class = "bg-light",
+      ...
+    )
+  )
+}
+
+#' Home page
+#'
+#' @export
+home_page <- \() {
+  bgs <- c("primary", "success", "secondary", "dark", "danger", "white", "light")
+  bg_divs <- lapply(bgs, \(bg) {
+    class <- c(
+      "col-12 col-md-4",
+      "border border-dark-subtle",
+      paste0("bg-", bg)
+    )
+
+    tags$div(
+      class = class,
+      style = "min-height: 250px"
+    )
+  })
+  bg_divs <- tags$div(
+    class = "row",
+    bg_divs
+  )
+
+  page(
+    tags$div(
+      class = "container vh-100 bg-white",
+      tags$h3("Hello, World!"),
+      tags$p("This example is using bootstrap 5.3.3"),
+      bg_divs
+    )
+  )
+}
+
+#' Handler for GET at '/'
+#'
+#' @export
+home_get <- \(req, res) {
+  res$send(home_page())
+}
+
+Ambiorix$new(port = 3000L)$
+  get("/", home_get)$
+  start()
+```
+
+{{% /collapse %}}
 
 ## Sendf
 
@@ -249,7 +352,12 @@ app$get("/redirect", \(req, res){
 })
 ```
 
-## Pre-render hooks
+## Hooks
+
+Hooks are functions that run before or after rendering, allowing for
+pre-processing and post-processing of content.
+
+### Pre-render hooks
 
 A pre-render hook runs before the `render()` and `send_file()` methods. Pre-render
 hooks are meant to be used as middlewares to, if necessary, do pre-processing
@@ -292,7 +400,7 @@ home_get <- \(req, res) {
 In the above example, even though we have provided the title to `render()`
 as "Home", it is changed in `my_prh()` to "Mansion".
 
-## Post-render hooks
+### Post-render hooks
 
 A post-render hook runs after the rendering of HTML. It must be a function
 that accepts at least 3 arguments:
@@ -331,3 +439,82 @@ home_get <- \(req, res) {
 ```
 
 After each render on the home page, `my_prh()` will print "Done rendering!" on the console.
+
+### Setting a Global Hook
+
+You can set a global pre-render or post-render hook using middleware.
+
+This is useful when you need to ensure that all rendering operations
+automatically apply the hook without explicitly setting it in every
+route.
+
+Consider the following template, `page.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>[% title %]</title>
+</head>
+
+<body>
+
+  <div>
+    [% content %]
+  </div>
+
+</body>
+
+</html>
+```
+
+And the corresponding `index.R`:
+
+```r
+library(ambiorix)
+
+#' A pre-render hook
+#'
+#' @param self The request class instance.
+#' @param content String. [file] content of the template.
+#' @param data Named list. Passed from the [render()] method.
+#' @param ext String. File extension of the template file.
+my_prh <- \(self, content, data, ext, ...) {
+  data$title <- "Mansion"
+  pre_hook(content, data)
+}
+
+#' Middleware to set a global pre-render hook
+#'
+#' @export
+m1 <- \(req, res) {
+  res$pre_render_hook(my_prh)
+}
+
+#' Handler for GET at '/'
+#'
+#' @details Renders the homepage
+#' @export
+home_get <- \(req, res) {
+  res$render(
+    file = "page.html",
+    data = list(
+      title = "Home",
+      content = "<h3>hello, world</h3>"
+    )
+  )
+}
+
+Ambiorix$new(port = 5000L)$
+  set_error(error_handler)$
+  use(m1)$
+  get("/", home_get)$
+  start()
+```
+
+Notice how even though `res$render()` sets the title as `"Home"`,
+the global pre-render hook `my_prh()`, modifies it to `"Mansion"`.
+
+Since the middleware `m1` is applied globally, this change affects
+all rendering operations across the application.

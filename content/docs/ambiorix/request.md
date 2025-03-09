@@ -93,7 +93,7 @@ app$start()
 __Counter__
 
 This is an example of creating a counter; every refresh bumps the counter,
-using a middleware means we cound visits overall, not just to the main page.
+using a middleware means we count visits overall, not just to the main page.
 
 ```r
 app <- Ambiorix$new()

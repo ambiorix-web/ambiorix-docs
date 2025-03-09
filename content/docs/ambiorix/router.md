@@ -3,6 +3,8 @@ title: Router
 weight: 10
 ---
 
+## Unnested
+
 In order to better structure the app ambiorix comes with the ability to create _routers_. These allow having a base path prepended to every route subsequently added to it; thereby enabling to physically and mentally better structure the routing logic of an application.
 
 Consider the application below which does not make use of a router.
@@ -75,3 +77,65 @@ app$use(router)
 
 app$start()
 ```
+
+## Nested
+
+To improve logical organization and reuse of middleware across your app, you sometimes need nested routers.
+
+Nesting of routers is as easy as `router1$use(router2)`. Here's an example:
+
+```r
+library(ambiorix)
+library(htmltools)
+
+# routers + handlers:
+first_router <- Router$new("/first")
+first_router$get("/", \(req, res) {
+  res$send(h1("Users"))
+})
+
+second_router <- Router$new("/second")
+second_router$get("/", \(req, res) {
+  res$send(h1("Second!"))
+})
+
+third_router <- Router$new("/third")
+third_router$get("/", \(req, res) {
+  res$send(h1("Third!"))
+})
+
+# middleware
+second_middleware <- \(req, res) {
+  cat("Hello from /second...\n")
+}
+
+# nesting:
+second_router$use(second_middleware)
+second_router$use(third_router)
+first_router$use(second_router)
+
+# app instance:
+app <- Ambiorix$new()
+
+app$use(first_router)
+
+app$get("/", \(req, res) {
+  page <- div(
+    tags$a(href = "/first", "1"),
+    tags$a(href = "/first/second", "2"),
+    tags$a(href = "/first/second/third", "3")
+  )
+  res$send(page)
+})
+
+app$start()
+```
+
+Once you run the app, you can visit these endpoints:
+
+- `/`
+- `/first`
+- `/first/second`
+- `/first/second/third`
+
+Note how the `second_middleware` runs on both `/first/second` & `/first/second/third`.

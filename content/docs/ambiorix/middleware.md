@@ -3,7 +3,7 @@ title: Middleware
 weight: 9
 ---
 
-Middlewares a functions that run __before__ anything in the application. They are mostly
+Middlewares are functions that run __before__ anything in the application. They are mostly
 used to modify or add parameters to the request object.
 
 ## Creating middlewares
@@ -66,6 +66,121 @@ app$get("/", \(req, res){
 
 app$start()
 ```
+
+## Endpoint specific
+
+You can make a middleware endpoint specific by checking the value of `req$PATH_INFO`.
+
+An example is the `about_middleware` below:
+
+```r
+library(ambiorix)
+library(htmltools)
+
+about_middleware <- \(req, res) {
+  is_about <- identical(req$PATH_INFO, "/about")
+  if (!is_about) {
+    return(
+      forward()
+    )
+  }
+
+  cat("Viewing the about section...\n")
+}
+
+about_get <- \(req, res) {
+  html <- tags$h3("learn more about us")
+  res$send(html)
+}
+
+home_get <- \(req, res) {
+  html <- tags$h3("hello! welcome home.")
+  res$send(html)
+}
+
+app <- Ambiorix$new()
+
+app$
+  use(about_middleware)$
+  get("/", home_get)$
+  get("/about", about_get, about_middleware)
+
+app$start()
+```
+
+`about_middleware` first checks if the request is made to `/about`. If not, it
+forwards the request to the next handler. Otherwise, it runs the expressions
+that follow.
+
+## Router specific
+
+Often, you'll need a middleware that runs on [all] endpoints defined by
+a [router](/docs/ambiorix/router).
+
+`ambiorix::Router` works similarly to `ambiorix::Ambiorix`, so all you need
+to do is `your_router$use(your_middleware)`.
+
+Here's an example:
+
+```r
+library(ambiorix)
+library(htmltools)
+
+time_middleware <- \(req, res) {
+  now <- format(x = Sys.time(), format = "%F %T")
+  message("It is now: ", now)
+}
+
+user_home_get <- \(req, res) {
+  html <- tagList(
+    tags$h3("welcome to the user home page!"),
+    tags$a(href = "/users/login", "login"),
+    tags$a(href = "/users/signup", "signup"),
+    tags$a(href = "/users/dashboard", "dashboard")
+  )
+
+  res$send(html)
+}
+
+login_get <- \(req, res) {
+  html <- tags$h3("you're in the login page")
+  res$send(html)
+}
+
+register_get <- \(req, res) {
+  html <- tags$h3("this is the registration page")
+  res$send(html)
+}
+
+dashboard_get <- \(req, res) {
+  html <- tags$h3("our amazing dashboard")
+  res$send(html)
+}
+
+user_router <- Router$new("/users")
+user_router$
+  use(time_middleware)$
+  get("/", user_home_get)$
+  get("/login", login_get)$
+  get("/signup", register_get)$
+  get("/dashboard", dashboard_get)
+
+home_get <- \(req, res) {
+  html <- tags$h3("hello! welcome home.")
+  res$send(html)
+}
+
+app <- Ambiorix$new()
+
+app$
+  use(user_router)$
+  get("/", home_get)
+
+app$start()
+```
+
+Note that when you visit `/`, the system time is not logged. But it is logged
+on all endpoints defined by `user_router`.
 
 ## Common Pattern
 

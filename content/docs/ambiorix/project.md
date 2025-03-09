@@ -1,34 +1,41 @@
 ---
-title: Projects & Templates
-weight: 6
+title: Projects
+weight: 22
 ---
 
-The easiest way to get setup is by creating an ambiorix project. This will setup a static directory, 404 page, websockets, etc.
+If you need boilerplate code to get started, you can create an Ambiorix project.
 
-## Package
+An Ambiorix project provides a structured boilerplate,
+setting up a static directory, a 404 page, websockets, and more.
 
-Create the project with the
-[ambiorix.generator](https://github.com/ambiorix-web/ambiorix.generator)
-or with the [ambiorix-cli](https://github.com/ambiorix-web/ambiorix-cli).
+You can generate a project using either the
+[**ambiorix.generator**](/docs/generator) package in
+R or the [**ambiorix-cli**](/docs/cli) command-line tool.
 
-### CLI
+## Using the CLI
+
+To create a new Ambiorix package using the command-line interface, run:
 
 ```bash
 ambiorix-cli create-package myapp
 ```
 
-### R
+## Using R
+
+Alternatively, you can generate a project within R using:
 
 ```r
 ambiorix.generator::create_package("myapp")
 ```
 
-_There are a number of other templates to start from._
+_Additional templates are available._
 
-This creates a directory with the following file structure.
+## Project Structure
+
+Once created, your project will have the following structure:
 
 ```
-.
+myapp/
 ├── DESCRIPTION
 ├── NAMESPACE
 ├── R
@@ -52,109 +59,4 @@ This creates a directory with the following file structure.
             └── header.html
 ```
 
-## Templates
-
-A project allows using templates and rendering them with `res$render`.
-
-{{% callout note %}}
-
-In older versions of ambiorix templates had to be placed in a
-`templates` directory, this is no longer the case.
-However, templates must be referenced by their path and with
-their extension in the `render` or `send_file` methods.
-
-{{% /callout %}}
-
-### HTML
-
-One cam use HTML templates (`.html` files).
-
-```html
-<!-- templates/home.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="static/style.css">
-  <script src="static/ambiorix.js"></script>
-  <title>Ambiorix</title>
-</head>
-<body>
-  <h1 class="brand">[% title %]</h1>
-</body>
-</html>
-```
-
-This is rendered with the same method.
-
-```r
-res$render("home.html", data = list(title = "Hello from R"))
-```
-
-## Markdown
-
-One can use markdown templates (`.md` files).
-
-```md
-# [% title %]
-
-A list
-
-- 1
-- 2
-- 3
-```
-
-```r
-res$render("home.md", data = list(title = "Hello from R"))
-```
-
-### Partials
-
-You can also use partials (inspired by [gohugo](https://gohugo.io)), these are blocks of reusable HTML content. They are indicated by a different tag: `[! partial_name.html !]` where the `partial_name.html` points to a file in the `templates/partials` directory.
-
-Therefore the template below (`templates/home.html`).
-
-```html
-<!-- templates/home.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  [! header.html !]
-  <title>Ambiorix</title>
-</head>
-<body>
-  <h1 class="brand">Hello</h1>
-</body>
-</html>
-```
-
-Imports the HTML at: `templates/partials/header.html`
-
-```html
-<!-- templates/partials/header.html -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="static/style.css">
-<script src="static/ambiorix.js"></script>
-```
-
-To produce the following output.
-
-```html
-<!-- templates/home.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="static/style.css">
-  <script src="static/ambiorix.js"></script>
-  <title>Ambiorix</title>
-</head>
-<body>
-  <h1 class="brand">Hello</h1>
-</body>
-</html>
-```
+This structure makes it easier to manage assets, templates, and application logic.
