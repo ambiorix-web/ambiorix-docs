@@ -80,9 +80,16 @@ There are 2 ways you can use the handler:
 Alternatively one can specify errors specific to certain routes, if these are not specified the global handler (above) is used.
 
 ```r
-app$get("/error", \(req, res){
-  print(eRrOr)
-}, \(req, res, error){
-  res$send("This is an error on /error", status = 500L)
-})
+app$get(
+  "/error", 
+  # request handler:
+  \(req, res) {
+    print(eRrOr)
+  }, 
+  # error handler for this route:
+  \(req, res, error) {
+    res$status <- 500L
+    res$send("This is an error on /error")
+  }
+)
 ```
