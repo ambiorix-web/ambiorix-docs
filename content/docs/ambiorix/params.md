@@ -76,3 +76,11 @@ app$start()
 - `/greet?firstname=John&lastname=Coene` → Displays **"Hello, John Coene"**  
 - `/greet?firstname=Alice&lastname=Smith` → Displays **"Hello, Alice Smith"**  
 - `/greet?firstname=Marie&lastname=Curie` → Displays **"Hello, Marie Curie"**  
+
+### Note
+
+Blank query parameters are parsed as `NA`, they're not dropped.
+For example, in `/hello?firstname=&lastname=Coene`:
+
+- `firstname`: `NA`
+- `lastname`: "Coene"
