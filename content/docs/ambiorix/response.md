@@ -348,7 +348,8 @@ One can also redirect to a different url, note that these should have a `status`
 
 ```r
 app$get("/redirect", \(req, res){
-  res$redirect("/", status = 302L)
+  res$status <- 302L
+  res$redirect(path = "/")
 })
 ```
 

@@ -19,33 +19,52 @@ One of the easiest way to deploy an ambiorix app is by using [docker](https://ww
 1. Create a file named `Dockerfile` at the root directory of your project and add this to it:
 
     ```Dockerfile
-    FROM jcoenep/ambiorix
+    FROM rocker/r-ver:4.3.3
+    RUN apt-get update && apt-get install -y \
+      git-core \
+      libssl-dev
     WORKDIR /app
     COPY . .
+    RUN rm -rdf renv/library
     RUN R -e "renv::restore()"
-    EXPOSE 8000
-    CMD [ "Rscript", "index.R" ]
+    EXPOSE 5000
+    CMD ["Rscript", "index.R"]
     ```
 
     Here are some simple explanations of what each line does:
 
-    - `FROM jcoenep/ambiorix`: This specifies the base Docker image. It pulls an image pre-configured with
-    Ambiorix from Docker Hub. The [`jcoenep/ambiorix`](https://hub.docker.com/r/jcoenep/ambiorix) image already includes everything needed to run an
-    Ambiorix app.
-    - `WORKDIR /app`: Sets the working directory inside the container to `/app`. All subsequent commands
-    in the Dockerfile will run in this directory.
-    - `COPY . .`: Copies all files from your local project directory (on the host machine) to the `/app`
-    directory inside the container.
-    - `RUN R -e "renv::restore()"`: Runs that R expression which restores the package dependencies defined
-    in your `renv.lock` file.
-    - `EXPOSE 8000`: This is more of documentation to your future self that the container will use port 8000
-    to serve the application. This should be the same port you set ambiorix to run on ie. `Ambiorix$new(port = 8000L)$...`
-    - `CMD [ "Rscript", "index.R" ]`: This sets the default command to run when the container starts.
+    - `FROM rocker/r-ver:4.3.3`: Specifies the base Docker image with R 4.3.3.
+    Change the R version to the one used in your project. eg. `rocker/r-ver:4.4.2`.
+    - `RUN apt-get ...`:  Installs system dependencies required for many R packages. Add
+    more as required. For example, the [{magick}](https://cran.r-project.org/web/packages/magick/vignettes/intro.html)
+    R package requires `libmagick++-dev` to be installed, so you'd have:
+
+      ```
+      RUN apt-get update && apt-get install -y \
+        git-core \
+        libssl-dev \
+        libmagick++-dev
+      ```
+
+    - `WORKDIR /app`: Sets the working directory inside the container to `/app`.
+    All subsequent commands in the Dockerfile will run in this directory.
+    - `COPY . .`: Copies all files from your local project directory (on the host
+    machine) to the `/app` directory inside the container.
+    - `RUN rm -rdf renv/library`: Clears the pre-existing library to ensure a
+    clean restore of R packages.
+    - `RUN R -e "renv::restore()"`: Runs that R expression which restores the
+    package dependencies defined in your `renv.lock` file.
+    - `EXPOSE 5000`: This is more of documentation to your future self that the
+    container will use port 5000 to serve the application. This should be the
+    same port you set ambiorix to run on ie. `Ambiorix$new(port = 8000L)$...`
+    - `CMD [ "Rscript", "index.R" ]`: This sets the default command to run when
+    the container starts. Replace `index.R` with your app's entry point if
+    different. eg. `server.R`.
 
 1. Build the docker image:
 
     ```bash
-    docker build -t cute-cats .
+    sudo docker build -t cute-cats .
     ```
 
     - `docker build`: Command to build a Docker image.
@@ -59,7 +78,7 @@ One of the easiest way to deploy an ambiorix app is by using [docker](https://ww
       cute-cats:
         image: cute-cats
         ports:
-          - "1028:8000"
+          - "1028:5000"
         volumes:
           - ./data:/app/data
         restart: unless-stopped
@@ -67,7 +86,7 @@ One of the easiest way to deploy an ambiorix app is by using [docker](https://ww
 
     - `services`: Defines the containers Docker Compose will manage. In this case, we only have one service called `cute-cats`.
     - `image: cute-cats`: Tell Docker Compose to use the image we built earlier, named `cute-cats`.
-    - `ports`: Maps port 1028 on the host machine to port 8000 inside the container (where the ambiorix app is served, remember `EXPOSE 8000`?). This means you can access the app at `localhost:1028`.
+    - `ports`: Maps port 1028 on the host machine to port 5000 inside the container (where the ambiorix app is served, remember `EXPOSE 5000`?). This means you can access the app at `localhost:1028`.
     - `volumes`: Maps a folder on the host (`./data`) to the container's `/app/data` directory. This ensures
     that data in the container is synced with the host and ensures data persistence if the container stops.
     You can remove the `volumes` mapping if your app doesn't need persistent data storage.
@@ -76,18 +95,19 @@ One of the easiest way to deploy an ambiorix app is by using [docker](https://ww
 1. Run the services:
 
     ```bash
-    docker compose up -d
+    sudo docker compose up -d --remove-orphans
     ```
 
     - `docker compose up` creates and starts the containers as defined in the `docker-compose.yml` file.
     - The `-d` flag runs the containers in detached mode ie. in the background.
+    - The `--remove-orphans` flag cleans up unused containers.
 
     This will run the app on port 1028 of the host machine, so you will view it at [localhost:1028](http://localhost:1028/).
 
 1. To stop the services do:
 
     ```bash
-    docker compose down
+    sudo docker compose down
     ```
 
     This stops and removes the containers but keeps the Docker images intact, so you can start them again
