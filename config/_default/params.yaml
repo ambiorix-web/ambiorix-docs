@@ -34,7 +34,8 @@ header:
     enable: true
     blox: "navbar"
     align: "center"
-    fixed_to_top: true
+    # set `fixed_to_top` to `false` because of https://github.com/ambiorix-web/ambiorix-docs/issues/2
+    fixed_to_top: false
     logo:
       text: "Ambiorix"
       # Logo filename in `assets/media/` folder

@@ -481,7 +481,6 @@
       "text-zinc-600",
       "text-zinc-800",
       "theme-toggle",
-      "top-0",
       "top-16",
       "tracking-tight",
       "tracking-wide",
@@ -503,8 +502,7 @@
       "xl:space-x-8",
       "z-0",
       "z-10",
-      "z-20",
-      "z-30"
+      "z-20"
     ],
     "ids": [
       "ambiorix",
