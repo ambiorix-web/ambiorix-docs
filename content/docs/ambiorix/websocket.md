@@ -3,17 +3,24 @@ title: Websocket
 weight: 11
 ---
 
-Websockets allow for bi-directional communication between the client and the server. ie.
-sending mesages from the client to the server and vice versa.
+Websockets allow for **bi-directional** communication between the client
+and the server. ie. sending messages from the client to the server and
+vice versa, without the need to refresh the page or constantly poll
+for updates.
+
+Websockets are ideal for real-time features like live notifications,
+chat apps, collaborative tools, etc.
 
 You can listen to incoming messages with the `receive` method which takes:
 
 1. the `name` of the message to handle and
 1. a `handler` function to run when a message with `name` is received.
 The callback function must accept the message as first argument and optionally
-the socket as second argument.
+the websocket connection object (`ws`), which can be used to send a response
+back to the client.
 
-Below is a handler listening to the message `hello`, prints the message and uses the websocket to send a response.
+Below is a handler listening to the message `hello`, prints the message
+and uses the websocket to send a response.
 
 ```r
 hello_ws_handler <- \(msg, ws) {
@@ -27,6 +34,72 @@ hello_ws_handler <- \(msg, ws) {
 # listen to incoming messages
 app$receive(name = "hello", handler = hello_ws_handler)
 ```
+
+## R
+
+Let's walk through a complete example to demonstrate a websocket server
+built with Ambiorix, and a websocket client using the `{websocket}`
+package.
+
+### Server-side (Ambiorix)
+
+```r
+library(ambiorix)
+
+home_get <- \(req, res) {
+  res$send("Websockets in Ambiorix.")
+}
+
+greeting_ws_handler <- \(msg, ws) {
+  print(msg)
+
+  response <- paste(
+    as.character(Sys.time()),
+    "Hello! Message well received."
+  )
+
+  ws$send(name = "greeting", message = response)
+}
+
+app <- Ambiorix$new(port = 8080L)
+app$get("/", home_get)
+app$receive(name = "greeting", handler = greeting_ws_handler)
+app$start()
+```
+
+### Client-side (R)
+
+```r
+client <- websocket::WebSocket$new("ws://127.0.0.1:8080", autoConnect = FALSE)
+
+client$onOpen(function(event) {
+  cat("Connection opened\n")
+
+  msg <- list(
+    isAmbiorix = TRUE, # __MUST__ be set!
+    name = "greeting",
+    message = "Hello from the client!"
+  )
+
+  # serialise:
+  msg <- yyjsonr::write_json_str(msg, auto_unbox = TRUE)
+
+  client$send(msg)
+})
+
+client$onMessage(function(event) {
+  cat("Received message from server:", event$data, "\n")
+})
+
+client$connect()
+```
+
+Note:
+
+1. The `isAmbiorix` field is **required** so that Ambiorix treats it as a valid
+websocket message.
+1. Messages are sent as JSON strings. `{yyjsonr}` is used here for fast
+JSON serialization.
 
 ## JavaScript
 
@@ -83,7 +156,7 @@ created with `receive`.
 wss.start()
 ```
 
-## Example
+### Example
 
 Here we put in practice all that was explained in the previous sections.
 This example simply sends a message from the client to the server at the
@@ -97,8 +170,8 @@ with another message that shows an alert.
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="static/style.css">
-  <script src="static/ambiorix.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/ambiorix.js"></script>
   <script>
     var wss = new Ambiorix();
     wss.receive("hello", (msg) => {
@@ -142,7 +215,7 @@ app$start()
 ## Bypass Ambiorix
 
 The above made use of ambiorix's convenience, if you wish to bypass it
-you can specify your own handler function which it must accept the websocket.
+you can specify your own handler function which must accept the websocket.
 
 ```r
 app$websocket <- \(ws){
@@ -151,3 +224,12 @@ app$websocket <- \(ws){
   })
 }
 ```
+
+## Example apps
+
+Example apps built using websockets in Ambiorix:
+
+- [chat app](https://github.com/ambiorix-web/ambiorix-examples/tree/main/15_chat)
+- [chat app using ambiorix + htmx](https://github.com/ambiorix-web/ambiorix-htmx/tree/main/websockets)
+
+Both apps broadcast messages to all connected clients.
