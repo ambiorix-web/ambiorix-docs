@@ -60,6 +60,8 @@ In the HTML we use ambiorix' websocket library to listen to messages named `setT
 
 We also have a `sendValue()` function on a submit button to collect the value of the first input and send it to ambiorix' server.
 
+Replace the contents of inst/assets/templates/home.html file with:
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
