@@ -8,11 +8,21 @@ tags:
   - JSON
   - parser
 image:
-  caption: 'JSON'
+  caption: "JSON"
 share: false
 ---
 
-TL;DR: See the [parser](#reprex).
+---
+
+**UPDATE:** Ambiorix now has built-in parsers. You may not need to build your
+own JSON parser. See [parsers](/docs/ambiorix/request/#parsers)
+for:
+
+- `parse_json()`,
+- `parse_multipart()`, and
+- `parse_form_urlencoded()`
+
+---
 
 Sometimes you need to parse requests which have raw JSON in the body.
 

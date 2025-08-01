@@ -90,7 +90,7 @@ app$get("/", \(req, res){
 app$start()
 ```
 
-__Counter__
+**Counter**
 
 This is an example of creating a counter; every refresh bumps the counter,
 using a middleware means we count visits overall, not just to the main page.
@@ -120,3 +120,91 @@ app$get("/add", \(req, res){
 
 app$start()
 ```
+
+## Parsers
+
+Ambiorix provides built-in parsers to handle different types of request body data. These parsers make it easy to extract and work with data sent from forms, JSON APIs, and file uploads.
+
+### JSON Parser
+
+Use `parse_json()` to parse JSON data from request bodies:
+
+```r
+library(ambiorix)
+
+app <- Ambiorix$new()
+
+app$post("/api/data", \(req, res) {
+  data <- parse_json(req)
+  print(data)
+  res$json(list(received = data))
+})
+
+app$start()
+```
+
+### Form URL-Encoded Parser
+
+Use `parse_form_urlencoded()` to parse standard HTML form data:
+
+```r
+app$post("/form", \(req, res) {
+  form_data <- parse_form_urlencoded(req)
+  print(form_data$name) # Access form field by name
+  res$send("Form received!")
+})
+```
+
+### Multipart Form Data Parser
+
+Use `parse_multipart()` to handle multipart form data, including file uploads:
+
+```r
+app$post("/upload", \(req, res) {
+  data <- parse_multipart(req)
+
+  # Handle regular form fields
+  print(data$username)
+
+  # Handle file uploads
+  if ("file" %in% names(data)) {
+    file_info <- data$file
+    # file_info contains:
+    # - value: Raw vector of file contents
+    # - content_type: MIME type (e.g., "image/png")
+    # - filename: Original filename
+    # - name: Form field name
+
+    # Save uploaded file
+    temp_path <- tempfile()
+    writeBin(file_info$value, temp_path)
+  }
+
+  res$send("Upload processed!")
+})
+```
+
+### Custom Parsers
+
+You can override the default parsers by setting global options:
+
+```r
+# Custom JSON parser using jsonlite
+my_json_parser <- function(body, ...) {
+  txt <- rawToChar(body)
+  jsonlite::fromJSON(txt, ...)
+}
+options(AMBIORIX_JSON_PARSER = my_json_parser)
+
+# Custom multipart parser
+options(AMBIORIX_MULTIPART_FORM_DATA_PARSER = my_multipart_parser)
+
+# Custom form URL-encoded parser
+options(AMBIORIX_FORM_URLENCODED_PARSER = my_form_parser)
+```
+
+Custom parser functions must accept:
+
+- `body`: Raw vector containing the request data
+- `content_type`: Content-Type header (for multipart parser only)
+- `...`: Additional optional parameters
