@@ -1,0 +1,26 @@
+{
+  "name": "ambiorix-docs",
+  "version": "1.0.0",
+  "description": "This is the documentation site for [ambiorix](https://github.com/ambiorix-web/ambiorix). It is built using [hugoblox](https://github.com/HugoBlox/hugo-blox-builder).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ambiorix-web/ambiorix-docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ambiorix-web/ambiorix-docs/issues"
+  },
+  "homepage": "https://github.com/ambiorix-web/ambiorix-docs#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.17",
+    "@tailwindcss/typography": "^0.5.19",
+    "preact": "^10.27.2"
+  }
+}
