@@ -1,0 +1,12 @@
+---
+title: "Showcase"
+subtitle: "Get inspired by exploring sites made with Ambiorix"
+listing:
+  contents: "*/index.qmd"
+  type: grid
+  sort: "date desc"
+  fields: [title, description]
+---
+
+[Follow us on X](https://x.com/ambiorixweb){.btn .btn-primary}
+[Explore More On GitHub](https://github.com/ambiorix-web){.btn .btn-secondary}
