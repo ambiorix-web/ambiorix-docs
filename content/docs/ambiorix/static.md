@@ -49,12 +49,9 @@ app$get("/", \(req, res){
 app$start()
 ```
 
-{{% callout warning%}}
-
-All files in the directory are publicly accessible. **Do not put any sensitive files
-in a static directory.**
-
-{{% /callout %}}
+> [!WARNING]
+> All files in the directory are publicly accessible. **Do not put any sensitive files
+> in a static directory.**
 
 ## Serving Multiple Static Directories
 

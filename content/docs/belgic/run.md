@@ -42,10 +42,7 @@ systemctl start belgic
 systemctl enable ambiorie
 ```
 
-{{% callout warning %}}
-
-Currently, the load balancer does not restart when the app
-or any of the file change so after a deploy you _may have to_
-run `systemctl restart ambiorix`
-
-{{% /callout %}}
+> [!WARNING]
+> Currently, the load balancer does not restart when the app
+> or any of the file change so after a deploy you _may have to_
+> run `systemctl restart ambiorix`

@@ -62,14 +62,11 @@ To access the `HEADERS` for instance, simple do `req$HEADERS`.
 
 ## Bind
 
-{{% callout note %}}
-
-In the very early days of ambiorix, the request was a locked environment so
-one could only read from it.
-Now, the environment is not locked and variables can be added
-to the request, e.g.: `req$x <- 1L`.
-
-{{% /callout %}}
+> [!NOTE]
+> In the very early days of ambiorix, the request was a locked environment so
+> one could only read from it.
+> Now, the environment is not locked and variables can be added
+> to the request, e.g.: `req$x <- 1L`.
 
 Make sure you do not overwrite existing data.
 

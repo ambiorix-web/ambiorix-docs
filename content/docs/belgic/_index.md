@@ -15,11 +15,8 @@ __Note that it also works for a shiny application__
 
 It is to Ambiorix what shiny-server is to shiny.
 
-{{% callout note %}}
-
-This implements a round robin, requests are redirected to whatever backend is next on the queue. This means you should not store any session-related data in the environment, use databases, cookies, parameters, etc. (as one should anyway). This only applies to ambiorix (multi-page) and should not affect shiny applications (single-page).
-
-{{% /callout %}}
+> [!NOTE]
+> This implements a round robin, requests are redirected to whatever backend is next on the queue. This means you should not store any session-related data in the environment, use databases, cookies, parameters, etc. (as one should anyway). This only applies to ambiorix (multi-page) and should not affect shiny applications (single-page).
 
 ## Next
 

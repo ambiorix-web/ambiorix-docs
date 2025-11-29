@@ -68,12 +68,9 @@ If your API requires the use of cookies or authentication tokens across domains,
 res$header("Access-Control-Allow-Credentials", "true")
 ```
 
-{{% callout note %}}
-
-- DO NOT include a trailing slash in the allowed origins.
-  - `http://127.0.0.1:8000/`❌
-  - `http://127.0.0.1:8000`✅
-- In Ambiorix, middlewares are executed in the order they're registered with
-`use()`. Make sure this middleware is the first one in the sequence.
-
-{{% /callout %}}
+> [!NOTE]
+> - DO NOT include a trailing slash in the allowed origins.
+>   - `http://127.0.0.1:8000/`❌
+>   - `http://127.0.0.1:8000`✅
+> - In Ambiorix, middlewares are executed in the order they're registered with
+> `use()`. Make sure this middleware is the first one in the sequence.

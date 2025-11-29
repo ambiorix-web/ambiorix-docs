@@ -32,7 +32,7 @@ marketing:
 header:
   navbar:
     enable: true
-    blox: "navbar"
+    block: "navbar"
     align: "center"
     # set `fixed_to_top` to `false` because of https://github.com/ambiorix-web/ambiorix-docs/issues/2
     fixed_to_top: false
