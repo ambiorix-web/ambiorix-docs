@@ -1,0 +1,8 @@
+/* Center navbar navigation items */
+.navbar-nav {
+  margin: 0 auto;
+}
+
+.navbar-collapse {
+  justify-content: center;
+}
