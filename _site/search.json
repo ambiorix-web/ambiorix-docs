@@ -1153,9 +1153,23 @@
     "text": "Visit Site View Code"
   },
   {
-    "objectID": "showcase/contact-form/index.html",
-    "href": "showcase/contact-form/index.html",
-    "title": "Contact Form",
+    "objectID": "showcase/links/index.html",
+    "href": "showcase/links/index.html",
+    "title": "Links",
+    "section": "",
+    "text": "Visit Site View Code"
+  },
+  {
+    "objectID": "showcase/index.html",
+    "href": "showcase/index.html",
+    "title": "Showcase",
+    "section": "",
+    "text": "Follow us on X Explore More On GitHub\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPersonal Website\n\n\nTalk about eating our own dogfood :)\n\n\n\n\n\n\n\n\n\n\n\n\nRRR\n\n\nURL shortener\n\n\n\n\n\n\n\n\n\n\n\n\nInfinite Scroll\n\n\nLoad data as user scrolls down\n\n\n\n\n\n\n\n\n\n\n\n\nDatatables\n\n\nRender datatables, paginate & query data\n\n\n\n\n\n\n\n\n\n\n\n\nContact App\n\n\nPerform CRUD on contacts\n\n\n\n\n\n\n\n\n\n\n\n\nPhoto Gallery\n\n\nA minimal gallery for your cats!\n\n\n\n\n\n\n\n\n\n\n\n\nContact Form\n\n\nBuild & handle contact form submissions\n\n\n\n\n\n\n\n\n\n\n\n\nFile Download\n\n\nDownload files depending on selected dataset\n\n\n\n\n\n\n\n\n\n\n\n\nLive Search\n\n\nPerform live search on mtcars as user types keywords\n\n\n\n\n\n\n\n\n\n\n\n\nLinks\n\n\nEnable users to share links to specific pages, tabs, & sections\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "showcase/photo-gallery/index.html",
+    "href": "showcase/photo-gallery/index.html",
+    "title": "Photo Gallery",
     "section": "",
     "text": "Visit Site View Code"
   },
@@ -1167,18 +1181,11 @@
     "text": "Visit Site View Code"
   },
   {
-    "objectID": "showcase/photo-gallery/index.html",
-    "href": "showcase/photo-gallery/index.html",
-    "title": "Photo Gallery",
+    "objectID": "showcase/contact-form/index.html",
+    "href": "showcase/contact-form/index.html",
+    "title": "Contact Form",
     "section": "",
     "text": "Visit Site View Code"
-  },
-  {
-    "objectID": "showcase/index.html",
-    "href": "showcase/index.html",
-    "title": "Showcase",
-    "section": "",
-    "text": "Follow us on X Explore More On GitHub\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPersonal Website\n\n\nTalk about eating our own dogfood :)\n\n\n\n\n\n\n\n\n\n\n\n\nRRR\n\n\nURL shortener\n\n\n\n\n\n\n\n\n\n\n\n\nInfinite Scroll\n\n\nLoad data as user scrolls down\n\n\n\n\n\n\n\n\n\n\n\n\nDatatables\n\n\nRender datatables, paginate & query data\n\n\n\n\n\n\n\n\n\n\n\n\nContact App\n\n\nPerform CRUD on contacts\n\n\n\n\n\n\n\n\n\n\n\n\nPhoto Gallery\n\n\nA minimal gallery for your cats!\n\n\n\n\n\n\n\n\n\n\n\n\nContact Form\n\n\nBuild & handle contact form submissions\n\n\n\n\n\n\n\n\n\n\n\n\nFile Download\n\n\nDownload files depending on selected dataset\n\n\n\n\n\n\n\n\n\n\n\n\nLive Search\n\n\nPerform live search on mtcars as user types keywords\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "showcase/contact-app/index.html",

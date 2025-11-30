@@ -1,0 +1,14 @@
+---
+title: Links
+description: Enable users to share links to specific pages, tabs, & sections
+date: 2024-01-08
+image: /images/links.png
+weight: 10
+---
+
+![](/images/links.png)
+
+::: {.showcase-buttons}
+[Visit Site](https://try.ambiorix.dev/links){.btn .btn-primary target="_blank"}
+[View Code](https://github.com/ambiorix-web/more-examples/tree/main/links){.btn .btn-secondary target="_blank"}
+:::
