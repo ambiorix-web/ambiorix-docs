@@ -4,8 +4,10 @@ subtitle: "Get inspired by exploring sites made with Ambiorix"
 listing:
   contents: "*/index.qmd"
   type: grid
-  sort: "date desc"
+  sort: "weight asc"
   fields: [image, title, description]
+  field-types:
+    weight: number
 ---
 
 [Follow us on X](https://x.com/ambiorixweb){.btn .btn-primary}

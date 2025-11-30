@@ -3,6 +3,7 @@ title: Live Search
 description: Live search demo built with Ambiorix
 date: 2024-01-07
 image: /images/live-search.png
+weight: 9
 ---
 
 ![](/images/live-search.png)

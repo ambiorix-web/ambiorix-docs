@@ -3,6 +3,7 @@ title: Personal Website
 description: Personal website built with Ambiorix
 date: 2024-09-08
 image: /images/personal-website.png
+weight: 1
 ---
 
 ![](/images/personal-website.png)

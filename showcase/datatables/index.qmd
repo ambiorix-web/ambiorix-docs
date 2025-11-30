@@ -3,6 +3,7 @@ title: Datatables
 description: Datatables demo built with Ambiorix
 date: 2024-01-02
 image: /images/datatables.png
+weight: 4
 ---
 
 ![](/images/datatables.png)

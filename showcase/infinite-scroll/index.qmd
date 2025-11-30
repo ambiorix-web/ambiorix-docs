@@ -3,6 +3,7 @@ title: Infinite Scroll
 description: Infinite scroll demo built with Ambiorix
 date: 2024-01-01
 image: /images/infinite-scroll.png
+weight: 3
 ---
 
 ![](/images/infinite-scroll.png)

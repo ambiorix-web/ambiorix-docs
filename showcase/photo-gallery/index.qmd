@@ -3,6 +3,7 @@ title: Photo Gallery
 description: Photo gallery built with Ambiorix
 date: 2024-01-04
 image: /images/photo-gallery.png
+weight: 6
 ---
 
 ![](/images/photo-gallery.png)

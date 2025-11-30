@@ -3,6 +3,7 @@ title: File Download
 description: File download demo built with Ambiorix
 date: 2024-01-06
 image: /images/file-download.png
+weight: 8
 ---
 
 ![](/images/file-download.png)
