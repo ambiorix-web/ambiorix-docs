@@ -7,6 +7,8 @@ website:
   site-url: https://ambiorix.dev/
   favicon: images/icon.png
   navbar:
+    logo: images/icon.png
+    logo-alt: "Ambiorix logo"
     left:
       - text: Home
         href: index.qmd
