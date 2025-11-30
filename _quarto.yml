@@ -86,14 +86,8 @@ website:
           contents:
             - text: "RESTful API"
               href: docs/examples/api/index.qmd
-            - text: "WebSocket Input"
-              href: docs/examples/input/index.qmd
             - text: "POST Data"
               href: docs/examples/post/index.qmd
-            - text: "Recreating Shiny"
-              href: docs/examples/shiny/index.qmd
-            - text: "URL Shortener"
-              href: docs/examples/shortener/index.qmd
         - section: "Belgic"
           href: docs/belgic/index.qmd
           contents:
