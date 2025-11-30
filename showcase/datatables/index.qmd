@@ -1,6 +1,6 @@
 ---
 title: Datatables
-description: Datatables demo built with Ambiorix
+description: Render datatables, paginate & query data
 date: 2024-01-02
 image: /images/datatables.png
 weight: 4
@@ -9,3 +9,6 @@ weight: 4
 ![](/images/datatables.png)
 
 [Visit Site](https://try.ambiorix.dev/datatables){.btn .btn-primary target="_blank"}
+
+[View Code](https://github.com/ambiorix-web/ambiorix-examples/tree/main/08_datatables){.btn .btn-secondary target="_blank"}
+

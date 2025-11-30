@@ -1,6 +1,6 @@
 ---
 title: Live Search
-description: Live search demo built with Ambiorix
+description: Perform live search on mtcars as user types keywords
 date: 2024-01-07
 image: /images/live-search.png
 weight: 9
@@ -9,3 +9,5 @@ weight: 9
 ![](/images/live-search.png)
 
 [Visit Site](https://try.ambiorix.dev/live-search){.btn .btn-primary target="_blank"}
+
+[View Code](https://github.com/ambiorix-web/ambiorix-htmx/tree/main/live-search){.btn .btn-secondary target="_blank"}

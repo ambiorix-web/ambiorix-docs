@@ -1,6 +1,6 @@
 ---
 title: Contact App
-description: Contact app built with Ambiorix
+description: Perform CRUD on contacts
 date: 2024-01-03
 image: /images/contact-app.png
 weight: 5
@@ -9,3 +9,5 @@ weight: 5
 ![](/images/contact-app.png)
 
 [Visit Site](https://try.ambiorix.dev/contact-app){.btn .btn-primary target="_blank"}
+
+[View Code](https://github.com/ambiorix-web/ambiorix-htmx/tree/main/contact.app){.btn .btn-secondary target="_blank"}

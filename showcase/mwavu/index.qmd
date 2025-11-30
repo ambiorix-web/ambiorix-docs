@@ -1,6 +1,6 @@
 ---
 title: Personal Website
-description: Personal website built with Ambiorix
+description: Talk about eating our own dogfood :)
 date: 2024-09-08
 image: /images/personal-website.png
 weight: 1
@@ -9,3 +9,5 @@ weight: 1
 ![](/images/personal-website.png)
 
 [Visit Site](https://mwavu.com){.btn .btn-primary target="_blank"}
+
+[View Code](https://github.com/kennedymwavu/mwavu){.btn .btn-secondary target="_blank"}

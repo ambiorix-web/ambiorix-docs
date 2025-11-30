@@ -1,6 +1,6 @@
 ---
 title: Infinite Scroll
-description: Infinite scroll demo built with Ambiorix
+description: Load data as user scrolls down
 date: 2024-01-01
 image: /images/infinite-scroll.png
 weight: 3
@@ -9,3 +9,5 @@ weight: 3
 ![](/images/infinite-scroll.png)
 
 [Visit Site](https://try.ambiorix.dev/infinite-scroll){.btn .btn-primary target="_blank"}
+
+[View Code](https://github.com/ambiorix-web/ambiorix-htmx/tree/main/infinite-scroll){.btn .btn-secondary target="_blank"}

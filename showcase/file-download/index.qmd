@@ -1,6 +1,6 @@
 ---
 title: File Download
-description: File download demo built with Ambiorix
+description: Download files depending on selected dataset
 date: 2024-01-06
 image: /images/file-download.png
 weight: 8
@@ -9,3 +9,5 @@ weight: 8
 ![](/images/file-download.png)
 
 [Visit Site](https://try.ambiorix.dev/file-download){.btn .btn-primary target="_blank"}
+
+[View Code](https://github.com/ambiorix-web/ambiorix-htmx/tree/main/file-download){.btn .btn-secondary target="_blank"}

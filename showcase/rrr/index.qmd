@@ -1,6 +1,6 @@
 ---
 title: RRR
-description: URL shortener built with Ambiorix
+description: URL shortener
 date: 2022-03-23
 image: /images/url-shortener.png
 weight: 2
@@ -9,3 +9,5 @@ weight: 2
 ![](/images/url-shortener.png)
 
 [Visit Site](https://rrr.is/){.btn .btn-primary target="_blank"}
+
+[View Code](https://github.com/devOpifex/rrr){.btn .btn-secondary target="_blank"}

@@ -1,6 +1,6 @@
 ---
 title: Contact Form
-description: Contact form built with Ambiorix
+description: Build & handle contact form submissions
 date: 2024-01-05
 image: /images/contact-form.png
 weight: 7
@@ -9,3 +9,6 @@ weight: 7
 ![](/images/contact-form.png)
 
 [Visit Site](https://try.ambiorix.dev/contact-form){.btn .btn-primary target="_blank"}
+
+[View Code](https://github.com/ambiorix-web/more-examples/tree/main/contact-form){.btn .btn-secondary target="_blank"}
+
