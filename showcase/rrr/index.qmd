@@ -2,6 +2,9 @@
 title: RRR
 description: URL shortener built with Ambiorix
 date: 2022-03-23
+image: /images/url-shortener.png
 ---
 
-[Visit Site](https://rrr.is/){.btn .btn-primary}
+![](/images/url-shortener.png)
+
+[Visit Site](https://rrr.is/){.btn .btn-primary target="_blank"}

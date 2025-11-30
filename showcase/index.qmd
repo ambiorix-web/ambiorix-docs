@@ -5,7 +5,7 @@ listing:
   contents: "*/index.qmd"
   type: grid
   sort: "date desc"
-  fields: [title, description]
+  fields: [image, title, description]
 ---
 
 [Follow us on X](https://x.com/ambiorixweb){.btn .btn-primary}
