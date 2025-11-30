@@ -45,8 +45,6 @@ app$get("/about", \(req, res) {
 
 Here's a reprex using Bootstrap:
 
-{{% collapse "Click to expand example" %}}
-
 ```r
 library(ambiorix)
 library(htmltools)
@@ -123,8 +121,6 @@ Ambiorix$new(port = 3000L)$
   get("/", home_get)$
   start()
 ```
-
-{{% /collapse %}}
 
 ## Sendf
 
@@ -278,7 +274,7 @@ Serialises an htmlwidget.
 library(echarts4r)
 
 app$get("/htmlwidget", \(req, res){
-  plot <- e_charts(cars, speed) %>% 
+  plot <- e_charts(cars, speed) %>%
     e_scatter(dist)
   res$htmlwidget(plot)
 })
@@ -383,7 +379,7 @@ my_prh <- \(self, content, data, ext, ...) {
 }
 
 #' Handler for GET at '/'
-#' 
+#'
 #' @details Renders the homepage
 #' @export
 home_get <- \(req, res) {

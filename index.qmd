@@ -36,7 +36,7 @@ Leverage existing middlewares, parsers & serializers or create your own
 
 ## Features
 
-Here are some of the features that make Ambiorix well-suited for building large, scalable applications:
+With Ambiorix, you get:
 
 ::: {.grid}
 
