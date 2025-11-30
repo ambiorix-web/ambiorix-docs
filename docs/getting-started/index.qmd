@@ -5,68 +5,68 @@ date: 2024-10-22
 
 ## Quick Start
 
-### Install {ambiorix}
+1. Install `{ambiorix}`
 
-The stable version is available on CRAN:
+    The stable version is available on CRAN:
 
-```r
-install.packages("ambiorix")
-```
+    ```r
+    install.packages("ambiorix")
+    ```
 
-Alternatively, install the development version from GitHub with the
-[{remotes}](https://remotes.r-lib.org/) package:
+    Alternatively, install the development version from GitHub with the
+    [{remotes}](https://remotes.r-lib.org/) package:
 
-```r
-remotes::install_github("ambiorix-web/ambiorix")
-```
+    ```r
+    remotes::install_github("ambiorix-web/ambiorix")
+    ```
 
-### Create a new project
+1. Create a new project
 
-Create a directory to hold your application, and make that your
-working directory:
+    Create a directory to hold your application, and make that your
+    working directory:
 
-```bash
-mkdir hello-world
-cd hello-world
-```
+    ```bash
+    mkdir hello-world
+    cd hello-world
+    ```
 
-Create a new file called `app.R`:
+    Create a new file called `app.R`:
 
-```bash
-touch app.R
-```
+    ```bash
+    touch app.R
+    ```
 
-### Hello, World
+1. Hello, World
 
-Put this in `app.R`:
+    Put this in `app.R`:
 
-```r
-library(ambiorix)
+    ```r
+    library(ambiorix)
 
-app <- Ambiorix$new(port = 8000L)
+    app <- Ambiorix$new(port = 8000L)
 
-app$get("/", \(req, res) {
-  res$send("Hello, World!")
-})
+    app$get("/", \(req, res) {
+      res$send("Hello, World!")
+    })
 
-app$start()
-```
+    app$start()
+    ```
 
-### Run the app
+1. Run the app
 
-`app.R` is the entrypoint. To start the app, run this on the terminal:
+    `app.R` is the entrypoint. To start the app, run this on the terminal:
 
-```bash
-Rscript app.R
-```
+    ```bash
+    Rscript app.R
+    ```
 
-Alternatively, if you're using an IDE like Rstudio or Positron, highlight everything in `app.R` and run the code.
+    Alternatively, if you're using an IDE like Rstudio or Positron, highlight everything in `app.R` and run the code.
 
-Visit [localhost/8000](http://localhost:8000).
+    Visit [localhost/8000](http://localhost:8000).
 
-You just built your first Ambiorix app.
+    You just built your first Ambiorix app.
 
-🎉Congratulations!🎉
+    🎉Congratulations!🎉
 
 ## Next
 
