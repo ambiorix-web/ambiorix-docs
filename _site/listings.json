@@ -1,0 +1,23 @@
+[
+  {
+    "listing": "/showcase/index.html",
+    "items": [
+      "/showcase/mwavu/index.html",
+      "/showcase/rrr/index.html",
+      "/showcase/infinite-scroll/index.html",
+      "/showcase/datatables/index.html",
+      "/showcase/contact-app/index.html",
+      "/showcase/photo-gallery/index.html",
+      "/showcase/contact-form/index.html",
+      "/showcase/file-download/index.html",
+      "/showcase/live-search/index.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/cors/index.html",
+      "/blog/parse-raw-json/index.html"
+    ]
+  }
+]
