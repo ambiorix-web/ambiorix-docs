@@ -1,0 +1,10 @@
+---
+title: Datatables
+description: Datatables demo built with Ambiorix
+date: 2024-01-02
+image: /images/datatables.png
+---
+
+![](/images/datatables.png)
+
+[Visit Site](https://try.ambiorix.dev/datatables){.btn .btn-primary target="_blank"}

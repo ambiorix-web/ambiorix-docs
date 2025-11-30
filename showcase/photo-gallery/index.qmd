@@ -1,0 +1,10 @@
+---
+title: Photo Gallery
+description: Photo gallery built with Ambiorix
+date: 2024-01-04
+image: /images/photo-gallery.png
+---
+
+![](/images/photo-gallery.png)
+
+[Visit Site](https://try.ambiorix.dev/photo-gallery){.btn .btn-primary target="_blank"}

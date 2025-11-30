@@ -1,0 +1,10 @@
+---
+title: Live Search
+description: Live search demo built with Ambiorix
+date: 2024-01-07
+image: /images/live-search.png
+---
+
+![](/images/live-search.png)
+
+[Visit Site](https://try.ambiorix.dev/live-search){.btn .btn-primary target="_blank"}
