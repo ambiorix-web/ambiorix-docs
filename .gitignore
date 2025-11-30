@@ -1,8 +1,4 @@
-# IDEs
-.idea/
-
-# Hugo
-resources/
-public/
-jsconfig.json
-node_modules/
+/.quarto/
+**/*.quarto_ipynb
+/_site/
+.DS_Store

@@ -1,0 +1,155 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Ambiorix"
+  site-url: https://ambiorix.dev/
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Documentation
+        href: docs/index.qmd
+      - text: Blog
+        href: blog/index.qmd
+      - text: Showcase
+        href: showcase/index.qmd
+      - text: Examples
+        href: docs/examples/index.qmd
+    right:
+      - icon: github
+        href: https://github.com/ambiorix-web
+      - icon: twitter-x
+        href: https://x.com/ambiorixweb
+
+  sidebar:
+    - id: docs
+      title: "Documentation"
+      style: "floating"
+      collapse-level: 1
+      contents:
+        - text: "Introduction"
+          href: docs/index.qmd
+        - text: "Get Started"
+          href: docs/getting-started/index.qmd
+        - section: "Ambiorix"
+          href: docs/ambiorix/index.qmd
+          contents:
+            - text: "Install"
+              href: docs/ambiorix/install/index.qmd
+            - text: "Hello, World"
+              href: docs/ambiorix/hello-world/index.qmd
+            - text: "From Shiny to Ambiorix"
+              href: docs/ambiorix/from-shiny/index.qmd
+            - text: "Routing"
+              href: docs/ambiorix/routing/index.qmd
+            - text: "Parameters"
+              href: docs/ambiorix/params/index.qmd
+            - text: "Response"
+              href: docs/ambiorix/response/index.qmd
+            - text: "Request"
+              href: docs/ambiorix/request/index.qmd
+            - text: "Middleware"
+              href: docs/ambiorix/middleware/index.qmd
+            - text: "Router"
+              href: docs/ambiorix/router/index.qmd
+            - text: "Websocket"
+              href: docs/ambiorix/websocket/index.qmd
+            - text: "404"
+              href: docs/ambiorix/not-found/index.qmd
+            - text: "Errors"
+              href: docs/ambiorix/errors/index.qmd
+            - text: "Async"
+              href: docs/ambiorix/async/index.qmd
+            - text: "Rendering"
+              href: docs/ambiorix/rendering/index.qmd
+            - text: "Static Files"
+              href: docs/ambiorix/static/index.qmd
+            - text: "Templates"
+              href: docs/ambiorix/templates/index.qmd
+            - text: "Logger"
+              href: docs/ambiorix/logger/index.qmd
+            - text: "Stop"
+              href: docs/ambiorix/stop/index.qmd
+            - text: "Deploy"
+              href: docs/ambiorix/deploy/index.qmd
+            - text: "Load Balancing"
+              href: docs/ambiorix/load-balancing/index.qmd
+            - text: "Project Structure"
+              href: docs/ambiorix/project/index.qmd
+            - text: "Changelog"
+              href: docs/ambiorix/changelog/index.qmd
+        - section: "Examples"
+          href: docs/examples/index.qmd
+          contents:
+            - text: "RESTful API"
+              href: docs/examples/api/index.qmd
+            - text: "WebSocket Input"
+              href: docs/examples/input/index.qmd
+            - text: "POST Data"
+              href: docs/examples/post/index.qmd
+            - text: "Recreating Shiny"
+              href: docs/examples/shiny/index.qmd
+            - text: "URL Shortener"
+              href: docs/examples/shortener/index.qmd
+        - section: "Belgic"
+          href: docs/belgic/index.qmd
+          contents:
+            - text: "Install"
+              href: docs/belgic/install/index.qmd
+            - text: "Config"
+              href: docs/belgic/config/index.qmd
+            - text: "Run"
+              href: docs/belgic/run/index.qmd
+        - section: "Middlewares"
+          href: docs/middlewares/index.qmd
+          contents:
+            - text: "Agris"
+              href: docs/middlewares/agris/index.qmd
+            - text: "Alesia"
+              href: docs/middlewares/alesia/index.qmd
+            - text: "Druid"
+              href: docs/middlewares/druid/index.qmd
+            - text: "Eburones"
+              href: docs/middlewares/eburones/index.qmd
+            - text: "Jader"
+              href: docs/middlewares/jader/index.qmd
+            - text: "Pugger"
+              href: docs/middlewares/pugger/index.qmd
+            - text: "Scilis"
+              href: docs/middlewares/scilis/index.qmd
+            - text: "Signaculum"
+              href: docs/middlewares/signaculum/index.qmd
+            - text: "Slighe"
+              href: docs/middlewares/slighe/index.qmd
+            - text: "Surf"
+              href: docs/middlewares/surf/index.qmd
+            - text: "Titan"
+              href: docs/middlewares/titan/index.qmd
+        - section: "Generator"
+          href: docs/generator/index.qmd
+          contents:
+            - text: "Install"
+              href: docs/generator/install/index.qmd
+            - text: "Usage"
+              href: docs/generator/usage/index.qmd
+        - section: "CLI"
+          href: docs/cli/index.qmd
+          contents:
+            - text: "Install"
+              href: docs/cli/install/index.qmd
+            - text: "Usage"
+              href: docs/cli/use/index.qmd
+
+filters:
+  - auto-dark
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: github

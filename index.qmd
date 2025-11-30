@@ -1,0 +1,81 @@
+---
+title: "Ambiorix"
+subtitle: "Unopinionated, minimalist web framework for R inspired by express.js"
+page-layout: full
+---
+
+::: {.hero-banner}
+
+[Watch Video](https://www.youtube.com/watch?v=owpbIQ-j6Kk){.btn .btn-primary}
+[Read the docs](/docs/){.btn .btn-secondary}
+
+:::
+
+## Full stack, right in R
+
+Easily build web applications & APIs, all in one syntax and right in R.
+
+::: {.grid}
+
+::: {.g-col-4}
+### Easy to use
+Create applications with the tried and tested API of express.js
+:::
+
+::: {.g-col-4}
+### One syntax
+Use a single syntax to build RESTful APIs and web applications
+:::
+
+::: {.g-col-4}
+### Extendable
+Leverage existing middlewares, parsers & serializers or create your own
+:::
+
+:::
+
+## Features
+
+Here are some of the features that make Ambiorix well-suited for building large, scalable applications:
+
+::: {.grid}
+
+::: {.g-col-4}
+### Routing
+Build multipage applications right out of the box.
+:::
+
+::: {.g-col-4}
+### Templating
+For Server-Side Rendering (SSR). HTML, markdown, pug, etc.
+:::
+
+::: {.g-col-4}
+### Middleware
+Easily pre-process requests to the server.
+:::
+
+::: {.g-col-4}
+### Websockets
+For when you need bi-directional communication between the server & client.
+:::
+
+::: {.g-col-4}
+### Async
+Use asynchronous programming techniques by returning promises from request handlers.
+:::
+
+::: {.g-col-4}
+### Autonomy
+You have absolute full control over the request-response cycle!
+:::
+
+:::
+
+## Get Started
+
+Unlock the Power of Web Development in R.
+
+Easily build web applications and APIs directly in R, with full control from start to finish.
+
+[Get Started](/docs/getting-started/){.btn .btn-primary}
