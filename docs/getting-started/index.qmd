@@ -5,8 +5,6 @@ date: 2024-10-22
 
 ## Quick Start
 
-{{% steps %}}
-
 ### Install {ambiorix}
 
 The stable version is available on CRAN:
@@ -66,8 +64,6 @@ Alternatively, if you're using an IDE like Rstudio or Positron, highlight everyt
 
 Visit [localhost/8000](http://localhost:8000).
 
-{{% /steps %}}
-
 You just built your first Ambiorix app.
 
 🎉Congratulations!🎉
@@ -78,5 +74,4 @@ Let's take a closer look at the hello world app:
 
 
   - [Hello, World!](/docs/ambiorix/hello-world)
-  - [Routing](/docs/ambiorix/routing)
 

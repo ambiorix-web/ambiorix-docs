@@ -74,8 +74,6 @@ You have absolute full control over the request-response cycle!
 
 ## Get Started
 
-Unlock the Power of Web Development in R.
-
-Easily build web applications and APIs directly in R, with full control from start to finish.
+Build for the web, stay in R.
 
 [Get Started](/docs/getting-started/){.btn .btn-primary}
