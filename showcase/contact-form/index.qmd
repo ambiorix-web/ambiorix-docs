@@ -8,7 +8,7 @@ weight: 7
 
 ![](/images/contact-form.png)
 
+::: {.showcase-buttons}
 [Visit Site](https://try.ambiorix.dev/contact-form){.btn .btn-primary target="_blank"}
-
 [View Code](https://github.com/ambiorix-web/more-examples/tree/main/contact-form){.btn .btn-secondary target="_blank"}
-
+:::

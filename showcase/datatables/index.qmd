@@ -8,7 +8,7 @@ weight: 4
 
 ![](/images/datatables.png)
 
+::: {.showcase-buttons}
 [Visit Site](https://try.ambiorix.dev/datatables){.btn .btn-primary target="_blank"}
-
 [View Code](https://github.com/ambiorix-web/ambiorix-examples/tree/main/08_datatables){.btn .btn-secondary target="_blank"}
-
+:::

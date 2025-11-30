@@ -8,6 +8,7 @@ weight: 1
 
 ![](/images/personal-website.png)
 
+::: {.showcase-buttons}
 [Visit Site](https://mwavu.com){.btn .btn-primary target="_blank"}
-
 [View Code](https://github.com/kennedymwavu/mwavu){.btn .btn-secondary target="_blank"}
+:::

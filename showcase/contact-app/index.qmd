@@ -8,6 +8,7 @@ weight: 5
 
 ![](/images/contact-app.png)
 
+::: {.showcase-buttons}
 [Visit Site](https://try.ambiorix.dev/contact-app){.btn .btn-primary target="_blank"}
-
 [View Code](https://github.com/ambiorix-web/ambiorix-htmx/tree/main/contact.app){.btn .btn-secondary target="_blank"}
+:::

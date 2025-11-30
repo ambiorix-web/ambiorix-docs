@@ -8,6 +8,7 @@ weight: 3
 
 ![](/images/infinite-scroll.png)
 
+::: {.showcase-buttons}
 [Visit Site](https://try.ambiorix.dev/infinite-scroll){.btn .btn-primary target="_blank"}
-
 [View Code](https://github.com/ambiorix-web/ambiorix-htmx/tree/main/infinite-scroll){.btn .btn-secondary target="_blank"}
+:::

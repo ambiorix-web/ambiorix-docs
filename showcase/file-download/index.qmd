@@ -8,6 +8,7 @@ weight: 8
 
 ![](/images/file-download.png)
 
+::: {.showcase-buttons}
 [Visit Site](https://try.ambiorix.dev/file-download){.btn .btn-primary target="_blank"}
-
 [View Code](https://github.com/ambiorix-web/ambiorix-htmx/tree/main/file-download){.btn .btn-secondary target="_blank"}
+:::
