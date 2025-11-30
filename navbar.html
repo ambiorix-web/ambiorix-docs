@@ -1,0 +1,30 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const path = window.location.pathname;
+
+    // Remove active class from all navbar items
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+    navLinks.forEach((link) => link.classList.remove("active"));
+
+    // Determine which navbar item should be active based on path
+    let activeText = null;
+    if (path.startsWith("/docs/") || path === "/docs") {
+      activeText = "Documentation";
+    } else if (path.startsWith("/blog/") || path === "/blog") {
+      activeText = "Blog";
+    } else if (path.startsWith("/showcase/") || path === "/showcase") {
+      activeText = "Showcase";
+    } else if (path === "/" || path === "/index.html") {
+      activeText = "Home";
+    }
+
+    // Set the correct navbar item as active
+    if (activeText) {
+      navLinks.forEach((link) => {
+        if (link.textContent.trim() === activeText) {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
+</script>

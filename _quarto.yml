@@ -16,8 +16,6 @@ website:
         href: blog/index.qmd
       - text: Showcase
         href: showcase/index.qmd
-      - text: Examples
-        href: docs/examples/index.qmd
     right:
       - icon: github
         href: https://github.com/ambiorix-web
@@ -150,6 +148,8 @@ format:
   html:
     theme: cosmo
     css: styles.css
+    include-in-header:
+      - file: navbar.html
     toc: true
     code-copy: true
     code-overflow: wrap
