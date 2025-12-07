@@ -1,0 +1,14 @@
+---
+title: Tiny API
+description: Upload a csv file, get API endpoints to the data.
+date: 2024-01-03
+image: /images/tiny-api.png
+weight: 12
+---
+
+![](/images/tiny-api.png)
+
+::: {.showcase-buttons}
+[Visit Site](https://try.ambiorix.dev/tiny-api){.btn .btn-primary target="_blank"}
+[View Code](https://github.com/ambiorix-web/more-examples/tree/main/tiny-api){.btn .btn-secondary target="_blank"}
+:::
