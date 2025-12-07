@@ -41,8 +41,6 @@ website:
               href: docs/ambiorix/install/index.qmd
             - text: "Hello, World"
               href: docs/ambiorix/hello-world/index.qmd
-            - text: "From Shiny to Ambiorix"
-              href: docs/ambiorix/from-shiny/index.qmd
             - text: "Routing"
               href: docs/ambiorix/routing/index.qmd
             - text: "Parameters"
