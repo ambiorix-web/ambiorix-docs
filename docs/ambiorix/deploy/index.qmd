@@ -250,18 +250,43 @@ as an example:
 
 1. In that `.service` file place the following configuration, it creates a service that runs the application at the defined path (`/path/to/app`).
 
-    ```service
+    ```bash
     [Unit]
     Description=An Ambiorix app about the cutest of cats
+    After=network.target
 
     [Service]
-    ExecStart=cd /path/to/app && /usr/bin/Rscript --no-save --slave -f app.R
-    Restart=on-abnormal
     Type=simple
+    User=kennedy
+    WorkingDirectory=/home/kennedy/examples/more-examples/cute-cats
+    ExecStart=/usr/bin/Rscript index.R
+    Restart=on-failure
+    RestartSec=5
 
     [Install]
     WantedBy=multi-user.target
     ```
+
+    **Service file breakdown:**
+
+    **[Unit]** - Metadata and dependencies.
+    - `Description` - Human-readable name shown in logs and `systemctl status`.
+    - `After=network.target` - Start this service after the network subsystem is initialized.
+      This means network interfaces exist and systemd's network management has started, but
+      doesn't guarantee interfaces have IP addresses yet. Sufficient for most local web apps
+      binding to `0.0.0.0` or `127.0.0.1`.
+
+    **[Service]** - How to run the process.
+    - `Type=simple` - systemd considers the service started immediately after `ExecStart` is called. Appropriate for long-running processes that don't fork.
+    - `User` - Run as this user instead of root. Never run your app as root.
+    - `WorkingDirectory` - The process's working directory. Relative paths in your R code resolve from here.
+    - `ExecStart` - The command to run. Use absolute paths for both the interpreter and script.
+    - `Restart=on-failure` - Restart automatically if the process exits with a non-zero code. Other options: `always`, `on-abnormal`, `no`.
+    - `RestartSec=5` - Wait 5 seconds before restarting. Prevents rapid restart loops that can hammer your system.
+
+    **[Install]** - When to start the service.
+    - `WantedBy=multi-user.target` - Start this service when the system reaches multi-user mode (normal boot, no GUI required). This is what makes `systemctl enable` work.
+
 
 1. Reload systemd to recognize the new service:
 
@@ -281,3 +306,11 @@ as an example:
     ```bash
     systemctl status cute-cats
     ```
+
+To view logs:
+
+```bash
+journalctl -u cute-cats -f
+```
+
+The `-f` flag follows the log in real-time and is useful for debugging.

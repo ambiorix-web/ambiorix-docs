@@ -758,16 +758,39 @@ server {
 <li><p>Create a new <code>.service</code> file in the <code>/etc/systemd/system/</code> directory. The name of the file defines the name of the service. We will use <code>cute-cats.service</code> as an example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> /etc/systemd/system/cute-cats.service</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>In that <code>.service</code> file place the following configuration, it creates a service that runs the application at the defined path (<code>/path/to/app</code>).</p>
-<pre class="service"><code>[Unit]
-Description=An Ambiorix app about the cutest of cats
-
-[Service]
-ExecStart=cd /path/to/app &amp;&amp; /usr/bin/Rscript --no-save --slave -f app.R
-Restart=on-abnormal
-Type=simple
-
-[Install]
-WantedBy=multi-user.target</code></pre></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[Unit]</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="va">Description</span><span class="op">=</span>An <span class="ex">Ambiorix</span> app about the cutest of cats</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="va">After</span><span class="op">=</span>network.target</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[Service]</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="va">Type</span><span class="op">=</span>simple</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="va">User</span><span class="op">=</span>kennedy</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="va">WorkingDirectory</span><span class="op">=</span>/home/kennedy/examples/more-examples/cute-cats</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="va">ExecStart</span><span class="op">=</span>/usr/bin/Rscript <span class="ex">index.R</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="va">Restart</span><span class="op">=</span>on-failure</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="va">RestartSec</span><span class="op">=</span>5</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="ex">[Install]</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="va">WantedBy</span><span class="op">=</span>multi-user.target</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Service file breakdown:</strong></p>
+<p><strong>[Unit]</strong> - Metadata and dependencies.</p>
+<ul>
+<li><code>Description</code> - Human-readable name shown in logs and <code>systemctl status</code>.</li>
+<li><code>After=network.target</code> - Start this service after the network subsystem is initialized. This means network interfaces exist and systemd’s network management has started, but doesn’t guarantee interfaces have IP addresses yet. Sufficient for most local web apps binding to <code>0.0.0.0</code> or <code>127.0.0.1</code>.</li>
+</ul>
+<p><strong>[Service]</strong> - How to run the process.</p>
+<ul>
+<li><code>Type=simple</code> - systemd considers the service started immediately after <code>ExecStart</code> is called. Appropriate for long-running processes that don’t fork.</li>
+<li><code>User</code> - Run as this user instead of root. Never run your app as root.</li>
+<li><code>WorkingDirectory</code> - The process’s working directory. Relative paths in your R code resolve from here.</li>
+<li><code>ExecStart</code> - The command to run. Use absolute paths for both the interpreter and script.</li>
+<li><code>Restart=on-failure</code> - Restart automatically if the process exits with a non-zero code. Other options: <code>always</code>, <code>on-abnormal</code>, <code>no</code>.</li>
+<li><code>RestartSec=5</code> - Wait 5 seconds before restarting. Prevents rapid restart loops that can hammer your system.</li>
+</ul>
+<p><strong>[Install]</strong> - When to start the service.</p>
+<ul>
+<li><code>WantedBy=multi-user.target</code> - Start this service when the system reaches multi-user mode (normal boot, no GUI required). This is what makes <code>systemctl enable</code> work.</li>
+</ul></li>
 <li><p>Reload systemd to recognize the new service:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> daemon-reload</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Start the service and enable it to automatically start on boot:</p>
@@ -776,6 +799,9 @@ WantedBy=multi-user.target</code></pre></li>
 <li><p>Check the service status to ensure it’s running without any issues:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> status cute-cats</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
+<p>To view logs:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">journalctl</span> <span class="at">-u</span> cute-cats <span class="at">-f</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>-f</code> flag follows the log in real-time and is useful for debugging.</p>
 
 
 </section>
