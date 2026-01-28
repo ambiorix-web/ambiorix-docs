@@ -11,14 +11,14 @@ library(htmltools)
 
 app <- Ambiorix$new()
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
 
   # form
   # sends to /submit
   form <- tagList(
     tags$form(
-      action = "/submit", 
-      enctype = "multipart/form-data", 
+      action = "/submit",
+      enctype = "multipart/form-data",
       method = "POST",
       p(
         tags$label(`for` = "first_name", "First Name"),
@@ -31,7 +31,7 @@ app$get("/", \(req, res){
   res$send(form)
 })
 
-app$post("/submit", \(req, res){
+app$post("/submit", function(req, res){
   body <- parse_multipart(req)
   res$send(h1("Your name is", body$first_name))
 })

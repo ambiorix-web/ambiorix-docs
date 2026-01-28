@@ -46,7 +46,7 @@ app <- Ambiorix$new()
 
 app$use(agris())
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$send("Using {ambiorix}!")
 })
 

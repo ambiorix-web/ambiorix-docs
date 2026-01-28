@@ -39,7 +39,7 @@ It's really simple. This image from [html5rocks.com](https://www.html5rocks.com/
 #' - `Access-Control-Allow-Headers`
 #' - `Access-Control-Allow-Origin`
 #' @export
-cors <- \(req, res) {
+cors <- function(req, res) {
   res$header("Access-Control-Allow-Origin", "http://127.0.0.1:8000")
 
   if (req$REQUEST_METHOD == "OPTIONS") {

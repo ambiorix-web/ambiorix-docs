@@ -60,7 +60,7 @@ box::use(
 #' @param req Request object.
 #' @return Named list. Data associated with the request.
 #' @export
-parse_req <- \(req) {
+parse_req <- function(req) {
   parse_http(
     body = req$rook.input$read(),
     content_type = req$CONTENT_TYPE
@@ -90,7 +90,7 @@ box::use(
 #' @param res Response object.
 #' @return `res$json()`
 #' @export
-home_post <- \(req, res) {
+home_post <- function(req, res) {
   content_type <- req$CONTENT_TYPE
   body <- req$rook.input$read()
 

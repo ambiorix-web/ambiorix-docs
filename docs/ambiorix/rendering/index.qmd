@@ -67,7 +67,7 @@ With the above running something like the snippet below will correctly
 render the `<head>` in the response.
 
 ```r
-app$get("/", \(req, res) {
+app$get("/", function(req, res) {
   res$render(
     "home.html"
   )
@@ -93,7 +93,7 @@ You can also render HTML dynamically with the `[% value %]` tab.
 Which can then be rendered with:
 
 ```r
-app$get("/", \(req, res) {
+app$get("/", function(req, res) {
   res$render(
     "home.html",
     list(
@@ -118,7 +118,7 @@ This tag accepts R code so one can, for instance, do something like this:
 Which can then be rendered with:
 
 ```r
-app$get("/", \(req, res) {
+app$get("/", function(req, res) {
   res$render(
     "home.html",
     list(

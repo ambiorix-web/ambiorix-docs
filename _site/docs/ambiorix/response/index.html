@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-182731707704ca5a89309515b5df9b64.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-455b4dc25fea1110ed381721855aaab1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -601,7 +601,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="html" class="level2">
 <h2 class="anchored" data-anchor-id="html">HTML</h2>
 <p>Send plain HTML with <code>send</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/html"</span>, \(req, res) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/html"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="st">"&lt;h3&gt;hello, world!&lt;/h3&gt;"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="htmltools" class="level3">
@@ -613,11 +613,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, \(req, res){</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(tags<span class="sc">$</span><span class="fu">h3</span>(<span class="st">"hello, world!"</span>))</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/about"</span>, \(req, res) {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/about"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  html <span class="ot">&lt;-</span> <span class="fu">tagList</span>(</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    tags<span class="sc">$</span><span class="fu">h3</span>(<span class="st">"About Us"</span>),</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    tags<span class="sc">$</span><span class="fu">p</span>(<span class="st">"The Ambiorix R Web Framework"</span>)</span>
@@ -637,7 +637,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param ... Passed to the body tag of the html document.</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return [htmltools::tags$html]</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>page <span class="ot">&lt;-</span> \(...) {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>page <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">html</span>(</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">lang =</span> <span class="st">"en"</span>,</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    tags<span class="sc">$</span><span class="fu">head</span>(</span>
@@ -664,9 +664,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co">#' Home page</span></span>
 <span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>home_page <span class="ot">&lt;-</span> \() {</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>home_page <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  bgs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"primary"</span>, <span class="st">"success"</span>, <span class="st">"secondary"</span>, <span class="st">"dark"</span>, <span class="st">"danger"</span>, <span class="st">"white"</span>, <span class="st">"light"</span>)</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  bg_divs <span class="ot">&lt;-</span> <span class="fu">lapply</span>(bgs, \(bg) {</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  bg_divs <span class="ot">&lt;-</span> <span class="fu">lapply</span>(bgs, <span class="cf">function</span>(bg) {</span>
 <span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    class <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
 <span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>      <span class="st">"col-12 col-md-4"</span>,</span>
 <span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>      <span class="st">"border border-dark-subtle"</span>,</span>
@@ -696,7 +696,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="co">#' Handler for GET at '/'</span></span>
 <span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
 <span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>home_get <span class="ot">&lt;-</span> \(req, res) {</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>home_get <span class="ot">&lt;-</span> <span class="cf">function</span>(req, res) {</span>
 <span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="fu">home_page</span>())</span>
 <span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
@@ -708,14 +708,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sendf" class="level2">
 <h2 class="anchored" data-anchor-id="sendf">Sendf</h2>
 <p>A convenient wrapper around <code>sprintf</code> and the <code>send</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/text"</span>, \(req, res){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/text"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">sendf</span>(<span class="st">"Hello %s"</span>, req<span class="sc">$</span>user)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="text" class="level2">
 <h2 class="anchored" data-anchor-id="text">Text</h2>
 <p>Send a plain text with <code>text</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/text"</span>, \(req, res){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/text"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">text</span>(<span class="st">"hello!"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
@@ -723,8 +723,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="file">File</h2>
 <p>An <code>.html</code> or <code>.R</code> file can also be used as response.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sends templates/home.html</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/file"</span>, \(req, res){</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send_file</span>(<span class="st">"home.html"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/file"</span>, <span class="cf">function</span>(req, res) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send_file</span>(<span class="at">file =</span> <span class="st">"home.html"</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="render" class="level2">
@@ -732,19 +732,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>An <code>.html</code>, <code>.md</code> or <code>.R</code> file can also be rendered. The difference with <code>send_file</code> is that it will use <code>data</code> to process <code>[% tags %]</code>. You can read more it in the templates documentation.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># renders templates/home.html</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># replaces [% title %]</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/:book"</span>, \(req, res){</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/:book"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">render</span>(<span class="st">"home.html"</span>, <span class="at">data =</span> <span class="fu">list</span>(<span class="at">title =</span> req<span class="sc">$</span>params<span class="sc">$</span>book))</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># renders docs/index.md</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/docs"</span>, \(req, res) {</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/docs"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">render</span>(<span class="st">"index.md"</span>)</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="json" class="level2">
 <h2 class="anchored" data-anchor-id="json">JSON</h2>
 <p>You can also send JSON responses with <code>json</code>, e.g.: to build an api</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/:book"</span>, \(req, res){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/:book"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">json</span>(cars)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
@@ -755,49 +755,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>status</code> active binding</li>
 <li><code>set_status()</code> method</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/error"</span>, \(req, res){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/error"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>status <span class="ot">&lt;-</span> <span class="dv">500</span>L</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="st">"Error!"</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/error"</span>, \(req, res){</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/error"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">set_status</span>(<span class="dv">500</span>L)<span class="sc">$</span><span class="fu">send</span>(<span class="st">"Error!"</span>)</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="csv" class="level2">
 <h2 class="anchored" data-anchor-id="csv">CSV</h2>
 <p>Serialises to CSV, when this endpoint is visited the CSV file is downloaded. It takes the data as first argument and the name of the file to download as second argument.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/csv"</span>, \(req, res){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/csv"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">csv</span>(cars, <span class="st">"cars-data"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="tsv" class="level2">
 <h2 class="anchored" data-anchor-id="tsv">TSV</h2>
 <p>Serialises to tab separated file; it takes the same arguments as the csv response.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/tsv"</span>, \(req, res){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/tsv"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">tsv</span>(mtcars, <span class="st">"more-cars"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="image" class="level2">
 <h2 class="anchored" data-anchor-id="image">Image</h2>
 <p>To send <code>.png</code> or <code>.jpeg</code> files, use the <code>image()</code> method:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/cute-cat"</span>, \(req, res) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/cute-cat"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">image</span>(<span class="at">file =</span> <span class="st">"/path/to/local/file"</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you prefer, you can be more specific and use the <code>png()</code> &amp; <code>jpeg()</code> methods:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/cute-cat-png"</span>, \(req, res) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/cute-cat-png"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">png</span>(<span class="at">file =</span> <span class="st">"/path/to/local/png/file"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/cute-cat-jpeg"</span>, \(req, res) {</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/cute-cat-jpeg"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">jpeg</span>(<span class="at">file =</span> <span class="st">"/path/to/local/jpeg/file"</span>)</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="ggplot2" class="level2">
 <h2 class="anchored" data-anchor-id="ggplot2">ggplot2</h2>
 <p>Send a ggplot2 plot using the <code>ggplot2()</code> method:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"ggplot"</span>, \(req, res) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"ggplot"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># make the plot:</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> iris,</span>
@@ -819,8 +819,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Serialises an htmlwidget.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(echarts4r)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/htmlwidget"</span>, \(req, res){</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">e_charts</span>(cars, speed) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/htmlwidget"</span>, <span class="cf">function</span>(req, res){</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">e_charts</span>(cars, speed) <span class="sc">|&gt;</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">e_scatter</span>(dist)</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">htmlwidget</span>(plot)</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -828,12 +828,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="headers" class="level2">
 <h2 class="anchored" data-anchor-id="headers">Headers</h2>
 <p>You can add headers with the <code>header</code> method on the response object.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/hello"</span>, \(req, res){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/hello"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">header</span>(<span class="st">"Content-Type"</span>, <span class="st">"something"</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="st">"Using {ambiorix}!"</span>)</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you have several headers, put them in a named list and use the <code>set_headers()</code> method:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/hello"</span>, \(req, res) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/hello"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  headers <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Content-Type"</span> <span class="ot">=</span> <span class="st">"something"</span>,</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Access-Control-Allow-Origin"</span> <span class="ot">=</span> <span class="st">"https://ambiorix.dev"</span>,</span>
@@ -854,13 +854,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="cookies" class="level2">
 <h2 class="anchored" data-anchor-id="cookies">Cookies</h2>
 <p>To set a cookie, use the <code>cookie()</code> method:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/hello"</span>, \(req, res) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/hello"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  today <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">Sys.Date</span>())</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">cookie</span>(<span class="at">name =</span> <span class="st">"today"</span>, <span class="at">value =</span> today)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="st">"Hello! Cookie 'today' has been set."</span>)</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>To clear a cookie, use the <code>clear_cookie()</code> method:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/hello2"</span>, \(req,res) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/hello2"</span>, <span class="cf">function</span>(req,res) {</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">clear_cookie</span>(<span class="at">name =</span> <span class="st">"today"</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="st">"Cookie 'today' cleared!"</span>)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -868,7 +868,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="redirect" class="level2">
 <h2 class="anchored" data-anchor-id="redirect">Redirect</h2>
 <p>One can also redirect to a different url, note that these should have a <code>status</code> starting in <code>3</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/redirect"</span>, \(req, res){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/redirect"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>status <span class="ot">&lt;-</span> <span class="dv">302</span>L</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">redirect</span>(<span class="at">path =</span> <span class="st">"/"</span>)</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -888,7 +888,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Include <code>...</code> in your hook to ensure it will handle potential updates to hooks in the future.</p>
 <p>The pre-render hook must return an object of class ‘responsePreHook’ as obtained by <code>ambiorix::pre_hook()</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>my_prh <span class="ot">&lt;-</span> \(self, content, data, ext, ...) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>my_prh <span class="ot">&lt;-</span> <span class="cf">function</span>(self, content, data, ext, ...) {</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  data<span class="sc">$</span>title <span class="ot">&lt;-</span> <span class="st">"Mansion"</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pre_hook</span>(content, data)</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>}</span>
@@ -897,7 +897,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">#' @details Renders the homepage</span></span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>home_get <span class="ot">&lt;-</span> \(req, res) {</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>home_get <span class="ot">&lt;-</span> <span class="cf">function</span>(req, res) {</span>
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">pre_render_hook</span>(my_prh)</span>
 <span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">render</span>(</span>
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">file =</span> <span class="st">"page.html"</span>,</span>
@@ -918,7 +918,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Also, include <code>...</code> in your hook to ensure it will handle potential updates to hooks in the future.</p>
 <p>Ideally, it should return the <code>content</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>my_prh <span class="ot">&lt;-</span> \(self, content, ext, ...) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>my_prh <span class="ot">&lt;-</span> <span class="cf">function</span>(self, content, ext, ...) {</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Done rendering!"</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  content</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>}</span>
@@ -928,7 +928,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">#' @details Renders the homepage.</span></span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>home_get <span class="ot">&lt;-</span> \(req, res) {</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>home_get <span class="ot">&lt;-</span> <span class="cf">function</span>(req, res) {</span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span></span>
 <span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">post_render_hook</span>(my_prh)<span class="sc">$</span></span>
 <span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">render</span>(</span>
@@ -971,7 +971,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param content String. [file] content of the template.</span></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param data Named list. Passed from the [render()] method.</span></span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param ext String. File extension of the template file.</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>my_prh <span class="ot">&lt;-</span> \(self, content, data, ext, ...) {</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>my_prh <span class="ot">&lt;-</span> <span class="cf">function</span>(self, content, data, ext, ...) {</span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  data<span class="sc">$</span>title <span class="ot">&lt;-</span> <span class="st">"Mansion"</span></span>
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pre_hook</span>(content, data)</span>
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>}</span>
@@ -979,7 +979,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="co">#' Middleware to set a global pre-render hook</span></span>
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
 <span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> \(req, res) {</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="cf">function</span>(req, res) {</span>
 <span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">pre_render_hook</span>(my_prh)</span>
 <span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a></span>
@@ -987,7 +987,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
 <span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="co">#' @details Renders the homepage</span></span>
 <span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>home_get <span class="ot">&lt;-</span> \(req, res) {</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>home_get <span class="ot">&lt;-</span> <span class="cf">function</span>(req, res) {</span>
 <span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">render</span>(</span>
 <span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">file =</span> <span class="st">"page.html"</span>,</span>
 <span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">list</span>(</span>

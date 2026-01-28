@@ -43,7 +43,7 @@ app <- Ambiorix$new()
 # use the middleware
 app$use(surf())
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$sendf(
     "<h1>What's your name?</h1>
     <form action='/' method='POST' enctype='multipart/form-data'>
@@ -55,7 +55,7 @@ app$get("/", \(req, res){
   )
 })
 
-app$post("/", \(req, res) {
+app$post("/", function(req, res) {
   body <- req$parse_multipart()
   res$sendf("Hi %s", body$name)
 })
@@ -74,7 +74,7 @@ app <- Ambiorix$new()
 # use the middleware
 app$use(surf())
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   # missing CSRF token
   res$send(
     "<h1>What's your name?</h1>
@@ -85,7 +85,7 @@ app$get("/", \(req, res){
   )
 })
 
-app$post("/", \(req, res) {
+app$post("/", function(req, res) {
   body <- req$parse_multipart()
   res$sendf("Hi %s", body$name)
 })

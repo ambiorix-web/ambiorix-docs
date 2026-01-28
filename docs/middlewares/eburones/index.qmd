@@ -30,7 +30,7 @@ app <- Ambiorix$new()
 
 app$use(eburones())
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   print(req$session)
   res$send("Hello there!")
 })
@@ -50,7 +50,7 @@ library(ambiorix)
 
 app <- Ambiorix$new()
 
-pv <- \(req, res) {
+pv <- function(req, res) {
 
   # no session = new user
   if(is.null(req$session))
@@ -63,14 +63,14 @@ pv <- \(req, res) {
   # existing user = increment
   list(
     page_views = req$session$page_views + 1L
-  ) 
+  )
 }
 
 app$use(
   eburones(callback = pv)
 )
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$sendf("Hello there for the %s time", req$session$page_views)
 })
 
@@ -90,7 +90,7 @@ library(ambiorix)
 
 app <- Ambiorix$new()
 
-pv <- \(req, res) {
+pv <- function(req, res) {
 
   # new user return a data.frame
   if(is.null(req$session))
@@ -103,7 +103,7 @@ pv <- \(req, res) {
   # we need to return a data.frame (1 row)
   data.frame(
     page_views = req$session$page_views + 1L
-  ) 
+  )
 }
 
 # we create a connection to a database (SQLite in this case)
@@ -125,7 +125,7 @@ app$use(
   eburones(backend = backend, callback = pv)
 )
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$sendf("Hello there for the %s time", req$session$page_views)
 })
 

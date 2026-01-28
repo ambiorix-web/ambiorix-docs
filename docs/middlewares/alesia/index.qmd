@@ -24,7 +24,7 @@ app <- Ambiorix$new()
 
 app$use(alesia())
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$render(
     "home",
     data = list(

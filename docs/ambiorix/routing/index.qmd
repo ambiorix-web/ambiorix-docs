@@ -4,7 +4,7 @@ title: Routing
 
 When a client (web browser) points to a path (e.g.: `/about`) a request is made
 to the server (`GET` in this case), ambiorix then looks through the handlers
-for a matching path and runs the respective handler function (`\(req, res)`).
+for a matching path and runs the respective handler function (`function(req, res)`).
 This function should return a response (using the `res` object) or a future
 (see [asynchronous programming](/docs/ambiorix/async)).
 
@@ -13,11 +13,11 @@ library(ambiorix)
 
 app <- Ambiorix$new()
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$text("Home!")
 })
 
-app$get("/about", \(req, res){
+app$get("/about", function(req, res){
   res$send("About me!")
 })
 
@@ -35,12 +35,12 @@ library(ambiorix)
 
 app <- Ambiorix$new()
 
-app$get("/?name", \(req, res){
+app$get("/?name", function(req, res){
   msg <- htmltools::h1("Hello", req$query$name)
   res$send(msg)
 })
 
-app$get("/users/:id", \(req, res){
+app$get("/users/:id", function(req, res){
   msg <- sprintf("This is user id: #%s", req$params$id)
   res$text(msg)
 })
@@ -57,11 +57,11 @@ library(ambiorix)
 
 app <- Ambiorix$new()
 
-app$get("/next", \(req, res){
+app$get("/next", function(req, res){
   forward()
 })
 
-app$get("/next", \(req, res){
+app$get("/next", function(req, res){
   res$send("Hello")
 })
 

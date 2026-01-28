@@ -11,7 +11,7 @@ Similar to request handlers, middlewares take the Request and Response objects
 as arguments.
 
 ```r
-show_time <- \(req, res) {
+show_time <- function(req, res) {
   print(Sys.time())
 }
 ```
@@ -31,11 +31,11 @@ app <- Ambiorix$new(log = FALSE)
 
 app$use(show_time)
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$send("Using {ambiorix}!")
 })
 
-app$get("/about", \(req, res){
+app$get("/about", function(req, res){
   res$text("About")
 })
 
@@ -51,15 +51,15 @@ library(ambiorix)
 
 app <- Ambiorix$new()
 
-app$use(\(req, res){
+app$use(function(req, res){
   req$x <- 1 # set x to 1
 })
 
-app$use(\(req, res){
+app$use(function(req, res){
   print(req$x)
 })
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$sendf("x set to %s", req$x)
 })
 
@@ -76,7 +76,7 @@ An example is the `about_middleware` below:
 library(ambiorix)
 library(htmltools)
 
-about_middleware <- \(req, res) {
+about_middleware <- function(req, res) {
   is_about <- identical(req$PATH_INFO, "/about")
   if (!is_about) {
     return(
@@ -87,12 +87,12 @@ about_middleware <- \(req, res) {
   cat("Viewing the about section...\n")
 }
 
-about_get <- \(req, res) {
+about_get <- function(req, res) {
   html <- tags$h3("learn more about us")
   res$send(html)
 }
 
-home_get <- \(req, res) {
+home_get <- function(req, res) {
   html <- tags$h3("hello! welcome home.")
   res$send(html)
 }
@@ -125,12 +125,12 @@ Here's an example:
 library(ambiorix)
 library(htmltools)
 
-time_middleware <- \(req, res) {
+time_middleware <- function(req, res) {
   now <- format(x = Sys.time(), format = "%F %T")
   message("It is now: ", now)
 }
 
-user_home_get <- \(req, res) {
+user_home_get <- function(req, res) {
   html <- tagList(
     tags$h3("welcome to the user home page!"),
     tags$a(href = "/users/login", "login"),
@@ -141,17 +141,17 @@ user_home_get <- \(req, res) {
   res$send(html)
 }
 
-login_get <- \(req, res) {
+login_get <- function(req, res) {
   html <- tags$h3("you're in the login page")
   res$send(html)
 }
 
-register_get <- \(req, res) {
+register_get <- function(req, res) {
   html <- tags$h3("this is the registration page")
   res$send(html)
 }
 
-dashboard_get <- \(req, res) {
+dashboard_get <- function(req, res) {
   html <- tags$h3("our amazing dashboard")
   res$send(html)
 }
@@ -164,7 +164,7 @@ user_router$
   get("/signup", register_get)$
   get("/dashboard", dashboard_get)
 
-home_get <- \(req, res) {
+home_get <- function(req, res) {
   html <- tags$h3("hello! welcome home.")
   res$send(html)
 }
@@ -187,8 +187,8 @@ Existing middlewares tend to use function factories, which is useful if you want
 package reusable middleware.
 
 ```r
-factory <- \(prefix){
-  \(req, res){
+factory <- function(prefix){
+  function(req, res){
     cat(prefix, "-log\n")
   }
 }

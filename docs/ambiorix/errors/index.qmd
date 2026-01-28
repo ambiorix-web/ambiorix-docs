@@ -11,7 +11,7 @@ When an error occurs server-side it should send the client a response with a sta
 If you created your project using the [ambiorix.generator](/docs/generator/) or the [ambiorix-cli](/docs/cli/), ambiorix defaults to using the following handler on error:
 
 ```r
-render_500 <- \(req, res, error) {
+render_500 <- function(req, res, error) {
   res$status <- 500L
   res$send("Internal server error")
 }
@@ -28,7 +28,7 @@ The error handler should be a function that takes 3 arguments: `req`, `res` and 
 A basic example:
 
 ```r
-app$error <- \(req, res, error){
+app$error <- function(req, res, error){
   res <- status(500L)
   res$send("There was a server error :(")
 }
@@ -39,7 +39,7 @@ You have absolute full control in what you choose to do with the `error` object.
 Here is a more involved and realistic example:
 
 ```r
-error_handler <- \(req, res, error = NULL) {
+error_handler <- function(req, res, error = NULL) {
   if (!is.null(error)) {
     error_msg <- conditionMessage(error)
     cli::cli_alert_danger("Error: {error_msg}")
@@ -80,13 +80,13 @@ Alternatively one can specify errors specific to certain routes, if these are no
 
 ```r
 app$get(
-  "/error", 
+  "/error",
   # request handler:
-  \(req, res) {
+  function(req, res) {
     print(eRrOr)
-  }, 
+  },
   # error handler for this route:
-  \(req, res, error) {
+  function(req, res, error) {
     res$status <- 500L
     res$send("This is an error on /error")
   }

@@ -3,7 +3,7 @@ title: Request
 ---
 
 This details the request object, generally the first argument
-of the functions passed to paths (`app$get("/", \(req, res){})`).
+of the functions passed to paths (`app$get("/", function(req, res){})`).
 
 ## Object
 
@@ -14,7 +14,7 @@ library(ambiorix)
 
 app <- Ambiorix$new()
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   print(req)
   res$send("Using {ambiorix}!")
 })
@@ -73,12 +73,12 @@ Make sure you do not overwrite existing data.
 ```r
 app <- Ambiorix$new()
 
-app$use(\(req, res){
+app$use(function(req, res){
   # set
   req$user <- "John"
 })
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   # get
   print(req$user)
   res$send("Hello {ambiorix}")
@@ -97,19 +97,19 @@ app <- Ambiorix$new()
 
 val <- 0L
 
-app$use(\(req, res){
+app$use(function(req, res){
   val <<- val + 1L
   req$x <- val
 })
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$send_sprintf(
     "Count %s",
     req$x
   )
 })
 
-app$get("/add", \(req, res){
+app$get("/add", function(req, res){
   res$send_sprintf(
     "Added one!",
   )
@@ -131,7 +131,7 @@ library(ambiorix)
 
 app <- Ambiorix$new()
 
-app$post("/api/data", \(req, res) {
+app$post("/api/data", function(req, res) {
   data <- parse_json(req)
   print(data)
   res$json(list(received = data))
@@ -145,7 +145,7 @@ app$start()
 Use `parse_form_urlencoded()` to parse standard HTML form data:
 
 ```r
-app$post("/form", \(req, res) {
+app$post("/form", function(req, res) {
   form_data <- parse_form_urlencoded(req)
   print(form_data$name) # Access form field by name
   res$send("Form received!")
@@ -157,7 +157,7 @@ app$post("/form", \(req, res) {
 Use `parse_multipart()` to handle multipart form data, including file uploads:
 
 ```r
-app$post("/upload", \(req, res) {
+app$post("/upload", function(req, res) {
   data <- parse_multipart(req)
 
   # Handle regular form fields

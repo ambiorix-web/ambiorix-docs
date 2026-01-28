@@ -50,11 +50,11 @@ app <- Ambiorix$new()
 # use slighe
 app$use(slighe())
 
-app$get("/", \(req, res) {
+app$get("/", function(req, res) {
   res$send("Hello")
 })
 
-app$get("/:hash", \(req, res) {
+app$get("/:hash", function(req, res) {
   res$send("world")
 })
 

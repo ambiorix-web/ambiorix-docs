@@ -29,7 +29,7 @@ app$use(
   )
 )
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$send("Using {ambiorix}!")
 })
 

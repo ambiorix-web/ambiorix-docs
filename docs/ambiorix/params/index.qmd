@@ -3,26 +3,26 @@ title: Parameters & Query
 ---
 
 Ambiorix allows extracting values from the URL
-using **parameters** and **query strings**.  
+using **parameters** and **query strings**.
 
 - **Parameters** are dynamic parts of the URL,
-accessible via `req$params$param_name`.  
+accessible via `req$params$param_name`.
 - **Query strings** are key-value pairs appended to the
 URL (`?key=value`), accessible via `req$query$query_name` or
-`req$query[[index]]` (if unnamed).  
+`req$query[[index]]` (if unnamed).
 
 -----
 
-## Parameters  
+## Parameters
 
 Define URL parameters using `:<param>`, and retrieve them with
-`req$params$<name>`.  
+`req$params$<name>`.
 
 ```r
 #' Handle GET at '/books/:category'
 #'
 #' @export
-get_book_category <- \(req, res) {
+get_book_category <- function(req, res) {
   html <- tags$h3(
     "Books in category:",
     req$params$category
@@ -35,18 +35,18 @@ app$get("/books/:category", get_book_category)
 app$start()
 ```
 
-### Example Routes  
+### Example Routes
 
-- `/books/fiction` → Displays **"Books in category: fiction"**  
-- `/books/math` → Displays **"Books in category: math"**  
-- `/books/philosophy` → Displays **"Books in category: philosophy"**  
+- `/books/fiction` → Displays **"Books in category: fiction"**
+- `/books/math` → Displays **"Books in category: math"**
+- `/books/philosophy` → Displays **"Books in category: philosophy"**
 
 -----
 
-## Query Strings  
+## Query Strings
 
 Query strings allow passing additional information to a request.
-These values are parsed into `req$query`.  
+These values are parsed into `req$query`.
 
 ```r
 library(ambiorix)
@@ -55,7 +55,7 @@ library(htmltools)
 #' Handle GET at '/greet'
 #'
 #' @export
-say_hello <- \(req, res) {
+say_hello <- function(req, res) {
   html <- tags$h3(
     "Hello,",
     req$query$firstname,
@@ -70,11 +70,11 @@ app$get("/greet", say_hello)
 app$start()
 ```
 
-### Example Routes  
+### Example Routes
 
-- `/greet?firstname=John&lastname=Coene` → Displays **"Hello, John Coene"**  
-- `/greet?firstname=Alice&lastname=Smith` → Displays **"Hello, Alice Smith"**  
-- `/greet?firstname=Marie&lastname=Curie` → Displays **"Hello, Marie Curie"**  
+- `/greet?firstname=John&lastname=Coene` → Displays **"Hello, John Coene"**
+- `/greet?firstname=Alice&lastname=Smith` → Displays **"Hello, Alice Smith"**
+- `/greet?firstname=Marie&lastname=Curie` → Displays **"Hello, Marie Curie"**
 
 ### Note
 

@@ -45,7 +45,7 @@ date: 2024-10-22
 
     app <- Ambiorix$new(port = 8000L)
 
-    app$get("/", \(req, res) {
+    app$get("/", function(req, res) {
       res$send("Hello, World!")
     })
 

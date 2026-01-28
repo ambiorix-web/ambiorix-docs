@@ -23,7 +23,7 @@ app <- Ambiorix$new()
 # use an environment variable
 app$use(scilis("secret"))
 
-app$get("/", \(req, res) {
+app$get("/", function(req, res) {
   print(req$cookie)
   res$cookie(
     "MYCOOKIE",

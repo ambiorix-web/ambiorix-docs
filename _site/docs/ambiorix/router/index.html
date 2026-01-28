@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-182731707704ca5a89309515b5df9b64.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-455b4dc25fea1110ed381721855aaab1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -583,21 +583,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>app <span class="ot">&lt;-</span> Ambiorix<span class="sc">$</span><span class="fu">new</span>()</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># homepage</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, \(req, res){</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="st">"Home!"</span>)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># /users logic</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/users"</span>, \(req, res){</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/users"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="st">"List of users"</span>)</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/users/:id"</span>, \(req, res){</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/users/:id"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Return user id:"</span>, req<span class="sc">$</span>params<span class="sc">$</span>id, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(req<span class="sc">$</span>params<span class="sc">$</span>id)</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/users/:id/profile"</span>, \(req, res){</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/users/:id/profile"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  msg <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"This is the profile of user #%s"</span>, req<span class="sc">$</span>params<span class="sc">$</span>id)</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(msg)</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>})</span>
@@ -608,16 +608,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create router</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>router <span class="ot">&lt;-</span> Router<span class="sc">$</span><span class="fu">new</span>(<span class="st">"/users"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>router<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, \(req, res){</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>router<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="st">"List of users"</span>)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>router<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/:id"</span>, \(req, res){</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>router<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/:id"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Return user id:"</span>, req<span class="sc">$</span>params<span class="sc">$</span>id, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(req<span class="sc">$</span>params<span class="sc">$</span>id)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>router<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/:id/profile"</span>, \(req, res){</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>router<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/:id/profile"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  msg <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"This is the profile of user #%s"</span>, req<span class="sc">$</span>params<span class="sc">$</span>id)</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(msg)</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -627,7 +627,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># core app</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>app <span class="ot">&lt;-</span> Ambiorix<span class="sc">$</span><span class="fu">new</span>()</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, \(req, res){</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, <span class="cf">function</span>(req, res){</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="st">"Home!"</span>)</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -645,22 +645,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># routers + handlers:</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>first_router <span class="ot">&lt;-</span> Router<span class="sc">$</span><span class="fu">new</span>(<span class="st">"/first"</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>first_router<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, \(req, res) {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>first_router<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="fu">h1</span>(<span class="st">"Users"</span>))</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>second_router <span class="ot">&lt;-</span> Router<span class="sc">$</span><span class="fu">new</span>(<span class="st">"/second"</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>second_router<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, \(req, res) {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>second_router<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="fu">h1</span>(<span class="st">"Second!"</span>))</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>third_router <span class="ot">&lt;-</span> Router<span class="sc">$</span><span class="fu">new</span>(<span class="st">"/third"</span>)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>third_router<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, \(req, res) {</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>third_router<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">send</span>(<span class="fu">h1</span>(<span class="st">"Third!"</span>))</span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># middleware</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>second_middleware <span class="ot">&lt;-</span> \(req, res) {</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>second_middleware <span class="ot">&lt;-</span> <span class="cf">function</span>(req, res) {</span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Hello from /second...</span><span class="sc">\n</span><span class="st">"</span>)</span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
@@ -674,7 +674,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">use</span>(first_router)</span>
 <span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, \(req, res) {</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">get</span>(<span class="st">"/"</span>, <span class="cf">function</span>(req, res) {</span>
 <span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  page <span class="ot">&lt;-</span> <span class="fu">div</span>(</span>
 <span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    tags<span class="sc">$</span><span class="fu">a</span>(<span class="at">href =</span> <span class="st">"/first"</span>, <span class="st">"1"</span>),</span>
 <span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    tags<span class="sc">$</span><span class="fu">a</span>(<span class="at">href =</span> <span class="st">"/first/second"</span>, <span class="st">"2"</span>),</span>

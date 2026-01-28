@@ -44,7 +44,7 @@ app <- Ambiorix$new()
 
 app$engine(pugger::pugger())
 
-app$get("/", \(req, res) {
+app$get("/", function(req, res) {
   res$render(
     "test.pug",
     list(

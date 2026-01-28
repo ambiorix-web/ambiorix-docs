@@ -22,7 +22,7 @@ library(ambiorix)
 
 app <- Ambiorix$new()
 
-app$get("/", \(req, res) {
+app$get("/", function(req, res) {
   res$send("Hello")
 })
 

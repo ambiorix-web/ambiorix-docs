@@ -137,12 +137,12 @@ tells the app which port to run on. In your Ambiorix app, you can retrieve this 
     library(ambiorix)
     library(htmltools)
 
-    home_get <- \(req, res) {
+    home_get <- function(req, res) {
       html <- tags$h3("Yes, Ambiorix IN Shiny Server!")
       res$set_status(200L)$send(html)
     }
 
-    home_post <- \(req, res) {
+    home_post <- function(req, res) {
       response <- list(
         code = 200L,
         msg = "An API too!"
@@ -207,12 +207,12 @@ Good thing is now you won't have to deal with any configurations. All you need t
     library(ambiorix)
     library(htmltools)
 
-    home_get <- \(req, res) {
+    home_get <- function(req, res) {
       html <- tags$h3("Ambiorix IN shinyapps.io!")
       res$set_status(200L)$send(html)
     }
 
-    home_post <- \(req, res) {
+    home_post <- function(req, res) {
       response <- list(
         code = 200L,
         msg = "An API too!"

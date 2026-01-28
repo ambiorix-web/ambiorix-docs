@@ -22,12 +22,12 @@ PORT <- 3000
 app <- Ambiorix$new()
 
 # respond with “Hello World!” for requests to the root URL (/) or route:
-app$get("/", \(req, res) {
+app$get("/", function(req, res) {
   res$send("Hello World!")
 })
 
 # you can also use html tags:
-app$get("/about", \(req, res) {
+app$get("/about", function(req, res) {
   res$send("<h1>About Us</h1>")
 })
 
@@ -75,11 +75,11 @@ As your app grows, it will be better to assign the handlers a name and use that:
 ```r
 library(ambiorix)
 
-home_get <- \(req, res) {
+home_get <- function(req, res) {
   res$send("Hello World!")
 }
 
-about_get <- \(req, res) {
+about_get <- function(req, res) {
   res$send("<h1>About Us</h1>")
 }
 

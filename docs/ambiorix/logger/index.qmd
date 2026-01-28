@@ -16,11 +16,11 @@ library(ambiorix)
 
 app <- Ambiorix$new(log = TRUE)
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$send("hello!")
 })
 
-app$get("/about", \(req, res){
+app$get("/about", function(req, res){
   res$send("Me me me")
 })
 
@@ -49,15 +49,15 @@ app <- Ambiorix$new(log = FALSE)
 app$use(
   druid(
     path_info = TRUE,
-    remote_port = TRUE 
+    remote_port = TRUE
   )
 )
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$send("hello!")
 })
 
-app$get("/about", \(req, res){
+app$get("/about", function(req, res){
   res$send("Me me me")
 })
 
@@ -81,12 +81,12 @@ app <- Ambiorix$new(log = FALSE)
 # create logger
 logger <- new_log()
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   logger$log("Home", "was visited")
   res$send("hello!")
 })
 
-app$get("/about", \(req, res){
+app$get("/about", function(req, res){
   logger$log("About page", "was just viewed")
   res$send("Me me me")
 })
@@ -114,12 +114,12 @@ app <- Ambiorix$new()
 # create logger with the log package
 logger <- Logger$new()
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   log$log("Home", "was visited")
   res$send("hello!")
 })
 
-app$get("/about", \(req, res){
+app$get("/about", function(req, res){
   log$log("About page", "was just viewed")
   res$send("Me me me")
 })

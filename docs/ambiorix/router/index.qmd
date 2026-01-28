@@ -15,21 +15,21 @@ library(ambiorix)
 app <- Ambiorix$new()
 
 # homepage
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$send("Home!")
 })
 
 # /users logic
-app$get("/users", \(req, res){
+app$get("/users", function(req, res){
   res$send("List of users")
 })
 
-app$get("/users/:id", \(req, res){
+app$get("/users/:id", function(req, res){
   cat("Return user id:", req$params$id, "\n")
   res$send(req$params$id)
 })
 
-app$get("/users/:id/profile", \(req, res){
+app$get("/users/:id/profile", function(req, res){
   msg <- sprintf("This is the profile of user #%s", req$params$id)
   res$send(msg)
 })
@@ -44,16 +44,16 @@ Ideally the `/users` logic should be separated from the main app, below we use t
 # create router
 router <- Router$new("/users")
 
-router$get("/", \(req, res){
+router$get("/", function(req, res){
   res$send("List of users")
 })
 
-router$get("/:id", \(req, res){
+router$get("/:id", function(req, res){
   cat("Return user id:", req$params$id, "\n")
   res$send(req$params$id)
 })
 
-router$get("/:id/profile", \(req, res){
+router$get("/:id/profile", function(req, res){
   msg <- sprintf("This is the profile of user #%s", req$params$id)
   res$send(msg)
 })
@@ -67,7 +67,7 @@ library(ambiorix)
 # core app
 app <- Ambiorix$new()
 
-app$get("/", \(req, res){
+app$get("/", function(req, res){
   res$send("Home!")
 })
 
@@ -89,22 +89,22 @@ library(htmltools)
 
 # routers + handlers:
 first_router <- Router$new("/first")
-first_router$get("/", \(req, res) {
+first_router$get("/", function(req, res) {
   res$send(h1("Users"))
 })
 
 second_router <- Router$new("/second")
-second_router$get("/", \(req, res) {
+second_router$get("/", function(req, res) {
   res$send(h1("Second!"))
 })
 
 third_router <- Router$new("/third")
-third_router$get("/", \(req, res) {
+third_router$get("/", function(req, res) {
   res$send(h1("Third!"))
 })
 
 # middleware
-second_middleware <- \(req, res) {
+second_middleware <- function(req, res) {
   cat("Hello from /second...\n")
 }
 
@@ -118,7 +118,7 @@ app <- Ambiorix$new()
 
 app$use(first_router)
 
-app$get("/", \(req, res) {
+app$get("/", function(req, res) {
   page <- div(
     tags$a(href = "/first", "1"),
     tags$a(href = "/first/second", "2"),
