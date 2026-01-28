@@ -359,6 +359,12 @@ app$get("/redirect", function(req, res){
 })
 ```
 
+If not specified, `status` defaults to `302 "Found"`.
+
+302 is appropriate for most application redirects eg. post-login, form submissions,
+conditional routing etc. as it doesn't pollute browser caches or tell search engines
+the original URL is gone forever.
+
 ## Hooks
 
 Hooks are functions that run before or after rendering, allowing for

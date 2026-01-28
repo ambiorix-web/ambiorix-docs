@@ -879,6 +879,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>status <span class="ot">&lt;-</span> <span class="dv">302</span>L</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">redirect</span>(<span class="at">path =</span> <span class="st">"/"</span>)</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If not specified, <code>status</code> defaults to <code>302 "Found"</code>.</p>
+<p>302 is appropriate for most application redirects eg. post-login, form submissions, conditional routing etc. as it doesn’t pollute browser caches or tell search engines the original URL is gone forever.</p>
 </section>
 <section id="hooks" class="level2">
 <h2 class="anchored" data-anchor-id="hooks">Hooks</h2>
