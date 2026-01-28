@@ -328,6 +328,17 @@ app$get("/hello", function(req, res) {
 })
 ```
 
+Get set cookies by their name via the `cookie` item of the request object:
+
+```r
+cookie_get <- function(req, res) {
+  value <- req$cookie$today %||% ""
+  msg <- paste("The value of cookie 'today' is:", value)
+
+  res$send(msg)
+}
+```
+
 To clear a cookie, use the `clear_cookie()` method:
 
 ```r

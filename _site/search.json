@@ -375,7 +375,7 @@
     "href": "docs/ambiorix/response/index.html#cookies",
     "title": "Response",
     "section": "Cookies",
-    "text": "Cookies\nTo set a cookie, use the cookie() method:\napp$get(\"/hello\", function(req, res) {\n  today &lt;- as.character(Sys.Date())\n  res$cookie(name = \"today\", value = today)\n  res$send(\"Hello! Cookie 'today' has been set.\")\n})\nTo clear a cookie, use the clear_cookie() method:\napp$get(\"/hello2\", function(req,res) {\n  res$clear_cookie(name = \"today\")\n  res$send(\"Cookie 'today' cleared!\")\n})",
+    "text": "Cookies\nTo set a cookie, use the cookie() method:\napp$get(\"/hello\", function(req, res) {\n  today &lt;- as.character(Sys.Date())\n  res$cookie(name = \"today\", value = today)\n  res$send(\"Hello! Cookie 'today' has been set.\")\n})\nGet set cookies by their name via the cookie item of the request object:\ncookie_get &lt;- function(req, res) {\n  value &lt;- req$cookie$today %||% \"\"\n  msg &lt;- paste(\"The value of cookie 'today' is:\", value)\n\n  res$send(msg)\n}\nTo clear a cookie, use the clear_cookie() method:\napp$get(\"/hello2\", function(req,res) {\n  res$clear_cookie(name = \"today\")\n  res$send(\"Cookie 'today' cleared!\")\n})",
     "crumbs": [
       "Documentation",
       "Ambiorix",
