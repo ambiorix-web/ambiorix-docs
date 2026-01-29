@@ -359,11 +359,24 @@ app$get("/redirect", function(req, res){
 })
 ```
 
-If not specified, `status` defaults to `302 "Found"`.
+- If not specified, `status` defaults to `302 "Found"`.
 
-302 is appropriate for most application redirects eg. post-login, form submissions,
-conditional routing etc. as it doesn't pollute browser caches or tell search engines
-the original URL is gone forever.
+  302 is appropriate for most application redirects eg. post-login, form submissions,
+  conditional routing etc. as it doesn't pollute browser caches or tell search engines
+  the original URL is gone forever.
+
+- The `path` argument can either be:
+    - an internal path in the application eg. "/about"
+
+      ```r
+      res$redirect(path = "/about")
+      ```
+
+    - or an external URL like "https://ambiorix.dev".
+
+      ```r
+      res$redirect(path = "https://ambiorix.dev")
+      ```
 
 ## Hooks
 

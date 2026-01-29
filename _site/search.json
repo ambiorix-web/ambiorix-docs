@@ -387,7 +387,7 @@
     "href": "docs/ambiorix/response/index.html#redirect",
     "title": "Response",
     "section": "Redirect",
-    "text": "Redirect\nOne can also redirect to a different url, note that these should have a status starting in 3.\napp$get(\"/redirect\", function(req, res){\n  res$status &lt;- 302L\n  res$redirect(path = \"/\")\n})\nIf not specified, status defaults to 302 \"Found\".\n302 is appropriate for most application redirects eg. post-login, form submissions, conditional routing etc. as it doesn’t pollute browser caches or tell search engines the original URL is gone forever.",
+    "text": "Redirect\nOne can also redirect to a different url, note that these should have a status starting in 3.\napp$get(\"/redirect\", function(req, res){\n  res$status &lt;- 302L\n  res$redirect(path = \"/\")\n})\n\nIf not specified, status defaults to 302 \"Found\".\n302 is appropriate for most application redirects eg. post-login, form submissions, conditional routing etc. as it doesn’t pollute browser caches or tell search engines the original URL is gone forever.\nThe path argument can either be:\n\nan internal path in the application eg. “/about”\nres$redirect(path = \"/about\")\nor an external URL like “https://ambiorix.dev”.\nres$redirect(path = \"https://ambiorix.dev\")",
     "crumbs": [
       "Documentation",
       "Ambiorix",
