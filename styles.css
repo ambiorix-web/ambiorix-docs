@@ -94,14 +94,15 @@
   padding: 1rem;
 }
 
-.g-col-4 {
+.g-col-4,
+.g-col-12 {
   background: #fff;
   border: 1px solid #e8e8e8;
   border-radius: 12px;
   padding: 1.5rem;
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .g-col-4:hover {

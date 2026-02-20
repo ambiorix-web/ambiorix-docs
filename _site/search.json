@@ -1145,7 +1145,7 @@
     "href": "index.html#full-stack-right-in-r",
     "title": "Ambiorix",
     "section": "Full stack, right in R",
-    "text": "Full stack, right in R\nEasily build web applications & APIs, all in one syntax and right in R.\n\n\nEasy to use\nCreate applications with the tried and tested API of express.js\n\n\nOne syntax\nUse a single syntax to build RESTful APIs and web applications\n\n\nExtendable\nLeverage existing middlewares, parsers & serializers or create your own"
+    "text": "Full stack, right in R\nEasily build web applications & APIs, all in one syntax and right in R.\n\n\nEasy to use\nCreate applications with the tried and tested API of express.js\n\n\nOne syntax\nUse a single syntax to build RESTful APIs and web applications\n\n\nExtendable\nLeverage existing middlewares, parsers & serializers or create your own\n\n\nlibrary(ambiorix)\n\napp &lt;- Ambiorix$new(port = 3000L)\n\napp$get(\"/\", function(req, res) {\n  res$send(\"Hello, World!\")\n})\n\napp$get(\"/api/v1/users\", function(req, res) {\n  users &lt;- data.frame(\n    uid = 1:3,\n    firstname = c(\"Alice\", \"Bob\", \"Cate\"),\n    lastname = c(\"Queen\", \"Jeremy\", \"Reece\"),\n    active = c(TRUE, FALSE, TRUE)\n  )\n\n  res$json(users)\n})\n\napp$start()"
   },
   {
     "objectID": "index.html#features",
@@ -1159,7 +1159,7 @@
     "href": "index.html#get-started",
     "title": "Ambiorix",
     "section": "Get Started",
-    "text": "Get Started\nBuild for the web, stay in R.\nGet Started"
+    "text": "Get Started\nBuild for the web, with R.\nGet Started"
   },
   {
     "objectID": "blog/index.html",
