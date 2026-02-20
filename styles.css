@@ -91,13 +91,12 @@
   max-width: 1000px;
   margin: 0 auto;
   gap: 1.5rem !important;
-  padding: 1rem;
 }
 
 .g-col-4,
 .g-col-12 {
   background: #fff;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #1c171745;
   border-radius: 12px;
   padding: 1.5rem;
   transition:
@@ -114,6 +113,7 @@
   font-size: 1.2rem;
   font-weight: 700;
   color: #667eea;
+  margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
