@@ -65,7 +65,7 @@ app$start()
 
 With Ambiorix, you get:
 
-::: {.grid}
+::: {.grid .mb-5}
 
 ::: {.g-col-4}
 ### Routing
@@ -95,6 +95,150 @@ Use asynchronous programming techniques by returning promises from request handl
 ::: {.g-col-4}
 ### Autonomy
 You have absolute full control over the request-response cycle!
+:::
+
+:::
+
+::: {.panel-tabset}
+
+## Routing
+
+::: {.g-col-12}
+
+```r
+library(ambiorix)
+
+app <- Ambiorix$new(port = 3000L)
+
+app$get("/", function(req, res) {
+  res$send("Home!")
+})
+
+app$get("/about", function(req, res) {
+  res$send("About me!")
+})
+
+app$get("/users/:id", function(req, res) {
+  msg <- sprintf("This is user #%s", req$params$id)
+  res$text(msg)
+})
+
+app$start()
+```
+
+:::
+
+## Templating
+
+::: {.g-col-12}
+
+```r
+library(ambiorix)
+
+app <- Ambiorix$new(port = 3000L)
+
+app$get("/:book", function(req, res) {
+  res$render(
+    "home.html",
+    data = list(title = req$params$book)
+  )
+})
+
+app$start()
+```
+
+----
+
+
+```html
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>[% title %]</title>
+</head>
+<body>
+  <h1>[% title %]</h1>
+  <p>Welcome to Ambiorix!</p>
+</body>
+</html>
+```
+
+:::
+
+## Middleware
+
+::: {.g-col-12}
+
+```r
+library(ambiorix)
+
+app <- Ambiorix$new(port = 3000L)
+
+# pre-process every request
+app$use(function(req, res) {
+  cat(sprintf("[%s] %s\n", req$REQUEST_METHOD, req$PATH_INFO))
+})
+
+app$get("/", function(req, res) {
+  res$send("Hello, World!")
+})
+
+app$start()
+```
+
+:::
+
+## Websockets
+
+::: {.g-col-12}
+
+```r
+library(ambiorix)
+
+app <- Ambiorix$new(port = 3000L)
+
+app$get("/", function(req, res) {
+  res$send_file("home.html")
+})
+
+# listen to incoming websocket messages
+app$receive("hello", function(msg, ws) {
+  print(msg)
+  ws$send("hello", "Hello back! (sent from R)")
+})
+
+app$start()
+```
+
+:::
+
+## Async
+
+::: {.g-col-12}
+
+```r
+library(future)
+library(ambiorix)
+
+plan(multisession)
+
+app <- Ambiorix$new(port = 3000L)
+
+app$get("/async", function(req, res) {
+  future({
+    Sys.sleep(10)
+    res$send(Sys.time())
+  })
+})
+
+app$get("/sync", function(req, res) {
+  res$send(Sys.time())
+})
+
+app$start()
+```
+
 :::
 
 :::

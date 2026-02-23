@@ -127,7 +127,12 @@
 /* Get Started Section */
 #get-started {
   padding: 3rem 1rem;
-  margin-top: 2rem;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+#get-started h2 {
+  margin-top: 3rem;
 }
 
 #get-started + p {
