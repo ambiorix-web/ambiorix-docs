@@ -8,7 +8,7 @@ page-layout: full
 
 [Watch Video](https://www.youtube.com/watch?v=owpbIQ-j6Kk){.btn .btn-primary}
 [Read the docs](/docs/){.btn .btn-secondary}
-[Read the book](https://try.ambiorix.dev/book/){.btn .btn-secondary}
+[Read the book](https://book.ambiorix.dev/){.btn .btn-secondary}
 
 :::
 
