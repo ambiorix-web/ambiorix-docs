@@ -399,7 +399,7 @@ pre-processing and post-processing of content.
 
 ### Pre-render hooks
 
-A pre-render hook runs before the `render()` and `send_file()` methods. Pre-render
+A pre-render hook runs before the `render()` method. Pre-render
 hooks are meant to be used as middlewares to, if necessary, do pre-processing
 before rendering.
 

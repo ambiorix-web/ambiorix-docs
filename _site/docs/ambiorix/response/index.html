@@ -904,7 +904,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Hooks are functions that run before or after rendering, allowing for pre-processing and post-processing of content.</p>
 <section id="pre-render-hooks" class="level3">
 <h3 class="anchored" data-anchor-id="pre-render-hooks">Pre-render hooks</h3>
-<p>A pre-render hook runs before the <code>render()</code> and <code>send_file()</code> methods. Pre-render hooks are meant to be used as middlewares to, if necessary, do pre-processing before rendering.</p>
+<p>A pre-render hook runs before the <code>render()</code> method. Pre-render hooks are meant to be used as middlewares to, if necessary, do pre-processing before rendering.</p>
 <p>It must accept at least 4 arguments:</p>
 <ul>
 <li><code>self</code>: The Request class instance.</li>
