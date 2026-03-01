@@ -144,12 +144,26 @@ app$get("/text", function(req, res){
 
 ## File
 
-An `.html` or `.R` file can also be used as response.
+Send files using the `send_file()` method:
 
 ```r
-# sends templates/home.html
 app$get("/file", function(req, res) {
-  res$send_file(file = "home.html")
+  res$send_file(file = "path/to/file.html")
+})
+```
+
+The `file` argument is the path to your file.
+
+When using this method, you might want to pair
+it with the [Content-Disposition](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Disposition) header:
+
+```r
+app$get("/iris", function(req, res) {
+  res$header(
+    "Content-Disposition",
+    "attachment; filename=iris-tail.pdf"
+  )
+  res$send_file(file = "xyz.pdf")
 })
 ```
 

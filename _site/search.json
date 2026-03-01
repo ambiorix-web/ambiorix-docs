@@ -255,7 +255,7 @@
     "href": "docs/ambiorix/response/index.html#file",
     "title": "Response",
     "section": "File",
-    "text": "File\nAn .html or .R file can also be used as response.\n# sends templates/home.html\napp$get(\"/file\", function(req, res) {\n  res$send_file(file = \"home.html\")\n})",
+    "text": "File\nSend files using the send_file() method:\napp$get(\"/file\", function(req, res) {\n  res$send_file(file = \"path/to/file.html\")\n})\nThe file argument is the path to your file.\nWhen using this method, you might want to pair it with the Content-Disposition header:\napp$get(\"/iris\", function(req, res) {\n  res$header(\n    \"Content-Disposition\",\n    \"attachment; filename=iris-tail.pdf\"\n  )\n  res$send_file(file = \"xyz.pdf\")\n})",
     "crumbs": [
       "Documentation",
       "Ambiorix",
