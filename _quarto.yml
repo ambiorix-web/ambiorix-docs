@@ -12,11 +12,13 @@ website:
     left:
       - text: Home
         href: index.qmd
-      - text: Documentation
+      - text: Docs
         href: docs/index.qmd
+      - text: Book
+        href: https://book.ambiorix.dev/
       - text: Blog
         href: blog/index.qmd
-      - text: Showcase
+      - text: Gallery
         href: showcase/index.qmd
     right:
       - icon: github

@@ -82,11 +82,11 @@ ul.task-list li input[type="checkbox"] {
     // Determine which navbar item should be active based on path
     let activeText = null;
     if (path.startsWith("/docs/") || path === "/docs") {
-      activeText = "Documentation";
+      activeText = "Docs";
     } else if (path.startsWith("/blog/") || path === "/blog") {
       activeText = "Blog";
     } else if (path.startsWith("/showcase/") || path === "/showcase") {
-      activeText = "Showcase";
+      activeText = "Gallery";
     } else if (path === "/" || path === "/index.html") {
       activeText = "Home";
     }
@@ -133,7 +133,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../docs/index.html" aria-current="page"> 
-<span class="menu-text">Documentation</span></a>
+<span class="menu-text">Docs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://book.ambiorix.dev/"> 
+<span class="menu-text">Book</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../blog/index.html"> 
@@ -141,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../showcase/index.html"> 
-<span class="menu-text">Showcase</span></a>
+<span class="menu-text">Gallery</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
