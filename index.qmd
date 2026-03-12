@@ -219,22 +219,30 @@ app$start()
 ::: {.g-col-12}
 
 ```r
-library(future)
 library(ambiorix)
+library(future)
 
 plan(multisession)
 
+now <- function() {
+  format(
+    x = Sys.time(),
+    format = "%F %T",
+    usetz = TRUE
+  )
+}
+
 app <- Ambiorix$new(port = 3000L)
 
-app$get("/async", function(req, res) {
+app$get("/slow", function(req, res) {
   future({
     Sys.sleep(10)
-    res$send(Sys.time())
+    res$send(now())
   })
 })
 
-app$get("/sync", function(req, res) {
-  res$send(Sys.time())
+app$get("/fast", function(req, res) {
+  res$send(now())
 })
 
 app$start()
