@@ -639,7 +639,7 @@
     "href": "docs/ambiorix/async/index.html",
     "title": "Async",
     "section": "",
-    "text": "Ambiorix supports asynchronous programming so requests do not block R’s single thread, allowing the server to serve other requests in the meantime. This is done by having the handler return a promise: this promise should output a valid response.",
+    "text": "Ambiorix supports asynchronous programming so requests do not block R’s single thread, allowing the server to serve other requests in the meantime.\nThis is done by having the handler return a promise: this promise should output a valid response.",
     "crumbs": [
       "Docs",
       "Ambiorix",
@@ -651,7 +651,7 @@
     "href": "docs/ambiorix/async/index.html#example",
     "title": "Async",
     "section": "Example",
-    "text": "Example\nThe application below demonstrates asynchronous programming and its benefit. One can visit /async then /sync and get a response on the latter, despite the fact that /async is still processing (Sys.sleep(10) = 10 seconds). Were /async not returning a promise, /sync would have to wait until /async had stopped processing (10 seconds) before the server could return a response.\nlibrary(future)\nlibrary(ambiorix)\n\nplan(multisession)\n\napp &lt;- Ambiorix$new()\n\napp$get(\"/async\", function(req, res){\n  future({\n    Sys.sleep(10)\n    res$send(Sys.time())\n  })\n})\n\napp$get(\"/sync\", function(req, res){\n  res$send(Sys.time())\n})\n\napp$start()",
+    "text": "Example\nThe application below demonstrates asynchronous programming and its benefit.\nOne can visit /async then /sync and get a response on the latter, despite the fact that /async is still processing (Sys.sleep(10) = 10 seconds). Were /async not returning a promise, /sync would have to wait until /async had stopped processing (10 seconds) before the server could return a response.\nlibrary(ambiorix)\nlibrary(future)\n\nplan(multisession)\n\nnow &lt;- function() {\n  format(\n    x = Sys.time(),\n    format = \"%F %T\",\n    usetz = TRUE\n  )\n}\n\napp &lt;- Ambiorix$new(port = 3000L)\n\napp$get(\"/async\", function(req, res) {\n  future({\n    Sys.sleep(10)\n    res$send(now())\n  })\n})\n\napp$get(\"/sync\", function(req, res) {\n  res$send(now())\n})\n\napp$start()",
     "crumbs": [
       "Docs",
       "Ambiorix",
