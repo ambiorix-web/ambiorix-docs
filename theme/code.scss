@@ -1,24 +1,5 @@
 /*-- scss:rules --*/
 
-// ══════════════════════════════════════════════════════════════════════
-//  CODE
-//
-//  114 ```r fences plus bash, html and js. Because the prose is already
-//  monospace, a code block cannot announce itself by changing face — so
-//  it is drawn instead: a hairline rectangle over the page ground, with
-//  no fill at all. That is opencode's move, and it is the reason a page
-//  that is 60% code here still reads as a document.
-//
-//    INPUT   labelled fences -> <div class="sourceCode"><pre class="sourceCode r">
-//            bordered, transparent, syntax-highlighted. Code you run.
-//
-//    OUTPUT  bare ``` fences -> <pre><code>  (no .sourceCode class)
-//            ~100 of them: console dumps and logs. One hairline in the
-//            margin, dimmed, no box. Code you read. No markup changes.
-// ══════════════════════════════════════════════════════════════════════
-
-// ── INPUT ─────────────────────────────────────────────────────────────
-
 div.sourceCode {
   position: relative;
   background-color: transparent;
@@ -52,11 +33,6 @@ div.sourceCode code {
   background: none;
 }
 
-// Code scrolls rather than wraps (see `code-overflow: scroll` in
-// _quarto.yml). Wrapping runs continuations flush to the left edge, which
-// makes a wrapped line indistinguishable from a new one — and a hanging
-// indent cannot fix it, because Pandoc separates its per-line <span>s
-// with literal newlines that a block display would render as a break.
 pre.sourceCode::-webkit-scrollbar { height: 8px; }
 pre.sourceCode::-webkit-scrollbar-track { background: transparent; }
 
@@ -67,15 +43,12 @@ pre.sourceCode::-webkit-scrollbar-thumb {
   &:hover { background-color: $fg-weak; }
 }
 
-// Quarto emits an empty anchor per line for deep-linking.
 pre.sourceCode code > span > a:first-child {
   text-decoration: none;
   color: inherit;
 
   &::before { content: none; }
 }
-
-// ── OUTPUT ────────────────────────────────────────────────────────────
 
 #quarto-document-content pre:not(.sourceCode),
 #quarto-document-content div.cell-output pre {
@@ -90,7 +63,6 @@ pre.sourceCode code > span > a:first-child {
   padding: 0.25rem 0 0.25rem 1.125rem;
   margin: 1.5rem 0;
   overflow-x: auto;
-  // Log dumps carry long unbreakable tokens: user-agent strings, URLs.
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 
@@ -102,20 +74,12 @@ pre.sourceCode code > span > a:first-child {
     font-size: inherit;
     font-weight: 400;
 
-    // Quarto sets `code { white-space: pre }` on the element itself,
-    // which beats the pre-wrap inherited from the <pre>. Restate it or
-    // long log lines run off under the border instead of wrapping.
     white-space: pre-wrap;
     overflow-wrap: anywhere;
 
     &::before, &::after { content: none; }
   }
 }
-
-// ── Copy button ───────────────────────────────────────────────────────
-//
-// A square that sits on the block's own border, always visible rather
-// than revealed on hover — on a touch screen there is no hover to give.
 
 .code-copy-button {
   position: absolute;
@@ -144,11 +108,6 @@ div.sourceCode:hover .code-copy-button,
 
 .code-copy-button-checked { opacity: 1; color: $accent; }
 
-// ── Code nested inside ordered lists ──────────────────────────────────
-//
-// docs/getting-started and docs/ambiorix/deploy indent fences four spaces
-// inside <ol> items — the most layout-stressed markup in the repo.
-
 #quarto-document-content {
   li {
     > div.sourceCode,
@@ -160,16 +119,6 @@ div.sourceCode:hover .code-copy-button,
     > p + div.sourceCode { margin-top: 0.625rem; }
   }
 }
-
-// ══════════════════════════════════════════════════════════════════════
-//  CALLOUTS
-//
-//  Seven in the whole site: five note, two warning. Quarto's structure is
-//  .callout > .callout-header > .callout-title-container plus
-//  .callout-body-container — the header normally carries a tinted fill,
-//  which is removed here in favour of the same hairline everything else
-//  on the page uses.
-// ══════════════════════════════════════════════════════════════════════
 
 #quarto-document-content .callout {
   border: 1px solid $border-weak;

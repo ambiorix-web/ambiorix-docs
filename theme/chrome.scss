@@ -1,47 +1,14 @@
 /*-- scss:rules --*/
 
-// ══════════════════════════════════════════════════════════════════════
-//  CHROME — header, sidebar, TOC, title block, footer
-//
-//  Every piece of furniture here is the same face and nearly the same
-//  size as the body text; hierarchy comes from weight, colour and a 1px
-//  hairline, never from a fill or a shadow. That is what makes the layout
-//  read as one surface with rules drawn on it rather than as a stack of
-//  panels.
-// ══════════════════════════════════════════════════════════════════════
-
-// ── Page measure ──────────────────────────────────────────────────────
-//
-// Quarto lays every page out on one named grid, and pools all the slack
-// left over at a viewport wider than the content into a single column on
-// the far right ([page-end] → [screen-end-inset]). On a docs page that put
-// the docked sidebar flush against the left edge of the screen with ~240px
-// of dead air on the other side — the whole layout visibly off-centre.
-//
-// Capping the grid container and letting the auto margins do the work
-// collapses that column to zero and centres the lot. The body column keeps
-// its size; only the wasted margin goes.
 #quarto-content {
   max-width: $page-max;
   margin-left: auto;
   margin-right: auto;
 }
 
-// The grid opens and closes with a gutter column of equal width, but a
-// docked sidebar is placed from [screen-start], so it swallows the opening
-// one while the closing one stays empty — leaving the centred block sitting
-// a gutter's width left of true centre. Starting the sidebar one line later
-// balances it exactly, and does so in the grid's own terms rather than
-// against a hard-coded pixel value.
 @media (min-width: 992px) {
   #quarto-sidebar { grid-column-start: screen-start-inset; }
 }
-
-// ── Header ────────────────────────────────────────────────────────────
-//
-// Full-bleed, and deliberately not on the page measure above: the mark sits
-// against the left edge of the screen and the tools against the right, with
-// the section links centred between them.
 
 .navbar {
   background-color: $bg !important;
@@ -67,8 +34,6 @@
     color: $fg-strong;
   }
 
-  // The mark is a circular avatar; it is the only round thing on the page
-  // and it stays that way because cropping it square would maul the face.
   .navbar-logo {
     max-height: 26px;
     width: auto;
@@ -85,16 +50,6 @@
 
 .navbar-collapse { justify-content: flex-end; }
 
-// Three fixed positions across the bar: mark left, section links centre,
-// tools right.
-//
-// The links are centred on the *bar*, not on the space left between the
-// mark and the tools — those two are different widths, so letting flexbox
-// centre them in the gap would leave the row visibly off by half their
-// difference. Taking the list out of flow and pinning it to 50% is the only
-// way the centre is the real centre. Desktop only: below 992px Bootstrap
-// collapses the bar into the hamburger and the list becomes a stacked menu,
-// which must stay in flow.
 @media (min-width: 992px) {
   .navbar-container { position: relative; }
 
@@ -112,7 +67,6 @@
     white-space: nowrap;
   }
 
-  // Socials keep to the right, ahead of the theme toggle and search.
   .navbar-collapse > ul.navbar-nav:last-child {
     margin-left: auto !important;
   }
@@ -136,7 +90,6 @@
   }
 }
 
-// GitHub, X and the light/dark toggle.
 .navbar .quarto-navbar-tools .nav-link,
 .navbar-nav .nav-link.quarto-navigation-tool,
 .quarto-color-scheme-toggle {
@@ -155,29 +108,6 @@
   &:focus { box-shadow: none; }
 }
 
-// ── Sidebar ───────────────────────────────────────────────────────────
-//
-// A single hairline down the right edge, uppercase group labels, and no
-// fills anywhere. The current page is marked by weight and colour only —
-// no pill, no bar, no tint. That is the whole idea: the tree reads as a
-// printed contents page rather than as a control panel.
-//
-// Quarto's markup, for reference:
-//
-//   nav#quarto-sidebar
-//     > div.sidebar-menu-container
-//       > ul
-//         > li.sidebar-item                     flat page (Introduction)
-//         > li.sidebar-item.sidebar-item-section    group (CORE, BUILDING)
-//             > div.sidebar-item-container > a.sidebar-item-text
-//             > ul.sidebar-section.depth1
-//                 > li.sidebar-item                 page in the group
-//                 > li.sidebar-item-section         subsection (Belgic)
-//                     > ul.sidebar-section.depth2
-//
-// The group label and a plain top-level page share a class list, so the
-// distinction below is always drawn on .sidebar-item-section.
-
 #quarto-sidebar {
   background-color: $bg !important;
   border-right: 1px solid $border-weak;
@@ -185,15 +115,6 @@
   padding-top: 1.5rem;
   padding-bottom: 3rem;
 
-  // Every group is expanded, so the tree is roughly 2,400px tall. Left in
-  // normal flow it would set the height of the whole document, and a page
-  // with two lines on it — /docs/ambiorix/load-balancing, say — would
-  // scroll for two screens of nothing. Pinning it to the viewport with its
-  // own scroller is what lets the groups stay open.
-  //
-  // `align-self: start` is load-bearing: sidebar and content are cells of
-  // the same CSS grid, and a stretched grid item is already as tall as its
-  // row, which leaves sticky nothing to travel through.
   @media (min-width: 992px) {
     position: sticky;
     top: 0;
@@ -234,11 +155,6 @@
     &:hover { color: $fg-strong; }
   }
 
-  // ── Group labels ──────────────────────────────────────────────────
-  //
-  // CORE, BUILDING, DEPLOY. Headings that happen to toggle, so they take
-  // the heading colour and none of the link affordances. The air above
-  // each one is what separates the groups; there is no rule between them.
   > div > ul > li.sidebar-item-section {
     margin-top: 1.75rem;
 
@@ -254,19 +170,14 @@
     }
   }
 
-  // Pages inside a group hang flush with the label — the uppercase carries
-  // the indent, so whitespace does not have to.
   ul.sidebar-section.depth1 > .sidebar-item { padding-left: 0; }
 
-  // A subsection (Belgic, Generator, CLI) is a page with pages under it.
-  // Its own children step in behind a hairline; it does not.
   ul.sidebar-section.depth2 {
     padding-left: 0.875rem;
     margin-left: 0.0625rem;
     border-left: 1px solid $border-weak;
   }
 
-  // Current page.
   .sidebar-item-container .sidebar-link.active,
   .sidebar-item-container .sidebar-item-text.active {
     color: $fg-strong;
@@ -275,8 +186,6 @@
     text-decoration: none;
   }
 
-  // The caret is an affordance, not information: it stays at icon weight
-  // and never competes with the label beside it.
   .sidebar-item-toggle {
     padding: 0.25rem 0;
 
@@ -286,8 +195,6 @@
     }
   }
 }
-
-// ── Table of contents ─────────────────────────────────────────────────
 
 #quarto-margin-sidebar,
 .sidebar.margin-sidebar {
@@ -322,7 +229,6 @@
     list-style: none;
   }
 
-  // Nested entries step in by depth rather than hanging off a rail.
   ul ul { padding-left: 0.875rem; }
 
   a.nav-link,
@@ -344,8 +250,6 @@
     }
   }
 }
-
-// ── Breadcrumbs ───────────────────────────────────────────────────────
 
 .quarto-page-breadcrumbs {
   margin-bottom: 0.75rem;
@@ -376,8 +280,6 @@
   }
 }
 
-// ── Title block ───────────────────────────────────────────────────────
-
 .quarto-title-block {
   padding-top: 2.5rem;
   padding-bottom: 0;
@@ -403,20 +305,9 @@
     line-height: 1.6;
     margin: 0.25rem 0 1rem;
   }
-
 }
 
-// Dates and authors are noise on a reference page — the changelog is where
-// version history actually lives. Quarto styles this block through an id,
-// so the override has to carry one too.
 #title-block-header .quarto-title-meta { display: none !important; }
-
-// ── Page navigation ───────────────────────────────────────────────────
-//
-// Previous/next along the foot of every doc page, which is how a reader
-// gets through fifty pages in order without going back to the sidebar
-// each time. Two hairline boxes; the arrow marks the direction and the
-// box grows its border on hover rather than filling.
 
 .page-navigation {
   display: flex;
@@ -429,7 +320,6 @@
     flex: 1 1 0;
     padding: 0;
 
-    // Quarto floats these; the flex row above wants them in normal flow.
     float: none;
   }
 
@@ -462,8 +352,6 @@
   .page-navigation { flex-direction: column; }
 }
 
-// ── Footer ────────────────────────────────────────────────────────────
-
 .nav-footer {
   background-color: $bg;
   border-top: 1px solid $border-weak;
@@ -481,11 +369,8 @@
   }
 }
 
-// ── Misc ──────────────────────────────────────────────────────────────
-
 #quarto-document-content { padding-bottom: 2rem; }
 
-// "Edit this page" / "Report an issue", under the table of contents.
 .toc-actions {
   border-top: 1px solid $border-weak;
   margin-top: 1.5rem;
@@ -516,7 +401,6 @@
   &:hover { color: $fg-strong; }
 }
 
-// Focus is drawn with the accent — one of only two places it appears.
 :focus-visible {
   outline: 2px solid $accent-line;
   outline-offset: 2px;

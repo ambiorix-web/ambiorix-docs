@@ -8,8 +8,6 @@ website:
   favicon: images/icon.png
   page-navigation: true
 
-  # "Edit this page" / "Report an issue" under the table of contents, the
-  # way opencode carries them in its footer.
   repo-url: https://github.com/ambiorix-web/ambiorix-docs
   repo-branch: main
   repo-actions: [edit, issue]
@@ -45,22 +43,6 @@ website:
       - icon: twitter-x
         href: https://x.com/ambiorixweb
 
-  # ────────────────────────────────────────────────────────────────────
-  #  Sidebar
-  #
-  #  Grouped the way opencode's is: a short flat run of orientation pages
-  #  at the top, then uppercase group labels over flat lists of siblings.
-  #  The groups are labels, not links — the pages that used to serve as
-  #  section landings (docs/ambiorix, docs/middlewares, docs/examples,
-  #  docs/belgic, docs/generator, docs/cli) are all still here and still
-  #  at the same URLs; they appear as "Overview" entries inside their own
-  #  group instead of as clickable section headers.
-  #
-  #  Nothing was moved or deleted, so every published URL still resolves.
-  #  docs/ambiorix/from-shiny is deliberately absent: it renders and keeps
-  #  its URL, but is not linked from the navigation, which is how it has
-  #  always been published.
-  # ────────────────────────────────────────────────────────────────────
   sidebar:
     - id: docs
       title: "Documentation"
@@ -192,8 +174,6 @@ website:
 
 format:
   html:
-    # Ambiorix — monospace, hairline, square. See theme/light.scss for the
-    # palette and the reasoning; theme/dark.scss mirrors it name for name.
     theme:
       light:
         - default

@@ -1,18 +1,6 @@
 /*-- scss:rules --*/
 
-// ══════════════════════════════════════════════════════════════════════
-//  BASE — faces, ground, prose
-//
-//  Written against the names declared in theme/light.scss and
-//  theme/dark.scss. Quarto compiles this file once per mode, so a bare
-//  $fg here resolves to whichever palette is being built.
-// ══════════════════════════════════════════════════════════════════════
-
-// ── Faces ─────────────────────────────────────────────────────────────
-// Latin-subset woff2, self-hosted. Quarto resolves url() in theme SCSS
-// relative to the project root and copies the file next to the compiled
-// stylesheet. Two weights carry the entire site: 400 for everything,
-// 600 for headings, labels and emphasis.
+// Design inspired by the opencode docs: https://opencode.ai/docs/
 
 @font-face {
   font-family: "IBM Plex Mono";
@@ -29,8 +17,6 @@
   font-style: normal;
   font-display: swap;
 }
-
-// ── Ground ────────────────────────────────────────────────────────────
 
 html {
   -webkit-text-size-adjust: 100%;
@@ -59,20 +45,10 @@ body {
   scrollbar-color: $border transparent;
 }
 
-// Nothing in this design is rounded. Bootstrap sets radii on a long tail
-// of components that the variables above do not reach.
 .card, .btn, .form-control, .dropdown-menu, .alert, .badge,
 .nav-link, .list-group-item, .toast, .modal-content, .popover {
   border-radius: 0 !important;
 }
-
-// ══════════════════════════════════════════════════════════════════════
-//  HEADINGS
-//
-//  A mono face has no small-caps and no italic worth using, so the
-//  hierarchy is carried by size and weight alone — which means the steps
-//  have to be wide enough to read as steps.
-// ══════════════════════════════════════════════════════════════════════
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -82,10 +58,7 @@ h1, h2, h3, h4, h5, h6,
   letter-spacing: -0.01em;
 }
 
-// Scoped to the document body. #quarto-content also wraps the sidebar and
-// the TOC, whose own <h2 id="toc-title"> would otherwise inherit these.
 #quarto-document-content {
-
   h1 {
     font-size: 2rem;
     line-height: 1.2;
@@ -100,8 +73,6 @@ h1, h2, h3, h4, h5, h6,
     margin-top: 3rem;
     margin-bottom: 1rem;
 
-    // Quarto rules under every h2. The page is already full of hairlines;
-    // one more directly beneath a heading only muddies the hierarchy.
     border-bottom: 0;
     padding-bottom: 0;
     padding-top: 0;
@@ -130,7 +101,6 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-// Anchor links — held back until the heading is hovered.
 .anchorjs-link {
   color: $fg-weak !important;
   text-decoration: none !important;
@@ -144,12 +114,7 @@ h1:hover, h2:hover, h3:hover, h4:hover {
   .anchorjs-link { opacity: 1; }
 }
 
-// ══════════════════════════════════════════════════════════════════════
-//  PROSE
-// ══════════════════════════════════════════════════════════════════════
-
 #quarto-document-content {
-
   p, li, dd { line-height: $line-height-base; }
 
   p { margin-bottom: 1.375rem; }
@@ -165,14 +130,6 @@ h1:hover, h2:hover, h3:hover, h4:hover {
     width: 100%;
   }
 
-  // -- Links ----------------------------------------------------------
-  //
-  // Underlined, in the heading colour rather than a link colour. With a
-  // single typeface and no italic, the underline is the only signal
-  // available — so it is never removed, and it is offset far enough to
-  // clear the descenders that mono faces cut deep.
-  //
-  // Tabset labels are .nav-link inside <li> and are not prose links.
   p, li, td, dd, blockquote, figcaption {
     a:not(.btn):not(.nav-link):not(.no-underline) {
       color: $fg-strong;
@@ -189,7 +146,6 @@ h1:hover, h2:hover, h3:hover, h4:hover {
     }
   }
 
-  // -- Lists ----------------------------------------------------------
   ul, ol {
     padding-left: 1.5rem;
     margin-bottom: 1.375rem;
@@ -205,7 +161,6 @@ h1:hover, h2:hover, h3:hover, h4:hover {
   ul > li::marker,
   ol > li::marker { color: $fg-weak; }
 
-  // -- Blockquotes ----------------------------------------------------
   blockquote {
     margin: 1.5rem 0;
     padding: 0 0 0 1rem;
@@ -215,7 +170,6 @@ h1:hover, h2:hover, h3:hover, h4:hover {
     p:last-child { margin-bottom: 0; }
   }
 
-  // -- Images ---------------------------------------------------------
   img {
     max-width: 100%;
     height: auto;
@@ -225,8 +179,6 @@ h1:hover, h2:hover, h3:hover, h4:hover {
   figure img {
     border: 1px solid $border-weak;
 
-    // Every screenshot in the repo is a light-UI capture. On the dark
-    // ground they glare; the brightness comes back on hover.
     @if $is-dark {
       filter: brightness(0.88) saturate(0.9);
       transition: filter 0.2s ease;
@@ -245,9 +197,6 @@ h1:hover, h2:hover, h3:hover, h4:hover {
     }
   }
 
-  // -- Embeds ---------------------------------------------------------
-  // docs/ambiorix/hello-world carries a bare <iframe width="560"
-  // height="315">, which overflows on a phone.
   iframe {
     display: block;
     width: 100%;
@@ -258,7 +207,6 @@ h1:hover, h2:hover, h3:hover, h4:hover {
     margin: 1.75rem 0;
   }
 
-  // -- Tables ---------------------------------------------------------
   table {
     display: block;
     overflow-x: auto;
@@ -285,15 +233,6 @@ h1:hover, h2:hover, h3:hover, h4:hover {
   }
 }
 
-// ══════════════════════════════════════════════════════════════════════
-//  INLINE CODE
-//
-//  557 spans across the site. In an all-mono setting there is no face
-//  contrast left to mark code with, so the backticks are drawn back in —
-//  the same move opencode makes, and the reason inline code stays legible
-//  here without a loud fill behind it.
-// ══════════════════════════════════════════════════════════════════════
-
 #quarto-document-content {
   :is(p, li, td, dd, h1, h2, h3, h4, h5, h6, blockquote, figcaption,
       .callout-body) code:not(.sourceCode) {
@@ -314,15 +253,12 @@ h1:hover, h2:hover, h3:hover, h4:hover {
     }
   }
 
-  // Inside a link the code inherits the link's colour and underline, so
-  // the two do not read as separate targets.
   a code:not(.sourceCode) {
     color: inherit;
     background-color: transparent;
   }
 }
 
-// Never let the inline rules leak into a highlighted block.
 pre code,
 pre code.sourceCode,
 div.sourceCode code {
@@ -336,16 +272,7 @@ div.sourceCode code {
   &::before, &::after { content: none !important; }
 }
 
-// ══════════════════════════════════════════════════════════════════════
-//  "## Next" PAGE FOOTERS
-//
-//  Eight doc pages close with a `## Next` heading and a short link list.
-//  The id lands on the <section>, not the <h2> — Pandoc's section-divs
-//  move it there.
-// ══════════════════════════════════════════════════════════════════════
-
 #quarto-document-content section#next {
-
   > h2 {
     font-size: 0.75rem;
     font-weight: 600;
@@ -390,13 +317,7 @@ div.sourceCode code {
   }
 }
 
-// ══════════════════════════════════════════════════════════════════════
-//  CHANGELOG
-//  113 list items under a very regular `## ambiorix X.Y.Z` structure.
-// ══════════════════════════════════════════════════════════════════════
-
 #quarto-document-content section[id^="ambiorix-"] {
-
   > h2 {
     font-size: 1.125rem;
     font-variant-numeric: tabular-nums;
@@ -405,7 +326,6 @@ div.sourceCode code {
     margin-top: 2.75rem;
   }
 
-  // "New Features" / "Changes" / "Bug Fixes" run as bare bold paragraphs.
   > p strong {
     font-size: 0.75rem;
     font-weight: 600;

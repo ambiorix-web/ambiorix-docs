@@ -1,52 +1,34 @@
 /*-- scss:defaults --*/
 
-// ══════════════════════════════════════════════════════════════════════
-//  DARK
-//
-//  Same names, same meanings, same warm cast as theme/light.scss — see
-//  that file for the reasoning. The ground is not black: hsl(0 9% 7%)
-//  keeps a trace of red so the sage accent reads as a colour rather than
-//  as a glowing terminal green.
-// ══════════════════════════════════════════════════════════════════════
-
 $is-dark: true;
 
-// -- Ground -----------------------------------------------------------
 $bg:               hsl(0, 9%, 7%);
 $bg-weak:          hsl(0, 6%, 11%);
 $bg-weak-hover:    hsl(0, 6%, 15%);
-$bg-strong:        hsl(0, 15%, 94%);   // inverted: primary buttons
+$bg-strong:        hsl(0, 15%, 94%);
 $bg-strong-hover:  hsl(0, 15%, 100%);
 
-// -- Foreground -------------------------------------------------------
-$fg:               hsl(0, 4%, 71%);    // body text          9.1:1
-$fg-weak:          hsl(0, 2%, 52%);    // secondary          5.0:1
-$fg-weaker:        hsl(0, 3%, 32%);    // dividers — never text
-$fg-strong:        hsl(0, 15%, 94%);   // headings, links   16.5:1
+$fg:               hsl(0, 4%, 71%);
+$fg-weak:          hsl(0, 2%, 52%);
+$fg-weaker:        hsl(0, 3%, 32%);
+$fg-strong:        hsl(0, 15%, 94%);
 $fg-inverted:      hsl(0, 9%, 7%);
 
-// -- Edges ------------------------------------------------------------
 $border:           hsl(0, 3%, 28%);
 $border-weak:      hsl(0, 4%, 21%);
 $icon:             hsl(10, 3%, 43%);
 
-// -- Accent -----------------------------------------------------------
-$accent:           hsl(93, 34%, 66%);  // 9.4:1 on $bg
+$accent:           hsl(93, 34%, 66%);
 $accent-hi:        hsl(93, 40%, 78%);
 $accent-tint:      hsl(93, 20%, 12%);
 $accent-line:      hsl(93, 30%, 52%);
 
-// -- Syntax -----------------------------------------------------------
 $syn-keyword:      hsl(280, 32%, 74%);
 $syn-string:       hsl(93, 34%, 66%);
 $syn-function:     hsl(20, 62%, 64%);
 $syn-number:       hsl(40, 45%, 70%);
 $syn-comment:      hsl(0, 3%, 48%);
 $syn-operator:     hsl(0, 2%, 62%);
-
-// ══════════════════════════════════════════════════════════════════════
-//  TYPE
-// ══════════════════════════════════════════════════════════════════════
 
 $font-family-monospace:  "IBM Plex Mono", ui-monospace, SFMono-Regular,
                          "SF Mono", Menlo, Consolas, monospace;
@@ -60,10 +42,6 @@ $line-height-base:     1.6875;
 $headings-font-weight: 600;
 $headings-line-height: 1.3;
 $headings-color:       $fg-strong;
-
-// ══════════════════════════════════════════════════════════════════════
-//  BOOTSTRAP / QUARTO MAPPINGS  (see the note in theme/light.scss)
-// ══════════════════════════════════════════════════════════════════════
 
 $body-bg:    $bg;
 $body-color: $fg;
@@ -123,11 +101,6 @@ $border-color-dark:      $border-weak;
 $secondary-bg-dark:      $bg-weak;
 $tertiary-bg-dark:       $bg-weak-hover;
 
-// ── Layout ───────────────────────────────────────────────────────────
-// The whole three-column grid (sidebar + body + contents rail) is capped
-// and centred at this width by theme/chrome.scss. Without it Quarto pools
-// every pixel of slack in one dead column on the right, which leaves the
-// docked sidebar hugging the left edge of the screen.
 $page-max:           1360px;
 
 $grid-body-width:    780px;

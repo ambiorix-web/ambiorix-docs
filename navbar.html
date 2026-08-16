@@ -1,18 +1,5 @@
 <meta name="color-scheme" content="light dark">
 <script>
-  // Follow the operating system on a first visit.
-  //
-  // Quarto's own toggle only ever reads localStorage["quarto-color-scheme"]
-  // and falls back to the first theme in _quarto.yml — it never consults
-  // prefers-color-scheme — so someone on a dark desktop gets a white page
-  // until they find the switch. This seeds that key from the system before
-  // Quarto's script runs (it lives at the top of <body>; this include is in
-  // <head>), so the correct sheet is chosen on the first paint.
-  //
-  // A second key records the value written here. While the stored scheme
-  // still matches it, nobody has touched the toggle and the system stays in
-  // charge; the moment the two differ the reader has made an explicit
-  // choice, and this stops overriding it.
   (function () {
     var SCHEME = "quarto-color-scheme";
     var SEEDED = "ambiorix-color-scheme-seeded";
@@ -29,9 +16,7 @@
 
       window.localStorage.setItem(SCHEME, system);
       window.localStorage.setItem(SEEDED, system);
-    } catch (e) {
-      // Private browsing, or storage disabled. Quarto's default stands.
-    }
+    } catch (e) {}
   })();
 </script>
 <script>

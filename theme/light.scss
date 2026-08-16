@@ -1,67 +1,34 @@
 /*-- scss:defaults --*/
 
-// ══════════════════════════════════════════════════════════════════════
-//  LIGHT — the default mode
-//
-//  The neutral ramp is warm-cast rather than pure grey: every step below
-//  carries a trace of red, which is what keeps an all-monospace page from
-//  reading as a terminal emulator. The accent is the sage from the
-//  Ambiorix mark, darkened until it clears AA on the page ground.
-//
-//  theme/dark.scss declares the same names with the same meanings. Every
-//  rules file is written against these, and against $is-dark for the few
-//  places where a value cannot simply be swapped.
-// ══════════════════════════════════════════════════════════════════════
-
 $is-dark: false;
 
-// -- Ground -----------------------------------------------------------
-$bg:               hsl(0, 20%, 99%);   // the page
-$bg-weak:          hsl(0, 8%, 97%);    // inline code, hover fills
+$bg:               hsl(0, 20%, 99%);
+$bg-weak:          hsl(0, 8%, 97%);
 $bg-weak-hover:    hsl(0, 8%, 94%);
-$bg-strong:        hsl(0, 5%, 12%);    // inverted: primary buttons
+$bg-strong:        hsl(0, 5%, 12%);
 $bg-strong-hover:  hsl(0, 5%, 22%);
 
-// -- Foreground -------------------------------------------------------
-$fg:               hsl(0, 1%, 39%);    // body text          7.6:1
-// opencode sets its weak text to hsl(0 1% 60%), which measures 3.4:1 here —
-// fine for the chrome it uses it on, but this theme also spends it on real
-// reading copy (feature blurbs, section asides, listing descriptions, the
-// contents rail). Darkened until that copy clears AA.
-$fg-weak:          hsl(0, 2%, 45%);    // secondary          4.8:1
-$fg-weaker:        hsl(0, 2%, 76%);    // dividers, disabled — never text
-$fg-strong:        hsl(0, 5%, 12%);    // headings, links   15.4:1
+$fg:               hsl(0, 1%, 39%);
+$fg-weak:          hsl(0, 2%, 45%);
+$fg-weaker:        hsl(0, 2%, 76%);
+$fg-strong:        hsl(0, 5%, 12%);
 $fg-inverted:      hsl(0, 20%, 99%);
 
-// -- Edges ------------------------------------------------------------
 $border:           hsl(30, 2%, 81%);
 $border-weak:      hsl(0, 1%, 85%);
 $icon:             hsl(0, 1%, 55%);
 
-// -- Accent -----------------------------------------------------------
-// The sage ground of the Ambiorix mark, at three strengths. Used
-// sparingly: current-page markers, focus rings, one button.
-$accent:           hsl(93, 34%, 30%);  // 5.9:1 on $bg
+$accent:           hsl(93, 34%, 30%);
 $accent-hi:        hsl(93, 38%, 24%);
-$accent-tint:      hsl(93, 44%, 93%);  // interactive fill
-$accent-line:      hsl(93, 28%, 52%);  // rules and markers
+$accent-tint:      hsl(93, 44%, 93%);
+$accent-line:      hsl(93, 28%, 52%);
 
-// -- Syntax -----------------------------------------------------------
 $syn-keyword:      hsl(280, 30%, 40%);
 $syn-string:       hsl(93, 40%, 28%);
 $syn-function:     hsl(18, 62%, 38%);
 $syn-number:       hsl(35, 55%, 34%);
 $syn-comment:      hsl(0, 1%, 58%);
 $syn-operator:     hsl(0, 1%, 46%);
-
-// ══════════════════════════════════════════════════════════════════════
-//  TYPE — one family, monospace, for everything
-//
-//  This is the single loudest thing the design does, and the whole reason
-//  the layout can stay this plain. Setting prose in mono costs about 15%
-//  in reading speed, so the measure is kept short and the size small to
-//  claw some of it back.
-// ══════════════════════════════════════════════════════════════════════
 
 $font-family-monospace:  "IBM Plex Mono", ui-monospace, SFMono-Regular,
                          "SF Mono", Menlo, Consolas, monospace;
@@ -70,18 +37,11 @@ $font-family-serif:      $font-family-monospace;
 $font-family-base:       $font-family-monospace;
 $headings-font-family:   $font-family-monospace;
 
-$font-size-base:       0.875rem;   // 14px, as on opencode
+$font-size-base:       0.875rem;
 $line-height-base:     1.6875;
 $headings-font-weight: 600;
 $headings-line-height: 1.3;
 $headings-color:       $fg-strong;
-
-// ══════════════════════════════════════════════════════════════════════
-//  BOOTSTRAP / QUARTO MAPPINGS
-//  Duplicated verbatim in theme/dark.scss. Quarto reverses the order of
-//  `scss:defaults` blocks across theme files, so a shared mapping layer
-//  would be emitted before the palette it depends on.
-// ══════════════════════════════════════════════════════════════════════
 
 $body-bg:    $bg;
 $body-color: $fg;
@@ -101,7 +61,6 @@ $link-decoration:  underline;
 
 $border-color:     $border-weak;
 
-// Square. Nothing on the page is rounded.
 $border-radius:    0;
 $border-radius-sm: 0;
 $border-radius-lg: 0;
@@ -134,28 +93,18 @@ $callout-color-warning:   $syn-function;
 $callout-color-important: $syn-function;
 $callout-color-caution:   $syn-function;
 
-// Bootstrap 5.3 colour-mode surfaces, so built-in components (dropdowns,
-// form controls, the search overlay) match without being repainted one at
-// a time.
 $body-bg-light:           $bg;
 $body-color-light:        $fg;
 $body-secondary-bg-light: $bg-weak;
 $body-tertiary-bg-light:  $bg-weak-hover;
 $border-color-light:      $border-weak;
 
-// ── Layout ───────────────────────────────────────────────────────────
-// opencode runs a 45rem column against an 18.75rem sidebar. Mono is a
-// wide face, so 720px lands near 70 characters — about the ceiling.
-// The whole three-column grid (sidebar + body + contents rail) is capped
-// and centred at this width by theme/chrome.scss. Without it Quarto pools
-// every pixel of slack in one dead column on the right, which leaves the
-// docked sidebar hugging the left edge of the screen.
 $page-max:           1360px;
 
 $grid-body-width:    780px;
 $grid-sidebar-width: 300px;
 $grid-margin-width:  250px;
 
-$content-max: 1080px;   // full-width bands on the landing page
+$content-max: 1080px;
 
 $blockquote-font-size: $font-size-base;
