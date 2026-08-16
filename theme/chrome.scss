@@ -10,7 +10,38 @@
 //  panels.
 // ══════════════════════════════════════════════════════════════════════
 
+// ── Page measure ──────────────────────────────────────────────────────
+//
+// Quarto lays every page out on one named grid, and pools all the slack
+// left over at a viewport wider than the content into a single column on
+// the far right ([page-end] → [screen-end-inset]). On a docs page that put
+// the docked sidebar flush against the left edge of the screen with ~240px
+// of dead air on the other side — the whole layout visibly off-centre.
+//
+// Capping the grid container and letting the auto margins do the work
+// collapses that column to zero and centres the lot. The body column keeps
+// its size; only the wasted margin goes.
+#quarto-content {
+  max-width: $page-max;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// The grid opens and closes with a gutter column of equal width, but a
+// docked sidebar is placed from [screen-start], so it swallows the opening
+// one while the closing one stays empty — leaving the centred block sitting
+// a gutter's width left of true centre. Starting the sidebar one line later
+// balances it exactly, and does so in the grid's own terms rather than
+// against a hard-coded pixel value.
+@media (min-width: 992px) {
+  #quarto-sidebar { grid-column-start: screen-start-inset; }
+}
+
 // ── Header ────────────────────────────────────────────────────────────
+//
+// Full-bleed, and deliberately not on the page measure above: the mark sits
+// against the left edge of the screen and the tools against the right, with
+// the section links centred between them.
 
 .navbar {
   background-color: $bg !important;
@@ -53,6 +84,39 @@
 }
 
 .navbar-collapse { justify-content: flex-end; }
+
+// Three fixed positions across the bar: mark left, section links centre,
+// tools right.
+//
+// The links are centred on the *bar*, not on the space left between the
+// mark and the tools — those two are different widths, so letting flexbox
+// centre them in the gap would leave the row visibly off by half their
+// difference. Taking the list out of flow and pinning it to 50% is the only
+// way the centre is the real centre. Desktop only: below 992px Bootstrap
+// collapses the bar into the hamburger and the list becomes a stacked menu,
+// which must stay in flow.
+@media (min-width: 992px) {
+  .navbar-container { position: relative; }
+
+  .navbar-brand-container {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  .navbar-collapse > ul.navbar-nav:first-child {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 !important;
+    white-space: nowrap;
+  }
+
+  // Socials keep to the right, ahead of the theme toggle and search.
+  .navbar-collapse > ul.navbar-nav:last-child {
+    margin-left: auto !important;
+  }
+}
 
 .navbar-nav .nav-link {
   position: relative;

@@ -124,7 +124,13 @@ $secondary-bg-dark:      $bg-weak;
 $tertiary-bg-dark:       $bg-weak-hover;
 
 // ── Layout ───────────────────────────────────────────────────────────
-$grid-body-width:    690px;
+// The whole three-column grid (sidebar + body + contents rail) is capped
+// and centred at this width by theme/chrome.scss. Without it Quarto pools
+// every pixel of slack in one dead column on the right, which leaves the
+// docked sidebar hugging the left edge of the screen.
+$page-max:           1360px;
+
+$grid-body-width:    780px;
 $grid-sidebar-width: 300px;
 $grid-margin-width:  250px;
 
