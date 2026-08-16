@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ambiorix.dev/index.html</loc>
-    <lastmod>2026-08-16T18:56:51.792Z</lastmod>
+    <lastmod>2026-08-16T20:58:46.942Z</lastmod>
   </url>
   <url>
     <loc>https://ambiorix.dev/showcase/rrr/index.html</loc>
@@ -29,27 +29,27 @@
     <lastmod>2026-08-16T15:23:30.319Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/middlewares/surf/index.html</loc>
+    <loc>https://ambiorix.dev/docs/middlewares/titan/index.html</loc>
     <lastmod>2026-08-16T15:23:30.314Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/middlewares/signaculum/index.html</loc>
+    <loc>https://ambiorix.dev/docs/middlewares/slighe/index.html</loc>
     <lastmod>2026-08-16T15:23:30.314Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/middlewares/pugger/index.html</loc>
+    <loc>https://ambiorix.dev/docs/middlewares/scilis/index.html</loc>
     <lastmod>2026-08-16T15:23:30.314Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/middlewares/index.html</loc>
+    <loc>https://ambiorix.dev/docs/middlewares/jader/index.html</loc>
     <lastmod>2026-08-16T15:23:30.314Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/middlewares/druid/index.html</loc>
+    <loc>https://ambiorix.dev/docs/middlewares/eburones/index.html</loc>
     <lastmod>2026-08-16T15:23:30.314Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/middlewares/agris/index.html</loc>
+    <loc>https://ambiorix.dev/docs/middlewares/alesia/index.html</loc>
     <lastmod>2026-08-16T15:23:30.314Z</lastmod>
   </url>
   <url>
@@ -81,39 +81,39 @@
     <lastmod>2026-08-16T15:23:30.313Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/websocket/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/stop/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/routing/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/response/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/rendering/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/params/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/middleware/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/load-balancing/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
-  </url>
-  <url>
     <loc>https://ambiorix.dev/docs/ambiorix/index.html</loc>
+    <lastmod>2026-08-16T20:55:14.187Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/ambiorix/templates/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/ambiorix/static/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/ambiorix/router/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/ambiorix/request/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/ambiorix/project/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/ambiorix/not-found/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/ambiorix/logger/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.313Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/ambiorix/install/index.html</loc>
     <lastmod>2026-08-16T15:23:30.313Z</lastmod>
   </url>
   <url>
@@ -157,35 +157,35 @@
     <lastmod>2026-08-16T15:23:30.313Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/install/index.html</loc>
+    <loc>https://ambiorix.dev/docs/ambiorix/load-balancing/index.html</loc>
     <lastmod>2026-08-16T15:23:30.313Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/logger/index.html</loc>
+    <loc>https://ambiorix.dev/docs/ambiorix/middleware/index.html</loc>
     <lastmod>2026-08-16T15:23:30.313Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/not-found/index.html</loc>
+    <loc>https://ambiorix.dev/docs/ambiorix/params/index.html</loc>
     <lastmod>2026-08-16T15:23:30.313Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/project/index.html</loc>
+    <loc>https://ambiorix.dev/docs/ambiorix/rendering/index.html</loc>
     <lastmod>2026-08-16T15:23:30.313Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/request/index.html</loc>
+    <loc>https://ambiorix.dev/docs/ambiorix/response/index.html</loc>
     <lastmod>2026-08-16T15:23:30.313Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/router/index.html</loc>
+    <loc>https://ambiorix.dev/docs/ambiorix/routing/index.html</loc>
     <lastmod>2026-08-16T15:23:30.313Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/static/index.html</loc>
+    <loc>https://ambiorix.dev/docs/ambiorix/stop/index.html</loc>
     <lastmod>2026-08-16T15:23:30.313Z</lastmod>
   </url>
   <url>
-    <loc>https://ambiorix.dev/docs/ambiorix/templates/index.html</loc>
+    <loc>https://ambiorix.dev/docs/ambiorix/websocket/index.html</loc>
     <lastmod>2026-08-16T15:23:30.313Z</lastmod>
   </url>
   <url>
@@ -217,32 +217,32 @@
     <lastmod>2026-08-16T15:23:30.314Z</lastmod>
   </url>
   <url>
+    <loc>https://ambiorix.dev/docs/middlewares/agris/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/middlewares/druid/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/middlewares/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/middlewares/pugger/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/middlewares/signaculum/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ambiorix.dev/docs/middlewares/surf/index.html</loc>
+    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
+  </url>
+  <url>
     <loc>https://ambiorix.dev/docs/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/middlewares/alesia/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/middlewares/eburones/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/middlewares/jader/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/middlewares/scilis/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/middlewares/slighe/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ambiorix.dev/docs/middlewares/titan/index.html</loc>
-    <lastmod>2026-08-16T15:23:30.314Z</lastmod>
+    <lastmod>2026-08-16T20:03:53.276Z</lastmod>
   </url>
   <url>
     <loc>https://ambiorix.dev/showcase/contact-form/index.html</loc>
