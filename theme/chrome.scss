@@ -1,0 +1,350 @@
+/*-- scss:rules --*/
+
+// ══════════════════════════════════════════════════════════════════════
+//  CHROME — navbar, sidebar, TOC, title block, footer
+//
+//  All sans, all small, all quiet. In an editorial setting the furniture
+//  should recede so the page reads as the object; the serif column is
+//  what the reader is meant to look at.
+// ══════════════════════════════════════════════════════════════════════
+
+// ── Navbar ────────────────────────────────────────────────────────────
+
+.navbar {
+  background-color: $page !important;
+  border-bottom: 1px solid $rule-soft;
+  box-shadow: none;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  min-height: 0;
+  font-family: $font-family-sans-serif;
+}
+
+.navbar-brand-container {
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0;
+  }
+
+  .navbar-title {
+    font-family: $font-family-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-variation-settings: "opsz" 24;
+    letter-spacing: 0;
+    color: $fg;
+  }
+
+  .navbar-logo {
+    max-height: 27px;
+    width: auto;
+    border-radius: 50%;
+  }
+
+  &:hover .navbar-title { color: $forest; }
+}
+
+.navbar-nav {
+  margin: 0 auto;
+  gap: 0.1rem;
+}
+
+.navbar-collapse { justify-content: center; }
+
+.navbar-nav .nav-link {
+  position: relative;
+  font-family: $font-family-sans-serif;
+  font-size: 0.83rem;
+  font-weight: 450;
+  letter-spacing: 0.005em;
+  color: $muted !important;
+  padding: 0.3rem 0.75rem !important;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+
+  &:hover,
+  &:focus-visible { color: $fg !important; }
+
+  // Active marker, drawn inside the padding so it tracks the label
+  // rather than the hit area.
+  &.active {
+    color: $fg !important;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0.75rem;
+      right: 0.75rem;
+      bottom: 0.02rem;
+      height: 1px;
+      background-color: $rust;
+    }
+  }
+}
+
+.navbar .quarto-navbar-tools .nav-link,
+.navbar-nav .nav-link.quarto-navigation-tool {
+  color: $muted !important;
+  font-size: 1rem;
+
+  &:hover { color: $rust !important; }
+  &.active::after { display: none; }
+}
+
+.navbar-toggler {
+  border: 1px solid $rule;
+  border-radius: 4px;
+  padding: 0.22rem 0.45rem;
+
+  &:focus { box-shadow: none; }
+}
+
+// ── Sidebar ───────────────────────────────────────────────────────────
+//
+// Reads as a table of contents: no boxes, no fills, one hairline down the
+// nested levels and a rule marking the current page.
+
+#quarto-sidebar {
+  background-color: transparent !important;
+  border-right: 0;
+  font-family: $font-family-sans-serif;
+
+  .sidebar-title {
+    font-family: $font-family-sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: $dim;
+    margin-bottom: 0.9rem;
+  }
+
+  .sidebar-item {
+    line-height: 1.4;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .sidebar-item-container { font-size: 0.845rem; }
+
+  .sidebar-link,
+  .sidebar-item-text {
+    color: $muted;
+    text-decoration: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    display: block;
+    transition: color 0.12s ease;
+
+    &:hover { color: $fg; }
+  }
+
+  // Section rows sit slightly forward of their children.
+  > div > ul > .sidebar-item > .sidebar-item-container > .sidebar-item-text {
+    color: $fg;
+    font-weight: 550;
+  }
+
+  // One quiet guide down each nested level.
+  .sidebar-section > .sidebar-item {
+    position: relative;
+    padding-left: 0.75rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0.1rem;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: $rule;
+    }
+  }
+
+  // Current page — a rust rule in the margin, no fill.
+  .sidebar-link.active,
+  .sidebar-item-text.active,
+  .sidebar-item-container .active {
+    color: $forest !important;
+    font-weight: 550;
+    background-color: transparent;
+  }
+
+  .sidebar-section > .sidebar-item:has(> .sidebar-item-container .active)::before {
+    background-color: $rust;
+    width: 2px;
+  }
+
+  .sidebar-item-toggle .bi { color: $dim; }
+}
+
+// ── Table of contents ─────────────────────────────────────────────────
+
+#quarto-margin-sidebar,
+.sidebar.margin-sidebar {
+  font-family: $font-family-sans-serif;
+
+  .quarto-secondary-nav-title,
+  > nav > h2,
+  .toc-title {
+    font-family: $font-family-sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: $dim;
+    margin-bottom: 0.7rem;
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  nav#TOC,
+  ul {
+    border-left: 1px solid $rule-soft;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  nav#TOC ul { border-left: 0; }
+
+  a.nav-link,
+  ul li a {
+    display: block;
+    font-family: $font-family-sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: $muted;
+    text-decoration: none;
+    padding: 0.24rem 0 0.24rem 0.85rem;
+    border-left: 1px solid transparent;
+    margin-left: -1px;
+    transition: color 0.12s ease, border-color 0.12s ease;
+
+    &:hover {
+      color: $fg;
+      border-left-color: $rule;
+    }
+
+    &.active {
+      color: $fg;
+      border-left-color: $rust;
+    }
+  }
+}
+
+// ── Breadcrumbs ───────────────────────────────────────────────────────
+
+.quarto-page-breadcrumbs {
+  margin-bottom: 0.6rem;
+
+  .breadcrumb {
+    margin-bottom: 0;
+    font-family: $font-family-sans-serif;
+    font-size: 0.75rem;
+    font-weight: 450;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .breadcrumb-item {
+    a {
+      color: $dim !important;
+      text-decoration: none !important;
+
+      &:hover { color: $forest !important; }
+    }
+
+    + .breadcrumb-item::before {
+      color: $rule;
+      content: "·";
+      padding: 0 0.3rem;
+    }
+
+    &:last-child a { color: $muted !important; }
+  }
+}
+
+// ── Title block ───────────────────────────────────────────────────────
+
+.quarto-title-block {
+  padding-top: 2.6rem;
+  padding-bottom: 1.1rem;
+  margin-bottom: 2.1rem;
+  border-bottom: 1px solid $rule-soft;
+
+  .quarto-title .title {
+    font-family: $font-family-serif;
+    font-size: clamp(2.1rem, 1.7rem + 1.5vw, 2.8rem);
+    font-weight: 600;
+    font-variation-settings: "opsz" 72;
+    letter-spacing: -0.014em;
+    line-height: 1.12;
+    color: $fg;
+    text-wrap: balance;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    margin-bottom: 0.7rem;
+  }
+
+  .subtitle {
+    font-family: $font-family-serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: $muted;
+    line-height: 1.6;
+    margin-top: 0.2rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .quarto-title-meta,
+  .quarto-title-meta-contents {
+    font-family: $font-family-sans-serif;
+    font-size: 0.76rem;
+    color: $muted;
+    padding-bottom: 0.9rem;
+
+    .quarto-title-meta-heading {
+      font-size: 0.66rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: $dim;
+    }
+  }
+}
+
+// ── Footer ────────────────────────────────────────────────────────────
+
+.nav-footer {
+  background-color: $page;
+  border-top: 1px solid $rule-soft;
+  color: $muted;
+  font-family: $font-family-sans-serif;
+  font-size: 0.8rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-top: 4rem;
+
+  a {
+    color: $muted;
+    text-decoration: none;
+
+    &:hover { color: $forest; }
+  }
+}
+
+// ── Misc ──────────────────────────────────────────────────────────────
+
+#quarto-document-content { padding-bottom: 2rem; }
+
+.toc-actions a,
+#quarto-back-to-top {
+  font-family: $font-family-sans-serif;
+  color: $muted;
+  font-size: 0.78rem;
+  text-decoration: none;
+
+  &:hover { color: $forest; }
+}

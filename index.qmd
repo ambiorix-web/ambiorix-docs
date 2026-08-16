@@ -1,39 +1,27 @@
 ---
-title: "Ambiorix"
-subtitle: "Unopinionated, minimalist web framework for R inspired by express.js"
+pagetitle: "Ambiorix — a minimalist web framework for R"
+description: "Unopinionated, minimalist web framework for R, inspired by express.js."
 page-layout: full
+toc: false
 ---
 
-::: {.hero-banner}
+::: {.hero}
 
-[Watch Video](https://www.youtube.com/watch?v=owpbIQ-j6Kk){.btn .btn-primary}
-[Read the docs](/docs/){.btn .btn-secondary}
-[Read the book](https://book.ambiorix.dev/){.btn .btn-secondary}
+::: {.hero-copy}
+
+[a web framework for R]{.eyebrow}
+
+# Build for the web, with R. {.hero-title}
+
+::: {.hero-lead}
+Ambiorix is an unopinionated, minimalist web framework inspired by
+express.js. Routing, middleware, templating, websockets and async —
+one syntax, all in R.
+:::
 
 :::
 
-## Full stack, right in R
-
-Easily build web applications & APIs, all in one syntax and right in R.
-
-::: {.grid}
-
-::: {.g-col-4}
-### Easy to use
-Create applications with the tried and tested API of express.js
-:::
-
-::: {.g-col-4}
-### One syntax
-Use a single syntax to build RESTful APIs and web applications
-:::
-
-::: {.g-col-4}
-### Extendable
-Leverage existing middlewares, parsers & serializers or create your own
-:::
-
-::: {.g-col-12}
+::: {.hero-code}
 
 ```r
 library(ambiorix)
@@ -44,84 +32,151 @@ app$get("/", function(req, res) {
   res$send("Hello, World!")
 })
 
-app$get("/api/v1/users", function(req, res) {
-  users <- data.frame(
-    uid = 1:3,
-    firstname = c("Alice", "Bob", "Cate"),
-    lastname = c("Queen", "Jeremy", "Reece"),
-    active = c(TRUE, FALSE, TRUE)
-  )
-
-  res$json(users)
-})
-
 app$start()
 ```
 
 :::
 
+::: {.hero-actions}
+[Get started](/docs/getting-started/){.btn .btn-primary}
+[Read the book](https://book.ambiorix.dev/){.btn .btn-secondary}
+[Watch the video](https://www.youtube.com/watch?v=owpbIQ-j6Kk){.btn .btn-secondary}
 :::
 
-## Features
+:::
 
-With Ambiorix, you get:
+::: {.home-section .section-tight}
 
-::: {.grid .mb-5}
+::: {.section-head}
 
-::: {.g-col-4}
+::: {.section-head-main}
+[Install]{.section-eyebrow}
+
+## Up and running in two commands. {.section-title}
+:::
+
+::: {.section-head-aside}
+The stable release is on CRAN. The development version lives on GitHub.
+:::
+
+:::
+
+::: {.install-grid}
+
+::: {.install-step}
+[1 — install the package]{.step-label}
+
+```r
+install.packages("ambiorix")
+```
+:::
+
+::: {.install-step}
+[2 — run your app]{.step-label}
+
+```bash
+Rscript app.R
+```
+:::
+
+:::
+
+:::
+
+::: {.home-section}
+
+::: {.section-head}
+
+::: {.section-head-main}
+[Features]{.section-eyebrow}
+
+## Everything you need to serve R over HTTP. {.section-title}
+:::
+
+::: {.section-head-aside}
+Nothing here is mandatory. Use the pieces you need and ignore the rest.
+:::
+
+:::
+
+::: {.feature-grid}
+
+::: {.feature}
 ### Routing
 Build multipage applications right out of the box.
 :::
 
-::: {.g-col-4}
+::: {.feature}
 ### Templating
-For Server-Side Rendering (SSR). HTML, markdown, pug, etc.
+For server-side rendering. HTML, markdown, pug, and more.
 :::
 
-::: {.g-col-4}
+::: {.feature}
 ### Middleware
-Easily pre-process requests to the server.
+Easily pre-process every request to the server.
 :::
 
-::: {.g-col-4}
+::: {.feature}
 ### Websockets
-For when you need bi-directional communication between the server & client.
+For when you need bi-directional communication between server and client.
 :::
 
-::: {.g-col-4}
+::: {.feature}
 ### Async
-Use asynchronous programming techniques by returning promises from request handlers.
+Use asynchronous programming by returning promises from request handlers.
 :::
 
-::: {.g-col-4}
+::: {.feature}
 ### Autonomy
-You have absolute full control over the request-response cycle!
+You have absolute, full control over the request-response cycle.
 :::
 
 :::
 
-::: {.panel-tabset}
+:::
 
-## Routing
+::: {.home-section .section-major}
 
-::: {.g-col-12}
+::: {.section-head}
+
+::: {.section-head-main}
+[In practice]{.section-eyebrow}
+
+## A whole app, in one file. {.section-title}
+:::
+
+::: {.section-head-aside}
+Middleware, static files, path parameters and a JSON endpoint — under thirty lines.
+:::
+
+:::
+
+::: {.showpiece}
 
 ```r
 library(ambiorix)
 
 app <- Ambiorix$new(port = 3000L)
 
+# middleware runs on every request
+app$use(function(req, res) {
+  req$received_at <- Sys.time()
+})
+
+# serves index.html from the same directory
 app$get("/", function(req, res) {
-  res$send("Home!")
+  res$send_file("index.html")
 })
 
-app$get("/about", function(req, res) {
-  res$send("About me!")
-})
-
+# path parameters
 app$get("/users/:id", function(req, res) {
-  msg <- sprintf("This is user #%s", req$params$id)
-  res$text(msg)
+  res$json(list(id = req$params$id))
+})
+
+# POST with a JSON body
+app$post("/users", function(req, res) {
+  body <- parse_json(req)
+  res$json(list(created = body))
 })
 
 app$start()
@@ -129,9 +184,27 @@ app$start()
 
 :::
 
-## Templating
+:::
 
-::: {.g-col-12}
+::: {.home-section}
+
+::: {.section-head}
+
+::: {.section-head-main}
+[Going further]{.section-eyebrow}
+
+## Templating, websockets and async. {.section-title}
+:::
+
+::: {.section-head-aside}
+Server-side rendering, bi-directional messaging, and handlers that never block.
+:::
+
+:::
+
+::: {.panel-tabset}
+
+## Templating
 
 ```r
 library(ambiorix)
@@ -148,9 +221,6 @@ app$get("/:book", function(req, res) {
 app$start()
 ```
 
-----
-
-
 ```html
 <!-- templates/home.html -->
 <!DOCTYPE html>
@@ -165,34 +235,7 @@ app$start()
 </html>
 ```
 
-:::
-
-## Middleware
-
-::: {.g-col-12}
-
-```r
-library(ambiorix)
-
-app <- Ambiorix$new(port = 3000L)
-
-# pre-process every request
-app$use(function(req, res) {
-  cat(sprintf("[%s] %s\n", req$REQUEST_METHOD, req$PATH_INFO))
-})
-
-app$get("/", function(req, res) {
-  res$send("Hello, World!")
-})
-
-app$start()
-```
-
-:::
-
 ## Websockets
-
-::: {.g-col-12}
 
 ```r
 library(ambiorix)
@@ -212,11 +255,7 @@ app$receive("hello", function(msg, ws) {
 app$start()
 ```
 
-:::
-
 ## Async
-
-::: {.g-col-12}
 
 ```r
 library(ambiorix)
@@ -252,8 +291,17 @@ app$start()
 
 :::
 
-## Get Started
+::: {.closer}
 
-Build for the web, with R.
+## Ready when you are. {.closer-title}
 
-[Get Started](/docs/getting-started/){.btn .btn-primary}
+::: {.closer-lead}
+Install the package, write a handler, start the server.
+:::
+
+::: {.closer-actions}
+[Get started](/docs/getting-started/){.btn .btn-primary}
+[Browse the gallery](/showcase/){.btn .btn-secondary}
+:::
+
+:::

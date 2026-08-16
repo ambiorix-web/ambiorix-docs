@@ -1,30 +1,55 @@
+<meta name="color-scheme" content="dark">
 <script>
+  // This site is dark only. Setting the Bootstrap 5.3 colour mode here,
+  // synchronously in <head>, means built-in components (dropdowns, form
+  // controls, the search overlay) come up dark on first paint rather than
+  // flashing light.
+  document.documentElement.setAttribute("data-bs-theme", "dark");
+</script>
+<script>
+  // Quarto marks the navbar item for the current *file*, and natively covers
+  // /docs/** because the sidebar is bound there. Blog posts and showcase
+  // items are left unmarked, so section-level highlighting is filled in here.
+  //
+  // Note: Quarto rewrites navbar hrefs to absolute URLs at runtime, so the
+  // href is resolved through `new URL` and compared by origin rather than
+  // pattern-matched. Comparing link text would break the moment a label
+  // changes; comparing paths does not.
   document.addEventListener("DOMContentLoaded", function () {
-    const path = window.location.pathname;
+    var normalize = function (p) {
+      p = p.replace(/index\.html$/, "");
+      return p.length > 1 ? p.replace(/\/$/, "") : p;
+    };
 
-    // Remove active class from all navbar items
-    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-    navLinks.forEach((link) => link.classList.remove("active"));
+    var path = normalize(window.location.pathname);
+    var sections = ["/docs", "/blog", "/showcase"];
 
-    // Determine which navbar item should be active based on path
-    let activeText = null;
-    if (path.startsWith("/docs/") || path === "/docs") {
-      activeText = "Docs";
-    } else if (path.startsWith("/blog/") || path === "/blog") {
-      activeText = "Blog";
-    } else if (path.startsWith("/showcase/") || path === "/showcase") {
-      activeText = "Gallery";
-    } else if (path === "/" || path === "/index.html") {
-      activeText = "Home";
-    }
+    var current = sections.find(function (s) {
+      return path === s || path.indexOf(s + "/") === 0;
+    });
+    if (!current && path === "/") current = "/";
+    if (!current) return;
 
-    // Set the correct navbar item as active
-    if (activeText) {
-      navLinks.forEach((link) => {
-        if (link.textContent.trim() === activeText) {
-          link.classList.add("active");
-        }
-      });
-    }
+    var links = document.querySelectorAll(".navbar-nav .nav-link");
+    links.forEach(function (link) { link.classList.remove("active"); });
+
+    links.forEach(function (link) {
+      var href = link.getAttribute("href");
+      if (!href) return;
+
+      var url;
+      try {
+        url = new URL(href, window.location.href);
+      } catch (e) {
+        return;
+      }
+
+      // Leaves the book, GitHub and X links alone.
+      if (url.origin !== window.location.origin) return;
+
+      if (normalize(url.pathname) === current) {
+        link.classList.add("active");
+      }
+    });
   });
 </script>

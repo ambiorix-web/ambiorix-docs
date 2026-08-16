@@ -1,0 +1,646 @@
+/*-- scss:rules --*/
+
+// ══════════════════════════════════════════════════════════════════════
+//  Nested under #quarto-document-content on purpose. The prose rules in
+//  typography.scss are scoped to that id, so a bare class selector loses
+//  on specificity. Element-qualified selectors (h1.hero-title, not
+//  .hero-title) matter too: Pandoc's section-divs copy a heading's
+//  classes onto its wrapping <section>, and styling the section cascades
+//  display type onto everything inside it.
+// ══════════════════════════════════════════════════════════════════════
+
+#quarto-document-content {
+
+  // An empty title block still costs several rem of dead space — and a
+  // border — on pages that supply their own hero.
+  #title-block-header.quarto-title-block:empty {
+    display: none;
+    border-bottom: 0;
+  }
+
+  // ════════════════════════════════════════════════════════════════════
+  //  BUTTONS
+  //  The old stylesheet carried three competing definitions of "primary"
+  //  (.hero-banner, .showcase-buttons, and #get-started ~ p). One now,
+  //  covering all 28 attributed links in the repo.
+  // ════════════════════════════════════════════════════════════════════
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: $font-family-sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: 0.64rem 1.25rem;
+    border-radius: 4px;
+    text-decoration: none !important;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, border-color 0.15s ease,
+                color 0.15s ease;
+
+    &:focus-visible {
+      outline: 2px solid $rust;
+      outline-offset: 2px;
+      box-shadow: none;
+    }
+  }
+
+  .btn-primary {
+    background-color: $forest;
+    border: 1px solid $forest;
+    color: $page !important;
+
+    &:hover,
+    &:focus-visible {
+      background-color: $forest-hi;
+      border-color: $forest-hi;
+      color: $page !important;
+    }
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    border: 1px solid $rule;
+    color: $fg !important;
+
+    &:hover,
+    &:focus-visible {
+      border-color: $forest;
+      color: $forest !important;
+      background-color: transparent;
+    }
+  }
+
+  // ════════════════════════════════════════════════════════════════════
+  //  EYEBROWS — small caps, the printed-page label
+  // ════════════════════════════════════════════════════════════════════
+
+  .eyebrow,
+  .section-eyebrow {
+    display: block;
+    font-family: $font-family-sans-serif;
+    font-size: 0.71rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: $rust;
+    margin-bottom: 0;
+  }
+
+  // Pandoc wraps a lone span in a paragraph; tighten that wrapper.
+  .home-section > p:first-child { margin-bottom: 1rem; }
+
+  // ════════════════════════════════════════════════════════════════════
+  //  HERO — claim beside code, actions across the foot
+  //
+  //  A three-cell grid: copy on the left, code on the right, and the
+  //  buttons spanning both on a row of their own. Pulling the actions out
+  //  of the copy column lets the two columns balance on their content and
+  //  gives the calls to action the full width to sit on.
+  // ════════════════════════════════════════════════════════════════════
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.04fr);
+    column-gap: 3.5rem;
+    row-gap: 2.5rem;
+    align-items: center;
+    max-width: $content-max;
+    margin: 0 auto;
+    padding: 4.75rem 0 3.5rem;
+    border-bottom: 1px solid $rule-soft;
+  }
+
+  .hero-copy {
+    min-width: 0;
+
+    // The <section> Pandoc wraps around the h1 runs to the end of its
+    // containing div, so it must not inherit display sizing from the
+    // class it copied.
+    section.hero-title { font-size: 1rem; }
+
+    // Eyebrow sits tight to the headline; the h1's own top margin spaces it.
+    > p:first-child { margin-bottom: 0; }
+
+    h1.hero-title {
+      font-family: $font-family-serif;
+      font-size: clamp(2.1rem, 1.45rem + 2.1vw, 3.15rem);
+      font-weight: 600;
+      font-variation-settings: "opsz" 72;
+      letter-spacing: -0.024em;
+      line-height: 1.06;
+      color: $fg;
+      max-width: none;
+      text-wrap: balance;
+      margin: 0.85rem 0 1.15rem;
+      padding-top: 0;
+      border-top: 0;
+    }
+  }
+
+  .hero-lead p {
+    font-family: $font-family-serif;
+    font-size: 1.14rem;
+    line-height: 1.68;
+    color: $muted;
+    max-width: 32rem;
+    margin: 0;
+  }
+
+  .hero-actions,
+  .closer-actions,
+  .showcase-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+
+    // Pandoc wraps the run of links in a paragraph.
+    p {
+      margin-bottom: 0;
+      display: contents;
+    }
+  }
+
+  // Spans both columns on its own row at the foot of the hero.
+  .hero-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    margin: 0;
+  }
+
+  .hero-code {
+    min-width: 0;
+
+    div.sourceCode {
+      margin: 0;
+      border: 1px solid $rule-soft;
+      border-radius: 6px;
+      background-color: $panel;
+    }
+
+    pre.sourceCode {
+      padding: 1.5rem 1.6rem;
+      font-size: 0.85rem;
+      line-height: 1.75;
+      max-height: none;
+    }
+  }
+
+  // ════════════════════════════════════════════════════════════════════
+  //  HOME SECTIONS
+  // ════════════════════════════════════════════════════════════════════
+
+  .home-section {
+    max-width: $content-max;
+    margin: 0 auto;
+    padding: 5rem 0 0;
+
+    section.section-title { font-size: 1rem; }
+
+    h2.section-title {
+      font-family: $font-family-serif;
+      font-size: clamp(1.6rem, 1.25rem + 1.3vw, 2.15rem);
+      font-weight: 600;
+      font-variation-settings: "opsz" 48;
+      letter-spacing: -0.012em;
+      line-height: 1.22;
+      color: $fg;
+      text-wrap: balance;
+      margin: 0.65rem 0 0;
+      padding-top: 0;
+      border-top: 0;
+
+      // The landing page is outside the numbered run.
+      &::before { content: none; }
+    }
+  }
+
+  // ── Section headers ────────────────────────────────────────────────
+  //
+  // Two columns: the label and title on the left, a line of supporting
+  // prose on the right. Left-aligned titles capped at ~26ch left the same
+  // void down the right of every section header — five identical bands of
+  // dead air, which is what made the page feel wrong at full-page scale
+  // even though nothing was wrong close up.
+
+  .section-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    column-gap: 3.5rem;
+    // Both columns sit on the rule, so a two-line title does not leave a
+    // fresh void under the aside.
+    align-items: end;
+    margin-bottom: 2.6rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid $rule-soft;
+  }
+
+  .section-head-main {
+    min-width: 0;
+
+    > p:first-child { margin-bottom: 0; }
+    section.section-title { font-size: 1rem; }
+  }
+
+  .section-head-aside {
+    min-width: 0;
+
+    p {
+      font-family: $font-family-serif;
+      font-size: 1.04rem;
+      line-height: 1.6;
+      color: $muted;
+      margin: 0;
+      max-width: 30rem;
+    }
+  }
+
+  // ── Section weight ─────────────────────────────────────────────────
+  //
+  // Not every band is an argument. Install is utility and gets less air;
+  // the showpiece is the best case the page makes and gets the most.
+
+  .home-section.section-tight {
+    padding-top: 3.75rem;
+
+    h2.section-title { font-size: clamp(1.4rem, 1.15rem + 0.9vw, 1.75rem); }
+    .section-head { margin-bottom: 2rem; padding-bottom: 1.2rem; }
+  }
+
+  .home-section.section-major {
+    padding-top: 6.5rem;
+
+    h2.section-title { font-size: clamp(1.8rem, 1.35rem + 1.7vw, 2.6rem); }
+    .section-head { margin-bottom: 3rem; }
+  }
+
+  // ── Install steps ──────────────────────────────────────────────────
+  //
+  // Two commands, side by side, each under a small numbered label. This
+  // is the only place on the page that tells a convinced reader what to
+  // actually do next.
+
+  .install-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+  }
+
+  .install-step {
+    .step-label {
+      display: block;
+      font-family: $font-family-sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: $dim;
+      margin-bottom: 0;
+    }
+
+    > p:first-child { margin-bottom: 0.7rem; }
+
+    div.sourceCode {
+      margin: 0;
+    }
+
+    pre.sourceCode {
+      padding: 0.95rem 1.1rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  // ── Showpiece ──────────────────────────────────────────────────────
+  //
+  // The one long example on the page: middleware, static files, path
+  // parameters and a JSON POST in a single file. Given more room than a
+  // normal code block because it is doing the actual arguing.
+
+  .showpiece {
+    div.sourceCode {
+      margin: 0;
+      border-radius: 6px;
+    }
+
+    pre.sourceCode {
+      padding: 1.5rem 1.6rem;
+      font-size: 0.85rem;
+      line-height: 1.75;
+    }
+
+    // The comments carry the explanation here, so let them read as prose
+    // rather than as dimmed noise.
+    .co {
+      color: $muted !important;
+      font-style: normal !important;
+    }
+  }
+
+  // ── Feature entries ────────────────────────────────────────────────
+  //
+  // Not cards. Each entry opens with a hairline, like an index or a
+  // printed table of contents — no fills, no boxes, no hover lift.
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem 2.75rem;
+  }
+
+  .feature {
+    border-top: 1px solid $rule;
+    padding-top: 1rem;
+
+    section { font-size: 1rem; }
+
+    h3 {
+      font-family: $font-family-serif;
+      font-size: 1.16rem;
+      font-weight: 600;
+      color: $fg;
+      margin: 0 0 0.45rem;
+      padding-top: 0;
+    }
+
+    p {
+      font-family: $font-family-serif;
+      font-size: 1rem;
+      line-height: 1.62;
+      color: $muted;
+      margin: 0;
+    }
+  }
+
+  // ── Closing call to action ─────────────────────────────────────────
+
+  .closer {
+    max-width: $content-max;
+    margin: 5.5rem auto 1rem;
+    padding: 3.25rem 1.5rem;
+    text-align: center;
+    border-top: 1px solid $rule;
+    border-bottom: 1px solid $rule;
+
+    section.closer-title { font-size: 1rem; }
+
+    h2.closer-title {
+      font-family: $font-family-serif;
+      font-size: clamp(1.6rem, 1.3rem + 1vw, 2.1rem);
+      font-weight: 600;
+      font-variation-settings: "opsz" 48;
+      letter-spacing: -0.014em;
+      color: $fg;
+      text-wrap: balance;
+      margin: 0 0 0.6rem;
+      padding-top: 0;
+      border-top: 0;
+
+      &::before { content: none; }
+    }
+
+    .closer-lead p {
+      font-family: $font-family-serif;
+      color: $muted;
+      margin-bottom: 1.7rem;
+    }
+
+    .closer-actions { justify-content: center; }
+  }
+
+  // ════════════════════════════════════════════════════════════════════
+  //  TABSET — the landing page's only interactive element
+  // ════════════════════════════════════════════════════════════════════
+
+  .panel-tabset {
+
+    > ul.nav-tabs {
+      border-bottom: 1px solid $rule;
+      gap: 0.15rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+
+      .nav-link {
+        font-family: $font-family-sans-serif;
+        font-size: 0.8rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: $muted;
+        background-color: transparent;
+        border: 0;
+        border-bottom: 1px solid transparent;
+        border-radius: 0;
+        padding: 0.5rem 0.9rem;
+        margin-bottom: -1px;
+        transition: color 0.15s ease, border-color 0.15s ease;
+
+        &:hover {
+          color: $fg;
+          border-bottom-color: $rule;
+        }
+
+        &.active {
+          color: $fg;
+          background-color: transparent;
+          border-bottom-color: $rust;
+        }
+      }
+    }
+
+    // Quarto boxes the panel with left/right/bottom borders and 1em of
+    // padding. The tabs already sit on a rule; the box is redundant.
+    .tab-content {
+      padding: 0;
+      border: 0;
+      margin-bottom: 0;
+
+      > .tab-pane > div.sourceCode:first-child,
+      > .tab-pane > .code-copy-outer-scaffold:first-child div.sourceCode {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .showcase-buttons { margin-top: 1.8rem; }
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//  LISTINGS — Blog and Gallery
+//  Appearance only; blog/index.qmd and showcase/index.qmd are untouched.
+//  These need the id prefix too — card titles are <h5>, which would
+//  otherwise pick up the small-caps heading rule and its top margin.
+// ══════════════════════════════════════════════════════════════════════
+
+#quarto-document-content .quarto-listing {
+
+  .card,
+  .quarto-grid-item.card {
+    background-color: transparent;
+    border: 0;
+    border-top: 1px solid $rule;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    height: 100%;
+    transition: border-color 0.18s ease;
+
+    &:hover { border-top-color: $forest; }
+  }
+
+  // Quarto wraps the thumbnail in a <p> and hard-codes `height: 150px`
+  // inline on the img, so the margin has to go and the height needs
+  // overriding for a consistent crop across twelve screenshots.
+  p.card-img-top {
+    margin: 0;
+    padding: 1rem 0 0;
+  }
+
+  img.thumbnail-image,
+  .card-img-top img {
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top center;
+    border: 1px solid $rule-soft;
+    border-radius: 3px;
+    // Light-UI screenshots on a dark page; take the glare off, restore
+    // on hover.
+    filter: brightness(0.9) saturate(0.92);
+    transition: filter 0.2s ease;
+  }
+
+  .card:hover img.thumbnail-image { filter: none; }
+
+  .card-body { padding: 0.9rem 0 1.4rem; }
+
+  h5.card-title,
+  .card-title,
+  .listing-title {
+    font-family: $font-family-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: $fg;
+    margin: 0 0 0.3rem;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .card-text,
+  .listing-description {
+    font-family: $font-family-serif;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: $muted;
+  }
+
+  a { text-decoration: none !important; }
+
+  // ── Blog list ──────────────────────────────────────────────────────
+
+  .quarto-post {
+    border-bottom: 1px solid $rule-soft;
+    padding: 1.8rem 0;
+    gap: 1.6rem;
+
+    .listing-title {
+      font-size: 1.5rem;
+
+      a { color: $fg !important; }
+      &:hover a { color: $forest !important; }
+    }
+
+    .listing-description { font-size: 1.05rem; line-height: 1.6; }
+
+    .listing-date,
+    .listing-author {
+      font-family: $font-family-sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: $dim;
+    }
+  }
+}
+
+// Category pills
+.quarto-category,
+.listing-category {
+  font-family: $font-family-sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $muted;
+  background-color: transparent;
+  border: 1px solid $rule;
+  border-radius: 100px;
+  padding: 0.12rem 0.6rem;
+  text-decoration: none !important;
+
+  &:hover { border-color: $forest; color: $forest; }
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//  SEARCH
+// ══════════════════════════════════════════════════════════════════════
+
+.navbar #quarto-search .aa-SubmitIcon,
+#quarto-search .aa-Autocomplete .aa-SubmitButton { color: $muted; }
+
+.aa-DetachedOverlay,
+.quarto-search-results {
+  .aa-Item mark,
+  .search-match {
+    background-color: rgba($rust, 0.25);
+    color: inherit;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//  RESPONSIVE
+// ══════════════════════════════════════════════════════════════════════
+
+@media (max-width: 991.98px) {
+  #quarto-document-content {
+    .hero {
+      grid-template-columns: 1fr;
+      row-gap: 2rem;
+      padding: 3.25rem 0 2.75rem;
+    }
+
+    .section-head {
+      grid-template-columns: 1fr;
+      row-gap: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .home-section { padding-top: 3.5rem; }
+    .home-section.section-major { padding-top: 4.25rem; }
+    .home-section.section-tight { padding-top: 3rem; }
+  }
+}
+
+@media (max-width: 575.98px) {
+  #quarto-document-content {
+    .hero { padding: 2.5rem 0 2.25rem; row-gap: 1.6rem; }
+    .hero-lead p { font-size: 1.06rem; }
+
+    .hero-actions .btn,
+    .closer-actions .btn,
+    .showcase-buttons .btn {
+      flex: 1 1 auto;
+      justify-content: center;
+    }
+
+    .home-section { padding-top: 3rem; }
+    .feature-grid { gap: 1.6rem; }
+    .closer { padding: 2.5rem 0.75rem; }
+
+    // Long R lines still need an escape hatch on a phone.
+    pre.sourceCode { font-size: 0.75rem; }
+  }
+}

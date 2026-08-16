@@ -1,0 +1,145 @@
+/*-- scss:defaults --*/
+
+// ══════════════════════════════════════════════════════════════════════
+//  CODEX — editorial, dark, neutral
+//
+//  A book set in ink on slate. The ground is a true neutral grey with no
+//  hue at all — warmth on a dark ground goes brown and dingy, so the only
+//  colour on the page comes from the two accents.
+//
+//  The defining choice is a serif for the BODY, not only the headings.
+//  Everything else — the capped measure, the wide margins, the numbered
+//  sections — exists to serve that.
+//
+//  There is no light mode. Every value is contrast-checked against
+//  $page or $panel at WCAG AA or better.
+// ══════════════════════════════════════════════════════════════════════
+
+// -- Ground -----------------------------------------------------------
+// True greys. No cast, warm or cool.
+$page:       #131313;  // the page
+$panel:      #1c1c1c;  // elevated: code, cards
+$panel-hi:   #262626;  // hover
+$rule:       #2b2b2b;  // hairlines
+$rule-soft:  #202020;  // quieter hairlines
+
+// -- Foreground -------------------------------------------------------
+$fg:         #e9e9e9;  // body text — off-white, no cast   15.3:1 on page
+$muted:      #a3a3a3;  // secondary                         7.4:1
+$dim:        #8a8a8a;  // comments, tertiary                5.4:1 page / 4.9:1 panel
+
+// -- Accents ----------------------------------------------------------
+// The logo's sage and terracotta, lifted for a dark ground. These are the
+// only hues on the page; the ground carries none, so they do all the work.
+$forest:     #a3c489;  // links, headings accent, strings   9.6:1
+$forest-hi:  #bcd8a5;  // hover
+$forest-deep:#5a7a45;
+$rust:       #d9834f;  // accent, section numbers, inline code   6.5:1
+$rust-hi:    #e9a071;
+$rust-deep:  #a8501f;
+
+// -- Syntax extras ----------------------------------------------------
+$sand:       #d6c08f;  // numbers, constants
+$mauve:      #c0a8cf;  // keywords
+$op:         #b8b8b8;  // operators — neutral, so it recedes
+
+// ══════════════════════════════════════════════════════════════════════
+//  TYPE
+//  Serif carries the prose. Sans is chrome only. Mono is code only.
+// ══════════════════════════════════════════════════════════════════════
+
+$font-family-serif:      "Newsreader", Georgia, "Times New Roman", serif;
+$font-family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace:  "IBM Plex Mono", ui-monospace, SFMono-Regular,
+                         "SF Mono", Menlo, Consolas, monospace;
+
+// Bootstrap's body font. The serif is the body face here, not the sans.
+$font-family-base:  $font-family-serif;
+$headings-font-family: $font-family-serif;
+
+$font-size-base:       1.19rem;   // 19px
+$line-height-base:     1.75;
+$headings-font-weight: 600;
+$headings-line-height: 1.25;
+$headings-color:       $fg;
+
+// ══════════════════════════════════════════════════════════════════════
+//  BOOTSTRAP / QUARTO MAPPINGS
+// ══════════════════════════════════════════════════════════════════════
+
+$body-bg:    $page;
+$body-color: $fg;
+
+$primary:    $forest;
+$secondary:  $muted;
+$success:    $forest;
+$info:       $forest;
+$warning:    $rust;
+$danger:     $rust-deep;
+$light:      $panel;
+$dark:       $page;
+
+$link-color:       $forest;
+$link-hover-color: $forest-hi;
+$link-decoration:  none;   // prose links get underlines in typography.scss
+
+$border-color:     $rule;
+$border-radius:    4px;
+$border-radius-sm: 3px;
+$border-radius-lg: 6px;
+
+// Inline code
+$code-color: $rust;
+$code-bg:    $panel;
+
+// Code blocks
+$code-block-bg:          $panel;
+$code-block-border-left: false;
+
+// Chrome
+$navbar-bg:  $page;
+$navbar-fg:  $fg;
+$navbar-hl:  $rust;
+
+$sidebar-bg: $page;
+$sidebar-fg: $muted;
+$sidebar-hl: $forest;
+
+$footer-bg:  $page;
+$footer-fg:  $muted;
+
+$toc-color:         $muted;
+$toc-active-border: $rust;
+$toc-font-size:     0.82rem;
+
+// Callouts — only note and warning are used (7 in the whole site)
+$callout-color-note:      $forest;
+$callout-color-warning:   $rust;
+$callout-color-tip:       $forest;
+$callout-color-important: $rust-deep;
+$callout-color-caution:   $rust;
+
+// Bootstrap 5.3 dark-mode surfaces, so built-in components (dropdowns,
+// form controls, the search overlay) come up dark rather than needing to
+// be repainted one at a time.
+$body-bg-dark:           $page;
+$body-color-dark:        $fg;
+$body-secondary-bg-dark: $panel;
+$body-tertiary-bg-dark:  $panel-hi;
+$border-color-dark:      $rule;
+$secondary-bg-dark:      $panel;
+$tertiary-bg-dark:       $panel-hi;
+
+// One shared measure for every full-width band on the landing page — hero,
+// sections, closer. They must agree, or the left edge visibly shifts as the
+// reader scrolls.
+$content-max: 1040px;
+
+// Layout — a book's measure. 680px at 19px serif lands near 66 characters,
+// which is the whole point of this direction; the margins are wide to match.
+$grid-body-width:    680px;
+$grid-sidebar-width: 265px;
+$grid-margin-width:  240px;
+
+$blockquote-font-size: $font-size-base;

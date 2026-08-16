@@ -1,0 +1,204 @@
+/*-- scss:rules --*/
+
+// ══════════════════════════════════════════════════════════════════════
+//  CODE
+//
+//  Code is the page here: 114 ```r fences plus bash, html, js. In a serif
+//  setting the mono block has to read as an inset — a plate dropped into
+//  running text — rather than as a UI panel.
+//
+//    INPUT   labelled fences -> <div class="sourceCode"><pre class="sourceCode r">
+//            elevated plate, quiet border. Code you run.
+//
+//    OUTPUT  bare ``` fences -> <pre><code>  (no .sourceCode class)
+//            ~100 of them, console dumps and logs. Recessed, dim, no
+//            fill. Code you read. Zero markup changes.
+// ══════════════════════════════════════════════════════════════════════
+
+// ── INPUT: the plate ──────────────────────────────────────────────────
+
+div.sourceCode {
+  position: relative;
+  background-color: $panel;
+  border: 1px solid $rule-soft;
+  border-radius: 5px;
+  margin: 1.6rem 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+pre.sourceCode,
+div.sourceCode > pre {
+  background-color: transparent;
+  color: $fg;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  padding: 1.05rem 1.2rem;
+  overflow-x: auto;
+  font-size: 0.83rem;
+  line-height: 1.7;
+  tab-size: 2;
+}
+
+pre.sourceCode code,
+div.sourceCode code {
+  font-family: $font-family-monospace;
+  font-weight: 400;
+  font-variant-ligatures: none;
+  color: $fg;
+  background: none;
+}
+
+// Code scrolls rather than wraps (see `code-overflow: scroll`). Wrapping
+// runs continuations flush against the left edge, so a wrapped line
+// becomes indistinguishable from a new one — and a hanging indent can't
+// fix it here, because Pandoc separates its per-line <span>s with literal
+// newlines that a block display would render as a second break.
+pre.sourceCode::-webkit-scrollbar { height: 8px; }
+pre.sourceCode::-webkit-scrollbar-track { background: transparent; }
+
+pre.sourceCode::-webkit-scrollbar-thumb {
+  background-color: $rule;
+  border-radius: 4px;
+
+  &:hover { background-color: $panel-hi; }
+}
+
+// Quarto emits an empty anchor per line for deep-linking.
+pre.sourceCode code > span > a:first-child {
+  text-decoration: none;
+  color: inherit;
+
+  &::before { content: none; }
+}
+
+// ── OUTPUT: console and log dumps ─────────────────────────────────────
+
+#quarto-document-content pre:not(.sourceCode),
+#quarto-document-content div.cell-output pre {
+  background-color: transparent;
+  border: 0;
+  border-left: 2px solid $rule;
+  border-radius: 0;
+  color: $muted;
+  font-family: $font-family-monospace;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  padding: 0.35rem 0 0.35rem 1.15rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  // Log dumps carry long unbreakable tokens (user-agent strings, URLs).
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+
+  code {
+    background: none !important;
+    border: 0 !important;
+    color: inherit !important;
+    padding: 0 !important;
+    font-size: inherit;
+    font-weight: 400;
+
+    // Quarto sets `code { white-space: pre }` on the element itself,
+    // which beats the pre-wrap inherited from the <pre>. Restate it or
+    // long log lines run off under the border instead of wrapping.
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
+
+// ── Copy button ───────────────────────────────────────────────────────
+
+.code-copy-button {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  color: $dim;
+  background-color: $panel-hi;
+  border: 1px solid $rule;
+  border-radius: 3px;
+  padding: 0.1rem 0.36rem;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease;
+
+  &:hover { color: $fg; border-color: $rust; }
+}
+
+div.sourceCode:hover .code-copy-button,
+.code-copy-button:focus-visible { opacity: 1; }
+
+.code-copy-button-checked { opacity: 1; color: $forest; }
+
+// ── Code nested inside ordered lists ──────────────────────────────────
+//
+// docs/getting-started and docs/ambiorix/deploy indent fences four spaces
+// inside <ol> items — the most layout-stressed markup in the repo.
+
+#quarto-document-content {
+  li {
+    > div.sourceCode,
+    > pre:not(.sourceCode) {
+      margin-top: 0.75rem;
+      margin-bottom: 0.9rem;
+    }
+
+    > p + div.sourceCode { margin-top: 0.6rem; }
+  }
+}
+
+// ── Callouts ──────────────────────────────────────────────────────────
+//
+// Seven in the whole site: five note, two warning. Quarto's structure is
+// .callout > .callout-header > .callout-title-container plus
+// .callout-body-container — the header carries the tinted fill.
+
+#quarto-document-content .callout {
+  border: 0;
+  border-left: 2px solid $rule;
+  border-radius: 0;
+  background-color: transparent;
+  margin: 1.7rem 0;
+  padding: 0.1rem 0 0.1rem 1.3rem;
+
+  .callout-header {
+    background-color: transparent !important;
+    border: 0;
+    padding: 0 0 0.2rem 0;
+    align-items: center;
+  }
+
+  .callout-icon-container { display: none; }
+
+  .callout-title-container {
+    font-family: $font-family-sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 1;
+  }
+
+  .callout-body-container,
+  .callout-body {
+    background-color: transparent !important;
+    padding: 0;
+    font-size: 0.97rem;
+    color: $muted;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  &.callout-note,
+  &.callout-tip {
+    border-left-color: $forest-deep;
+    .callout-title-container { color: $forest; }
+  }
+
+  &.callout-warning,
+  &.callout-caution,
+  &.callout-important {
+    border-left-color: $rust-deep;
+    .callout-title-container { color: $rust; }
+  }
+}

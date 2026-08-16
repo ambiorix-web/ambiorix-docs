@@ -137,16 +137,21 @@ website:
             - text: "Usage"
               href: docs/cli/use/index.qmd
 
-filters:
-  - auto-dark
-
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    # Codex — editorial, dark. See theme/tokens.scss for the palette.
+    theme:
+      - default
+      - theme/tokens.scss
+      - theme/typography.scss
+      - theme/code.scss
+      - theme/chrome.scss
+      - theme/components.scss
+    highlight-style: theme/codex.theme
     include-in-header:
       - file: navbar.html
     toc: true
+    toc-title: "On this page"
     code-copy: true
-    code-overflow: wrap
-    highlight-style: github
+    code-overflow: scroll
+    anchor-sections: true
