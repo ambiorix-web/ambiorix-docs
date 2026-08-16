@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Errors – Ambiorix</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -68,16 +71,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../images/icon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-1d9b1e02dbce3490bef3f0c20ecf1467.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-455b4dc25fea1110ed381721855aaab1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-5a0ab0ca35653469ddb93f690a908dfd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,39 +106,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<meta name="color-scheme" content="dark">
 <script>
+  // This site is dark only. Setting the Bootstrap 5.3 colour mode here,
+  // synchronously in <head>, means built-in components (dropdowns, form
+  // controls, the search overlay) come up dark on first paint rather than
+  // flashing light.
+  document.documentElement.setAttribute("data-bs-theme", "dark");
+</script>
+<script>
+  // Quarto marks the navbar item for the current *file*, and natively covers
+  // /docs/** because the sidebar is bound there. Blog posts and showcase
+  // items are left unmarked, so section-level highlighting is filled in here.
+  //
+  // Note: Quarto rewrites navbar hrefs to absolute URLs at runtime, so the
+  // href is resolved through `new URL` and compared by origin rather than
+  // pattern-matched. Comparing link text would break the moment a label
+  // changes; comparing paths does not.
   document.addEventListener("DOMContentLoaded", function () {
-    const path = window.location.pathname;
+    var normalize = function (p) {
+      p = p.replace(/index\.html$/, "");
+      return p.length > 1 ? p.replace(/\/$/, "") : p;
+    };
 
-    // Remove active class from all navbar items
-    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-    navLinks.forEach((link) => link.classList.remove("active"));
+    var path = normalize(window.location.pathname);
+    var sections = ["/docs", "/blog", "/showcase"];
 
-    // Determine which navbar item should be active based on path
-    let activeText = null;
-    if (path.startsWith("/docs/") || path === "/docs") {
-      activeText = "Docs";
-    } else if (path.startsWith("/blog/") || path === "/blog") {
-      activeText = "Blog";
-    } else if (path.startsWith("/showcase/") || path === "/showcase") {
-      activeText = "Gallery";
-    } else if (path === "/" || path === "/index.html") {
-      activeText = "Home";
-    }
+    var current = sections.find(function (s) {
+      return path === s || path.indexOf(s + "/") === 0;
+    });
+    if (!current && path === "/") current = "/";
+    if (!current) return;
 
-    // Set the correct navbar item as active
-    if (activeText) {
-      navLinks.forEach((link) => {
-        if (link.textContent.trim() === activeText) {
-          link.classList.add("active");
-        }
-      });
-    }
+    var links = document.querySelectorAll(".navbar-nav .nav-link");
+    links.forEach(function (link) { link.classList.remove("active"); });
+
+    links.forEach(function (link) {
+      var href = link.getAttribute("href");
+      if (!href) return;
+
+      var url;
+      try {
+        url = new URL(href, window.location.href);
+      } catch (e) {
+        return;
+      }
+
+      // Leaves the book, GitHub and X links alone.
+      if (url.origin !== window.location.origin) return;
+
+      if (normalize(url.pathname) === current) {
+        link.classList.add("active");
+      }
+    });
   });
 </script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
