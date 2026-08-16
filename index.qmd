@@ -11,12 +11,11 @@ toc: false
 
 [a web framework for R]{.eyebrow}
 
-# Build for the web, with R. {.hero-title}
+# Build web applications & APIs in R. {.hero-title}
 
 ::: {.hero-lead}
 Ambiorix is an unopinionated, minimalist web framework inspired by
-express.js. Routing, middleware, templating, websockets and async —
-one syntax, all in R.
+express.js.
 :::
 
 ::: {.hero-install}
@@ -66,7 +65,7 @@ app$start()
 :::
 
 ::: {.section-head-aside}
-A framework for serving R over HTTP — multipage applications, JSON APIs,
+A framework for serving R over HTTP: multipage applications, JSON APIs,
 or anything else you can answer a request with.
 :::
 
@@ -74,19 +73,19 @@ or anything else you can answer a request with.
 
 ::: {.capability-list}
 
-- **Routing** — handlers for `GET` and `POST`, with path parameters and a
-  query string parsed for you.
-- **Responses** — send HTML, plain text, JSON, CSV, TSV, files, images,
-  ggplot2 plots and htmlwidgets.
-- **Middleware** — run code on every request before it reaches a handler.
-- **Templating** — server-side rendering with HTML and markdown built in,
+- **Routing**: handlers for HTTP requests (`GET`, `POST`, etc.), with path parameters and
+  query strings parsed for you.
+- **Responses**: send HTML, plain text, JSON, CSV, files, images,
+  and many more formats.
+- **Middleware**: run code on every request before it reaches a handler.
+- **Templating**: server-side rendering with HTML and markdown built in,
   or register a pug or jade engine.
-- **Static files** — serve a whole directory of assets with a single call.
-- **Websockets** — bi-directional messaging between the server and the
-  browser.
-- **Async** — return a promise from a handler and the server keeps
+- **Static files**: serve a whole directory of assets with a single call.
+- **Websockets**: bi-directional messaging between the server and the
+  client.
+- **Async**: return a promise from a handler and the server keeps
   answering everyone else.
-- **Routers** — mount sub-applications under a prefix so a large app can
+- **Routers**: mount sub-applications under a prefix so a large app can
   span many files.
 
 :::
@@ -106,8 +105,7 @@ or anything else you can answer a request with.
 :::
 
 ::: {.section-head-aside}
-Middleware, static files, path parameters and a JSON endpoint — under
-thirty lines, in a single file.
+Middleware, static files, path parameters and a JSON endpoint.
 :::
 
 :::
@@ -146,8 +144,7 @@ app$start()
 :::
 
 ::: {.showpiece-note}
-Save it as `app.R` and run `Rscript app.R`. There is no build step and no
-project layout to adopt first.
+Save it as `app.R` and run `Rscript app.R`.
 :::
 
 :::
@@ -163,8 +160,7 @@ project layout to adopt first.
 :::
 
 ::: {.section-head-aside}
-Published alongside the framework, installed the same way, and entirely
-optional.
+Published alongside the framework, and entirely optional.
 :::
 
 :::
@@ -188,7 +184,7 @@ terminal.
 ::: {.feature}
 ### Belgic
 A reverse proxy and load balancer for putting an application in front of
-real traffic, spreading requests across several backends.
+traffic, spreading requests across several backends.
 :::
 
 :::

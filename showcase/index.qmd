@@ -1,4 +1,5 @@
 ---
+toc: false
 title: "Showcase"
 subtitle: "Get inspired by exploring sites made with Ambiorix"
 listing:

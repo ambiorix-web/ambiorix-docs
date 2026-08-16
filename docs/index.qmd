@@ -5,8 +5,7 @@ date: 2024-10-22
 
 👋 Welcome!
 
-This is the documentation site for the Ambiorix R web framework — an
-unopinionated, minimalist framework inspired by express.js.
+This is the documentation site for the Ambiorix R web framework.
 
 If you have never used Ambiorix before, start with
 [Get Started](/docs/getting-started) and work forward from there; each page
