@@ -18,15 +18,13 @@ Ambiorix is an unopinionated, minimalist web framework inspired by
 express.js.
 :::
 
-::: {.hero-install}
+:::
 
-[on cran]{.install-label}
+::: {.hero-install}
 
 ```r
 install.packages("ambiorix")
 ```
-
-:::
 
 :::
 
