@@ -2,12 +2,17 @@
 title: Ambiorix
 ---
 
-![Ambiorix logo](/images/ambiorix.png)
+![Ambiorix logo](/images/ambiorix.png){width=300 fig-alt="Ambiorix, the Eburones chieftain the framework is named after"}
 
 Ready to build?
+
+The framework is on CRAN, so installing it is one line — see
+[Install](/docs/ambiorix/install). From there,
+[Hello, World](/docs/ambiorix/hello-world) walks through a complete
+application a few lines long, and [Routing](/docs/ambiorix/routing) picks up
+where it leaves off.
 
 ## Next
 
 
   - [Install](/docs/ambiorix/install)
-

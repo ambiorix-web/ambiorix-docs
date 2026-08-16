@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "name": "Ambiorix Dark",
+    "revision": 1,
+    "license": "SPDX-License-Identifier: MIT",
+    "copyright": ["Ambiorix docs — warm neutral ground, sage accent from the project mark"]
+  },
+  "background-color": "#131010",
+  "text-color": "#B8B2B2",
+  "line-number-color": "#57504F",
+  "line-number-background-color": "#131010",
+  "editor-colors": {
+    "BackgroundColor": "#131010",
+    "CurrentLine": "#1B1717",
+    "LineNumbers": "#57504F",
+    "Separator": "#373232",
+    "TextSelection": "#232B1C",
+    "BracketMatching": "#373232",
+    "IndentationLine": "#1B1717",
+    "MarkError": "#DC906A",
+    "MarkWarning": "#D5BE90",
+    "SearchHighlight": "#232B1C",
+    "WordWrapMarker": "#1B1717"
+  },
+  "text-styles": {
+    "Normal":          { "text-color": "#B8B2B2", "selected-text-color": "#B8B2B2" },
+    "Operator":        { "text-color": "#A09C9C", "selected-text-color": "#A09C9C" },
+
+    "Comment":         { "text-color": "#7E7777", "selected-text-color": "#7E7777", "italic": false },
+    "CommentVar":      { "text-color": "#7E7777", "selected-text-color": "#7E7777", "italic": false },
+    "Documentation":   { "text-color": "#8C8585", "selected-text-color": "#8C8585", "italic": false },
+    "Annotation":      { "text-color": "#7E7777", "selected-text-color": "#7E7777", "italic": false },
+    "Information":     { "text-color": "#7E7777", "selected-text-color": "#7E7777" },
+    "RegionMarker":    { "text-color": "#7E7777", "selected-text-color": "#7E7777" },
+
+    "String":          { "text-color": "#A5C68B", "selected-text-color": "#A5C68B" },
+    "SpecialString":   { "text-color": "#A5C68B", "selected-text-color": "#A5C68B" },
+    "VerbatimString":  { "text-color": "#A5C68B", "selected-text-color": "#A5C68B" },
+    "Char":            { "text-color": "#A5C68B", "selected-text-color": "#A5C68B" },
+    "SpecialChar":     { "text-color": "#A5C68B", "selected-text-color": "#A5C68B" },
+    "Import":          { "text-color": "#A5C68B", "selected-text-color": "#A5C68B" },
+
+    "Function":        { "text-color": "#DC906A", "selected-text-color": "#DC906A" },
+    "BuiltIn":         { "text-color": "#DC906A", "selected-text-color": "#DC906A" },
+    "Others":          { "text-color": "#DC906A", "selected-text-color": "#DC906A" },
+    "Extension":       { "text-color": "#DC906A", "selected-text-color": "#DC906A" },
+
+    "Keyword":         { "text-color": "#C4A8D2", "selected-text-color": "#C4A8D2" },
+    "ControlFlow":     { "text-color": "#C4A8D2", "selected-text-color": "#C4A8D2" },
+    "Preprocessor":    { "text-color": "#C4A8D2", "selected-text-color": "#C4A8D2" },
+    "DataType":        { "text-color": "#C4A8D2", "selected-text-color": "#C4A8D2" },
+
+    "DecVal":          { "text-color": "#D5BE90", "selected-text-color": "#D5BE90" },
+    "BaseN":           { "text-color": "#D5BE90", "selected-text-color": "#D5BE90" },
+    "Float":           { "text-color": "#D5BE90", "selected-text-color": "#D5BE90" },
+    "Constant":        { "text-color": "#D5BE90", "selected-text-color": "#D5BE90" },
+    "Attribute":       { "text-color": "#D5BE90", "selected-text-color": "#D5BE90" },
+    "Variable":        { "text-color": "#F2EDED", "selected-text-color": "#F2EDED" },
+
+    "Alert":           { "text-color": "#DC906A", "selected-text-color": "#DC906A", "bold": true },
+    "Warning":         { "text-color": "#D5BE90", "selected-text-color": "#D5BE90" },
+    "Error":           { "text-color": "#DC906A", "selected-text-color": "#DC906A", "underline": true }
+  }
+}

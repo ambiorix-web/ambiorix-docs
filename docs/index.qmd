@@ -5,12 +5,41 @@ date: 2024-10-22
 
 👋 Welcome!
 
-This is the documentation site for the Ambiorix R web framework.
+This is the documentation site for the Ambiorix R web framework — an
+unopinionated, minimalist framework inspired by express.js.
 
+If you have never used Ambiorix before, start with
+[Get Started](/docs/getting-started) and work forward from there; each page
+links to the next.
 
+## Where things are
+
+**Core** covers the request-response cycle: [routing](/docs/ambiorix/routing),
+[parameters](/docs/ambiorix/params), the
+[request](/docs/ambiorix/request) and [response](/docs/ambiorix/response)
+objects, [middleware](/docs/ambiorix/middleware) and
+[error handling](/docs/ambiorix/errors).
+
+**Building** covers everything you put on top:
+[rendering](/docs/ambiorix/rendering) and
+[templates](/docs/ambiorix/templates),
+[static files](/docs/ambiorix/static),
+[websockets](/docs/ambiorix/websocket),
+[async handlers](/docs/ambiorix/async) and
+[logging](/docs/ambiorix/logger).
+
+**Deploy** covers getting an app onto a server, including
+[Belgic](/docs/belgic), the reverse proxy and load balancer.
+
+**Middlewares** documents the eleven middleware packages published
+alongside the framework, and **Tooling** covers the
+[project generator](/docs/generator) and the
+[command line interface](/docs/cli).
+
+Longer, book-length treatment lives at
+[book.ambiorix.dev](https://book.ambiorix.dev/).
 
 ## Next
 
 
   - [Get Started](getting-started)
-

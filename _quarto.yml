@@ -6,6 +6,25 @@ website:
   title: "Ambiorix"
   site-url: https://ambiorix.dev/
   favicon: images/icon.png
+  page-navigation: true
+
+  # "Edit this page" / "Report an issue" under the table of contents, the
+  # way opencode carries them in its footer.
+  repo-url: https://github.com/ambiorix-web/ambiorix-docs
+  repo-branch: main
+  repo-actions: [edit, issue]
+
+  page-footer:
+    border: true
+    left: "Ambiorix — an unopinionated, minimalist web framework for R."
+    right:
+      - text: GitHub
+        href: https://github.com/ambiorix-web
+      - text: Book
+        href: https://book.ambiorix.dev/
+      - text: CRAN
+        href: https://cran.r-project.org/package=ambiorix
+
   navbar:
     logo: images/icon.png
     logo-alt: "Ambiorix logo"
@@ -26,18 +45,36 @@ website:
       - icon: twitter-x
         href: https://x.com/ambiorixweb
 
+  # ────────────────────────────────────────────────────────────────────
+  #  Sidebar
+  #
+  #  Grouped the way opencode's is: a short flat run of orientation pages
+  #  at the top, then uppercase group labels over flat lists of siblings.
+  #  The groups are labels, not links — the pages that used to serve as
+  #  section landings (docs/ambiorix, docs/middlewares, docs/examples,
+  #  docs/belgic, docs/generator, docs/cli) are all still here and still
+  #  at the same URLs; they appear as "Overview" entries inside their own
+  #  group instead of as clickable section headers.
+  #
+  #  Nothing was moved or deleted, so every published URL still resolves.
+  #  docs/ambiorix/from-shiny is deliberately absent: it renders and keeps
+  #  its URL, but is not linked from the navigation, which is how it has
+  #  always been published.
+  # ────────────────────────────────────────────────────────────────────
   sidebar:
     - id: docs
       title: "Documentation"
-      style: "floating"
-      collapse-level: 1
+      style: "docked"
+      collapse-level: 3
       contents:
         - text: "Introduction"
           href: docs/index.qmd
         - text: "Get Started"
           href: docs/getting-started/index.qmd
-        - section: "Ambiorix"
+        - text: "Overview"
           href: docs/ambiorix/index.qmd
+
+        - section: "Core"
           contents:
             - text: "Install"
               href: docs/ambiorix/install/index.qmd
@@ -47,59 +84,58 @@ website:
               href: docs/ambiorix/routing/index.qmd
             - text: "Parameters"
               href: docs/ambiorix/params/index.qmd
-            - text: "Response"
-              href: docs/ambiorix/response/index.qmd
             - text: "Request"
               href: docs/ambiorix/request/index.qmd
+            - text: "Response"
+              href: docs/ambiorix/response/index.qmd
             - text: "Middleware"
               href: docs/ambiorix/middleware/index.qmd
             - text: "Router"
               href: docs/ambiorix/router/index.qmd
-            - text: "Websocket"
-              href: docs/ambiorix/websocket/index.qmd
-            - text: "404"
-              href: docs/ambiorix/not-found/index.qmd
             - text: "Errors"
               href: docs/ambiorix/errors/index.qmd
-            - text: "Async"
-              href: docs/ambiorix/async/index.qmd
+            - text: "404"
+              href: docs/ambiorix/not-found/index.qmd
+
+        - section: "Building"
+          contents:
             - text: "Rendering"
               href: docs/ambiorix/rendering/index.qmd
-            - text: "Static Files"
-              href: docs/ambiorix/static/index.qmd
             - text: "Templates"
               href: docs/ambiorix/templates/index.qmd
+            - text: "Static Files"
+              href: docs/ambiorix/static/index.qmd
+            - text: "Websockets"
+              href: docs/ambiorix/websocket/index.qmd
+            - text: "Async"
+              href: docs/ambiorix/async/index.qmd
             - text: "Logger"
               href: docs/ambiorix/logger/index.qmd
             - text: "Stop"
               href: docs/ambiorix/stop/index.qmd
+            - text: "Project Structure"
+              href: docs/ambiorix/project/index.qmd
+
+        - section: "Deploy"
+          contents:
             - text: "Deploy"
               href: docs/ambiorix/deploy/index.qmd
             - text: "Load Balancing"
               href: docs/ambiorix/load-balancing/index.qmd
-            - text: "Project Structure"
-              href: docs/ambiorix/project/index.qmd
-            - text: "Changelog"
-              href: docs/ambiorix/changelog/index.qmd
-        - section: "Examples"
-          href: docs/examples/index.qmd
-          contents:
-            - text: "RESTful API"
-              href: docs/examples/api/index.qmd
-            - text: "POST Data"
-              href: docs/examples/post/index.qmd
-        - section: "Belgic"
-          href: docs/belgic/index.qmd
-          contents:
-            - text: "Install"
-              href: docs/belgic/install/index.qmd
-            - text: "Config"
-              href: docs/belgic/config/index.qmd
-            - text: "Run"
-              href: docs/belgic/run/index.qmd
+            - section: "Belgic"
+              href: docs/belgic/index.qmd
+              contents:
+                - text: "Install"
+                  href: docs/belgic/install/index.qmd
+                - text: "Config"
+                  href: docs/belgic/config/index.qmd
+                - text: "Run"
+                  href: docs/belgic/run/index.qmd
+
         - section: "Middlewares"
-          href: docs/middlewares/index.qmd
           contents:
+            - text: "Overview"
+              href: docs/middlewares/index.qmd
             - text: "Agris"
               href: docs/middlewares/agris/index.qmd
             - text: "Alesia"
@@ -122,32 +158,60 @@ website:
               href: docs/middlewares/surf/index.qmd
             - text: "Titan"
               href: docs/middlewares/titan/index.qmd
-        - section: "Generator"
-          href: docs/generator/index.qmd
+
+        - section: "Tooling"
           contents:
-            - text: "Install"
-              href: docs/generator/install/index.qmd
-            - text: "Usage"
-              href: docs/generator/usage/index.qmd
-        - section: "CLI"
-          href: docs/cli/index.qmd
+            - section: "Generator"
+              href: docs/generator/index.qmd
+              contents:
+                - text: "Install"
+                  href: docs/generator/install/index.qmd
+                - text: "Usage"
+                  href: docs/generator/usage/index.qmd
+            - section: "CLI"
+              href: docs/cli/index.qmd
+              contents:
+                - text: "Install"
+                  href: docs/cli/install/index.qmd
+                - text: "Usage"
+                  href: docs/cli/use/index.qmd
+
+        - section: "Examples"
           contents:
-            - text: "Install"
-              href: docs/cli/install/index.qmd
-            - text: "Usage"
-              href: docs/cli/use/index.qmd
+            - text: "Overview"
+              href: docs/examples/index.qmd
+            - text: "RESTful API"
+              href: docs/examples/api/index.qmd
+            - text: "POST Data"
+              href: docs/examples/post/index.qmd
+
+        - section: "Reference"
+          contents:
+            - text: "Changelog"
+              href: docs/ambiorix/changelog/index.qmd
 
 format:
   html:
-    # Codex — editorial, dark. See theme/tokens.scss for the palette.
+    # Ambiorix — monospace, hairline, square. See theme/light.scss for the
+    # palette and the reasoning; theme/dark.scss mirrors it name for name.
     theme:
-      - default
-      - theme/tokens.scss
-      - theme/typography.scss
-      - theme/code.scss
-      - theme/chrome.scss
-      - theme/components.scss
-    highlight-style: theme/codex.theme
+      light:
+        - default
+        - theme/light.scss
+        - theme/base.scss
+        - theme/code.scss
+        - theme/chrome.scss
+        - theme/components.scss
+      dark:
+        - default
+        - theme/dark.scss
+        - theme/base.scss
+        - theme/code.scss
+        - theme/chrome.scss
+        - theme/components.scss
+    highlight-style:
+      light: theme/syntax-light.theme
+      dark: theme/syntax-dark.theme
     include-in-header:
       - file: navbar.html
     toc: true

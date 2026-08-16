@@ -19,6 +19,16 @@ express.js. Routing, middleware, templating, websockets and async —
 one syntax, all in R.
 :::
 
+::: {.hero-install}
+
+[on cran]{.install-label}
+
+```r
+install.packages("ambiorix")
+```
+
+:::
+
 :::
 
 ::: {.hero-code}
@@ -45,93 +55,43 @@ app$start()
 
 :::
 
-::: {.home-section .section-tight}
-
-::: {.section-head}
-
-::: {.section-head-main}
-[Install]{.section-eyebrow}
-
-## Up and running in two commands. {.section-title}
-:::
-
-::: {.section-head-aside}
-The stable release is on CRAN. The development version lives on GitHub.
-:::
-
-:::
-
-::: {.install-grid}
-
-::: {.install-step}
-[1 — install the package]{.step-label}
-
-```r
-install.packages("ambiorix")
-```
-:::
-
-::: {.install-step}
-[2 — run your app]{.step-label}
-
-```bash
-Rscript app.R
-```
-:::
-
-:::
-
-:::
-
 ::: {.home-section}
 
 ::: {.section-head}
 
 ::: {.section-head-main}
-[Features]{.section-eyebrow}
+[Overview]{.section-eyebrow}
 
-## Everything you need to serve R over HTTP. {.section-title}
+## What is Ambiorix? {.section-title}
 :::
 
 ::: {.section-head-aside}
-Nothing here is mandatory. Use the pieces you need and ignore the rest.
+A framework for serving R over HTTP — multipage applications, JSON APIs,
+or anything else you can answer a request with.
 :::
 
 :::
 
-::: {.feature-grid}
+::: {.capability-list}
 
-::: {.feature}
-### Routing
-Build multipage applications right out of the box.
-:::
-
-::: {.feature}
-### Templating
-For server-side rendering. HTML, markdown, pug, and more.
-:::
-
-::: {.feature}
-### Middleware
-Easily pre-process every request to the server.
-:::
-
-::: {.feature}
-### Websockets
-For when you need bi-directional communication between server and client.
-:::
-
-::: {.feature}
-### Async
-Use asynchronous programming by returning promises from request handlers.
-:::
-
-::: {.feature}
-### Autonomy
-You have absolute, full control over the request-response cycle.
-:::
+- **Routing** — handlers for `GET` and `POST`, with path parameters and a
+  query string parsed for you.
+- **Responses** — send HTML, plain text, JSON, CSV, TSV, files, images,
+  ggplot2 plots and htmlwidgets.
+- **Middleware** — run code on every request before it reaches a handler.
+- **Templating** — server-side rendering with HTML and markdown built in,
+  or register a pug or jade engine.
+- **Static files** — serve a whole directory of assets with a single call.
+- **Websockets** — bi-directional messaging between the server and the
+  browser.
+- **Async** — return a promise from a handler and the server keeps
+  answering everyone else.
+- **Routers** — mount sub-applications under a prefix so a large app can
+  span many files.
 
 :::
+
+[Read the docs](/docs/){.arrow-link}
 
 :::
 
@@ -140,13 +100,14 @@ You have absolute, full control over the request-response cycle.
 ::: {.section-head}
 
 ::: {.section-head-main}
-[In practice]{.section-eyebrow}
+[Example]{.section-eyebrow}
 
-## A whole app, in one file. {.section-title}
+## More than hello, world. {.section-title}
 :::
 
 ::: {.section-head-aside}
-Middleware, static files, path parameters and a JSON endpoint — under thirty lines.
+Middleware, static files, path parameters and a JSON endpoint — under
+thirty lines, in a single file.
 :::
 
 :::
@@ -184,6 +145,11 @@ app$start()
 
 :::
 
+::: {.showpiece-note}
+Save it as `app.R` and run `Rscript app.R`. There is no build step and no
+project layout to adopt first.
+:::
+
 :::
 
 ::: {.home-section}
@@ -191,101 +157,39 @@ app$start()
 ::: {.section-head}
 
 ::: {.section-head-main}
-[Going further]{.section-eyebrow}
+[Packages]{.section-eyebrow}
 
-## Templating, websockets and async. {.section-title}
+## The ecosystem. {.section-title}
 :::
 
 ::: {.section-head-aside}
-Server-side rendering, bi-directional messaging, and handlers that never block.
+Published alongside the framework, installed the same way, and entirely
+optional.
 :::
 
 :::
 
-::: {.panel-tabset}
+::: {.feature-grid}
 
-## Templating
+::: {.feature}
+### Middlewares
+Eleven packages you can drop in: logging, sessions, cookies, CSRF
+protection, security headers, Prometheus metrics, minification, favicons,
+pattern matching, and the pug and jade engines.
+:::
 
-```r
-library(ambiorix)
+::: {.feature}
+### Scaffolding
+Start from a structured project rather than an empty file. The generator
+package builds one from R; the CLI builds the same thing from the
+terminal.
+:::
 
-app <- Ambiorix$new(port = 3000L)
-
-app$get("/:book", function(req, res) {
-  res$render(
-    "home.html",
-    data = list(title = req$params$book)
-  )
-})
-
-app$start()
-```
-
-```html
-<!-- templates/home.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>[% title %]</title>
-</head>
-<body>
-  <h1>[% title %]</h1>
-  <p>Welcome to Ambiorix!</p>
-</body>
-</html>
-```
-
-## Websockets
-
-```r
-library(ambiorix)
-
-app <- Ambiorix$new(port = 3000L)
-
-app$get("/", function(req, res) {
-  res$send_file("home.html")
-})
-
-# listen to incoming websocket messages
-app$receive("hello", function(msg, ws) {
-  print(msg)
-  ws$send("hello", "Hello back! (sent from R)")
-})
-
-app$start()
-```
-
-## Async
-
-```r
-library(ambiorix)
-library(future)
-
-plan(multisession)
-
-now <- function() {
-  format(
-    x = Sys.time(),
-    format = "%F %T",
-    usetz = TRUE
-  )
-}
-
-app <- Ambiorix$new(port = 3000L)
-
-app$get("/slow", function(req, res) {
-  future({
-    Sys.sleep(10)
-    res$send(now())
-  })
-})
-
-app$get("/fast", function(req, res) {
-  res$send(now())
-})
-
-app$start()
-```
+::: {.feature}
+### Belgic
+A reverse proxy and load balancer for putting an application in front of
+real traffic, spreading requests across several backends.
+:::
 
 :::
 
@@ -293,10 +197,10 @@ app$start()
 
 ::: {.closer}
 
-## Ready when you are. {.closer-title}
+## Write a handler. Start the server. {.closer-title}
 
 ::: {.closer-lead}
-Install the package, write a handler, start the server.
+Everything else is optional.
 :::
 
 ::: {.closer-actions}

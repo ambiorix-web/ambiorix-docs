@@ -1,235 +1,282 @@
 /*-- scss:rules --*/
 
 // ══════════════════════════════════════════════════════════════════════
-//  CHROME — navbar, sidebar, TOC, title block, footer
+//  CHROME — header, sidebar, TOC, title block, footer
 //
-//  All sans, all small, all quiet. In an editorial setting the furniture
-//  should recede so the page reads as the object; the serif column is
-//  what the reader is meant to look at.
+//  Every piece of furniture here is the same face and nearly the same
+//  size as the body text; hierarchy comes from weight, colour and a 1px
+//  hairline, never from a fill or a shadow. That is what makes the layout
+//  read as one surface with rules drawn on it rather than as a stack of
+//  panels.
 // ══════════════════════════════════════════════════════════════════════
 
-// ── Navbar ────────────────────────────────────────────────────────────
+// ── Header ────────────────────────────────────────────────────────────
 
 .navbar {
-  background-color: $page !important;
-  border-bottom: 1px solid $rule-soft;
+  background-color: $bg !important;
+  border-bottom: 1px solid $border-weak;
   box-shadow: none;
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
-  min-height: 0;
-  font-family: $font-family-sans-serif;
+  min-height: 4rem;
+  padding: 0 1.5rem;
+  font-family: $font-family-monospace;
 }
 
 .navbar-brand-container {
   .navbar-brand {
     display: flex;
     align-items: center;
-    gap: 0.55rem;
+    gap: 0.625rem;
     padding: 0;
   }
 
   .navbar-title {
-    font-family: $font-family-serif;
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: 600;
-    font-variation-settings: "opsz" 24;
-    letter-spacing: 0;
-    color: $fg;
+    letter-spacing: -0.02em;
+    color: $fg-strong;
   }
 
+  // The mark is a circular avatar; it is the only round thing on the page
+  // and it stays that way because cropping it square would maul the face.
   .navbar-logo {
-    max-height: 27px;
+    max-height: 26px;
     width: auto;
     border-radius: 50%;
   }
 
-  &:hover .navbar-title { color: $forest; }
+  &:hover .navbar-title { color: $fg-strong; }
 }
 
 .navbar-nav {
-  margin: 0 auto;
-  gap: 0.1rem;
+  gap: 0.25rem;
+  align-items: center;
 }
 
-.navbar-collapse { justify-content: center; }
+.navbar-collapse { justify-content: flex-end; }
 
 .navbar-nav .nav-link {
   position: relative;
-  font-family: $font-family-sans-serif;
-  font-size: 0.83rem;
-  font-weight: 450;
-  letter-spacing: 0.005em;
-  color: $muted !important;
-  padding: 0.3rem 0.75rem !important;
-  border-radius: 4px;
-  transition: color 0.15s ease;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: $fg !important;
+  padding: 0.35rem 0.75rem !important;
+  border-radius: 0;
+  transition: color 0.12s ease;
 
   &:hover,
-  &:focus-visible { color: $fg !important; }
+  &:focus-visible { color: $fg-strong !important; }
 
-  // Active marker, drawn inside the padding so it tracks the label
-  // rather than the hit area.
   &.active {
-    color: $fg !important;
-
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0.75rem;
-      right: 0.75rem;
-      bottom: 0.02rem;
-      height: 1px;
-      background-color: $rust;
-    }
+    color: $fg-strong !important;
+    font-weight: 600;
   }
 }
 
+// GitHub, X and the light/dark toggle.
 .navbar .quarto-navbar-tools .nav-link,
-.navbar-nav .nav-link.quarto-navigation-tool {
-  color: $muted !important;
+.navbar-nav .nav-link.quarto-navigation-tool,
+.quarto-color-scheme-toggle {
+  color: $icon !important;
   font-size: 1rem;
 
-  &:hover { color: $rust !important; }
-  &.active::after { display: none; }
+  &:hover { color: $fg-strong !important; }
+  &.active { font-weight: 400; }
 }
 
 .navbar-toggler {
-  border: 1px solid $rule;
-  border-radius: 4px;
-  padding: 0.22rem 0.45rem;
+  border: 1px solid $border;
+  border-radius: 0;
+  padding: 0.25rem 0.5rem;
 
   &:focus { box-shadow: none; }
 }
 
 // ── Sidebar ───────────────────────────────────────────────────────────
 //
-// Reads as a table of contents: no boxes, no fills, one hairline down the
-// nested levels and a rule marking the current page.
+// A single hairline down the right edge, uppercase group labels, and no
+// fills anywhere. The current page is marked by weight and colour only —
+// no pill, no bar, no tint. That is the whole idea: the tree reads as a
+// printed contents page rather than as a control panel.
+//
+// Quarto's markup, for reference:
+//
+//   nav#quarto-sidebar
+//     > div.sidebar-menu-container
+//       > ul
+//         > li.sidebar-item                     flat page (Introduction)
+//         > li.sidebar-item.sidebar-item-section    group (CORE, BUILDING)
+//             > div.sidebar-item-container > a.sidebar-item-text
+//             > ul.sidebar-section.depth1
+//                 > li.sidebar-item                 page in the group
+//                 > li.sidebar-item-section         subsection (Belgic)
+//                     > ul.sidebar-section.depth2
+//
+// The group label and a plain top-level page share a class list, so the
+// distinction below is always drawn on .sidebar-item-section.
 
 #quarto-sidebar {
-  background-color: transparent !important;
-  border-right: 0;
-  font-family: $font-family-sans-serif;
+  background-color: $bg !important;
+  border-right: 1px solid $border-weak;
+  font-family: $font-family-monospace;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+
+  // Every group is expanded, so the tree is roughly 2,400px tall. Left in
+  // normal flow it would set the height of the whole document, and a page
+  // with two lines on it — /docs/ambiorix/load-balancing, say — would
+  // scroll for two screens of nothing. Pinning it to the viewport with its
+  // own scroller is what lets the groups stay open.
+  //
+  // `align-self: start` is load-bearing: sidebar and content are cells of
+  // the same CSS grid, and a stretched grid item is already as tall as its
+  // row, which leaves sticky nothing to travel through.
+  @media (min-width: 992px) {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    max-height: 100vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
 
   .sidebar-title {
-    font-family: $font-family-sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.13em;
-    color: $dim;
-    margin-bottom: 0.9rem;
+    letter-spacing: 0.05em;
+    color: $fg-weak;
+    margin-bottom: 1.25rem;
   }
 
   .sidebar-item {
-    line-height: 1.4;
-    margin-top: 0;
-    margin-bottom: 0;
+    line-height: 1.5;
+    margin: 0;
   }
 
-  .sidebar-item-container { font-size: 0.845rem; }
+  .sidebar-item-container {
+    font-size: 0.875rem;
+    align-items: baseline;
+  }
 
   .sidebar-link,
   .sidebar-item-text {
-    color: $muted;
+    color: $fg;
+    font-weight: 400;
     text-decoration: none;
-    padding: 0.3rem 0.6rem;
-    border-radius: 3px;
+    padding: 0.25rem 0;
     display: block;
     transition: color 0.12s ease;
 
-    &:hover { color: $fg; }
+    &:hover { color: $fg-strong; }
   }
 
-  // Section rows sit slightly forward of their children.
-  > div > ul > .sidebar-item > .sidebar-item-container > .sidebar-item-text {
-    color: $fg;
-    font-weight: 550;
-  }
+  // ── Group labels ──────────────────────────────────────────────────
+  //
+  // CORE, BUILDING, DEPLOY. Headings that happen to toggle, so they take
+  // the heading colour and none of the link affordances. The air above
+  // each one is what separates the groups; there is no rule between them.
+  > div > ul > li.sidebar-item-section {
+    margin-top: 1.75rem;
 
-  // One quiet guide down each nested level.
-  .sidebar-section > .sidebar-item {
-    position: relative;
-    padding-left: 0.75rem;
+    > .sidebar-item-container > .sidebar-item-text {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $fg-strong;
+      padding-bottom: 0.375rem;
 
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0.1rem;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background-color: $rule;
+      &:hover { color: $fg-strong; }
     }
   }
 
-  // Current page — a rust rule in the margin, no fill.
-  .sidebar-link.active,
-  .sidebar-item-text.active,
-  .sidebar-item-container .active {
-    color: $forest !important;
-    font-weight: 550;
+  // Pages inside a group hang flush with the label — the uppercase carries
+  // the indent, so whitespace does not have to.
+  ul.sidebar-section.depth1 > .sidebar-item { padding-left: 0; }
+
+  // A subsection (Belgic, Generator, CLI) is a page with pages under it.
+  // Its own children step in behind a hairline; it does not.
+  ul.sidebar-section.depth2 {
+    padding-left: 0.875rem;
+    margin-left: 0.0625rem;
+    border-left: 1px solid $border-weak;
+  }
+
+  // Current page.
+  .sidebar-item-container .sidebar-link.active,
+  .sidebar-item-container .sidebar-item-text.active {
+    color: $fg-strong;
+    font-weight: 600;
     background-color: transparent;
+    text-decoration: none;
   }
 
-  .sidebar-section > .sidebar-item:has(> .sidebar-item-container .active)::before {
-    background-color: $rust;
-    width: 2px;
-  }
+  // The caret is an affordance, not information: it stays at icon weight
+  // and never competes with the label beside it.
+  .sidebar-item-toggle {
+    padding: 0.25rem 0;
 
-  .sidebar-item-toggle .bi { color: $dim; }
+    .bi {
+      color: $icon;
+      font-size: 0.75rem;
+    }
+  }
 }
 
 // ── Table of contents ─────────────────────────────────────────────────
 
 #quarto-margin-sidebar,
 .sidebar.margin-sidebar {
-  font-family: $font-family-sans-serif;
+  font-family: $font-family-monospace;
+  padding-top: 1.5rem;
+
+  @media (min-width: 992px) {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
 
   .quarto-secondary-nav-title,
   > nav > h2,
   .toc-title {
-    font-family: $font-family-sans-serif;
-    font-size: 0.68rem;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.13em;
-    color: $dim;
-    margin-bottom: 0.7rem;
+    letter-spacing: 0.05em;
+    color: $fg-weak;
+    margin-bottom: 0.875rem;
     border-bottom: 0;
     padding-bottom: 0;
   }
 
   nav#TOC,
   ul {
-    border-left: 1px solid $rule-soft;
+    border-left: 0;
     padding-left: 0;
     list-style: none;
   }
 
-  nav#TOC ul { border-left: 0; }
+  // Nested entries step in by depth rather than hanging off a rail.
+  ul ul { padding-left: 0.875rem; }
 
   a.nav-link,
   ul li a {
     display: block;
-    font-family: $font-family-sans-serif;
-    font-size: 0.8rem;
-    line-height: 1.45;
-    color: $muted;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: $fg-weak;
     text-decoration: none;
-    padding: 0.24rem 0 0.24rem 0.85rem;
-    border-left: 1px solid transparent;
-    margin-left: -1px;
-    transition: color 0.12s ease, border-color 0.12s ease;
+    padding: 0.25rem 0;
+    border-left: 0;
+    transition: color 0.12s ease;
 
-    &:hover {
-      color: $fg;
-      border-left-color: $rule;
-    }
+    &:hover { color: $fg; }
 
     &.active {
-      color: $fg;
-      border-left-color: $rust;
+      color: $fg-strong;
+      font-weight: 600;
     }
   }
 }
@@ -237,101 +284,136 @@
 // ── Breadcrumbs ───────────────────────────────────────────────────────
 
 .quarto-page-breadcrumbs {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.75rem;
 
   .breadcrumb {
     margin-bottom: 0;
-    font-family: $font-family-sans-serif;
     font-size: 0.75rem;
-    font-weight: 450;
-    letter-spacing: 0.03em;
+    font-weight: 400;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .breadcrumb-item {
     a {
-      color: $dim !important;
+      color: $fg-weak !important;
       text-decoration: none !important;
 
-      &:hover { color: $forest !important; }
+      &:hover { color: $fg-strong !important; }
     }
 
     + .breadcrumb-item::before {
-      color: $rule;
-      content: "·";
-      padding: 0 0.3rem;
+      color: $fg-weaker;
+      content: "/";
+      padding: 0 0.4rem;
     }
 
-    &:last-child a { color: $muted !important; }
+    &:last-child a { color: $fg !important; }
   }
 }
 
 // ── Title block ───────────────────────────────────────────────────────
 
 .quarto-title-block {
-  padding-top: 2.6rem;
-  padding-bottom: 1.1rem;
-  margin-bottom: 2.1rem;
-  border-bottom: 1px solid $rule-soft;
+  padding-top: 2.5rem;
+  padding-bottom: 0;
+  margin-bottom: 2.25rem;
+  border-bottom: 0;
 
   .quarto-title .title {
-    font-family: $font-family-serif;
-    font-size: clamp(2.1rem, 1.7rem + 1.5vw, 2.8rem);
+    font-size: 2rem;
     font-weight: 600;
-    font-variation-settings: "opsz" 72;
-    letter-spacing: -0.014em;
-    line-height: 1.12;
-    color: $fg;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    color: $fg-strong;
     text-wrap: balance;
     background: none;
     -webkit-text-fill-color: currentColor;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.75rem;
   }
 
   .subtitle {
-    font-family: $font-family-serif;
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: 400;
-    color: $muted;
+    color: $fg-weak;
     line-height: 1.6;
-    margin-top: 0.2rem;
-    margin-bottom: 0.9rem;
+    margin: 0.25rem 0 1rem;
   }
 
-  .quarto-title-meta,
-  .quarto-title-meta-contents {
-    font-family: $font-family-sans-serif;
-    font-size: 0.76rem;
-    color: $muted;
-    padding-bottom: 0.9rem;
+}
 
-    .quarto-title-meta-heading {
-      font-size: 0.66rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: $dim;
+// Dates and authors are noise on a reference page — the changelog is where
+// version history actually lives. Quarto styles this block through an id,
+// so the override has to carry one too.
+#title-block-header .quarto-title-meta { display: none !important; }
+
+// ── Page navigation ───────────────────────────────────────────────────
+//
+// Previous/next along the foot of every doc page, which is how a reader
+// gets through fifty pages in order without going back to the sidebar
+// each time. Two hairline boxes; the arrow marks the direction and the
+// box grows its border on hover rather than filling.
+
+.page-navigation {
+  display: flex;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding-top: 0;
+  border-top: 0;
+
+  .nav-page {
+    flex: 1 1 0;
+    padding: 0;
+
+    // Quarto floats these; the flex row above wants them in normal flow.
+    float: none;
+  }
+
+  .nav-page-next { text-align: right; }
+
+  .pagination-link {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    height: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid $border-weak;
+    color: $fg;
+    font-size: 0.875rem;
+    text-decoration: none !important;
+    transition: border-color 0.12s ease, color 0.12s ease;
+
+    &:hover {
+      border-color: $fg-weak;
+      color: $fg-strong;
     }
+
+    .bi { color: $fg-weak; }
   }
+
+  .nav-page-next .pagination-link { justify-content: flex-end; }
+}
+
+@media (max-width: 575.98px) {
+  .page-navigation { flex-direction: column; }
 }
 
 // ── Footer ────────────────────────────────────────────────────────────
 
 .nav-footer {
-  background-color: $page;
-  border-top: 1px solid $rule-soft;
-  color: $muted;
-  font-family: $font-family-sans-serif;
-  font-size: 0.8rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  margin-top: 4rem;
+  background-color: $bg;
+  border-top: 1px solid $border-weak;
+  color: $fg-weak;
+  font-family: $font-family-monospace;
+  font-size: 0.8125rem;
+  padding: 1.5rem;
+  margin-top: 5rem;
 
   a {
-    color: $muted;
+    color: $fg-weak;
     text-decoration: none;
 
-    &:hover { color: $forest; }
+    &:hover { color: $fg-strong; }
   }
 }
 
@@ -339,12 +421,39 @@
 
 #quarto-document-content { padding-bottom: 2rem; }
 
-.toc-actions a,
+// "Edit this page" / "Report an issue", under the table of contents.
+.toc-actions {
+  border-top: 1px solid $border-weak;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+
+  ul { padding-left: 0; }
+
+  li { list-style: none; }
+
+  a {
+    font-family: $font-family-monospace;
+    color: $fg;
+    font-size: 0.8125rem;
+    text-decoration: none;
+
+    &:hover { color: $fg-strong; }
+  }
+
+  .bi { color: $icon; }
+}
+
 #quarto-back-to-top {
-  font-family: $font-family-sans-serif;
-  color: $muted;
-  font-size: 0.78rem;
+  font-family: $font-family-monospace;
+  color: $fg;
+  font-size: 0.8125rem;
   text-decoration: none;
 
-  &:hover { color: $forest; }
+  &:hover { color: $fg-strong; }
+}
+
+// Focus is drawn with the accent — one of only two places it appears.
+:focus-visible {
+  outline: 2px solid $accent-line;
+  outline-offset: 2px;
 }
