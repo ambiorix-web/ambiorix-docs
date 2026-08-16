@@ -2,35 +2,35 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Build for the web, with R.",
+    "title": "Build web applications & APIs in R.",
     "section": "",
-    "text": "a web framework for R\n\n\n\nAmbiorix is an unopinionated, minimalist web framework inspired by express.js. Routing, middleware, templating, websockets and async — one syntax, all in R.\n\n\non cran\ninstall.packages(\"ambiorix\")\n\n\n\n\nlibrary(ambiorix)\n\napp &lt;- Ambiorix$new(port = 3000L)\n\napp$get(\"/\", function(req, res) {\n  res$send(\"Hello, World!\")\n})\n\napp$start()\n\n\nGet started Read the book Watch the video"
+    "text": "a web framework for R\n\n\n\nAmbiorix is an unopinionated, minimalist web framework inspired by express.js.\n\n\non cran\ninstall.packages(\"ambiorix\")\n\n\n\n\nlibrary(ambiorix)\n\napp &lt;- Ambiorix$new(port = 3000L)\n\napp$get(\"/\", function(req, res) {\n  res$send(\"Hello, World!\")\n})\n\napp$start()\n\n\nGet started Read the book Watch the video"
   },
   {
     "objectID": "index.html#what-is-ambiorix",
     "href": "index.html#what-is-ambiorix",
-    "title": "Build for the web, with R.",
+    "title": "Build web applications & APIs in R.",
     "section": "What is Ambiorix?",
     "text": "What is Ambiorix?"
   },
   {
     "objectID": "index.html#more-than-hello-world.",
     "href": "index.html#more-than-hello-world.",
-    "title": "Build for the web, with R.",
+    "title": "Build web applications & APIs in R.",
     "section": "More than hello, world.",
     "text": "More than hello, world."
   },
   {
     "objectID": "index.html#the-ecosystem.",
     "href": "index.html#the-ecosystem.",
-    "title": "Build for the web, with R.",
+    "title": "Build web applications & APIs in R.",
     "section": "The ecosystem.",
     "text": "The ecosystem."
   },
   {
     "objectID": "index.html#write-a-handler.-start-the-server.",
     "href": "index.html#write-a-handler.-start-the-server.",
-    "title": "Build for the web, with R.",
+    "title": "Build web applications & APIs in R.",
     "section": "Write a handler. Start the server.",
     "text": "Write a handler. Start the server.\n\nEverything else is optional.\n\n\nGet started Browse the gallery"
   },
@@ -2116,7 +2116,7 @@
     "href": "docs/index.html",
     "title": "Introduction",
     "section": "",
-    "text": "👋 Welcome!\nThis is the documentation site for the Ambiorix R web framework — an unopinionated, minimalist framework inspired by express.js.\nIf you have never used Ambiorix before, start with Get Started and work forward from there; each page links to the next.",
+    "text": "👋 Welcome!\nThis is the documentation site for the Ambiorix R web framework.\nIf you have never used Ambiorix before, start with Get Started and work forward from there; each page links to the next.",
     "crumbs": [
       "Docs",
       "Introduction"

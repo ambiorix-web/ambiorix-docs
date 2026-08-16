@@ -81,9 +81,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-604c6c8608239f799114829773741200.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f74c97d09ffeb69e3cd4e03c1c513cf2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-a8ea53ffca62f5ca6db6aa4225b84834.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f74c97d09ffeb69e3cd4e03c1c513cf2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-da27bc0890c3d804a2d223d6a52816ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-e67895883dbbb2da5d6c83d623e52401.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-da27bc0890c3d804a2d223d6a52816ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -436,10 +436,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="hero">
 <div class="hero-copy">
 <p><span class="eyebrow">a web framework for R</span></p>
-<section id="build-for-the-web-with-r." class="level1 hero-title">
-<h1 class="hero-title">Build for the web, with R.</h1>
+<section id="build-web-applications-apis-in-r." class="level1 hero-title">
+<h1 class="hero-title">Build web applications &amp; APIs in R.</h1>
 <div class="hero-lead">
-<p>Ambiorix is an unopinionated, minimalist web framework inspired by express.js. Routing, middleware, templating, websockets and async — one syntax, all in R.</p>
+<p>Ambiorix is an unopinionated, minimalist web framework inspired by express.js.</p>
 </div>
 <div class="hero-install">
 <p><span class="install-label">on cran</span></p>
@@ -471,19 +471,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </div>
 <div class="section-head-aside">
-<p>A framework for serving R over HTTP — multipage applications, JSON APIs, or anything else you can answer a request with.</p>
+<p>A framework for serving R over HTTP: multipage applications, JSON APIs, or anything else you can answer a request with.</p>
 </div>
 </div>
 <div class="capability-list">
 <ul>
-<li><strong>Routing</strong> — handlers for <code>GET</code> and <code>POST</code>, with path parameters and a query string parsed for you.</li>
-<li><strong>Responses</strong> — send HTML, plain text, JSON, CSV, TSV, files, images, ggplot2 plots and htmlwidgets.</li>
-<li><strong>Middleware</strong> — run code on every request before it reaches a handler.</li>
-<li><strong>Templating</strong> — server-side rendering with HTML and markdown built in, or register a pug or jade engine.</li>
-<li><strong>Static files</strong> — serve a whole directory of assets with a single call.</li>
-<li><strong>Websockets</strong> — bi-directional messaging between the server and the browser.</li>
-<li><strong>Async</strong> — return a promise from a handler and the server keeps answering everyone else.</li>
-<li><strong>Routers</strong> — mount sub-applications under a prefix so a large app can span many files.</li>
+<li><strong>Routing</strong>: handlers for HTTP requests (<code>GET</code>, <code>POST</code>, etc.), with path parameters and query strings parsed for you.</li>
+<li><strong>Responses</strong>: send HTML, plain text, JSON, CSV, files, images, and many more formats.</li>
+<li><strong>Middleware</strong>: run code on every request before it reaches a handler.</li>
+<li><strong>Templating</strong>: server-side rendering with HTML and markdown built in, or register a pug or jade engine.</li>
+<li><strong>Static files</strong>: serve a whole directory of assets with a single call.</li>
+<li><strong>Websockets</strong>: bi-directional messaging between the server and the client.</li>
+<li><strong>Async</strong>: return a promise from a handler and the server keeps answering everyone else.</li>
+<li><strong>Routers</strong>: mount sub-applications under a prefix so a large app can span many files.</li>
 </ul>
 </div>
 <p><a href="./docs/" class="arrow-link">Read the docs</a></p>
@@ -497,7 +497,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </div>
 <div class="section-head-aside">
-<p>Middleware, static files, path parameters and a JSON endpoint — under thirty lines, in a single file.</p>
+<p>Middleware, static files, path parameters and a JSON endpoint.</p>
 </div>
 </div>
 <div class="showpiece">
@@ -529,7 +529,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>app<span class="sc">$</span><span class="fu">start</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="showpiece-note">
-<p>Save it as <code>app.R</code> and run <code>Rscript app.R</code>. There is no build step and no project layout to adopt first.</p>
+<p>Save it as <code>app.R</code> and run <code>Rscript app.R</code>.</p>
 </div>
 </div>
 <div class="home-section">
@@ -541,7 +541,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </div>
 <div class="section-head-aside">
-<p>Published alongside the framework, installed the same way, and entirely optional.</p>
+<p>Published alongside the framework, and entirely optional.</p>
 </div>
 </div>
 <div class="feature-grid">
@@ -555,7 +555,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="belgic" class="level3 feature">
 <h3 class="anchored" data-anchor-id="belgic">Belgic</h3>
-<p>A reverse proxy and load balancer for putting an application in front of real traffic, spreading requests across several backends.</p>
+<p>A reverse proxy and load balancer for putting an application in front of traffic, spreading requests across several backends.</p>
 </section>
 </div>
 </div>
