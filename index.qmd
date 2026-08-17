@@ -191,15 +191,17 @@ traffic, spreading requests across several backends.
 
 ::: {.closer}
 
-## Write a handler. Start the server. {.closer-title}
+## Where to go next {.closer-title}
 
 ::: {.closer-lead}
-Everything else is optional.
+New here? [Get Started](/docs/getting-started/) installs the package and gets
+a server running. From there [the docs](/docs/) cover the request-response
+cycle in order, and [the book](https://book.ambiorix.dev/) goes deeper.
 :::
 
 ::: {.closer-actions}
 [Get started](/docs/getting-started/){.btn .btn-primary}
-[Browse the gallery](/showcase/){.btn .btn-secondary}
+[Read the docs](/docs/){.btn .btn-secondary}
 :::
 
 :::

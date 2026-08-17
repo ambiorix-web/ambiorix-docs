@@ -302,31 +302,32 @@
   .closer {
     max-width: $content-max;
     margin: 5rem auto 1rem;
-    padding: 3.25rem 1.5rem;
-    text-align: center;
+    padding: 3rem 0;
     border-top: 1px solid $border;
     border-bottom: 1px solid $border;
 
     section.closer-title { font-size: $font-size-base; }
 
     h2.closer-title {
-      font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
+      font-size: clamp(1.375rem, 1.15rem + 0.8vw, 1.625rem);
       font-weight: 600;
       letter-spacing: -0.035em;
       color: $fg-strong;
-      text-wrap: balance;
-      margin: 0 0 0.625rem;
+      margin: 0 0 0.875rem;
       padding-top: 0;
       border-top: 0;
       border-bottom: 0;
     }
 
     .closer-lead p {
+      font-size: 0.9375rem;
+      line-height: 1.7;
       color: $fg-weak;
-      margin-bottom: 1.75rem;
+      max-width: 46rem;
+      margin: 0 0 1.75rem;
     }
 
-    .closer-actions { justify-content: center; }
+    .closer-actions { justify-content: flex-start; }
   }
 
   .showcase-buttons { margin-top: 1.75rem; }
