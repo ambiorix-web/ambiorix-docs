@@ -80,9 +80,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-604c6c8608239f799114829773741200.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-da27bc0890c3d804a2d223d6a52816ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-e67895883dbbb2da5d6c83d623e52401.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-da27bc0890c3d804a2d223d6a52816ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-e61a732165ec2a0d58834af7457ed7d4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-ba2330fe4e6fe695418f1ff702dcdb2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-e61a732165ec2a0d58834af7457ed7d4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -112,19 +112,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <meta name="color-scheme" content="light dark">
 <script>
-  // Follow the operating system on a first visit.
-  //
-  // Quarto's own toggle only ever reads localStorage["quarto-color-scheme"]
-  // and falls back to the first theme in _quarto.yml — it never consults
-  // prefers-color-scheme — so someone on a dark desktop gets a white page
-  // until they find the switch. This seeds that key from the system before
-  // Quarto's script runs (it lives at the top of <body>; this include is in
-  // <head>), so the correct sheet is chosen on the first paint.
-  //
-  // A second key records the value written here. While the stored scheme
-  // still matches it, nobody has touched the toggle and the system stays in
-  // charge; the moment the two differ the reader has made an explicit
-  // choice, and this stops overriding it.
   (function () {
     var SCHEME = "quarto-color-scheme";
     var SEEDED = "ambiorix-color-scheme-seeded";
@@ -141,9 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
       window.localStorage.setItem(SCHEME, system);
       window.localStorage.setItem(SEEDED, system);
-    } catch (e) {
-      // Private browsing, or storage disabled. Quarto's default stands.
-    }
+    } catch (e) {}
   })();
 </script>
 <script>

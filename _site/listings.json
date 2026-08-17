@@ -1,5 +1,12 @@
 [
   {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/cors/index.html",
+      "/blog/parse-raw-json/index.html"
+    ]
+  },
+  {
     "listing": "/showcase/index.html",
     "items": [
       "/showcase/mwavu/index.html",
@@ -13,13 +20,6 @@
       "/showcase/live-search/index.html",
       "/showcase/links/index.html",
       "/showcase/tiny-api/index.html"
-    ]
-  },
-  {
-    "listing": "/blog/index.html",
-    "items": [
-      "/blog/cors/index.html",
-      "/blog/parse-raw-json/index.html"
     ]
   }
 ]
