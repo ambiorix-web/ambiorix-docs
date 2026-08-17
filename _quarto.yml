@@ -53,8 +53,6 @@ website:
           href: docs/index.qmd
         - text: "Get Started"
           href: docs/getting-started/index.qmd
-        - text: "Overview"
-          href: docs/ambiorix/index.qmd
 
         - section: "Core"
           contents:

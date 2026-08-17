@@ -1,7 +1,11 @@
 ---
 title: Introduction
 date: 2024-10-22
+aliases:
+  - /docs/ambiorix/
 ---
+
+![Ambiorix logo](/images/ambiorix.png){width=300 fig-align="left" fig-alt="Ambiorix, the Eburones chieftain the framework is named after"}
 
 👋 Welcome!
 
