@@ -1,6 +1,8 @@
 ---
 title: Getting Started
 date: 2024-10-22
+aliases:
+  - /docs/ambiorix/install/
 ---
 
 ## Quick Start
