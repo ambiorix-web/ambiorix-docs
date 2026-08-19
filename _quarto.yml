@@ -56,8 +56,6 @@ website:
 
         - section: "Core"
           contents:
-            - text: "Install"
-              href: docs/ambiorix/install/index.qmd
             - text: "Hello, World"
               href: docs/ambiorix/hello-world/index.qmd
             - text: "Routing"

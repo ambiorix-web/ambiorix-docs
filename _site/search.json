@@ -35,30 +35,30 @@
     "text": "Where to go next\n\nNew here? Get Started installs the package and gets a server running. From there the docs cover the request-response cycle in order, and the book goes deeper.\n\n\nGet started Read the docs"
   },
   {
-    "objectID": "showcase/index.html",
-    "href": "showcase/index.html",
-    "title": "Showcase",
-    "section": "",
-    "text": "Follow us on X Explore More On GitHub\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPersonal Website\n\n\nTalk about eating our own dogfood :)\n\n\n\n\n\n\n\n\n\n\n\n\nRRR\n\n\nURL shortener\n\n\n\n\n\n\n\n\n\n\n\n\nInfinite Scroll\n\n\nLoad data as user scrolls down\n\n\n\n\n\n\n\n\n\n\n\n\nDatatables\n\n\nRender datatables, paginate & query data\n\n\n\n\n\n\n\n\n\n\n\n\nContact App\n\n\nPerform CRUD on contacts\n\n\n\n\n\n\n\n\n\n\n\n\nPhoto Gallery\n\n\nA minimal gallery for your cats!\n\n\n\n\n\n\n\n\n\n\n\n\nContact Form\n\n\nBuild & handle contact form submissions\n\n\n\n\n\n\n\n\n\n\n\n\nFile Download\n\n\nDownload files depending on selected dataset\n\n\n\n\n\n\n\n\n\n\n\n\nLive Search\n\n\nPerform live search on mtcars as user types keywords\n\n\n\n\n\n\n\n\n\n\n\n\nLinks\n\n\nEnable users to share links to specific pages, tabs, & sections\n\n\n\n\n\n\n\n\n\n\n\n\nTiny API\n\n\nUpload a csv file, get API endpoints to the data.\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "showcase/rrr/index.html",
-    "href": "showcase/rrr/index.html",
-    "title": "RRR",
+    "objectID": "showcase/tiny-api/index.html",
+    "href": "showcase/tiny-api/index.html",
+    "title": "Tiny API",
     "section": "",
     "text": "Visit Site View Code"
   },
   {
-    "objectID": "showcase/mwavu/index.html",
-    "href": "showcase/mwavu/index.html",
-    "title": "Personal Website",
+    "objectID": "showcase/photo-gallery/index.html",
+    "href": "showcase/photo-gallery/index.html",
+    "title": "Photo Gallery",
     "section": "",
     "text": "Visit Site View Code"
   },
   {
-    "objectID": "showcase/links/index.html",
-    "href": "showcase/links/index.html",
-    "title": "Links",
+    "objectID": "showcase/live-search/index.html",
+    "href": "showcase/live-search/index.html",
+    "title": "Live Search",
+    "section": "",
+    "text": "Visit Site View Code"
+  },
+  {
+    "objectID": "showcase/infinite-scroll/index.html",
+    "href": "showcase/infinite-scroll/index.html",
+    "title": "Infinite Scroll",
     "section": "",
     "text": "Visit Site View Code"
   },
@@ -81,7 +81,7 @@
     "href": "docs/index.html",
     "title": "Introduction",
     "section": "",
-    "text": "Ambiorix logo\n👋 Welcome!\nThis is the documentation site for the Ambiorix R web framework.\nIf you have never used Ambiorix before, start with Get Started and work forward from there; each page links to the next.",
+    "text": "That’s Ambiorix, chieftain of the Eburones, who destroyed a legion and a half of Caesar’s army in 54 BC and was never caught. The R web framework named after him is documented here.\nIf you have never used Ambiorix before, start with Get Started and work forward from there; each page links to the next.",
     "crumbs": [
       "Docs",
       "Introduction"
@@ -93,17 +93,6 @@
     "title": "Introduction",
     "section": "Where things are",
     "text": "Where things are\nCore covers the request-response cycle: routing, parameters, the request and response objects, middleware and error handling.\nBuilding covers everything you put on top: rendering and templates, static files, websockets, async handlers and logging.\nDeploy covers getting an app onto a server, including Belgic, the reverse proxy and load balancer.\nMiddlewares documents the eleven middleware packages published alongside the framework, and Tooling covers the project generator and the command line interface.\nLonger, book-length treatment lives at book.ambiorix.dev.",
-    "crumbs": [
-      "Docs",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "docs/index.html#next",
-    "href": "docs/index.html#next",
-    "title": "Introduction",
-    "section": "Next",
-    "text": "Next\n\nGet Started",
     "crumbs": [
       "Docs",
       "Introduction"
@@ -867,191 +856,143 @@
     ]
   },
   {
-    "objectID": "docs/ambiorix/install/index.html",
-    "href": "docs/ambiorix/install/index.html",
-    "title": "Install",
+    "objectID": "docs/ambiorix/hello-world/index.html",
+    "href": "docs/ambiorix/hello-world/index.html",
+    "title": "Hello, World",
     "section": "",
-    "text": "The stable version is available on CRAN:\ninstall.packages(\"ambiorix\")\nAlternatively, install the development version from GitHub with the {remotes} package:\nremotes::install_github(\"ambiorix-web/ambiorix\")",
+    "text": "Watch this short video introducing the basics of the framework:",
     "crumbs": [
       "Docs",
       "Core",
-      "Install"
+      "Hello, World"
     ]
   },
   {
-    "objectID": "docs/ambiorix/from-shiny/index.html",
-    "href": "docs/ambiorix/from-shiny/index.html",
-    "title": "From Shiny",
+    "objectID": "docs/ambiorix/hello-world/index.html#video",
+    "href": "docs/ambiorix/hello-world/index.html#video",
+    "title": "Hello, World",
     "section": "",
-    "text": "Though both shiny and ambiorix are built on top of the same package, httpuv, they work very differently.\nWhile shiny is meant to build single page applications (SPA) with heavy bi-directional communication between the server and client via websocket, ambiorix is certainly not as opinionated and though one can build applications very similar to shiny applications (SPA) using websockets with ambiorix since it allows multiple pages one is likely to make use of those instead."
-  },
-  {
-    "objectID": "docs/ambiorix/from-shiny/index.html#inputs",
-    "href": "docs/ambiorix/from-shiny/index.html#inputs",
-    "title": "From Shiny",
-    "section": "Inputs",
-    "text": "Inputs\nInput data can be either POSTed (form) or used as is done in shiny using the websocket to send values. “Inputs” in this context more broadly includes any data that travels from the client to server (and optionally back again). Note that websocket communication is always initiated by the client (in shiny too of course).\n\n\n\n\n\n\nNote\n\n\n\nYou can either use the bare websocket from JavaScript or import the small helper library for convenience.\n\n\nWebsocket in ambiorix mimic shiny’s custom messages, they take a name (unique identifier) and the message itself: both in R and JavaScript.\napp$receive(\"hello\", function(msg, ws){\n  print(msg)\n  ws$send(\"bye\", \"Goodbye\")\n})\nAbove we print the msg received and send a response."
-  },
-  {
-    "objectID": "docs/ambiorix/from-shiny/index.html#outputs",
-    "href": "docs/ambiorix/from-shiny/index.html#outputs",
-    "title": "From Shiny",
-    "section": "Outputs",
-    "text": "Outputs\nOutputs, or data that travels from the server to the client can also go through the websocket or be served as an HTTP response. Note that some form of that is available in shiny (but only for a unique session) though it appears to be rarely used.\napp$post(\"/submit\", function(req, res){\n  body &lt;- parse_multipart(req$body)\n  res$send(h1(\"Your name is\", body$first_name))\n})\nIt will likely always be faster and easier to create applications with shiny!"
-  },
-  {
-    "objectID": "docs/ambiorix/deploy/index.html",
-    "href": "docs/ambiorix/deploy/index.html",
-    "title": "Deploy",
-    "section": "",
-    "text": "These are just some of the ways in which you can deploy an ambiorix application, and this is by no means an exhaustive list.",
+    "text": "Watch this short video introducing the basics of the framework:",
     "crumbs": [
       "Docs",
-      "Deploy",
-      "Deploy"
+      "Core",
+      "Hello, World"
     ]
   },
   {
-    "objectID": "docs/ambiorix/deploy/index.html#docker",
-    "href": "docs/ambiorix/deploy/index.html#docker",
-    "title": "Deploy",
-    "section": "Docker",
-    "text": "Docker\nOne of the easiest way to deploy an ambiorix app is by using docker + {renv} + docker compose.\nRequirements:\n\nInstall docker.\nInstall docker compose.\nBootstrap your project using {renv}. Ideally, you only need to run renv::init().\n\n\nCreate a file named Dockerfile at the root directory of your project and add this to it:\nFROM rocker/r-ver:4.3.3\nRUN apt-get update && apt-get install -y \\\n  git-core \\\n  libssl-dev\nWORKDIR /app\nCOPY . .\nRUN rm -rdf renv/library\nRUN R -e \"renv::restore()\"\nEXPOSE 5000\nCMD [\"Rscript\", \"index.R\"]\nHere are some simple explanations of what each line does:\n\nFROM rocker/r-ver:4.3.3: Specifies the base Docker image with R 4.3.3. Change the R version to the one used in your project. eg. rocker/r-ver:4.4.2.\nRUN apt-get ...: Installs system dependencies required for many R packages. Add more as required. For example, the {magick} R package requires libmagick++-dev to be installed, so you’d have:\nRUN apt-get update && apt-get install -y \\\n  git-core \\\n  libssl-dev \\\n  libmagick++-dev\nWORKDIR /app: Sets the working directory inside the container to /app. All subsequent commands in the Dockerfile will run in this directory.\nCOPY . .: Copies all files from your local project directory (on the host machine) to the /app directory inside the container.\nRUN rm -rdf renv/library: Clears the pre-existing library to ensure a clean restore of R packages.\nRUN R -e \"renv::restore()\": Runs that R expression which restores the package dependencies defined in your renv.lock file.\nEXPOSE 5000: This is more of documentation to your future self that the container will use port 5000 to serve the application. This should be the same port you set ambiorix to run on ie. Ambiorix$new(port = 8000L)$...\nCMD [ \"Rscript\", \"index.R\" ]: This sets the default command to run when the container starts. Replace index.R with your app’s entry point if different. eg. server.R.\n\nBuild the docker image:\nsudo docker build -t cute-cats .\n\ndocker build: Command to build a Docker image.\n-t cute-cats: The -t flag tags/names the image as cute-cats.\n.: The dot refers to the current directory, meaning Docker will look for the Dockerfile in the current folder.\n\nCreate another file named docker-compose.yml and place these contents in it:\nservices:\n  cute-cats:\n    image: cute-cats\n    ports:\n      - \"1028:5000\"\n    volumes:\n      - ./data:/app/data\n    restart: unless-stopped\n\nservices: Defines the containers Docker Compose will manage. In this case, we only have one service called cute-cats.\nimage: cute-cats: Tell Docker Compose to use the image we built earlier, named cute-cats.\nports: Maps port 1028 on the host machine to port 5000 inside the container (where the ambiorix app is served, remember EXPOSE 5000?). This means you can access the app at localhost:1028.\nvolumes: Maps a folder on the host (./data) to the container’s /app/data directory. This ensures that data in the container is synced with the host and ensures data persistence if the container stops. You can remove the volumes mapping if your app doesn’t need persistent data storage.\nrestart: Ensures the container automatically restarts if it crashes, unless it has been manually stopped.\n\nRun the services:\nsudo docker compose up -d --remove-orphans\n\ndocker compose up creates and starts the containers as defined in the docker-compose.yml file.\nThe -d flag runs the containers in detached mode ie. in the background.\nThe --remove-orphans flag cleans up unused containers.\n\nThis will run the app on port 1028 of the host machine, so you will view it at localhost:1028.\nTo stop the services do:\nsudo docker compose down\nThis stops and removes the containers but keeps the Docker images intact, so you can start them again later with docker compose up.",
-    "crumbs": [
-      "Docs",
-      "Deploy",
-      "Deploy"
-    ]
-  },
-  {
-    "objectID": "docs/ambiorix/deploy/index.html#shiny-server",
-    "href": "docs/ambiorix/deploy/index.html#shiny-server",
-    "title": "Deploy",
-    "section": "Shiny Server",
-    "text": "Shiny Server\nSurprise surprise! Yes, you can actually deploy Ambiorix apps & APIs using Shiny Server.\nThis is such good news because you can put your Ambiorix & Shiny apps in one directory and have Shiny Server serve all of them!\nTwo things to keep in mind:\n\nAll your Ambiorix entrypoints will have to be named app.R, you can’t just name the files anyhow (eg. index.R, server.R, etc) because Shiny Server will search for app.R.\nWhen building frontend applications using Ambiorix, you’d normally set the href attributes of anchor tags to someting like /about or /contact to link to the different endpoints within the same app. However, when the app is hosted on Shiny Server at a URL like http://localhost:3838/app-name, using /about as the link will direct the browser to http://localhost:3838/about (outside your app), which isn’t what you intend. To fix this, you need to prepend the app name to the href values, like href = \"/app-name/about\". This ensures that the links point the browser to the correct routes within your app.\n\nExample deployment:\nBefore Shiny Server starts an R process, it sets the SHINY_PORT environment variable, which tells the app which port to run on. In your Ambiorix app, you can retrieve this port using Sys.getenv(\"SHINY_PORT\").\n\nBuild your app. Say I have this app.R at /home/mwavu/projects/random:\nlibrary(ambiorix)\nlibrary(htmltools)\n\nhome_get &lt;- function(req, res) {\n  html &lt;- tags$h3(\"Yes, Ambiorix IN Shiny Server!\")\n  res$set_status(200L)$send(html)\n}\n\nhome_post &lt;- function(req, res) {\n  response &lt;- list(\n    code = 200L,\n    msg = \"An API too!\"\n  )\n  res$set_status(200L)$json(response)\n}\n\n# get port to run app on from Shiny Server\nport &lt;- Sys.getenv(\"SHINY_PORT\")\n\nAmbiorix$\n  new(port = port)$\n  get(\"/\", home_get)$\n  post(\"/\", home_post)$\n  start()\nConfigure Shiny Server to serve apps from the /home/mwavu/projects directory. Shiny Server configuration file is typically located at /etc/shiny-server/shiny-server.conf.\nrun_as mwavu; # user under which Shiny Server runs\n\nserver {\n  listen 3838;\n\n  # define a location at the base URL\n  location / {\n\n    # host the directory of ambiorix/shiny apps stored in this dir:\n    site_dir /home/mwavu/projects;\n\n    # log dir:\n    log_dir /var/log/shiny-server;\n\n    # ...other configs...\n  }\n}\nRestart Shiny Server\nsystemctl restart shiny-server.service\nNow visit localhost:3838/random. Voila!\n\nAn Important Consideration:\nWhile the open-source version of Shiny Server will work well for most users, some advanced functionality (such as managing the number of R processes, load balancing, etc.) will require Shiny Server Professional. In the long run, you’d benefit from learning how to implement these features independently, especially for more control & flexibility.",
-    "crumbs": [
-      "Docs",
-      "Deploy",
-      "Deploy"
-    ]
-  },
-  {
-    "objectID": "docs/ambiorix/deploy/index.html#shinyapps.io",
-    "href": "docs/ambiorix/deploy/index.html#shinyapps.io",
-    "title": "Deploy",
-    "section": "Shinyapps.io",
-    "text": "Shinyapps.io\nYou can use that same solution for deploying using Shiny Server to host your Ambiorix apps & APIs on shinyapps.io.\nGood thing is now you won’t have to deal with any configurations. All you need to remember is to get the port to run the app on and the point I made on anchor tags (if building the frontend).\n\nUsing the same example app:\nlibrary(ambiorix)\nlibrary(htmltools)\n\nhome_get &lt;- function(req, res) {\n  html &lt;- tags$h3(\"Ambiorix IN shinyapps.io!\")\n  res$set_status(200L)$send(html)\n}\n\nhome_post &lt;- function(req, res) {\n  response &lt;- list(\n    code = 200L,\n    msg = \"An API too!\"\n  )\n  res$set_status(200L)$json(response)\n}\n\n# get port to run app on from Shiny Server\nport &lt;- Sys.getenv(\"SHINY_PORT\")\n\nAmbiorix$\n  new(port = port)$\n  get(\"/\", home_get)$\n  post(\"/\", home_post)$\n  start()\nFollow the same steps as for a shiny app: how to deploy to shinyapps.io.\n\nSee example live app running on shinyapps.io",
-    "crumbs": [
-      "Docs",
-      "Deploy",
-      "Deploy"
-    ]
-  },
-  {
-    "objectID": "docs/ambiorix/deploy/index.html#systemd-service",
-    "href": "docs/ambiorix/deploy/index.html#systemd-service",
-    "title": "Deploy",
-    "section": "Systemd Service",
-    "text": "Systemd Service\nThe application can be deployed as a service on any Linux server.\nYou might need to run these commands as sudo.\n\nCreate a new .service file in the /etc/systemd/system/ directory. The name of the file defines the name of the service. We will use cute-cats.service as an example:\nvim /etc/systemd/system/cute-cats.service\nIn that .service file place the following configuration, it creates a service that runs the application at the defined path (/path/to/app).\n[Unit]\nDescription=An Ambiorix app about the cutest of cats\nAfter=network.target\n\n[Service]\nType=simple\nUser=kennedy\nWorkingDirectory=/home/kennedy/examples/more-examples/cute-cats\nExecStart=/usr/bin/Rscript index.R\nRestart=on-failure\nRestartSec=5\n\n[Install]\nWantedBy=multi-user.target\nService file breakdown:\n[Unit] - Metadata and dependencies.\n\nDescription - Human-readable name shown in logs and systemctl status.\nAfter=network.target - Start this service after the network subsystem is initialized. This means network interfaces exist and systemd’s network management has started, but doesn’t guarantee interfaces have IP addresses yet. Sufficient for most local web apps binding to 0.0.0.0 or 127.0.0.1.\n\n[Service] - How to run the process.\n\nType=simple - systemd considers the service started immediately after ExecStart is called. Appropriate for long-running processes that don’t fork.\nUser - Run as this user instead of root. Never run your app as root.\nWorkingDirectory - The process’s working directory. Relative paths in your R code resolve from here.\nExecStart - The command to run. Use absolute paths for both the interpreter and script.\nRestart=on-failure - Restart automatically if the process exits with a non-zero code. Other options: always, on-abnormal, no.\nRestartSec=5 - Wait 5 seconds before restarting. Prevents rapid restart loops that can hammer your system.\n\n[Install] - When to start the service.\n\nWantedBy=multi-user.target - Start this service when the system reaches multi-user mode (normal boot, no GUI required). This is what makes systemctl enable work.\n\nReload systemd to recognize the new service:\nsystemctl daemon-reload\nStart the service and enable it to automatically start on boot:\nsystemctl start cute-cats\nsystemctl enable cute-cats\nCheck the service status to ensure it’s running without any issues:\nsystemctl status cute-cats\n\nTo view logs:\njournalctl -u cute-cats -f\nThe -f flag follows the log in real-time and is useful for debugging.",
-    "crumbs": [
-      "Docs",
-      "Deploy",
-      "Deploy"
-    ]
-  },
-  {
-    "objectID": "docs/ambiorix/async/index.html",
-    "href": "docs/ambiorix/async/index.html",
-    "title": "Async",
-    "section": "",
-    "text": "Ambiorix supports asynchronous programming so requests do not block R’s single thread, allowing the server to serve other requests in the meantime.\nThis is done by having the handler return a promise: this promise should output a valid response.",
-    "crumbs": [
-      "Docs",
-      "Building",
-      "Async"
-    ]
-  },
-  {
-    "objectID": "docs/ambiorix/async/index.html#example",
-    "href": "docs/ambiorix/async/index.html#example",
-    "title": "Async",
+    "objectID": "docs/ambiorix/hello-world/index.html#example",
+    "href": "docs/ambiorix/hello-world/index.html#example",
+    "title": "Hello, World",
     "section": "Example",
-    "text": "Example\nThe application below demonstrates asynchronous programming and its benefit.\nOne can visit /async then /sync and get a response on the latter, despite the fact that /async is still processing (Sys.sleep(10) = 10 seconds). Were /async not returning a promise, /sync would have to wait until /async had stopped processing (10 seconds) before the server could return a response.\nlibrary(ambiorix)\nlibrary(future)\n\nplan(multisession)\n\nnow &lt;- function() {\n  format(\n    x = Sys.time(),\n    format = \"%F %T\",\n    usetz = TRUE\n  )\n}\n\napp &lt;- Ambiorix$new(port = 3000L)\n\napp$get(\"/async\", function(req, res) {\n  future({\n    Sys.sleep(10)\n    res$send(now())\n  })\n})\n\napp$get(\"/sync\", function(req, res) {\n  res$send(now())\n})\n\napp$start()",
+    "text": "Example\nSay we have this example app:\nlibrary(ambiorix)\n\n# port to listen on:\nPORT &lt;- 3000\n\n# initialize a new ambiorix instance:\napp &lt;- Ambiorix$new()\n\n# respond with “Hello World!” for requests to the root URL (/) or route:\napp$get(\"/\", function(req, res) {\n  res$send(\"Hello World!\")\n})\n\n# you can also use html tags:\napp$get(\"/about\", function(req, res) {\n  res$send(\"&lt;h1&gt;About Us&lt;/h1&gt;\")\n})\n\n# start server:\napp$start(port = PORT)\nThis app starts a server and listens on port 3000 for connections. It responds with “Hello World!” for requests to the root URL (/).\n\nNavigate to localhost:3000/ on your browser to see that.\nNavigate to localhost:3000/about to view the about page.\n\nFor every other path, it will respond with a 404 Not Found.",
     "crumbs": [
       "Docs",
-      "Building",
-      "Async"
+      "Core",
+      "Hello, World"
     ]
   },
   {
-    "objectID": "blog/parse-raw-json/index.html",
-    "href": "blog/parse-raw-json/index.html",
-    "title": "Parse raw JSON",
+    "objectID": "docs/ambiorix/hello-world/index.html#port",
+    "href": "docs/ambiorix/hello-world/index.html#port",
+    "title": "Hello, World",
+    "section": "Port",
+    "text": "Port\nBy default, Ambiorix serves an application at a randomly available port.\nIn the example app, try not to define a port ie. only have app$start() instead of app$start(port = PORT).\nHowever, explicitly setting a port—either manually or programmatically—is essential during deployment to ensure your app is correctly exposed to the outside world.\nAmbiorix determines which port to bind the web server on in this specific order:\n\nambiorix.port.force R option — Used by Belgic\nAMBIORIX_PORT environment variable — Can be set in .Renviron\nport argument — Passed directly to app$start() or app$new()\nSHINY_PORT environment variable — Useful when deploying in Shiny Server et al.\nRandom port — If none of the above are set, Ambiorix defaults to an available random port.",
+    "crumbs": [
+      "Docs",
+      "Core",
+      "Hello, World"
+    ]
+  },
+  {
+    "objectID": "docs/ambiorix/hello-world/index.html#handlers",
+    "href": "docs/ambiorix/hello-world/index.html#handlers",
+    "title": "Hello, World",
+    "section": "Handlers",
+    "text": "Handlers\nA request handler must be a function that takes two objects:\n\nrequest object (req)\nresponse object (res)\n\nIn the example, we have two handlers: one handling requests made at / and the other for requests made at /about.\nAs your app grows, it will be better to assign the handlers a name and use that:\nlibrary(ambiorix)\n\nhome_get &lt;- function(req, res) {\n  res$send(\"Hello World!\")\n}\n\nabout_get &lt;- function(req, res) {\n  res$send(\"&lt;h1&gt;About Us&lt;/h1&gt;\")\n}\n\nPORT &lt;- 3000L\n\nAmbiorix$\n  new(port = PORT)$\n  get(\"/\", home_get)$\n  get(\"/about\", about_get)$\n  start()\nThis program is equivalent to what we had before, but more readable.\nAs your handlers grow in size and number, it will be easier & better to have them in separate files or folders. Since Ambiorix is unopinionated, it is up to you to use whichever structure you work best with!",
+    "crumbs": [
+      "Docs",
+      "Core",
+      "Hello, World"
+    ]
+  },
+  {
+    "objectID": "docs/ambiorix/hello-world/index.html#host",
+    "href": "docs/ambiorix/hello-world/index.html#host",
+    "title": "Hello, World",
+    "section": "Host",
+    "text": "Host\nBy default, Ambiorix uses 0.0.0.0 as the host. If need be, you can change the host via the new() or start() methods:\nAmbiorix$\n  new(port = PORT, host = \"127.0.0.1\")$\n  ...\nAmbiorix$\n  new()$\n  ...\n  start(port = PORT, host = \"127.0.0.1\")\n\n0.0.0.0: Tells the server to listen on every available network interface.\n127.0.0.1: Instructs the server to only listen for connections on the same host.",
+    "crumbs": [
+      "Docs",
+      "Core",
+      "Hello, World"
+    ]
+  },
+  {
+    "objectID": "docs/ambiorix/errors/index.html",
+    "href": "docs/ambiorix/errors/index.html",
+    "title": "Errors",
     "section": "",
-    "text": "UPDATE: Ambiorix now has built-in parsers. You may not need to build your own JSON parser. See parsers for:\nSometimes you need to parse requests which have raw JSON in the body.\nambiorix::parse_multipart() only works for ‘form-data’. But Ambiorix does not limit you to that. You can write your own request parsers or make use of other packages. In this case, we’ll use webutils::parse_http()."
+    "text": "This details how to handle errors in ambiorix.\nWhen an error occurs server-side it should send the client a response with a status starting in 5 to indicates that was the case.",
+    "crumbs": [
+      "Docs",
+      "Core",
+      "Errors"
+    ]
   },
   {
-    "objectID": "blog/parse-raw-json/index.html#example",
-    "href": "blog/parse-raw-json/index.html#example",
-    "title": "Parse raw JSON",
-    "section": "Example",
-    "text": "Example\nSay we want to select columns and filter rows in the iris dataset when the request body is a JSON object like this:\n{\n    \"cols\": [\"Sepal.Length\", \"Petal.Width\", \"Species\"],\n    \"species\": [\"virginica\", \"setosa\"]\n}"
+    "objectID": "docs/ambiorix/errors/index.html#default",
+    "href": "docs/ambiorix/errors/index.html#default",
+    "title": "Errors",
+    "section": "Default",
+    "text": "Default\nIf you created your project using the ambiorix.generator or the ambiorix-cli, ambiorix defaults to using the following handler on error:\nrender_500 &lt;- function(req, res, error) {\n  res$status &lt;- 500L\n  res$send(\"Internal server error\")\n}\nOtherwise, no error handler is put in place and you have to create one.",
+    "crumbs": [
+      "Docs",
+      "Core",
+      "Errors"
+    ]
   },
   {
-    "objectID": "blog/parse-raw-json/index.html#parser",
-    "href": "blog/parse-raw-json/index.html#parser",
-    "title": "Parse raw JSON",
-    "section": "Parser",
-    "text": "Parser\nLet’s write the parser:\nbox::use(\n  webutils[parse_http],\n)\n\n#' Parse HTTP request\n#'\n#' @description\n#' Parses the body of an HTTP request based on the `Content-Type` of the\n#' request header.\n#' @details\n#' Currently supports three most common types:\n#' - application/x-www-form-urlencoded\n#' - multipart/form-data\n#' - application/json\n#' @param req Request object.\n#' @return Named list. Data associated with the request.\n#' @export\nparse_req &lt;- function(req) {\n  parse_http(\n    body = req$rook.input$read(),\n    content_type = req$CONTENT_TYPE\n  )\n}\nWith this, you can parse requests inside your handlers like so:\nreq_data &lt;- parse_req(req)"
+    "objectID": "docs/ambiorix/errors/index.html#global",
+    "href": "docs/ambiorix/errors/index.html#global",
+    "title": "Errors",
+    "section": "Global",
+    "text": "Global\nOne can specify the handler to use when an error occurs anywhere in the application.\nThe error handler should be a function that takes 3 arguments: req, res and the error object.\nA basic example:\napp$error &lt;- function(req, res, error){\n  res &lt;- status(500L)\n  res$send(\"There was a server error :(\")\n}\nYou have absolute full control in what you choose to do with the error object. In most cases, you will need to log errors.\nHere is a more involved and realistic example:\nerror_handler &lt;- function(req, res, error = NULL) {\n  if (!is.null(error)) {\n    error_msg &lt;- conditionMessage(error)\n    cli::cli_alert_danger(\"Error: {error_msg}\")\n  }\n  response &lt;- list(\n    code = 500L,\n    msg = \"A server error occurred!\"\n  )\n  res$\n    set_status(500L)$\n    json(response)\n}\nThere are 2 ways you can use the handler:\n\nVia the set_error() method:\nAmbiorix$\n  new()$\n  set_error(error_handler)$\n  ...\nThe advantage of this is that you can chain other operations.\nThe old way, via the error field:\napp &lt;- Ambiorix$new()\napp$error &lt;- error_handler\n...",
+    "crumbs": [
+      "Docs",
+      "Core",
+      "Errors"
+    ]
   },
   {
-    "objectID": "blog/parse-raw-json/index.html#reprex",
-    "href": "blog/parse-raw-json/index.html#reprex",
-    "title": "Parse raw JSON",
-    "section": "Reprex",
-    "text": "Reprex\nHere’s a full reprex:\nbox::use(\n  ambiorix[Ambiorix],\n  webutils[parse_http],\n)\n\n#' Handle POST at '/'\n#'\n#' @param req Request object.\n#' @param res Response object.\n#' @return `res$json()`\n#' @export\nhome_post &lt;- function(req, res) {\n  content_type &lt;- req$CONTENT_TYPE\n  body &lt;- req$rook.input$read()\n\n  if (length(body) == 0L) {\n    response &lt;- list(\n      code = 400L,\n      msg = \"Invalid request\"\n    )\n\n    return(\n      res$set_status(400L)$json(response)\n    )\n  }\n\n  postdata &lt;- parse_http(body, content_type)\n\n  # filter & select as necessary:\n  row_inds &lt;- iris$Species %in% postdata$species\n  col_inds &lt;- colnames(iris) %in% postdata$cols\n  data &lt;- iris[row_inds, col_inds, drop = FALSE]\n\n  response &lt;- list(\n    code = 200L,\n    msg = \"success\",\n    data = data\n  )\n\n  res$json(response)\n}\n\napp &lt;- Ambiorix$new(port = 3000, host = \"127.0.0.1\")\n\napp$\n  post(\"/\", home_post)$\n  start()"
-  },
-  {
-    "objectID": "blog/cors/index.html",
-    "href": "blog/cors/index.html",
-    "title": "CORS",
-    "section": "",
-    "text": "TL;DR: See the middleware."
-  },
-  {
-    "objectID": "blog/cors/index.html#quoting-mdn-web-docs",
-    "href": "blog/cors/index.html#quoting-mdn-web-docs",
-    "title": "CORS",
-    "section": "Quoting MDN web docs",
-    "text": "Quoting MDN web docs\nCross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) than its own from which a browser should permit loading resources.\nCORS also relies on a mechanism by which browsers make a “preflight” request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends the headers that indicate the HTTP method and headers that will be used in the actual request.\nAn example of cross-origin request: the front-end JavaScript code served from https://domain-a.com uses fetch() to make a request for https://domain-b.com/data.json.\nFor security reasons, browsers restrict cross-origin HTTP requests initiated from scripts.\nFor example, fetch() and XMLHtttpRequest follow the ‘same-origin policy’. This means that a web application using those APIs can only request resources from the same origin the application was loaded from unless the response from the other origins includes the right CORS headers."
-  },
-  {
-    "objectID": "blog/cors/index.html#how-to-allow-cors",
-    "href": "blog/cors/index.html#how-to-allow-cors",
-    "title": "CORS",
-    "section": "How to allow CORS",
-    "text": "How to allow CORS\nIt’s really simple. This image from html5rocks.com is all you need:\n\n\n\nCORS flowchart"
-  },
-  {
-    "objectID": "blog/cors/index.html#middleware",
-    "href": "blog/cors/index.html#middleware",
-    "title": "CORS",
-    "section": "Middleware",
-    "text": "Middleware\n#' Allow CORS\n#'\n#' @details\n#' Sets these headers in the response:\n#' - `Access-Control-Allow-Methods`\n#' - `Access-Control-Allow-Headers`\n#' - `Access-Control-Allow-Origin`\n#' @export\ncors &lt;- function(req, res) {\n  res$header(\"Access-Control-Allow-Origin\", \"http://127.0.0.1:8000\")\n\n  if (req$REQUEST_METHOD == \"OPTIONS\") {\n    res$header(\"Access-Control-Allow-Methods\", \"GET, POST, PUT, DELETE\")\n    res$header(\n      \"Access-Control-Allow-Headers\",\n      req$HEADERS$`access-control-request-headers`\n    )\n\n    return(\n      res$set_status(200L)$send(\"\")\n    )\n  }\n}\nChange the values set for the headers to suit your specific use-case.\nIf your API requires the use of cookies or authentication tokens across domains, you will also need to set the “Access-Control-Allow-Credentials” header inside the if () {} block:\nres$header(\"Access-Control-Allow-Credentials\", \"true\")\n\n\n\n\n\n\nNote\n\n\n\n\nDO NOT include a trailing slash in the allowed origins.\n\nhttp://127.0.0.1:8000/❌\nhttp://127.0.0.1:8000✅\n\nIn Ambiorix, middlewares are executed in the order they’re registered with use(). Make sure this middleware is the first one in the sequence."
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "CORS\n\n\nHow to allow Cross-Origin Resource Sharing in Ambiorix using a middleware\n\n\n\n\n\nAug 24, 2024\n\n\n\n\n\n\n\nParse raw JSON\n\n\nAn example showing how you can write/use your own parsers\n\n\n\n\n\nJul 29, 2024\n\n\n\n\n\nNo matching items"
+    "objectID": "docs/ambiorix/errors/index.html#route-specific",
+    "href": "docs/ambiorix/errors/index.html#route-specific",
+    "title": "Errors",
+    "section": "Route Specific",
+    "text": "Route Specific\nAlternatively one can specify errors specific to certain routes, if these are not specified the global handler (above) is used.\napp$get(\n  \"/error\",\n  # request handler:\n  function(req, res) {\n    print(eRrOr)\n  },\n  # error handler for this route:\n  function(req, res, error) {\n    res$status &lt;- 500L\n    res$send(\"This is an error on /error\")\n  }\n)",
+    "crumbs": [
+      "Docs",
+      "Core",
+      "Errors"
+    ]
   },
   {
     "objectID": "docs/ambiorix/changelog/index.html",
     "href": "docs/ambiorix/changelog/index.html",
     "title": "Changelog",
     "section": "",
-    "text": "New Features\n\nAdd support for parameter middlewares, pull/131.\nAdd support for {mirai} promises, pull/134.\n\nChanges\n\nUpdate browser URL to log “127.0.0.1” when the provided app host is “0.0.0.0”, pull/137.\nSet default response status for redirection to 302, pull/145.\n\nBug Fixes\n\nRewind {Rook} input post-read on all request parsers, pull/135.\nAdd static routes to total number of routes, pull/147.",
+    "text": "Breaking Changes\n\nDrop all deprecated function parameters, pull/152.\n\nBug Fixes\n\nsend_file() can now send an arbitrary file, pull/151.\n\nChanges\n\nRemove dependency on the {fs} pkg, pull/155.\nRefactor http methods in routing, pull/144",
+    "crumbs": [
+      "Docs",
+      "Reference",
+      "Changelog"
+    ]
+  },
+  {
+    "objectID": "docs/ambiorix/changelog/index.html#ambiorix-3.0.0",
+    "href": "docs/ambiorix/changelog/index.html#ambiorix-3.0.0",
+    "title": "Changelog",
+    "section": "",
+    "text": "Breaking Changes\n\nDrop all deprecated function parameters, pull/152.\n\nBug Fixes\n\nsend_file() can now send an arbitrary file, pull/151.\n\nChanges\n\nRemove dependency on the {fs} pkg, pull/155.\nRefactor http methods in routing, pull/144",
     "crumbs": [
       "Docs",
       "Reference",
@@ -1062,8 +1003,8 @@
     "objectID": "docs/ambiorix/changelog/index.html#ambiorix-2.2.2",
     "href": "docs/ambiorix/changelog/index.html#ambiorix-2.2.2",
     "title": "Changelog",
-    "section": "",
-    "text": "New Features\n\nAdd support for parameter middlewares, pull/131.\nAdd support for {mirai} promises, pull/134.\n\nChanges\n\nUpdate browser URL to log “127.0.0.1” when the provided app host is “0.0.0.0”, pull/137.\nSet default response status for redirection to 302, pull/145.\n\nBug Fixes\n\nRewind {Rook} input post-read on all request parsers, pull/135.\nAdd static routes to total number of routes, pull/147.",
+    "section": "ambiorix 2.2.2",
+    "text": "ambiorix 2.2.2\nNew Features\n\nAdd support for parameter middlewares, pull/131.\nAdd support for {mirai} promises, pull/134.\n\nChanges\n\nUpdate browser URL to log “127.0.0.1” when the provided app host is “0.0.0.0”, pull/137.\nSet default response status for redirection to 302, pull/145.\n\nBug Fixes\n\nRewind {Rook} input post-read on all request parsers, pull/135.\nAdd static routes to total number of routes, pull/147.",
     "crumbs": [
       "Docs",
       "Reference",
@@ -1167,124 +1108,172 @@
     ]
   },
   {
-    "objectID": "docs/ambiorix/errors/index.html",
-    "href": "docs/ambiorix/errors/index.html",
-    "title": "Errors",
+    "objectID": "blog/parse-raw-json/index.html",
+    "href": "blog/parse-raw-json/index.html",
+    "title": "Parse raw JSON",
     "section": "",
-    "text": "This details how to handle errors in ambiorix.\nWhen an error occurs server-side it should send the client a response with a status starting in 5 to indicates that was the case.",
-    "crumbs": [
-      "Docs",
-      "Core",
-      "Errors"
-    ]
+    "text": "UPDATE: Ambiorix now has built-in parsers. You may not need to build your own JSON parser. See parsers for:\nSometimes you need to parse requests which have raw JSON in the body.\nambiorix::parse_multipart() only works for ‘form-data’. But Ambiorix does not limit you to that. You can write your own request parsers or make use of other packages. In this case, we’ll use webutils::parse_http()."
   },
   {
-    "objectID": "docs/ambiorix/errors/index.html#default",
-    "href": "docs/ambiorix/errors/index.html#default",
-    "title": "Errors",
-    "section": "Default",
-    "text": "Default\nIf you created your project using the ambiorix.generator or the ambiorix-cli, ambiorix defaults to using the following handler on error:\nrender_500 &lt;- function(req, res, error) {\n  res$status &lt;- 500L\n  res$send(\"Internal server error\")\n}\nOtherwise, no error handler is put in place and you have to create one.",
-    "crumbs": [
-      "Docs",
-      "Core",
-      "Errors"
-    ]
-  },
-  {
-    "objectID": "docs/ambiorix/errors/index.html#global",
-    "href": "docs/ambiorix/errors/index.html#global",
-    "title": "Errors",
-    "section": "Global",
-    "text": "Global\nOne can specify the handler to use when an error occurs anywhere in the application.\nThe error handler should be a function that takes 3 arguments: req, res and the error object.\nA basic example:\napp$error &lt;- function(req, res, error){\n  res &lt;- status(500L)\n  res$send(\"There was a server error :(\")\n}\nYou have absolute full control in what you choose to do with the error object. In most cases, you will need to log errors.\nHere is a more involved and realistic example:\nerror_handler &lt;- function(req, res, error = NULL) {\n  if (!is.null(error)) {\n    error_msg &lt;- conditionMessage(error)\n    cli::cli_alert_danger(\"Error: {error_msg}\")\n  }\n  response &lt;- list(\n    code = 500L,\n    msg = \"A server error occurred!\"\n  )\n  res$\n    set_status(500L)$\n    json(response)\n}\nThere are 2 ways you can use the handler:\n\nVia the set_error() method:\nAmbiorix$\n  new()$\n  set_error(error_handler)$\n  ...\nThe advantage of this is that you can chain other operations.\nThe old way, via the error field:\napp &lt;- Ambiorix$new()\napp$error &lt;- error_handler\n...",
-    "crumbs": [
-      "Docs",
-      "Core",
-      "Errors"
-    ]
-  },
-  {
-    "objectID": "docs/ambiorix/errors/index.html#route-specific",
-    "href": "docs/ambiorix/errors/index.html#route-specific",
-    "title": "Errors",
-    "section": "Route Specific",
-    "text": "Route Specific\nAlternatively one can specify errors specific to certain routes, if these are not specified the global handler (above) is used.\napp$get(\n  \"/error\",\n  # request handler:\n  function(req, res) {\n    print(eRrOr)\n  },\n  # error handler for this route:\n  function(req, res, error) {\n    res$status &lt;- 500L\n    res$send(\"This is an error on /error\")\n  }\n)",
-    "crumbs": [
-      "Docs",
-      "Core",
-      "Errors"
-    ]
-  },
-  {
-    "objectID": "docs/ambiorix/hello-world/index.html",
-    "href": "docs/ambiorix/hello-world/index.html",
-    "title": "Hello, World",
-    "section": "",
-    "text": "Watch this short video introducing the basics of the framework:",
-    "crumbs": [
-      "Docs",
-      "Core",
-      "Hello, World"
-    ]
-  },
-  {
-    "objectID": "docs/ambiorix/hello-world/index.html#video",
-    "href": "docs/ambiorix/hello-world/index.html#video",
-    "title": "Hello, World",
-    "section": "",
-    "text": "Watch this short video introducing the basics of the framework:",
-    "crumbs": [
-      "Docs",
-      "Core",
-      "Hello, World"
-    ]
-  },
-  {
-    "objectID": "docs/ambiorix/hello-world/index.html#example",
-    "href": "docs/ambiorix/hello-world/index.html#example",
-    "title": "Hello, World",
+    "objectID": "blog/parse-raw-json/index.html#example",
+    "href": "blog/parse-raw-json/index.html#example",
+    "title": "Parse raw JSON",
     "section": "Example",
-    "text": "Example\nSay we have this example app:\nlibrary(ambiorix)\n\n# port to listen on:\nPORT &lt;- 3000\n\n# initialize a new ambiorix instance:\napp &lt;- Ambiorix$new()\n\n# respond with “Hello World!” for requests to the root URL (/) or route:\napp$get(\"/\", function(req, res) {\n  res$send(\"Hello World!\")\n})\n\n# you can also use html tags:\napp$get(\"/about\", function(req, res) {\n  res$send(\"&lt;h1&gt;About Us&lt;/h1&gt;\")\n})\n\n# start server:\napp$start(port = PORT)\nThis app starts a server and listens on port 3000 for connections. It responds with “Hello World!” for requests to the root URL (/).\n\nNavigate to localhost:3000/ on your browser to see that.\nNavigate to localhost:3000/about to view the about page.\n\nFor every other path, it will respond with a 404 Not Found.",
+    "text": "Example\nSay we want to select columns and filter rows in the iris dataset when the request body is a JSON object like this:\n{\n    \"cols\": [\"Sepal.Length\", \"Petal.Width\", \"Species\"],\n    \"species\": [\"virginica\", \"setosa\"]\n}"
+  },
+  {
+    "objectID": "blog/parse-raw-json/index.html#parser",
+    "href": "blog/parse-raw-json/index.html#parser",
+    "title": "Parse raw JSON",
+    "section": "Parser",
+    "text": "Parser\nLet’s write the parser:\nbox::use(\n  webutils[parse_http],\n)\n\n#' Parse HTTP request\n#'\n#' @description\n#' Parses the body of an HTTP request based on the `Content-Type` of the\n#' request header.\n#' @details\n#' Currently supports three most common types:\n#' - application/x-www-form-urlencoded\n#' - multipart/form-data\n#' - application/json\n#' @param req Request object.\n#' @return Named list. Data associated with the request.\n#' @export\nparse_req &lt;- function(req) {\n  parse_http(\n    body = req$rook.input$read(),\n    content_type = req$CONTENT_TYPE\n  )\n}\nWith this, you can parse requests inside your handlers like so:\nreq_data &lt;- parse_req(req)"
+  },
+  {
+    "objectID": "blog/parse-raw-json/index.html#reprex",
+    "href": "blog/parse-raw-json/index.html#reprex",
+    "title": "Parse raw JSON",
+    "section": "Reprex",
+    "text": "Reprex\nHere’s a full reprex:\nbox::use(\n  ambiorix[Ambiorix],\n  webutils[parse_http],\n)\n\n#' Handle POST at '/'\n#'\n#' @param req Request object.\n#' @param res Response object.\n#' @return `res$json()`\n#' @export\nhome_post &lt;- function(req, res) {\n  content_type &lt;- req$CONTENT_TYPE\n  body &lt;- req$rook.input$read()\n\n  if (length(body) == 0L) {\n    response &lt;- list(\n      code = 400L,\n      msg = \"Invalid request\"\n    )\n\n    return(\n      res$set_status(400L)$json(response)\n    )\n  }\n\n  postdata &lt;- parse_http(body, content_type)\n\n  # filter & select as necessary:\n  row_inds &lt;- iris$Species %in% postdata$species\n  col_inds &lt;- colnames(iris) %in% postdata$cols\n  data &lt;- iris[row_inds, col_inds, drop = FALSE]\n\n  response &lt;- list(\n    code = 200L,\n    msg = \"success\",\n    data = data\n  )\n\n  res$json(response)\n}\n\napp &lt;- Ambiorix$new(port = 3000, host = \"127.0.0.1\")\n\napp$\n  post(\"/\", home_post)$\n  start()"
+  },
+  {
+    "objectID": "blog/cors/index.html",
+    "href": "blog/cors/index.html",
+    "title": "CORS",
+    "section": "",
+    "text": "TL;DR: See the middleware."
+  },
+  {
+    "objectID": "blog/cors/index.html#quoting-mdn-web-docs",
+    "href": "blog/cors/index.html#quoting-mdn-web-docs",
+    "title": "CORS",
+    "section": "Quoting MDN web docs",
+    "text": "Quoting MDN web docs\nCross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) than its own from which a browser should permit loading resources.\nCORS also relies on a mechanism by which browsers make a “preflight” request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends the headers that indicate the HTTP method and headers that will be used in the actual request.\nAn example of cross-origin request: the front-end JavaScript code served from https://domain-a.com uses fetch() to make a request for https://domain-b.com/data.json.\nFor security reasons, browsers restrict cross-origin HTTP requests initiated from scripts.\nFor example, fetch() and XMLHtttpRequest follow the ‘same-origin policy’. This means that a web application using those APIs can only request resources from the same origin the application was loaded from unless the response from the other origins includes the right CORS headers."
+  },
+  {
+    "objectID": "blog/cors/index.html#how-to-allow-cors",
+    "href": "blog/cors/index.html#how-to-allow-cors",
+    "title": "CORS",
+    "section": "How to allow CORS",
+    "text": "How to allow CORS\nIt’s really simple. This image from html5rocks.com is all you need:\n\n\n\nCORS flowchart"
+  },
+  {
+    "objectID": "blog/cors/index.html#middleware",
+    "href": "blog/cors/index.html#middleware",
+    "title": "CORS",
+    "section": "Middleware",
+    "text": "Middleware\n#' Allow CORS\n#'\n#' @details\n#' Sets these headers in the response:\n#' - `Access-Control-Allow-Methods`\n#' - `Access-Control-Allow-Headers`\n#' - `Access-Control-Allow-Origin`\n#' @export\ncors &lt;- function(req, res) {\n  res$header(\"Access-Control-Allow-Origin\", \"http://127.0.0.1:8000\")\n\n  if (req$REQUEST_METHOD == \"OPTIONS\") {\n    res$header(\"Access-Control-Allow-Methods\", \"GET, POST, PUT, DELETE\")\n    res$header(\n      \"Access-Control-Allow-Headers\",\n      req$HEADERS$`access-control-request-headers`\n    )\n\n    return(\n      res$set_status(200L)$send(\"\")\n    )\n  }\n}\nChange the values set for the headers to suit your specific use-case.\nIf your API requires the use of cookies or authentication tokens across domains, you will also need to set the “Access-Control-Allow-Credentials” header inside the if () {} block:\nres$header(\"Access-Control-Allow-Credentials\", \"true\")\n\n\n\n\n\n\nNote\n\n\n\n\nDO NOT include a trailing slash in the allowed origins.\n\nhttp://127.0.0.1:8000/❌\nhttp://127.0.0.1:8000✅\n\nIn Ambiorix, middlewares are executed in the order they’re registered with use(). Make sure this middleware is the first one in the sequence."
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "CORS\n\n\nHow to allow Cross-Origin Resource Sharing in Ambiorix using a middleware\n\n\n\n\n\nAug 24, 2024\n\n\n\n\n\n\n\nParse raw JSON\n\n\nAn example showing how you can write/use your own parsers\n\n\n\n\n\nJul 29, 2024\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "docs/ambiorix/async/index.html",
+    "href": "docs/ambiorix/async/index.html",
+    "title": "Async",
+    "section": "",
+    "text": "Ambiorix supports asynchronous programming so requests do not block R’s single thread, allowing the server to serve other requests in the meantime.\nThis is done by having the handler return a promise: this promise should output a valid response.",
     "crumbs": [
       "Docs",
-      "Core",
-      "Hello, World"
+      "Building",
+      "Async"
     ]
   },
   {
-    "objectID": "docs/ambiorix/hello-world/index.html#port",
-    "href": "docs/ambiorix/hello-world/index.html#port",
-    "title": "Hello, World",
-    "section": "Port",
-    "text": "Port\nBy default, Ambiorix serves an application at a randomly available port.\nIn the example app, try not to define a port ie. only have app$start() instead of app$start(port = PORT).\nHowever, explicitly setting a port—either manually or programmatically—is essential during deployment to ensure your app is correctly exposed to the outside world.\nAmbiorix determines which port to bind the web server on in this specific order:\n\nambiorix.port.force R option — Used by Belgic\nAMBIORIX_PORT environment variable — Can be set in .Renviron\nport argument — Passed directly to app$start() or app$new()\nSHINY_PORT environment variable — Useful when deploying in Shiny Server et al.\nRandom port — If none of the above are set, Ambiorix defaults to an available random port.",
+    "objectID": "docs/ambiorix/async/index.html#example",
+    "href": "docs/ambiorix/async/index.html#example",
+    "title": "Async",
+    "section": "Example",
+    "text": "Example\nThe application below demonstrates asynchronous programming and its benefit.\nOne can visit /async then /sync and get a response on the latter, despite the fact that /async is still processing (Sys.sleep(10) = 10 seconds). Were /async not returning a promise, /sync would have to wait until /async had stopped processing (10 seconds) before the server could return a response.\nlibrary(ambiorix)\nlibrary(future)\n\nplan(multisession)\n\nnow &lt;- function() {\n  format(\n    x = Sys.time(),\n    format = \"%F %T\",\n    usetz = TRUE\n  )\n}\n\napp &lt;- Ambiorix$new(port = 3000L)\n\napp$get(\"/async\", function(req, res) {\n  future({\n    Sys.sleep(10)\n    res$send(now())\n  })\n})\n\napp$get(\"/sync\", function(req, res) {\n  res$send(now())\n})\n\napp$start()",
     "crumbs": [
       "Docs",
-      "Core",
-      "Hello, World"
+      "Building",
+      "Async"
     ]
   },
   {
-    "objectID": "docs/ambiorix/hello-world/index.html#handlers",
-    "href": "docs/ambiorix/hello-world/index.html#handlers",
-    "title": "Hello, World",
-    "section": "Handlers",
-    "text": "Handlers\nA request handler must be a function that takes two objects:\n\nrequest object (req)\nresponse object (res)\n\nIn the example, we have two handlers: one handling requests made at / and the other for requests made at /about.\nAs your app grows, it will be better to assign the handlers a name and use that:\nlibrary(ambiorix)\n\nhome_get &lt;- function(req, res) {\n  res$send(\"Hello World!\")\n}\n\nabout_get &lt;- function(req, res) {\n  res$send(\"&lt;h1&gt;About Us&lt;/h1&gt;\")\n}\n\nPORT &lt;- 3000L\n\nAmbiorix$\n  new(port = PORT)$\n  get(\"/\", home_get)$\n  get(\"/about\", about_get)$\n  start()\nThis program is equivalent to what we had before, but more readable.\nAs your handlers grow in size and number, it will be easier & better to have them in separate files or folders. Since Ambiorix is unopinionated, it is up to you to use whichever structure you work best with!",
+    "objectID": "docs/ambiorix/deploy/index.html",
+    "href": "docs/ambiorix/deploy/index.html",
+    "title": "Deploy",
+    "section": "",
+    "text": "These are just some of the ways in which you can deploy an ambiorix application, and this is by no means an exhaustive list.",
     "crumbs": [
       "Docs",
-      "Core",
-      "Hello, World"
+      "Deploy",
+      "Deploy"
     ]
   },
   {
-    "objectID": "docs/ambiorix/hello-world/index.html#host",
-    "href": "docs/ambiorix/hello-world/index.html#host",
-    "title": "Hello, World",
-    "section": "Host",
-    "text": "Host\nBy default, Ambiorix uses 0.0.0.0 as the host. If need be, you can change the host via the new() or start() methods:\nAmbiorix$\n  new(port = PORT, host = \"127.0.0.1\")$\n  ...\nAmbiorix$\n  new()$\n  ...\n  start(port = PORT, host = \"127.0.0.1\")\n\n0.0.0.0: Tells the server to listen on every available network interface.\n127.0.0.1: Instructs the server to only listen for connections on the same host.",
+    "objectID": "docs/ambiorix/deploy/index.html#docker",
+    "href": "docs/ambiorix/deploy/index.html#docker",
+    "title": "Deploy",
+    "section": "Docker",
+    "text": "Docker\nOne of the easiest way to deploy an ambiorix app is by using docker + {renv} + docker compose.\nRequirements:\n\nInstall docker.\nInstall docker compose.\nBootstrap your project using {renv}. Ideally, you only need to run renv::init().\n\n\nCreate a file named Dockerfile at the root directory of your project and add this to it:\nFROM rocker/r-ver:4.3.3\nRUN apt-get update && apt-get install -y \\\n  git-core \\\n  libssl-dev\nWORKDIR /app\nCOPY . .\nRUN rm -rdf renv/library\nRUN R -e \"renv::restore()\"\nEXPOSE 5000\nCMD [\"Rscript\", \"index.R\"]\nHere are some simple explanations of what each line does:\n\nFROM rocker/r-ver:4.3.3: Specifies the base Docker image with R 4.3.3. Change the R version to the one used in your project. eg. rocker/r-ver:4.4.2.\nRUN apt-get ...: Installs system dependencies required for many R packages. Add more as required. For example, the {magick} R package requires libmagick++-dev to be installed, so you’d have:\nRUN apt-get update && apt-get install -y \\\n  git-core \\\n  libssl-dev \\\n  libmagick++-dev\nWORKDIR /app: Sets the working directory inside the container to /app. All subsequent commands in the Dockerfile will run in this directory.\nCOPY . .: Copies all files from your local project directory (on the host machine) to the /app directory inside the container.\nRUN rm -rdf renv/library: Clears the pre-existing library to ensure a clean restore of R packages.\nRUN R -e \"renv::restore()\": Runs that R expression which restores the package dependencies defined in your renv.lock file.\nEXPOSE 5000: This is more of documentation to your future self that the container will use port 5000 to serve the application. This should be the same port you set ambiorix to run on ie. Ambiorix$new(port = 8000L)$...\nCMD [ \"Rscript\", \"index.R\" ]: This sets the default command to run when the container starts. Replace index.R with your app’s entry point if different. eg. server.R.\n\nBuild the docker image:\nsudo docker build -t cute-cats .\n\ndocker build: Command to build a Docker image.\n-t cute-cats: The -t flag tags/names the image as cute-cats.\n.: The dot refers to the current directory, meaning Docker will look for the Dockerfile in the current folder.\n\nCreate another file named docker-compose.yml and place these contents in it:\nservices:\n  cute-cats:\n    image: cute-cats\n    ports:\n      - \"1028:5000\"\n    volumes:\n      - ./data:/app/data\n    restart: unless-stopped\n\nservices: Defines the containers Docker Compose will manage. In this case, we only have one service called cute-cats.\nimage: cute-cats: Tell Docker Compose to use the image we built earlier, named cute-cats.\nports: Maps port 1028 on the host machine to port 5000 inside the container (where the ambiorix app is served, remember EXPOSE 5000?). This means you can access the app at localhost:1028.\nvolumes: Maps a folder on the host (./data) to the container’s /app/data directory. This ensures that data in the container is synced with the host and ensures data persistence if the container stops. You can remove the volumes mapping if your app doesn’t need persistent data storage.\nrestart: Ensures the container automatically restarts if it crashes, unless it has been manually stopped.\n\nRun the services:\nsudo docker compose up -d --remove-orphans\n\ndocker compose up creates and starts the containers as defined in the docker-compose.yml file.\nThe -d flag runs the containers in detached mode ie. in the background.\nThe --remove-orphans flag cleans up unused containers.\n\nThis will run the app on port 1028 of the host machine, so you will view it at localhost:1028.\nTo stop the services do:\nsudo docker compose down\nThis stops and removes the containers but keeps the Docker images intact, so you can start them again later with docker compose up.",
     "crumbs": [
       "Docs",
-      "Core",
-      "Hello, World"
+      "Deploy",
+      "Deploy"
     ]
+  },
+  {
+    "objectID": "docs/ambiorix/deploy/index.html#shiny-server",
+    "href": "docs/ambiorix/deploy/index.html#shiny-server",
+    "title": "Deploy",
+    "section": "Shiny Server",
+    "text": "Shiny Server\nSurprise surprise! Yes, you can actually deploy Ambiorix apps & APIs using Shiny Server.\nThis is such good news because you can put your Ambiorix & Shiny apps in one directory and have Shiny Server serve all of them!\nTwo things to keep in mind:\n\nAll your Ambiorix entrypoints will have to be named app.R, you can’t just name the files anyhow (eg. index.R, server.R, etc) because Shiny Server will search for app.R.\nWhen building frontend applications using Ambiorix, you’d normally set the href attributes of anchor tags to someting like /about or /contact to link to the different endpoints within the same app. However, when the app is hosted on Shiny Server at a URL like http://localhost:3838/app-name, using /about as the link will direct the browser to http://localhost:3838/about (outside your app), which isn’t what you intend. To fix this, you need to prepend the app name to the href values, like href = \"/app-name/about\". This ensures that the links point the browser to the correct routes within your app.\n\nExample deployment:\nBefore Shiny Server starts an R process, it sets the SHINY_PORT environment variable, which tells the app which port to run on. In your Ambiorix app, you can retrieve this port using Sys.getenv(\"SHINY_PORT\").\n\nBuild your app. Say I have this app.R at /home/mwavu/projects/random:\nlibrary(ambiorix)\nlibrary(htmltools)\n\nhome_get &lt;- function(req, res) {\n  html &lt;- tags$h3(\"Yes, Ambiorix IN Shiny Server!\")\n  res$set_status(200L)$send(html)\n}\n\nhome_post &lt;- function(req, res) {\n  response &lt;- list(\n    code = 200L,\n    msg = \"An API too!\"\n  )\n  res$set_status(200L)$json(response)\n}\n\n# get port to run app on from Shiny Server\nport &lt;- Sys.getenv(\"SHINY_PORT\")\n\nAmbiorix$\n  new(port = port)$\n  get(\"/\", home_get)$\n  post(\"/\", home_post)$\n  start()\nConfigure Shiny Server to serve apps from the /home/mwavu/projects directory. Shiny Server configuration file is typically located at /etc/shiny-server/shiny-server.conf.\nrun_as mwavu; # user under which Shiny Server runs\n\nserver {\n  listen 3838;\n\n  # define a location at the base URL\n  location / {\n\n    # host the directory of ambiorix/shiny apps stored in this dir:\n    site_dir /home/mwavu/projects;\n\n    # log dir:\n    log_dir /var/log/shiny-server;\n\n    # ...other configs...\n  }\n}\nRestart Shiny Server\nsystemctl restart shiny-server.service\nNow visit localhost:3838/random. Voila!\n\nAn Important Consideration:\nWhile the open-source version of Shiny Server will work well for most users, some advanced functionality (such as managing the number of R processes, load balancing, etc.) will require Shiny Server Professional. In the long run, you’d benefit from learning how to implement these features independently, especially for more control & flexibility.",
+    "crumbs": [
+      "Docs",
+      "Deploy",
+      "Deploy"
+    ]
+  },
+  {
+    "objectID": "docs/ambiorix/deploy/index.html#shinyapps.io",
+    "href": "docs/ambiorix/deploy/index.html#shinyapps.io",
+    "title": "Deploy",
+    "section": "Shinyapps.io",
+    "text": "Shinyapps.io\nYou can use that same solution for deploying using Shiny Server to host your Ambiorix apps & APIs on shinyapps.io.\nGood thing is now you won’t have to deal with any configurations. All you need to remember is to get the port to run the app on and the point I made on anchor tags (if building the frontend).\n\nUsing the same example app:\nlibrary(ambiorix)\nlibrary(htmltools)\n\nhome_get &lt;- function(req, res) {\n  html &lt;- tags$h3(\"Ambiorix IN shinyapps.io!\")\n  res$set_status(200L)$send(html)\n}\n\nhome_post &lt;- function(req, res) {\n  response &lt;- list(\n    code = 200L,\n    msg = \"An API too!\"\n  )\n  res$set_status(200L)$json(response)\n}\n\n# get port to run app on from Shiny Server\nport &lt;- Sys.getenv(\"SHINY_PORT\")\n\nAmbiorix$\n  new(port = port)$\n  get(\"/\", home_get)$\n  post(\"/\", home_post)$\n  start()\nFollow the same steps as for a shiny app: how to deploy to shinyapps.io.\n\nSee example live app running on shinyapps.io",
+    "crumbs": [
+      "Docs",
+      "Deploy",
+      "Deploy"
+    ]
+  },
+  {
+    "objectID": "docs/ambiorix/deploy/index.html#systemd-service",
+    "href": "docs/ambiorix/deploy/index.html#systemd-service",
+    "title": "Deploy",
+    "section": "Systemd Service",
+    "text": "Systemd Service\nThe application can be deployed as a service on any Linux server.\nYou might need to run these commands as sudo.\n\nCreate a new .service file in the /etc/systemd/system/ directory. The name of the file defines the name of the service. We will use cute-cats.service as an example:\nvim /etc/systemd/system/cute-cats.service\nIn that .service file place the following configuration, it creates a service that runs the application at the defined path (/path/to/app).\n[Unit]\nDescription=An Ambiorix app about the cutest of cats\nAfter=network.target\n\n[Service]\nType=simple\nUser=kennedy\nWorkingDirectory=/home/kennedy/examples/more-examples/cute-cats\nExecStart=/usr/bin/Rscript index.R\nRestart=on-failure\nRestartSec=5\n\n[Install]\nWantedBy=multi-user.target\nService file breakdown:\n[Unit] - Metadata and dependencies.\n\nDescription - Human-readable name shown in logs and systemctl status.\nAfter=network.target - Start this service after the network subsystem is initialized. This means network interfaces exist and systemd’s network management has started, but doesn’t guarantee interfaces have IP addresses yet. Sufficient for most local web apps binding to 0.0.0.0 or 127.0.0.1.\n\n[Service] - How to run the process.\n\nType=simple - systemd considers the service started immediately after ExecStart is called. Appropriate for long-running processes that don’t fork.\nUser - Run as this user instead of root. Never run your app as root.\nWorkingDirectory - The process’s working directory. Relative paths in your R code resolve from here.\nExecStart - The command to run. Use absolute paths for both the interpreter and script.\nRestart=on-failure - Restart automatically if the process exits with a non-zero code. Other options: always, on-abnormal, no.\nRestartSec=5 - Wait 5 seconds before restarting. Prevents rapid restart loops that can hammer your system.\n\n[Install] - When to start the service.\n\nWantedBy=multi-user.target - Start this service when the system reaches multi-user mode (normal boot, no GUI required). This is what makes systemctl enable work.\n\nReload systemd to recognize the new service:\nsystemctl daemon-reload\nStart the service and enable it to automatically start on boot:\nsystemctl start cute-cats\nsystemctl enable cute-cats\nCheck the service status to ensure it’s running without any issues:\nsystemctl status cute-cats\n\nTo view logs:\njournalctl -u cute-cats -f\nThe -f flag follows the log in real-time and is useful for debugging.",
+    "crumbs": [
+      "Docs",
+      "Deploy",
+      "Deploy"
+    ]
+  },
+  {
+    "objectID": "docs/ambiorix/from-shiny/index.html",
+    "href": "docs/ambiorix/from-shiny/index.html",
+    "title": "From Shiny",
+    "section": "",
+    "text": "Though both shiny and ambiorix are built on top of the same package, httpuv, they work very differently.\nWhile shiny is meant to build single page applications (SPA) with heavy bi-directional communication between the server and client via websocket, ambiorix is certainly not as opinionated and though one can build applications very similar to shiny applications (SPA) using websockets with ambiorix since it allows multiple pages one is likely to make use of those instead."
+  },
+  {
+    "objectID": "docs/ambiorix/from-shiny/index.html#inputs",
+    "href": "docs/ambiorix/from-shiny/index.html#inputs",
+    "title": "From Shiny",
+    "section": "Inputs",
+    "text": "Inputs\nInput data can be either POSTed (form) or used as is done in shiny using the websocket to send values. “Inputs” in this context more broadly includes any data that travels from the client to server (and optionally back again). Note that websocket communication is always initiated by the client (in shiny too of course).\n\n\n\n\n\n\nNote\n\n\n\nYou can either use the bare websocket from JavaScript or import the small helper library for convenience.\n\n\nWebsocket in ambiorix mimic shiny’s custom messages, they take a name (unique identifier) and the message itself: both in R and JavaScript.\napp$receive(\"hello\", function(msg, ws){\n  print(msg)\n  ws$send(\"bye\", \"Goodbye\")\n})\nAbove we print the msg received and send a response."
+  },
+  {
+    "objectID": "docs/ambiorix/from-shiny/index.html#outputs",
+    "href": "docs/ambiorix/from-shiny/index.html#outputs",
+    "title": "From Shiny",
+    "section": "Outputs",
+    "text": "Outputs\nOutputs, or data that travels from the server to the client can also go through the websocket or be served as an HTTP response. Note that some form of that is available in shiny (but only for a unique session) though it appears to be rarely used.\napp$post(\"/submit\", function(req, res){\n  body &lt;- parse_multipart(req$body)\n  res$send(h1(\"Your name is\", body$first_name))\n})\nIt will likely always be faster and easier to create applications with shiny!"
   },
   {
     "objectID": "docs/ambiorix/load-balancing/index.html",
@@ -1913,17 +1902,6 @@
     ]
   },
   {
-    "objectID": "docs/getting-started/index.html#next",
-    "href": "docs/getting-started/index.html#next",
-    "title": "Getting Started",
-    "section": "Next",
-    "text": "Next\nLet’s take a closer look at the hello world app:\n\nHello, World!",
-    "crumbs": [
-      "Docs",
-      "Get Started"
-    ]
-  },
-  {
     "objectID": "docs/middlewares/alesia/index.html",
     "href": "docs/middlewares/alesia/index.html",
     "title": "Alesia",
@@ -1988,7 +1966,7 @@
     "href": "docs/middlewares/eburones/index.html#example",
     "title": "Eburones",
     "section": "Example",
-    "text": "Example\nSimply use the eburones middleware.\nLocal\n:warning: The local backend should only be used for local development, never in production. It will also not properly track sessions with belgic.\nlibrary(eburones)\nlibrary(ambiorix)\n\napp &lt;- Ambiorix$new()\n\napp$use(eburones())\n\napp$get(\"/\", function(req, res){\n  print(req$session)\n  res$send(\"Hello there!\")\n})\n\napp$start()\nBelow is an example to track page views. We create a callback function that returns a list containing the number of page views. This callback is run at every request for the session, we increment it at every visit.\nlibrary(eburones)\nlibrary(ambiorix)\n\napp &lt;- Ambiorix$new()\n\npv &lt;- function(req, res) {\n\n  # no session = new user\n  if(is.null(req$session))\n    return(\n      list(\n        page_views = 1L\n      )\n    )\n\n  # existing user = increment\n  list(\n    page_views = req$session$page_views + 1L\n  )\n}\n\napp$use(\n  eburones(callback = pv)\n)\n\napp$get(\"/\", function(req, res){\n  res$sendf(\"Hello there for the %s time\", req$session$page_views)\n})\n\napp$start()\nDBI\nThere is a DBI backend. We implement the same page view tracker as above. One difference is that the DBI backend expects the callback to return a data.frame of 1 row.\nlibrary(eburones)\nlibrary(ambiorix)\n\napp &lt;- Ambiorix$new()\n\npv &lt;- function(req, res) {\n\n  # new user return a data.frame\n  if(is.null(req$session))\n    return(\n      data.frame(\n        page_views = 1L\n      )\n    )\n\n  # we need to return a data.frame (1 row)\n  data.frame(\n    page_views = req$session$page_views + 1L\n  )\n}\n\n# we create a connection to a database (SQLite in this case)\ncon &lt;- DBI::dbConnect(RSQLite::SQLite(), \":memory:\"o)\n\n# we need to create the table we'll use to store sessions\n# it must contain a key column where user token will be stored\nDBI::dbExecute(\n  con,\n  \"CREATE TABLE sessions (\n    key TEXT,\n    page_views INTEGER\n  )\"\n)\n\nbackend &lt;- DBI$new(con, \"sessions\")\n\napp$use(\n  eburones(backend = backend, callback = pv)\n)\n\napp$get(\"/\", function(req, res){\n  res$sendf(\"Hello there for the %s time\", req$session$page_views)\n})\n\napp$start()",
+    "text": "Example\nSimply use the eburones middleware.\nLocal\n\n\n\n\n\n\nWarning\n\n\n\nThe local backend should only be used for local development, never in production. It will also not properly track sessions with belgic.\n\n\nlibrary(eburones)\nlibrary(ambiorix)\n\napp &lt;- Ambiorix$new()\n\napp$use(eburones())\n\napp$get(\"/\", function(req, res){\n  print(req$session)\n  res$send(\"Hello there!\")\n})\n\napp$start()\nBelow is an example to track page views. We create a callback function that returns a list containing the number of page views. This callback is run at every request for the session, we increment it at every visit.\nlibrary(eburones)\nlibrary(ambiorix)\n\napp &lt;- Ambiorix$new()\n\npv &lt;- function(req, res) {\n\n  # no session = new user\n  if(is.null(req$session))\n    return(\n      list(\n        page_views = 1L\n      )\n    )\n\n  # existing user = increment\n  list(\n    page_views = req$session$page_views + 1L\n  )\n}\n\napp$use(\n  eburones(callback = pv)\n)\n\napp$get(\"/\", function(req, res){\n  res$sendf(\"Hello there for the %s time\", req$session$page_views)\n})\n\napp$start()\nDBI\nThere is a DBI backend. We implement the same page view tracker as above. One difference is that the DBI backend expects the callback to return a data.frame of 1 row.\nlibrary(eburones)\nlibrary(ambiorix)\n\napp &lt;- Ambiorix$new()\n\npv &lt;- function(req, res) {\n\n  # new user return a data.frame\n  if(is.null(req$session))\n    return(\n      data.frame(\n        page_views = 1L\n      )\n    )\n\n  # we need to return a data.frame (1 row)\n  data.frame(\n    page_views = req$session$page_views + 1L\n  )\n}\n\n# we create a connection to a database (SQLite in this case)\ncon &lt;- DBI::dbConnect(RSQLite::SQLite(), \":memory:\"o)\n\n# we need to create the table we'll use to store sessions\n# it must contain a key column where user token will be stored\nDBI::dbExecute(\n  con,\n  \"CREATE TABLE sessions (\n    key TEXT,\n    page_views INTEGER\n  )\"\n)\n\nbackend &lt;- DBI$new(con, \"sessions\")\n\napp$use(\n  eburones(backend = backend, callback = pv)\n)\n\napp$get(\"/\", function(req, res){\n  res$sendf(\"Hello there for the %s time\", req$session$page_views)\n})\n\napp$start()",
     "crumbs": [
       "Docs",
       "Middlewares",
@@ -2130,30 +2108,30 @@
     "text": "Visit Site View Code"
   },
   {
-    "objectID": "showcase/infinite-scroll/index.html",
-    "href": "showcase/infinite-scroll/index.html",
-    "title": "Infinite Scroll",
+    "objectID": "showcase/index.html",
+    "href": "showcase/index.html",
+    "title": "Showcase",
+    "section": "",
+    "text": "Follow us on X Explore More On GitHub\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPersonal Website\n\n\nTalk about eating our own dogfood :)\n\n\n\n\n\n\n\n\n\n\n\n\nRRR\n\n\nURL shortener\n\n\n\n\n\n\n\n\n\n\n\n\nInfinite Scroll\n\n\nLoad data as user scrolls down\n\n\n\n\n\n\n\n\n\n\n\n\nDatatables\n\n\nRender datatables, paginate & query data\n\n\n\n\n\n\n\n\n\n\n\n\nContact App\n\n\nPerform CRUD on contacts\n\n\n\n\n\n\n\n\n\n\n\n\nPhoto Gallery\n\n\nA minimal gallery for your cats!\n\n\n\n\n\n\n\n\n\n\n\n\nContact Form\n\n\nBuild & handle contact form submissions\n\n\n\n\n\n\n\n\n\n\n\n\nFile Download\n\n\nDownload files depending on selected dataset\n\n\n\n\n\n\n\n\n\n\n\n\nLive Search\n\n\nPerform live search on mtcars as user types keywords\n\n\n\n\n\n\n\n\n\n\n\n\nLinks\n\n\nEnable users to share links to specific pages, tabs, & sections\n\n\n\n\n\n\n\n\n\n\n\n\nTiny API\n\n\nUpload a csv file, get API endpoints to the data.\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "showcase/links/index.html",
+    "href": "showcase/links/index.html",
+    "title": "Links",
     "section": "",
     "text": "Visit Site View Code"
   },
   {
-    "objectID": "showcase/live-search/index.html",
-    "href": "showcase/live-search/index.html",
-    "title": "Live Search",
+    "objectID": "showcase/mwavu/index.html",
+    "href": "showcase/mwavu/index.html",
+    "title": "Personal Website",
     "section": "",
     "text": "Visit Site View Code"
   },
   {
-    "objectID": "showcase/photo-gallery/index.html",
-    "href": "showcase/photo-gallery/index.html",
-    "title": "Photo Gallery",
-    "section": "",
-    "text": "Visit Site View Code"
-  },
-  {
-    "objectID": "showcase/tiny-api/index.html",
-    "href": "showcase/tiny-api/index.html",
-    "title": "Tiny API",
+    "objectID": "showcase/rrr/index.html",
+    "href": "showcase/rrr/index.html",
+    "title": "RRR",
     "section": "",
     "text": "Visit Site View Code"
   },
