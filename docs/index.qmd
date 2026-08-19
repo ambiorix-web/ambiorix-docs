@@ -5,11 +5,11 @@ aliases:
   - /docs/ambiorix/
 ---
 
-![Ambiorix logo](/images/ambiorix.png){width=300 fig-align="left" fig-alt="Ambiorix, the Eburones chieftain the framework is named after"}
+![](/images/ambiorix.png){width=300 fig-align="left" fig-alt="Painting of a Gaulish chieftain on a hillside, in a winged helmet and fur cloak, with a sword at his side"}
 
-👋 Welcome!
-
-This is the documentation site for the Ambiorix R web framework.
+That's Ambiorix, chieftain of the Eburones, who destroyed a legion and a half
+of Caesar's army in 54 BC and was never caught. The R web framework named
+after him is documented here.
 
 If you have never used Ambiorix before, start with
 [Get Started](/docs/getting-started) and work forward from there; each page
@@ -41,8 +41,3 @@ alongside the framework, and **Tooling** covers the
 
 Longer, book-length treatment lives at
 [book.ambiorix.dev](https://book.ambiorix.dev/).
-
-## Next
-
-
-  - [Get Started](getting-started)
