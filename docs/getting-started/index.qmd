@@ -69,11 +69,3 @@ aliases:
     You just built your first Ambiorix app.
 
     🎉Congratulations!🎉
-
-## Next
-
-Let's take a closer look at the hello world app:
-
-
-  - [Hello, World!](/docs/ambiorix/hello-world)
-
