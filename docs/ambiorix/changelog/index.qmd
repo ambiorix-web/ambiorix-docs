@@ -2,6 +2,22 @@
 title: Changelog
 ---
 
+## ambiorix 3.0.0 
+
+**Breaking Changes**
+
+* Drop all deprecated function parameters, [pull/152](https://github.com/ambiorix-web/ambiorix/pull/152).
+
+**Bug Fixes**
+
+* `send_file()` can now send an arbitrary file, [pull/151](https://github.com/ambiorix-web/ambiorix/pull/151).
+
+**Changes**
+
+* Remove dependency on the `{fs}` pkg, [pull/155](https://github.com/ambiorix-web/ambiorix/pull/155).
+* Refactor http methods in routing, [pull/144](https://github.com/ambiorix-web/ambiorix/pull/144)
+
+
 ## ambiorix 2.2.2
 
 **New Features**
