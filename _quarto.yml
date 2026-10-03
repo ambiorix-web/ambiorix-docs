@@ -20,6 +20,8 @@ website:
         href: https://github.com/ambiorix-web
       - text: Book
         href: https://book.ambiorix.dev/
+        target: _blank
+        rel: noopener
       - text: CRAN
         href: https://cran.r-project.org/package=ambiorix
 
@@ -33,6 +35,8 @@ website:
         href: docs/index.qmd
       - text: Book
         href: https://book.ambiorix.dev/
+        target: _blank
+        rel: noopener
       - text: Blog
         href: blog/index.qmd
       - text: Gallery

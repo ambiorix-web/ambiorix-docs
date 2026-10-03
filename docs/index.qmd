@@ -40,4 +40,4 @@ alongside the framework, and **Tooling** covers the
 [command line interface](/docs/cli).
 
 Longer, book-length treatment lives at
-[book.ambiorix.dev](https://book.ambiorix.dev/).
+[book.ambiorix.dev](https://book.ambiorix.dev/){target="_blank" rel="noopener"}.
