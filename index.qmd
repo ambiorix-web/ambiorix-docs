@@ -117,7 +117,8 @@ app <- Ambiorix$new(port = 3000L)
 
 # middleware runs on every request
 app$use(function(req, res) {
-  req$received_at <- Sys.time()
+  now <- format(x = Sys.time(), format = "%F %T", usetz = TRUE)
+  req$received_at <- now
 })
 
 # serves index.html from the same directory
@@ -127,13 +128,24 @@ app$get("/", function(req, res) {
 
 # path parameters
 app$get("/users/:id", function(req, res) {
-  res$json(list(id = req$params$id))
+  out <- list(
+    id = req$params$id,
+    received_at = req$received_at
+  )
+
+  res$json(out)
 })
 
 # POST with a JSON body
 app$post("/users", function(req, res) {
   body <- parse_json(req)
-  res$json(list(created = body))
+  out <- list(
+    msg = "Account successfully created.",
+    received_at = req$received_at,
+    details = body
+  )
+
+  res$json(out)
 })
 
 app$start()
