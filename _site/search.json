@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Build web applications & APIs in R.",
     "section": "",
-    "text": "a web framework for R\n\n\n\nAmbiorix is an unopinionated, minimalist web framework inspired by express.js.\n\n\n\n\ninstall.packages(\"ambiorix\")\n\n\nlibrary(ambiorix)\n\napp &lt;- Ambiorix$new(port = 3000L)\n\napp$get(\"/\", function(req, res) {\n  res$send(\"Hello, World!\")\n})\n\napp$start()\n\n\nGet started Read the book Watch the video"
+    "text": "a web framework for R\n\n\n\nAmbiorix is an unopinionated, minimalist web framework inspired by express.js.\n\n\n\n\ninstall.packages(\"ambiorix\")\n\n\nlibrary(ambiorix)\n\napp &lt;- Ambiorix$new(port = 3000L)\n\napp$get(\"/\", function(req, res) {\n  res$send(\"Hello, World!\")\n})\n\napp$start()\n\n\nGet started  Read the book  Watch the video"
   },
   {
     "objectID": "index.html#what-is-ambiorix",
