@@ -3,6 +3,7 @@ pagetitle: "Ambiorix — a minimalist web framework for R"
 description: "Unopinionated, minimalist web framework for R, inspired by express.js."
 page-layout: full
 toc: false
+repo-actions: false
 ---
 
 ::: {.hero}

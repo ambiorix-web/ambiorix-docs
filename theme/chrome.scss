@@ -352,20 +352,40 @@
   .page-navigation { flex-direction: column; }
 }
 
-.nav-footer {
+$screen-inset: $font-size-base * 1.5;
+
+footer.footer .nav-footer {
+  max-width: $page-max;
+  margin: 5rem auto 0;
+  padding: 1.5rem $screen-inset;
   background-color: $bg;
   border-top: 1px solid $border-weak;
   color: $fg-weak;
   font-family: $font-family-monospace;
   font-size: 0.8125rem;
-  padding: 1.5rem;
-  margin-top: 5rem;
 
   a {
     color: $fg-weak;
     text-decoration: none;
 
     &:hover { color: $fg-strong; }
+  }
+
+  .footer-items {
+    gap: 1.25rem;
+
+    .nav-link { padding: 0; }
+  }
+}
+
+body:has(#quarto-content.page-layout-full) .nav-footer {
+  max-width: calc(#{$content-max} + 2 * #{$screen-inset});
+}
+
+@media (min-width: 768px) {
+  footer.footer {
+    .nav-footer-left,
+    .nav-footer-right { flex: 0 1 auto; }
   }
 }
 
