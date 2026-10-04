@@ -46,8 +46,8 @@ app$start()
 
 ::: {.hero-actions}
 [Get started](/docs/getting-started/){.btn .btn-primary}
-[Read the book](https://book.ambiorix.dev/){.btn .btn-secondary target="_blank" rel="noopener"}
-[Watch the video](https://www.youtube.com/watch?v=owpbIQ-j6Kk){.btn .btn-secondary target="_blank" rel="noopener"}
+[<i class="bi bi-book" aria-hidden="true"></i> Read the book](https://book.ambiorix.dev/){.btn .btn-secondary target="_blank" rel="noopener"}
+[<i class="bi bi-play-circle" aria-hidden="true"></i> Watch the video](https://www.youtube.com/watch?v=owpbIQ-j6Kk){.btn .btn-secondary target="_blank" rel="noopener"}
 :::
 
 :::
